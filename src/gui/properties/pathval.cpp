@@ -19,13 +19,6 @@ PathVal::~PathVal() {}
 
 void PathVal::setup( bool )
 {
-    //float scale = MainWindow::self()->fontScale();
-    //QFont font = valLabel->font();
-    //font.setPixelSize( 11.0*scale );
-    //valLabel->setFont( font );
-    //value->setFont( font );
-    //setPathButton->setFont( font );
-
     valLabel->setText( m_property->capt() );
     updtValues();
     this->adjustSize();
