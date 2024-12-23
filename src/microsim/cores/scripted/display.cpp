@@ -23,9 +23,10 @@ Display::Display( uint w, uint h, QString name, QWidget* parent )
     m_embed   = true;
 
     updtImageSize();
+
+    Simulator::self()->addToUpdateList( this );
 }
 Display::~Display(){}
-
 
 void Display::initialize()
 {
@@ -39,6 +40,8 @@ void Display::updateStep()
     if( m_changed )
     {
         m_changed = false;
+        m_width  = m_newWidth;
+        m_height = m_newHeight;
         updtImageSize();
     }
     update();
@@ -47,22 +50,22 @@ void Display::updateStep()
 void Display::setWidth( uint w )
 {
     if( m_width == w || w < 1 ) return;
-    m_width = w;
+    m_newWidth = w;
     m_changed = true;
 }
 
 void Display::setHeight( uint h )
 {
     if( m_height == h || h < 1 ) return;
-    m_height = h;
+    m_newHeight = h;
     m_changed = true;
 }
 
 void Display::setSize( uint w, uint h )
 {
     if( w < 1 || h < 1 ) return;
-    m_width  = w;
-    m_height = h;
+    m_newWidth  = w;
+    m_newHeight = h;
     m_changed = true;
 }
 
@@ -73,8 +76,6 @@ void Display::setMonitorScale( double scale )
 
     this->setFixedSize( m_width*scale, m_height*scale );
 
-    Simulator::self()->addToUpdateList( this );
-
     show();
 }
 
@@ -82,7 +83,7 @@ void Display::setBackground( int b )
 {
     if( m_background == b ) return;
     m_background = b;
-    updtImageSize();
+    m_changed = true;
 }
 
 void Display::clear()
@@ -129,7 +130,7 @@ void Display::setPixel( uint x, uint y, int color )
 
 void Display::updtImageSize()
 {
-    m_data.resize( 0, std::vector<int>(0) );
+    m_data.clear();
     m_data.resize( m_width, std::vector<int>(m_height, m_background) );
     this->setFixedSize( m_width*m_scale, m_height*m_scale );
 }
