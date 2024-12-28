@@ -89,7 +89,6 @@ void LedBase::updateStep()
         m_changed = false;
         voltChanged();
     }
-
 }
 
 void LedBase::setGrounded( bool grounded )
@@ -158,7 +157,7 @@ void LedBase::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w 
     QColor foreColor;
     QColor backColor = QColor(0,0,0);
 
-    if( m_warning/*m_current > m_maxCurrent*1.2*/ ) // Led overcurrent
+    if( m_warning ) // Led overcurrent
     {
         p->setBrush( QColor( 255, 150, 0 ) );
         foreColor = QColor( Qt::red );

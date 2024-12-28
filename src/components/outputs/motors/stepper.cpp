@@ -233,8 +233,6 @@ void Stepper::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w 
     p->setPen ( QColor(0, 0, 0) );
     p->setBrush( QColor(50, 70, 100) );
     p->drawPie(-33,-33, 66, 66, m_ang-m_stpang*3/4, m_stpang*3/2 );
-
-    //p->setBrush( QColor(50, 70, 100) );
     p->drawEllipse(-25,-25, 50, 50);
 
     Component::paintSelected( p );

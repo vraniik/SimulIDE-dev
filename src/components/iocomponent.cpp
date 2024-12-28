@@ -38,7 +38,6 @@ QList<ComProperty*> IoComponent::inputProps()
         new DoubProp<IoComponent>("SupplyV", tr("Supply Voltage"), "V"
                                  , this, &IoComponent::supplyV, &IoComponent::setSupplyV ),
 
-        //new ComProperty("", " ","","",0),
         new ComProperty( "", tr("Inputs:"),"","",0),
 
         new DoubProp<IoComponent>("Input_High_V", tr("Low to High Threshold"), "V"
@@ -183,9 +182,6 @@ void IoComponent::updtProperties()
     m_propDialog->enableProp("Out_High_V", en );
     m_propDialog->enableProp("Out_Low_V", en );
     m_propDialog->enableProp("Out_Imped", en );
-
-    //m_propDialog->showProp("Floating", m_bipolar );
-    //m_propDialog->adjustWidgets();
 }
 
 void IoComponent::setInpHighV( double volt )

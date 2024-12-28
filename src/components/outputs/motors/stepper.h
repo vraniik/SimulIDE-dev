@@ -66,4 +66,3 @@ class Stepper : public LinkerComponent, public eElement
 };
 
 #endif
-

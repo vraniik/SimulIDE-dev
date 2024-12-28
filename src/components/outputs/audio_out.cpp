@@ -79,11 +79,8 @@ AudioOut::AudioOut( QString type, QString id )
         qDebug() <<" ";
         return;
     }
-    //int refreshPeriod = 10; // mS
-    //int sampleRate    = 40000; // samples/S
     m_format = m_deviceinfo.preferredFormat();
     m_format.setCodec( "audio/pcm" );
-    //m_format.setSampleRate( sampleRate );
     m_format.setChannelCount( 1 );
     m_format.setSampleSize( 8 );
     m_format.setSampleType( QAudioFormat::UnSignedInt );
@@ -176,8 +173,6 @@ void AudioOut::runEvent()
 
     if( m_dataBuffer.size() == m_dataSize )
     {
-        //qDebug() <<"pushing"<<m_dataBuffer.size()<< m_audioOutput->bytesFree() ;
-
         m_audioBuffer->write( m_dataBuffer.data(), m_dataSize );
         m_dataBuffer.clear();
     }
@@ -188,7 +183,7 @@ void AudioOut::runEvent()
         realSpeed /= 1e8;
     }
     realSpeed *= (1e12/10000);
-    uint64_t nextEvent = realSpeed/m_format.sampleRate();//realSpeed*25*1e2;//(realSpeed/10000)*25*1e6
+    uint64_t nextEvent = realSpeed/m_format.sampleRate();
     Simulator::self()->addEvent( nextEvent, this ); // 25 us
 }
 
@@ -246,7 +241,7 @@ void AudioOut::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w
 
     if( m_buzzer)
     {
-        p->drawChord(QRectF(-10,-24, 40, 40 ), -90*16, -180*16);
+        p->drawChord( QRectF(-10,-24, 40, 40 ),-90*16,-180*16 );
     }
     else{
         static const QPointF points[7] = {
@@ -258,7 +253,6 @@ void AudioOut::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w
            QPointF(  0,-12 ),
            QPointF(-10,-12 )
        };
-
        p->drawPolygon(points, 7);
     }
 

@@ -235,7 +235,7 @@ void LedRgb::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
     p->drawRoundedRect( m_area, 2, 2 );
 
     pen.setColor( color );
-    pen.setWidth( 2.5 );
+    pen.setWidth( 2 );
     p->setPen( pen );
     p->setBrush( color );
     p->drawEllipse( m_area );

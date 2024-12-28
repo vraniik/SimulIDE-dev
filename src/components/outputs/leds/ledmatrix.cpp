@@ -136,7 +136,6 @@ void LedMatrix::createMatrix()
             lsmd->setFlag( QGraphicsItem::ItemIsSelectable, false );
             lsmd->setAcceptedMouseButtons(0);
             m_led[row][col] = lsmd;
-            //Circuit::self()->compList()->remove( lsmd );
     }   }
     for( int col=0; col<m_cols; ++col )
     {

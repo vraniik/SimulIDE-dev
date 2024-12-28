@@ -119,14 +119,6 @@ void WS2812::voltChanged()
                 if( m_lastHstate  ) { if( time < (m_T1L+150)*1e3 ) saveBit( 1 );} // Valid bit = 1
                 else                  if( time > (m_T0L-150)*1e3 ) saveBit( 0 );  // Valid bit = 0
         }   }
-        /*else if(( time > 400*1e3 )&&( time < 951*1e3 )) // Valid L State Time
-        {
-            if( m_word >= m_leds ) setOut( true );
-            else if( m_newWord )
-            {
-                if( m_lastHstate  ) { if( time < 751*1e3 ) saveBit( 1 );} // Valid bit = 1
-                else                  if( time > 649 *1e3) saveBit( 0 );  // Valid bit = 0
-        }   }*/
         m_newWord = true;
     }
     else if( m_clkState == Clock_Falling )              // Input Falling edge
@@ -136,10 +128,6 @@ void WS2812::voltChanged()
         {
             if     ( time > (m_T1H-150)*1e3 ) m_lastHstate = true;
             else                              m_lastHstate = false;
-        /*else if(( time > 199*1e3 )&&( time < 851*1e3 )) // Valid H State Time
-                {
-                    if( time > 500*1e3 ) m_lastHstate = true;
-                    else                 m_lastHstate = false;*/
 
             if(( m_byte == 2 )&&( m_bit == 0 )) // Low time for last bit can be anything?
             {                                   // so save it here and skip saving
