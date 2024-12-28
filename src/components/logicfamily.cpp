@@ -15,15 +15,15 @@ LogicFamily::LogicFamily()
     m_blocked = false;
     m_enableSupply = true;
 
-    m_supplyV = 5.0; // Power Supply
+    m_supplyV  = 5.0; // Power Supply
     m_inHighVp = 0.5;
-    m_inHighV = 2.5;
-    m_inLowVp = 0.5;
-    m_inLowV  = 2.5;
+    m_inHighV  = 2.5;
+    m_inLowVp  = 0.5;
+    m_inLowV   = 2.5;
     m_ouHighVp = 1;
-    m_ouHighV = 5;
-    m_ouLowVp = 0;
-    m_ouLowV  = 0;
+    m_ouHighV  = 5;
+    m_ouLowVp  = 0;
+    m_ouLowV   = 0;
 
     m_inImp = 1e9;
     m_ouImp = 40;
