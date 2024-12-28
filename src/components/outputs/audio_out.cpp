@@ -205,6 +205,7 @@ void AudioOut::setBuzzer( bool b )
     m_changed = true;
     if( !Simulator::self()->isRunning() ) updateStep();
     updtProperties();
+    update();
 }
 
 void AudioOut::slotProperties()
@@ -243,19 +244,24 @@ void AudioOut::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w
 {
     Component::paint( p, o, w );
 
-    //p->drawRect( -10.5, -12, 12, 24 );
-    static const QPointF points[7] = {
-        QPointF(-10,-12 ),
-        QPointF(-10, 4 ),
-        QPointF( 0, 4 ),
-        QPointF( 10, 16 ),
-        QPointF( 10, -24 ),
-        QPointF( 0, -12 ),
-        QPointF(-10, -12 )
-        };
+    if( m_buzzer)
+    {
+        p->drawChord(QRectF(-10,-24, 40, 40 ), -90*16, -180*16);
+    }
+    else{
+        static const QPointF points[7] = {
+           QPointF(-10,-12 ),
+           QPointF(-10,  4 ),
+           QPointF(  0,  4 ),
+           QPointF( 10, 16 ),
+           QPointF( 10,-24 ),
+           QPointF(  0,-12 ),
+           QPointF(-10,-12 )
+       };
 
-    p->drawPolygon(points, 7);
-    
+       p->drawPolygon(points, 7);
+    }
+
     if( m_deviceinfo.isNull() ){
         p->drawLine(0,-8, 7, 0 );
         p->drawLine( 7,-8,0, 0 );
