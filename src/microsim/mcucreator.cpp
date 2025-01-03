@@ -1262,16 +1262,11 @@ void McuCreator::createDisplay( QDomElement* e )
     Display* display = nullptr;
     if( m_core == "scripted" )
     {
-        ScriptDisplay* d = new ScriptDisplay( width, height, name, CircuitWidget::self() );
+        ScriptDisplay* d = new ScriptDisplay( width, height, name, nullptr );
         m_scriptPerif.push_back( d );
         display = d;
     }
-    else display = new Display( width, height, name, CircuitWidget::self() );
-
-    bool embed = e->attribute("embeed") == "true";
-    display->setEmbed( embed );
-    if( embed ) m_mcuComp->setBackData( display->getBackData() ); // Display in Package
-    else        m_displays.append( display );                     // Display in Mcu Monitor
+    else display = new Display( width, height, name, nullptr );
 
     if( e->hasAttribute("scale") ){
         double scale = e->attribute("scale").toDouble();
@@ -1282,6 +1277,11 @@ void McuCreator::createDisplay( QDomElement* e )
         display->setMonitorScale( scale );
     }
     if( e->hasAttribute("margins") ) m_mcuComp->setMargins( e->attribute("margins") );
+
+    bool embed = e->attribute("embeed") == "true";
+    display->setEmbed( embed );
+    if( embed ) m_mcuComp->setBackData( display->getBackData() ); // Display in Package
+    else        m_displays.append( display );                     // Display in Mcu Monitor
 }
 
 void McuCreator::createStack( QDomElement* s )

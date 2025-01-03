@@ -14,8 +14,8 @@ Display::Display( uint w, uint h, QString name, QWidget* parent )
        , Updatable()
        , eElement( name )
 {
-    m_width  = w;
-    m_height = h;
+    m_width  = m_newWidth  = w;
+    m_height = m_newHeight = h;
     m_scale  = 1;
 
     m_background= 0;
@@ -74,16 +74,23 @@ void Display::setMonitorScale( double scale )
     if( scale <= 0 ) return;
     m_scale = scale;
 
-    this->setFixedSize( m_width*scale, m_height*scale );
+    updtImageSize();
+    //this->setFixedSize( m_width*scale, m_height*scale );
 
     show();
 }
 
+void Display::setEmbed( bool e )
+{
+    m_embed = e;
+    this->setVisible( !e );
+}
+
 void Display::setBackground( int b )
 {
-    if( m_background == b ) return;
+    //if( m_background == b ) return;
     m_background = b;
-    m_changed = true;
+    //m_changed = true;
 }
 
 void Display::clear()

@@ -31,7 +31,7 @@ class Display : public QWidget, public Updatable, public eElement
         void drawLine( int x0, int y0, int x1, int y1, int color );
 
         void setMonitorScale( double scale );
-        void setEmbed( bool e ) { m_embed = e; }
+        void setEmbed( bool e );
 
         std::vector<std::vector<int>>* getBackData() { return &m_data; }
 
