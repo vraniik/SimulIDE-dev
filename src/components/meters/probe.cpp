@@ -3,8 +3,10 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#include "circuitwidget.h"
 #include <QtMath>
 #include <QPainter>
+#include <QMenu>
 
 #include "probe.h"
 #include "connector.h"
@@ -40,6 +42,7 @@ Probe::Probe( QString type, QString id )
     setZValue( 200 );
     m_area = QRect(-12,-8, 20, 16 );
     m_graphical = true;
+    m_pauseState = false;
 
     m_voltTrig = 2.5;
     m_voltIn = 0;
@@ -68,10 +71,19 @@ Probe::Probe( QString type, QString id )
                            , this, &Probe::threshold, &Probe::setThreshold ),
 
         new BoolProp<Probe>("Small", tr("Small size"), ""
-                           , this, &Probe::isSmall, &Probe::setSmall )
+                           , this, &Probe::isSmall, &Probe::setSmall ),
+
+        new BoolProp<Probe>("Pause", tr("Pause at state change"), ""
+                           , this, &Probe::pauseState, &Probe::setPauseState, propHidden )
     }, 0 } );
 }
 Probe::~Probe(){}
+
+void Probe::stamp()
+{
+    m_state = false;
+    m_inputPin->changeCallBack( this, m_pauseState );
+}
 
 void Probe::updateStep()
 {
@@ -99,6 +111,16 @@ void Probe::updateStep()
             setVolt( con->getVoltage() );
             break;
 }   }   }
+
+void Probe::voltChanged()
+{
+    if( !m_pauseState ) return;
+
+    bool state = m_inputPin->getInpState();
+    if( m_state == state ) return;
+    m_state = state;
+    CircuitWidget::self()->pauseCirc();
+}
 
 void Probe::setVolt( double volt )
 {
@@ -135,6 +157,27 @@ void Probe::setSmall( bool s )
     Circuit::self()->update();
 }
 
+void Probe::slotBreakpoint()
+{
+    m_pauseState = !m_pauseState;
+
+    m_inputPin->changeCallBack( this, m_pauseState );
+
+    update();
+}
+
+void Probe::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
+{
+    if( m_inputPin->connector() )
+    {
+        QString iconStr = m_pauseState ? ":/nobreakpoint.png" : ":/breakpoint.png";
+        QAction* breakAction = menu->addAction( QIcon( iconStr ),tr("Pause at state change") );
+        QObject::connect( breakAction, &QAction::triggered, [=](){ slotBreakpoint(); } );
+    }
+    menu->addSeparator();
+    Component::contextMenu( event, menu );
+}
+
 QPainterPath Probe::shape() const
 {
     QPainterPath path;
@@ -149,6 +192,13 @@ void Probe::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
     else if ( m_voltIn < -m_voltTrig) p->setBrush( QColor( 0, 100, 255 ) );
     else                              p->setBrush( QColor( 230, 230, 255 ) );
 
+    if( m_pauseState )
+    {
+        QPen pen = p->pen();
+        pen.setWidthF( 2.5 );
+        pen.setColor( QColor( 255, 0, 0 ));
+        p->setPen(pen);
+    }
     if( m_small ) p->drawEllipse( m_area );
     else          p->drawEllipse( QRect(-8,-8, 16, 16 ) );
 
