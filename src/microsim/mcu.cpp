@@ -565,10 +565,10 @@ void Mcu::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
 
     if( m_eMcu.romSize() )
     {
-        QAction* loadDaAction = menu->addAction( QIcon(":/open.png"),tr("Load EEPROM data from file") );
+        QAction* loadDaAction = menu->addAction( QIcon(":/open.svg"),tr("Load EEPROM data from file") );
         QObject::connect( loadDaAction, &QAction::triggered, [=](){ loadEEPROM(); } );
 
-        QAction* saveDaAction = menu->addAction(QIcon(":/save.png"), tr("Save EEPROM data to file") );
+        QAction* saveDaAction = menu->addAction(QIcon(":/save.svg"), tr("Save EEPROM data to file") );
         QObject::connect( saveDaAction, &QAction::triggered, [=](){ saveEEPROM(); } );
     }
     menu->addSeparator();
@@ -578,7 +578,7 @@ void Mcu::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
 
     if( m_eMcu.m_usarts.size() )
     {
-        QMenu* serMonMenu = menu->addMenu( tr("Open Serial Monitor.") );
+        QMenu* serMonMenu = menu->addMenu( QIcon(":/serialterm.png"),tr("Open Serial Monitor.") );
 
         QSignalMapper* sm = new QSignalMapper();
         for( uint i=0; i<m_eMcu.m_usarts.size(); ++i )

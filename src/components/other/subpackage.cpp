@@ -251,10 +251,10 @@ void SubPackage::mousePressEvent( QGraphicsSceneMouseEvent* event )
 
 void SubPackage::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
 {
-    QAction* loadAction = menu->addAction( QIcon(":/open.png"),tr("Load Package") );
+    QAction* loadAction = menu->addAction( QIcon(":/open.svg"),tr("Load Package") );
     QObject::connect( loadAction, &QAction::triggered, [=](){ loadPackage(); } );
 
-    QAction* saveAction = menu->addAction( QIcon(":/save.png"),tr("Save Package") );
+    QAction* saveAction = menu->addAction( QIcon(":/save.svg"),tr("Save Package") );
     QObject::connect( saveAction, &QAction::triggered, [=](){ slotSave(); } );
 
     menu->addSeparator();

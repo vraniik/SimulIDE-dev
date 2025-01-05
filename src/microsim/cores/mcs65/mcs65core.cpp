@@ -295,7 +295,7 @@ void Mcs65Cpu::decode()
         if( group == 2
          && ( Ocode == 4 || Ocode == 5 ) ) m_aFlags = iY;          // Group 2: STX zpg,Y (0x96) & LDX zpg,Y (0x86)
         else                               m_aFlags = iX;
-    }break;   // same
+    }break;
     case 6:
         if( group == 1 ){ m_aMode = aABSO; m_aFlags = iY; break; } // Group 1
 
