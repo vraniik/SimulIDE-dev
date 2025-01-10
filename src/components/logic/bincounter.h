@@ -48,6 +48,7 @@ class BinCounter : public LogicComponent
         IoPin* m_dirPin;
         IoPin* m_ldPin;
         IoPin* m_rstPin;
+        IoPin* m_rcoPin;
 };
 
 #endif

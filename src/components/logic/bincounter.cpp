@@ -40,16 +40,19 @@ BinCounter::BinCounter( QString type, QString id)
     m_dirPin = new IoPin( 0, QPoint(0,0), id+"-Pin_dir", 0, this, input );
     m_rstPin = new IoPin( 0, QPoint(0,0), id+"-Pin_rst", 0, this, input );
     m_ldPin  = new IoPin( 0, QPoint(0,0), id+"-Pin_ser", 0, this, input );
+    m_rcoPin = new IoPin( 0, QPoint(0,0), id+"-Pin_rso", 0, this, output );
 
     m_otherPin.emplace_back( m_clkPin );
     m_otherPin.emplace_back( m_dirPin );
     m_otherPin.emplace_back( m_rstPin );
     m_otherPin.emplace_back( m_ldPin );
+    m_otherPin.emplace_back( m_rcoPin );
 
-    setupPin( m_clkPin, "L05>" );
-    setupPin( m_dirPin, "L06Dir" );
-    setupPin( m_rstPin, "L07Rst" );
-    setupPin( m_ldPin, "L00LD" );
+    setupPin( m_clkPin,"L05>"  );
+    setupPin( m_dirPin,"L06Dir");
+    setupPin( m_rstPin,"L07Rst");
+    setupPin( m_ldPin ,"L00LD" );
+    setupPin( m_rcoPin,"R06CO" );
 
     m_ldPin->setVisible( false );
     m_parallelIn = false;
@@ -121,11 +124,12 @@ void BinCounter::voltChanged()
         else                          m_counter--;
         m_nextOutVal = m_counter;
 
-        if     ( m_counter == m_topValue ) ;
+        if     ( m_counter == m_topValue ) m_rcoPin->scheduleState( true, m_delayBase*m_delayMult );
         else if( m_counter >  m_topValue )
         {
             m_counter = 0;
             m_nextOutVal = 0;
+            m_rcoPin->scheduleState( false, m_delayBase*m_delayMult );
     }   }
     IoComponent::scheduleOutPuts( this );
 }
@@ -144,8 +148,11 @@ void BinCounter::updatePins()
     m_clkPin->setY( 8*(start++) );
     m_rstPin->setY( 8*(start++) );
 
+    m_rcoPin->setY( m_area.y() + 8*(m_bits+2) );
+
     inBits += 3;
-    int height = (m_bits > inBits ) ? m_bits : inBits;
+    int ouBits = m_bits+2;
+    int height = (ouBits > inBits) ? ouBits : inBits;
 
     m_area.setHeight( (height+1)*8 );
 }
