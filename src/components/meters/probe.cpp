@@ -73,7 +73,7 @@ Probe::Probe( QString type, QString id )
         new BoolProp<Probe>("Small", tr("Small size"), ""
                            , this, &Probe::isSmall, &Probe::setSmall ),
 
-        new BoolProp<Probe>("Pause", tr("Pause at state change"), ""
+        new BoolProp<Probe>("Pause", "", ""
                            , this, &Probe::pauseState, &Probe::setPauseState, propHidden )
     }, 0 } );
 }
