@@ -56,6 +56,8 @@ BinCounter::BinCounter( QString type, QString id)
 
     m_ldPin->setVisible( false );
     m_rcoPin->setVisible( false );
+    m_dirPin->setVisible( false );
+    m_bidirectional = false;
     m_parallelIn = false;
     m_useRCO = false;
     setBits( 4 );
@@ -69,19 +71,22 @@ BinCounter::BinCounter( QString type, QString id)
                              , this, &BinCounter::bits, &BinCounter::setBits, propNoCopy,"uint" ),
 
         new IntProp <BinCounter>("Max_Value", tr("Top Value"),""
-                             , this, &BinCounter::maxVal, &BinCounter::setMaxVal,0,"uint" ),
+                               , this, &BinCounter::maxVal, &BinCounter::setMaxVal,0,"uint" ),
 
         new BoolProp<BinCounter>("Parallel_input", tr("Parallel Input"),""
-                             , this, &BinCounter::parallelIn, &BinCounter::setParallelIn, propNoCopy ),
+                               , this, &BinCounter::parallelIn, &BinCounter::setParallelIn, propNoCopy ),
 
         new BoolProp<BinCounter>("RCO", tr("RCO"),""
-                             , this, &BinCounter::useRCO, &BinCounter::setUseRCO, propNoCopy ),
+                               , this, &BinCounter::useRCO, &BinCounter::setUseRCO, propNoCopy ),
+
+        new BoolProp<BinCounter>("Bidir", tr("Bidirectional"),""
+                                , this, &BinCounter::bidirectional, &BinCounter::setBidirectional, propNoCopy ),
 
         new BoolProp<BinCounter>("Clock_Inverted", tr("Clock Inverted"),""
-                             , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
+                                , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
 
         new BoolProp<BinCounter>("Reset_Inverted", tr("Reset Inverted"),""
-                             , this, &BinCounter::srInv, &BinCounter::setSrInv ),
+                                , this, &BinCounter::srInv, &BinCounter::setSrInv ),
     },groupNoCopy} );
 
     addPropGroup( { tr("Electric"),
@@ -149,13 +154,13 @@ void BinCounter::updatePins()
     int start = inBits-m_height/2;
     if( m_parallelIn ) { start++; inBits++; }
     m_ldPin->setY( 8*(start++) );
-    m_dirPin->setY( 8*(start++) );
+    if( m_bidirectional ) m_dirPin->setY( 8*(start++) );
     m_clkPin->setY( 8*(start++) );
     m_rstPin->setY( 8*(start++) );
 
-    m_rcoPin->setY( m_area.y() + 8*(m_bits+2) );
+    if( m_useRCO ) m_rcoPin->setY( m_area.y() + 8*(m_bits+2) );
 
-    inBits += 3;
+    inBits += m_bidirectional ? 3 : 2;
     int ouBits = m_useRCO ? m_bits+2 : m_bits;
     int height = (ouBits > inBits) ? ouBits : inBits;
 
@@ -191,6 +196,14 @@ void BinCounter::setUseRCO( bool rco )
     m_useRCO = rco;
     if( !rco ) m_rcoPin->removeConnector();
     m_rcoPin->setVisible( rco );
+    updatePins();
+}
+
+void BinCounter::setBidirectional( bool b )
+{
+    m_bidirectional = b;
+    if( !b ) m_dirPin->removeConnector();
+    m_dirPin->setVisible( b );
     updatePins();
 }
 

@@ -28,6 +28,9 @@ class BinCounter : public LogicComponent
         bool useRCO() { return m_useRCO; }
         void setUseRCO( bool rco );
 
+        bool bidirectional() { return m_bidirectional; }
+        void setBidirectional( bool b );
+
         bool srInv() { return m_resetInv; }
         void setSrInv( bool inv );
 
@@ -48,6 +51,7 @@ class BinCounter : public LogicComponent
         bool m_useRCO;
         bool m_resetInv;
         bool m_parallelIn;
+        bool m_bidirectional;
 
         IoPin* m_dirPin;
         IoPin* m_ldPin;
