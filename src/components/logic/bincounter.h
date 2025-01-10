@@ -25,6 +25,9 @@ class BinCounter : public LogicComponent
         bool parallelIn() { return m_parallelIn; }
         void setParallelIn( bool p );
 
+        bool useRCO() { return m_useRCO; }
+        void setUseRCO( bool rco );
+
         bool srInv() { return m_resetInv; }
         void setSrInv( bool inv );
 
@@ -42,6 +45,7 @@ class BinCounter : public LogicComponent
         int m_counter;
         int m_topValue;
 
+        bool m_useRCO;
         bool m_resetInv;
         bool m_parallelIn;
 
