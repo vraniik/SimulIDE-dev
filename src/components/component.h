@@ -110,6 +110,9 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
         bool isMainComp() { return m_isMainComp; }
         void setMainComp( bool m ) { m_isMainComp = m; }
 
+        QString invertPins() { return m_invertedPins; }
+        void setInvertPins( QString pins );
+
         virtual std::vector<Pin*> getPins() { return m_pin; }
         virtual Pin* getPin( QString pinName ){ return nullptr; }
 
@@ -226,6 +229,8 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
 
         std::vector<Pin*> m_pin;
         QList<Pin*> m_signalPin;
+
+        QString m_invertedPins;
 
         //QGraphicsItemGroup* m_group;
 };

@@ -93,7 +93,11 @@ QList<ComProperty*> IoComponent::edgeProps()
                                  , this, &IoComponent::riseTime,  &IoComponent::setRiseTime ),
 
         new DoubProp<IoComponent>("Tf_ps" , tr("Fall Time"), "ns"
-                                 , this, &IoComponent::fallTime,  &IoComponent::setFallTime ) };
+                                 , this, &IoComponent::fallTime,  &IoComponent::setFallTime ),
+
+        /// FIXME:
+        new StrProp <IoComponent>("invertPins","",""
+                               , this, &IoComponent::invertPins, &IoComponent::setInvertPins, propHidden ) };
 }
 
 void IoComponent::initState()

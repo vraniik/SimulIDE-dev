@@ -426,6 +426,17 @@ void Component::slotProperties()
     m_propDialog->raise();
 }
 
+void Component::setInvertPins( QString pins )
+{
+    m_invertedPins = pins;
+    QStringList pinList = pins.split(",");
+    for( QString pinStr : pinList )
+    {
+        Pin* pin = Circuit::self()->getPin( m_id+"-"+pinStr );
+        if( pin ) pin->setInverted( true );
+    }
+}
+
 void Component::slotH_flip()
 {
     if( !m_hidden ) Circuit::self()->saveCompChange( m_id, "hflip", getPropStr("hflip") );
