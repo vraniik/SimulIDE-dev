@@ -1,11 +1,13 @@
 /***************************************************************************
- *   Copyright (C) 2016 by Santiago González                               *
+ *   Copyright (C) 2025 by Santiago González                               *
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#include <math.h>
+
 #include "bincounter.h"
 #include "itemlibrary.h"
-#include "connector.h"
+#include "simulator.h"
 #include "iopin.h"
 
 #include "intprop.h"
@@ -21,57 +23,77 @@ LibraryItem* BinCounter::libraryItem()
     return new LibraryItem(
         tr("Binary Counter"),
         "Arithmetic",
-        "2to1.png",
-        "Counter",
+        "2to3g.png",
+        "BinCounter",
         BinCounter::construct );
 }
 
 BinCounter::BinCounter( QString type, QString id)
           : LogicComponent( type, id )
 {
-    m_TopValue = 1;
-    m_width  = 3;
-    m_height = 3;
+    m_topValue = 15;
+    m_width  = 4;
+    m_height = 6;
+    m_area = QRect(-m_width*4,-m_height*4, m_width*8, m_height*8 );
 
-    init({         // Inputs:
-            "IL01>",
-            "IL02R",
-            "IU01S",
-                   // Outputs:
-            "OR01Q"
-        });
+    m_clkPin = new IoPin( 0, QPoint(0,0), id+"-Pin_clk", 0, this, input );
+    m_dirPin = new IoPin( 0, QPoint(0,0), id+"-Pin_dir", 0, this, input );
+    m_rstPin = new IoPin( 0, QPoint(0,0), id+"-Pin_rst", 0, this, input );
+    m_ldPin  = new IoPin( 0, QPoint(0,0), id+"-Pin_ser", 0, this, input );
 
-    m_clkPin = m_inPin[0];     // eClockedDevice
-    m_rstPin = m_inPin[1];
-    m_setPin = m_inPin[2];
+    m_otherPin.emplace_back( m_clkPin );
+    m_otherPin.emplace_back( m_dirPin );
+    m_otherPin.emplace_back( m_rstPin );
+    m_otherPin.emplace_back( m_ldPin );
 
+    setupPin( m_clkPin, "L05>" );
+    setupPin( m_dirPin, "L06Dir" );
+    setupPin( m_rstPin, "L07Rst" );
+    setupPin( m_ldPin, "L00LD" );
+
+    m_ldPin->setVisible( false );
+    m_parallelIn = false;
+    setBits( 4 );
+
+    m_dirPin->setInverted( true );
     setSrInv( true );            // Invert Reset Pin
-    useSetPin( false );          // Don't use Set Pin
 
     addPropGroup( { tr("Main"), {
-        new BoolProp<BinCounter>("Pin_SET", tr("Use Set Pin"),""
-                                , this, &BinCounter::pinSet,&BinCounter::useSetPin, propNoCopy ),
+
+        new IntProp <BinCounter>("Bits", tr("Size"),"_bits"
+                             , this, &BinCounter::bits, &BinCounter::setBits, propNoCopy,"uint" ),
+
+        new IntProp <BinCounter>("Max_Value", tr("Top Value"),""
+                            , this, &BinCounter::maxVal, &BinCounter::setMaxVal,0,"uint" ),
+
+        new BoolProp<BinCounter>("Parallel_input", tr("Parallel Input"),""
+                             , this, &BinCounter::parallelIn, &BinCounter::setParallelIn, propNoCopy ),
 
         new BoolProp<BinCounter>("Clock_Inverted", tr("Clock Inverted"),""
-                                , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
+                             , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
 
-        new BoolProp<BinCounter>("Reset_Inverted", tr("Set/Reset Inverted"),""
-                                , this, &BinCounter::srInv, &BinCounter::setSrInv ),
-
-        new IntProp <BinCounter>("Max_Value", tr("Count to"),""
-                                , this, &BinCounter::maxVal, &BinCounter::setMaxVal,0,"uint" ),
+        new BoolProp<BinCounter>("Reset_Inverted", tr("Reset Inverted"),""
+                             , this, &BinCounter::srInv, &BinCounter::setSrInv ),
     },groupNoCopy} );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()+IoComponent::outputProps(),0 } );
+    addPropGroup( { tr("Electric"),
+          IoComponent::inputProps()
+        + QList<ComProperty*>({
+          new BoolProp<BinCounter>("Invert_Inputs", tr("Invert Inputs"),""
+                               , this, &BinCounter::invertInps, &BinCounter::setInvertInps,propNoCopy )
+          })
+        + IoComponent::outputProps()
+        + IoComponent::outputType(),0 } );
+
     addPropGroup( { tr("Timing")  , IoComponent::edgeProps(),0 } );
 }
 BinCounter::~BinCounter(){}
 
 void BinCounter::stamp()
 {
-    m_Counter = 0;
+    m_counter = 0;
     m_rstPin->changeCallBack( this );
-    m_setPin->changeCallBack( this );
+    m_ldPin->changeCallBack( this );
     LogicComponent::stamp();
 }
 
@@ -82,37 +104,79 @@ void BinCounter::voltChanged()
 
     if( m_rstPin->getInpState() ) // Reset
     {
-       m_Counter = 0;
+       m_counter = 0;
        m_nextOutVal = 0;
     }
-    else if( m_pinSet && m_setPin->getInpState() ) // Set
+    else if( m_parallelIn && m_ldPin->getInpState() ) // Load
     {
-       m_Counter = m_TopValue;
-       m_nextOutVal = 1;
+        m_counter = 0;
+        for( uint i=0; i<m_inPin.size(); ++i )
+            if( m_inPin[i]->getInpState() ) m_counter |= 1<<i;
+
+        m_nextOutVal = m_counter;
     }
     else if( clkRising )
     {
-        m_Counter++;
+        if( m_dirPin->getInpState() ) m_counter++;
+        else                          m_counter--;
+        m_nextOutVal = m_counter;
 
-        if(      m_Counter == m_TopValue ) m_nextOutVal = 1;
-        else if( m_Counter >  m_TopValue )
+        if     ( m_counter == m_topValue ) ;
+        else if( m_counter >  m_topValue )
         {
-            m_Counter = 0;
+            m_counter = 0;
             m_nextOutVal = 0;
     }   }
     IoComponent::scheduleOutPuts( this );
+}
+
+void BinCounter::updatePins()
+{
+    int inBits = m_parallelIn ? m_bits : 0;
+    setNumOuts( m_bits, "Q" );
+    setNumInps( inBits, "I", 0, 10 ); // Start at id 10 to leave room for new control inputs
+    updtOutPins(); // Fix pin positions
+
+    int start = inBits-m_height/2;
+    if( m_parallelIn ) { start++; inBits++; }
+    m_ldPin->setY( 8*(start++) );
+    m_dirPin->setY( 8*(start++) );
+    m_clkPin->setY( 8*(start++) );
+    m_rstPin->setY( 8*(start++) );
+
+    inBits += 3;
+    int height = (m_bits > inBits ) ? m_bits : inBits;
+
+    m_area.setHeight( (height+1)*8 );
+}
+
+void BinCounter::setBits( int b )
+{
+    if( b < 1 ) b = 1;
+    m_bits = b;
+    m_topValue = pow( 2, b )-1;
+    updatePins();
+}
+
+void BinCounter::setParallelIn( bool p )
+{
+    m_parallelIn = p;
+    if( !p ) m_ldPin->removeConnector();
+    m_ldPin->setVisible( p );
+    updatePins();
+
+    if( Simulator::self()->isRunning() ) return; // No changes
+
+    if( p ) voltChanged();
+    else{
+        for( IoPin* pin : m_inPin )
+            pin->changeCallBack( this, false );
+    }
 }
 
 void BinCounter::setSrInv( bool inv )
 {
     m_resetInv = inv;
     m_rstPin->setInverted( inv );
-    m_setPin->setInverted( inv );
 }
 
-void BinCounter::useSetPin( bool set )
-{
-    m_pinSet = set;
-    if( !set ) m_setPin->removeConnector();
-    m_setPin->setVisible( set );
-}

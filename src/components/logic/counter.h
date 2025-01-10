@@ -1,52 +1,45 @@
 /***************************************************************************
- *   Copyright (C) 2025 by Santiago González                               *
+ *   Copyright (C) 2016 by Santiago González                               *
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COUNTER_H
-#define COUNTER_H
+#ifndef BINCOUNTER_H
+#define BINCOUNTER_H
 
 #include "logiccomponent.h"
 
 class LibraryItem;
 
-class BinCounter : public LogicComponent
+class Counter : public LogicComponent
 {
     public:
-        BinCounter( QString type, QString id );
-        ~BinCounter();
+        Counter( QString type, QString id );
+        ~Counter();
 
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        int bits() { return m_bits; }
-        void setBits( int b );
-
-        bool parallelIn() { return m_parallelIn; }
-        void setParallelIn( bool p );
-
         bool srInv() { return m_resetInv; }
         void setSrInv( bool inv );
+
+        bool pinSet() { return m_pinSet; }
+        void useSetPin( bool set );
 
         virtual void stamp() override;
         virtual void voltChanged() override;
         virtual void runEvent() override { IoComponent::runOutputs(); }
 
-        int maxVal() { return m_topValue; }
-        void setMaxVal( int v ) { m_topValue = v; }
+        int maxVal() { return m_TopValue; }
+        void setMaxVal( int v ) { m_TopValue = v; }
 
-    private:
-        void updatePins();
-
-        int m_bits;
-        int m_counter;
-        int m_topValue;
+    protected:
+        int m_Counter;
+        int m_TopValue;
 
         bool m_resetInv;
-        bool m_parallelIn;
+        bool m_pinSet;
 
-        IoPin* m_dirPin;
-        IoPin* m_ldPin;
+        IoPin* m_setPin;
         IoPin* m_rstPin;
 };
 

@@ -21,6 +21,7 @@
 #include "capacitor.h"
 #include "clock.h"
 #include "comparator.h"
+#include "counter.h"
 #include "csource.h"
 #include "currsource.h"
 #include "dac.h"
@@ -252,6 +253,7 @@ void ItemLibrary::loadItems()
     addItem( OrGate::libraryItem() );
     addItem( XorGate::libraryItem() );
     addItem( new LibraryItem( QObject::tr("Arithmetic"), "Logic", "2to2.png","Arithmetic", nullptr ) );
+    addItem( Counter::libraryItem() );
     addItem( BinCounter::libraryItem() );
     addItem( FullAdder::libraryItem() );
     addItem( MagnitudeComp::libraryItem() );
