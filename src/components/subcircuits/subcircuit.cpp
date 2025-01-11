@@ -48,10 +48,8 @@ Component* SubCircuit::construct( QString type, QString id )
 
     QMap<QString, QString> packageList;
     QString subcTyp = "None";
-    QString subcDoc;
     QString pkgeFile;
     QString subcFile;
-    QString dataFile;
 
     if( list.size() > 1 )  // Subcircuit inside Subcircuit: 1_74HC00 to 74HC00
     {
@@ -61,23 +59,20 @@ Component* SubCircuit::construct( QString type, QString id )
         if( ok ) name = list.at( 1 );
     }
 
-    m_subcDir = MainWindow::self()->getCircFilePath( name ); // Search subc folder in circuit/data folder
+    QString fileName = name+".sim1";
+    subcFile = MainWindow::self()->getCircFilePath( fileName ); // Search sim1 in circuit or circuit/data folder
+    if( subcFile.isEmpty() )                                    // Search sim1 in circuit/name or circuit/data/name folder
+        subcFile = MainWindow::self()->getCircFilePath( name+"/"+fileName );
 
-    if( m_subcDir.isEmpty() )
-        m_subcDir = ComponentList::self()->getFileDir( name ); // Get subc folder from list
-    else
-        dataFile = MainWindow::self()->getCircFilePath( name+"/"+name+".sim1" ); // Search sim1 in circuit/data/name folder
+    if( subcFile.isEmpty() ) // Get subc folder from list
+    {
+        m_subcDir = ComponentList::self()->getFileDir( name );
+        if( !m_subcDir.isEmpty() ) subcFile = m_subcDir+"/"+name+".sim1";
+    }
+    else m_subcDir = QFileInfo( subcFile ).absolutePath();
 
-    if( dataFile.isEmpty() )
-        dataFile = MainWindow::self()->getCircFilePath( name+".sim1" ); // Search sim1 in circuit/data folder
-
-    if( dataFile.isEmpty() ) // Get sim1 from list
-        dataFile = ComponentList::self()->getDataFile( name );
-
-    if( dataFile.endsWith(".sim1")) subcFile = dataFile;
-    else if( !m_subcDir.isEmpty() ) subcFile = m_subcDir+"/"+name+".sim1";
-
-    if( !subcFile.isEmpty() ){
+    if( !subcFile.isEmpty() )
+    {
         packageList = getPackages( subcFile ); // Try packages from sim1 file
         subcTyp = s_subcType;
 

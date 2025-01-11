@@ -373,7 +373,10 @@ QString MainWindow::getCircFilePath( QString file )
     if( circPath.isEmpty() ) return "";
 
     QDir circuitDir = QFileInfo( circPath ).absoluteDir();
-    QString path = circuitDir.absoluteFilePath("data/"+file );
+    QString path = circuitDir.absoluteFilePath( file );    // Search in Circuit folder
+    if( !QFileInfo::exists( path ) )
+        path = circuitDir.absoluteFilePath("data/"+file ); // Search in Circuit/data folder
+
     if( !QFileInfo::exists( path ) ) return "";
 
     return path;
