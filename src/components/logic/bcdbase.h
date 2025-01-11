@@ -20,10 +20,16 @@ class BcdBase : public LogicComponent
         virtual void stamp() override;
         virtual void voltChanged() override;
 
-    protected:
- static const uint8_t m_values[];
+        bool tails() { return m_tails; }
+        void setTails( bool t ) { m_tails = t; m_changed = true; }
 
-    uint8_t m_digit;
+    protected:
+ static const uint8_t m_segments[];
+ static const uint8_t m_noTails[];
+
+        uint8_t m_digit;
+
+        bool m_tails;
 };
 
 #endif

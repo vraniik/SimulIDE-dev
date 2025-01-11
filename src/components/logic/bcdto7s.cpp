@@ -5,6 +5,7 @@
 
 #include "bcdto7s.h"
 #include "itemlibrary.h"
+#include "simulator.h"
 #include "iopin.h"
 
 #include "boolprop.h"
@@ -47,6 +48,13 @@ BcdTo7S::BcdTo7S( QString type, QString id )
 
     createOePin( "IU01OE ", id+"-in4");
 
+    Simulator::self()->addToUpdateList( this );
+
+    addPropGroup( { tr("Main"), {
+        new BoolProp<BcdTo7S>("Tails", tr("Tails for 6 & 9"),""
+                               , this, &BcdTo7S::tails, &BcdTo7S::setTails ),
+    },0} );
+
     addPropGroup( { tr("Electric"), IoComponent::inputProps()
         +QList<ComProperty*>({
         new BoolProp<BcdTo7S>("Invert_Inputs", tr("Invert Inputs"),""
@@ -58,11 +66,22 @@ BcdTo7S::BcdTo7S( QString type, QString id )
 }
 BcdTo7S::~BcdTo7S(){}
 
+void BcdTo7S::updateStep()
+{
+    if( !m_changed ) return;
+    m_changed = false;
+
+    if( !Simulator::self()->isRunning() ) m_digit = 0;
+    else                                  voltChanged();
+
+    update();
+}
+
 void BcdTo7S::stamp()
 {
     BcdBase::stamp();
 
-    uint8_t value = m_values[0];
+    uint8_t value = m_segments[0];
     for( int i=0; i<7; ++i ) m_outPin[i]->setOutState( value & (1<<i) );
 }
 

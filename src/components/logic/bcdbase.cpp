@@ -6,7 +6,7 @@
 #include "bcdbase.h"
 #include "iopin.h"
 
-const uint8_t BcdBase::m_values[]={
+const uint8_t BcdBase::m_segments[]={
         0b00111111,
         0b00000110,
         0b01011011,
@@ -26,16 +26,37 @@ const uint8_t BcdBase::m_values[]={
         0b00000000
 };
 
+const uint8_t BcdBase::m_noTails[]={
+        0b00111111,
+        0b00000110,
+        0b01011011,
+        0b01001111,
+        0b01100110,
+        0b01101101,
+        0b01111100,
+        0b00000111,
+        0b01111111,
+        0b01100111,
+        0b01110111,
+        0b01111100,
+        0b00111001,
+        0b01011110,
+        0b01111001,
+        0b01110001,
+        0b00000000
+};
+
 BcdBase::BcdBase( QString type, QString id )
        : LogicComponent( type, id )
 {
-    m_digit = m_values[0];
+    m_tails = true;
+    m_digit = m_segments[0];
 }
 BcdBase::~BcdBase(){}
 
 void BcdBase::initialize()
 {
-    m_digit = m_values[0];
+    m_digit = m_segments[0];
     update();
 }
 
@@ -56,5 +77,7 @@ void BcdBase::voltChanged()
     bool c = m_inPin[2]->getInpState();
     bool d = m_inPin[3]->getInpState();
 
-    m_digit = m_values[a*1+b*2+c*4+d*8];
+    int index = a*1+b*2+c*4+d*8;
+    if( m_tails ) m_digit = m_segments[index];
+    else          m_digit = m_noTails[index];
 }

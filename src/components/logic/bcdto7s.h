@@ -20,6 +20,7 @@ class BcdTo7S : public BcdBase
         static LibraryItem* libraryItem();
 
         virtual void stamp() override;
+        virtual void updateStep() override;
         virtual void voltChanged() override;
         virtual void runEvent() override { IoComponent::runOutputs(); }
 };
