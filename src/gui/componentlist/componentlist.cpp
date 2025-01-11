@@ -420,12 +420,12 @@ void ComponentList::search( QString filter )
         if( !cList.contains( item ) ) continue;
 
         bool hidden = treeItem->isItemHidden();
-        while( treeItem ){
-            if( hidden )
-                treeItem->setHidden( hidden );
+        while( treeItem )
+        {
             treeItem->setHidden( hidden );
-            if( treeItem->childCount() > 0 && !hidden /*&& !filter.isEmpty()*/ )
-                treeItem->setExpanded( treeItem->isItemExpanded() );
+            if( treeItem->childCount() > 0 && !hidden && !filter.isEmpty() )
+                treeItem->setExpanded( true );
+
             treeItem = treeItem->parentItem();
         }
     }
