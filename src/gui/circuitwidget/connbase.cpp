@@ -110,8 +110,8 @@ void ConnBase::setHidden( bool hid, bool hidArea, bool hidLabel )
     {
         m_sockPins[i]->setVisible( true );
 
-        if( hid ) parentComp->addSignalPin( m_sockPins[i] );// connect(    parentComp, &Component::moved, m_sockPins[i], &Pin::isMoved, Qt::UniqueConnection );
-        else      parentComp->remSignalPin( m_sockPins[i] );// disconnect( parentComp, &Component::moved, m_sockPins[i], &Pin::isMoved );
+        if( hid ) parentComp->addSignalPin( m_sockPins[i] );
+        else      parentComp->remSignalPin( m_sockPins[i] );
     }
 }
 

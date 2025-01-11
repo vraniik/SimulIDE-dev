@@ -314,6 +314,12 @@ void Connector::move( QPointF delta )
     m_endPin->isMoved();
 }
 
+void Connector::isMoved()
+{
+    if( m_startPin ) m_startPin->isMoved();
+    if( m_endPin   ) m_endPin->isMoved();
+}
+
 void Connector::setSelected(  bool selected )
 { for( ConnectorLine* line : m_conLineList ) line->setSelected( selected ); }
 

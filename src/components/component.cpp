@@ -264,11 +264,7 @@ void Component::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
         line->moveSimple( delta );
     }
     for( Component* comp : m_compMoveList ) comp->move( delta ); // Move Components selected
-    for( Connector* con  : m_conMoveList )                       // Update Connectors
-    {
-        con->startPin()->isMoved();
-        con->endPin()->isMoved();
-    }
+    for( Connector* con  : m_conMoveList  )  con->isMoved();     // Update Connectors
 }
 
 void Component::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )

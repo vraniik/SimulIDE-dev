@@ -54,6 +54,7 @@ class Connector : public CompBase
         bool isBus() { return m_isBus; }
         
         void move( QPointF delta );
+        void isMoved();
 
         void remove();
         void remLines();
