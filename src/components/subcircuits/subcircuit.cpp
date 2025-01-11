@@ -418,11 +418,6 @@ void SubCircuit::setLogicSymbol( bool ls )
             Pin* pin = tunnel->getPin();
             if( pin->unused() ) { pin->setVisible( false ); pin->setLabelText( "" ); }
         }
-        if( m_backPixmap )    // No background image in LS
-        {
-            delete m_backPixmap;
-            m_backPixmap = nullptr;
-        }
     }
     for( Component* comp : m_compList ) // Don't show graphical components in LS if Board
     {
