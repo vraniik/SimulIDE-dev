@@ -70,7 +70,6 @@ void PackagePin::setLabelText( QString label, bool over )
 {
     Pin::setLabelText( label, over );
     setFlag( QGraphicsItem::ItemStacksBehindParent, false );
-
 }
 
 void PackagePin::setLength( int length )

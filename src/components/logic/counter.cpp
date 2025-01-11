@@ -18,7 +18,7 @@ Component *Counter::construct( QString type, QString id)
 LibraryItem* Counter::libraryItem()
 {
     return new LibraryItem(
-        tr("Counter"),
+        tr("Simple Counter"),
         "Arithmetic",
         "2to1.png",
         "Counter",

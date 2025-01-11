@@ -6,21 +6,6 @@
 #include "bcdbase.h"
 #include "iopin.h"
 
-/*const uint8_t BcdBase::m_noTails[]={
-
-
-        0b01111100,
-        0b00000111,
-        0b01111111,
-        0b01100111,
-        0b01110111,
-        0b01111100,
-        0b00111001,
-        0b01011110,
-        0b01111001,
-        0b01110001
-};*/
-
 BcdBase::BcdBase( QString type, QString id )
        : LogicComponent( type, id )
 {

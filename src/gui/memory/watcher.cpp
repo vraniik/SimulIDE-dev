@@ -28,7 +28,6 @@ Watcher::Watcher( QWidget* parent, CoreBase* cpu )
     float scale = MainWindow::self()->fontScale();
     font.setFamily("Ubuntu Mono");
     font.setBold( true );
-    //font.setPointSize( 14 );
     font.setPixelSize( round(12.5*scale) );
 
     m_valuesLayout = new QBoxLayout( QBoxLayout::TopToBottom, this );
@@ -75,7 +74,6 @@ void Watcher::updateValues()
 void Watcher::setRegisters( QStringList regs )
 {
     regs.sort();
-    // m_regNames = regs;
     for( QString reg : regs ) addRegister( reg, "uint8" );
 }
 

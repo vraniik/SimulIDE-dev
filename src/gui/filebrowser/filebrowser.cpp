@@ -38,7 +38,7 @@ FileBrowser::FileBrowser( QWidget *parent )
     double fontScale = MainWindow::self()->fontScale();
     QString fontSize = QString::number( int(11*fontScale) );
 
-    setObjectName( "FileBrowser" );
+    setObjectName("FileBrowser");
     setStyleSheet("font-size:"+fontSize+"px; border: 0px solid red");
 }
 

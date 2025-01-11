@@ -13,7 +13,6 @@ class Component;
 class BatchTest
 {
     public:
-
         static void doBatchTest( QString folder );
 
         static bool isRunning() { return m_running; }

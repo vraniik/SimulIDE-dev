@@ -37,7 +37,7 @@ class DialWidget : public QWidget
         QAbstractSlider* dial() { return m_dial; }
 
     protected:
-        virtual void paintEvent( QPaintEvent* e) override;
+        virtual void paintEvent( QPaintEvent* e ) override;
 
         int m_size;
         double m_scale;

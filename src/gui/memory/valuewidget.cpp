@@ -36,7 +36,6 @@ ValueWidget::ValueWidget( QString name, QString type, CoreBase* core, QWidget* p
 
     typeLabel->setFont( fontS );
     typeLabel->setText( m_type );
-    //typeLabel->setFixedWidth( round(40*scale) );
 
     valueLine->setFixedWidth( round(120*scale) );
     valueLine->setReadOnly( true );
