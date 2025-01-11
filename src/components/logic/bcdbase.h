@@ -20,16 +20,15 @@ class BcdBase : public LogicComponent
         virtual void stamp() override;
         virtual void voltChanged() override;
 
-        bool tails() { return m_tails; }
-        void setTails( bool t ) { m_tails = t; m_changed = true; }
+        QString customChars() { return m_customChars; }
+        void setCustomChars( QString chars );
 
     protected:
- static const uint8_t m_segments[];
- static const uint8_t m_noTails[];
+        uint8_t m_segments[17];
 
         uint8_t m_digit;
 
-        bool m_tails;
+        QString m_customChars;
 };
 
 #endif

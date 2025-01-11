@@ -9,6 +9,7 @@
 #include "iopin.h"
 
 #include "boolprop.h"
+#include "stringprop.h"
 
 #define tr(str) simulideTr("BcdTo7S",str)
 
@@ -51,8 +52,8 @@ BcdTo7S::BcdTo7S( QString type, QString id )
     Simulator::self()->addToUpdateList( this );
 
     addPropGroup( { tr("Main"), {
-        new BoolProp<BcdTo7S>("Tails", tr("Tails for 6 & 9"),""
-                               , this, &BcdTo7S::tails, &BcdTo7S::setTails ),
+        new StrProp<BcdTo7S>("Custom_Segments", tr("Custom Characters CSV"),""
+                            , this, &BcdTo7S::customChars, &BcdTo7S::setCustomChars ),
     },0} );
 
     addPropGroup( { tr("Electric"), IoComponent::inputProps()

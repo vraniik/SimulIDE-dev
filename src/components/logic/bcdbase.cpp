@@ -6,33 +6,9 @@
 #include "bcdbase.h"
 #include "iopin.h"
 
-const uint8_t BcdBase::m_segments[]={
-        0b00111111,
-        0b00000110,
-        0b01011011,
-        0b01001111,
-        0b01100110,
-        0b01101101,
-        0b01111101,
-        0b00000111,
-        0b01111111,
-        0b01101111,
-        0b01110111,
-        0b01111100,
-        0b00111001,
-        0b01011110,
-        0b01111001,
-        0b01110001,
-        0b00000000
-};
+/*const uint8_t BcdBase::m_noTails[]={
 
-const uint8_t BcdBase::m_noTails[]={
-        0b00111111,
-        0b00000110,
-        0b01011011,
-        0b01001111,
-        0b01100110,
-        0b01101101,
+
         0b01111100,
         0b00000111,
         0b01111111,
@@ -42,14 +18,30 @@ const uint8_t BcdBase::m_noTails[]={
         0b00111001,
         0b01011110,
         0b01111001,
-        0b01110001,
-        0b00000000
-};
+        0b01110001
+};*/
 
 BcdBase::BcdBase( QString type, QString id )
        : LogicComponent( type, id )
 {
-    m_tails = true;
+    m_segments[0]  = 0b00111111;
+    m_segments[1]  = 0b00000110;
+    m_segments[2]  = 0b01011011;
+    m_segments[3]  = 0b01001111;
+    m_segments[4]  = 0b01100110;
+    m_segments[5]  = 0b01101101;
+    m_segments[6]  = 0b01111101;
+    m_segments[7]  = 0b00000111;
+    m_segments[8]  = 0b01111111;
+    m_segments[9]  = 0b01101111;
+    m_segments[10] = 0b01110111;
+    m_segments[11] = 0b01111100;
+    m_segments[12] = 0b00111001;
+    m_segments[13] = 0b01011110;
+    m_segments[14] = 0b01111001;
+    m_segments[15] = 0b01110001;
+    m_segments[16] = 0b00000000;
+
     m_digit = m_segments[0];
 }
 BcdBase::~BcdBase(){}
@@ -78,6 +70,17 @@ void BcdBase::voltChanged()
     bool d = m_inPin[3]->getInpState();
 
     int index = a*1+b*2+c*4+d*8;
-    if( m_tails ) m_digit = m_segments[index];
-    else          m_digit = m_noTails[index];
+    m_digit = m_segments[index];
+}
+
+void BcdBase::setCustomChars( QString chars )
+{
+    m_customChars = chars;
+    QStringList charList = chars.split(",");
+    for( int i=0; i<16; ++i )
+    {
+        if( i >= chars.size() ) m_segments[i] = 0;
+        else                    m_segments[i] = charList[i].toInt();
+    }
+    m_changed = true;
 }
