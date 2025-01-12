@@ -7,6 +7,7 @@
 
 #include "max72xx_matrix.h"
 #include "itemlibrary.h"
+#include "ledbase.h"
 #include "connector.h"
 #include "simulator.h"
 #include "iopin.h"
@@ -60,6 +61,8 @@ Max72xx_matrix::Max72xx_matrix( QString type, QString id )
     m_pin[1] = m_pinDin;
     m_pin[2] = m_pinSck;
 
+    setColorStr("Yellow");
+
     eClockedDevice::setClockPin( m_pinSck );
 
     Simulator::self()->addToUpdateList( this );
@@ -70,7 +73,7 @@ Max72xx_matrix::Max72xx_matrix( QString type, QString id )
     Max72xx_matrix::initialize();
 
     addPropGroup( { tr("Main"), {
-        new StrProp<Max72xx_matrix>("Color", tr("Color"),""
+        new StrProp<Max72xx_matrix>("Color", tr("Color"), LedBase::getColorList()
                                    , this, &Max72xx_matrix::colorStr,    &Max72xx_matrix::setColorStr,0,"enum" ),
         new IntProp<Max72xx_matrix>("NumDisplays", tr("Size"),""
                                    , this, &Max72xx_matrix::numDisplays, &Max72xx_matrix::setNumDisplays,0,"uint" ),

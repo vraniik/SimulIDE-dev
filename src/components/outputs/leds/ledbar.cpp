@@ -36,7 +36,10 @@ LedBar::LedBar( QString type, QString id )
 {
     m_area = QRect(-8,-28, 16, 64 );
     m_graphical = true;
+
     m_color = QColor(0,0,0);
+    setColorStr("Yellow");
+
     m_size = 0;
     setSize( 8 );
     setResistance( 0.6 );

@@ -46,6 +46,7 @@ LedMatrix::LedMatrix( QString type, QString id )
     m_color = QColor(0,0,0);
     m_verticalPins = false;
     createMatrix();
+    setColorStr("Yellow");
 
     addPropGroup( { tr("Main"), {
         new StrProp <LedMatrix>("Color", tr("Color"), LedBase::getColorList()

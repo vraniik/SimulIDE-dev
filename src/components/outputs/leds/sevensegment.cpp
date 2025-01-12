@@ -40,6 +40,8 @@ SevenSegment::SevenSegment( QString type, QString id )
     setLabelPos( 20,-44, 0 );
 
     m_color = QColor(0,0,0);
+    setColorStr("Yellow");
+
     m_commonCathode = true;
     m_verticalPins  = false;
     m_numDisplays = 0;
