@@ -43,6 +43,9 @@ class TestUnit: public IoComponent, public eElement
 
         void loadTest();
 
+    protected:
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+
     private:
         void createTable();
         void updtData();

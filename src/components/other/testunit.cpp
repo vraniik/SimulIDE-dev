@@ -219,3 +219,14 @@ void TestUnit::updtData()
     m_truthT.clear();
     m_truthT.resize( m_steps );
 }
+
+void TestUnit::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
+{
+    QAction* tableAction = menu->addAction( QIcon(":/list.svg"),tr("Show Table") );
+    QObject::connect( tableAction, &QAction::triggered, [=](){ createTable(); } );
+
+    menu->addSeparator();
+
+    Component::contextMenu( event, menu );
+}
+
