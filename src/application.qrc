@@ -54,6 +54,7 @@
         <file alias="cut.svg">../src/icons/mainwindow/cut.svg</file>
         <file alias="copy.svg">../src/icons/mainwindow/copy.svg</file>
         <file alias="paste.svg">../src/icons/mainwindow/paste.svg</file>
+        <file alias="list.svg">../src/icons/mainwindow/list.svg</file>
         
         <file alias="cdup.png">../src/icons/mainwindow/cdup.png</file>
         <file alias="undo.svg">../src/icons/mainwindow/rotateccw.svg</file>
