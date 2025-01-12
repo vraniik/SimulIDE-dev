@@ -24,8 +24,14 @@ class TruthTable : public QDialog, private Ui::TruthTable
     public slots:
         void on_saveButton_pressed();
         void on_runButton_pressed();
+        void on_table_itemChanged( QTableWidgetItem* item );
+        void on_table_itemDoubleClicked( QTableWidgetItem* item );
 
     private:
         TestUnit* m_testUnit;
+
+        bool m_blocked;
+
+        QString m_lastValue;
 };
 #endif
