@@ -78,9 +78,9 @@ class SubPackage : public Chip, public Linker
         void hoverMoveEvent( QGraphicsSceneHoverEvent* event ) override;
         void hoverLeaveEvent( QGraphicsSceneHoverEvent* event ) override;
         
-        virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
-        virtual void addNewPin( QString id, QString type, QString label,
+        void addNewPin( QString id, QString type, QString label,
                             int pos, int xpos, int ypos, int angle, int length=8, int space=0 ) override;
 
     private:

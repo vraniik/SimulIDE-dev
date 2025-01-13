@@ -165,6 +165,7 @@ void TruthTable::on_saveButton_pressed()
 
 void TruthTable::on_runButton_pressed()
 {
+    setup( m_inputsStr, m_outputsStr, m_truthVector );
     m_testUnit->runTest();
 }
 
@@ -186,5 +187,6 @@ void TruthTable::on_table_itemDoubleClicked( QTableWidgetItem* item )
         item->setText("H");
         item->setBackground( QColor( 100, 255, 100 ) );
     }
+    m_truthVector = getTruthVector();
 }
 
