@@ -38,7 +38,7 @@ TestUnit::TestUnit( QString type, QString id )
     m_width  = 4;
     m_height = 4;
 
-    m_testing = false;
+    m_steps = 0;
 
     m_period = 1e-7; // 100 ns
     m_truthTable = nullptr;
@@ -83,10 +83,14 @@ void TestUnit::stamp()
     m_read = false;
     m_changed = false;
 
-    updtData();
+    resizeVectors();
 
-    Simulator::self()->addEvent( m_period*1e12/2, this );
-    if( BatchTest::isRunning() ) BatchTest::addTestUnit( this );
+    if( BatchTest::isRunning() )
+    {
+        createTable();
+        BatchTest::addTestUnit( this );
+        Simulator::self()->addEvent( m_period*1e12/2, this );
+    }
 }
 
 void TestUnit::updateStep()
@@ -94,10 +98,12 @@ void TestUnit::updateStep()
     if( !m_changed ) return;
     m_changed = false;
 
-    createTable();
+    CircuitWidget::self()->powerCircOff();
+    bool testOk = m_truthTable->checkThruth( &m_samples );
+    if( !BatchTest::isRunning() ) BatchTest::testCompleted( this, testOk );
 }
 
-void TestUnit::runEvent()
+void TestUnit::runEvent() // Running test
 {
     if( m_read ) {
         m_read = false;
@@ -122,10 +128,11 @@ void TestUnit::runEvent()
     }
 }
 
-void TestUnit::runTest()
+void TestUnit::runTest() // Run test fron TruthTable
 {
     CircuitWidget::self()->powerCircOff();
     CircuitWidget::self()->powerCircOn();
+    Simulator::self()->addEvent( m_period*1e12/2, this );
 }
 
 void TestUnit::createTable()
@@ -133,20 +140,13 @@ void TestUnit::createTable()
     if( !m_truthTable )
         m_truthTable = new TruthTable( this, CircuitView::self() );
 
-    bool testOk = m_truthTable->setup( m_inputStr, m_outputStr, &m_samples, &m_truthT );
-    m_testing = !(m_truthT.size() == 0);
-    if( m_testing ) {
-        if( BatchTest::isRunning() ) BatchTest::testCompleted( this, testOk );
-    }
-    else m_truthT = m_samples; // save samples as truth
-
+    m_truthTable->setup( m_inputStr, m_outputStr, m_truthT );
     m_truthTable->show();
 }
 
-void TestUnit::save()
+void TestUnit::save( std::vector<uint> outValues ) // Save current samples as truth
 {
-    m_truthT = m_samples;
-    m_truthTable->setup( m_inputStr, m_outputStr, &m_samples, &m_truthT );
+    m_truthT = outValues;
 }
 
 void TestUnit::loadTest()
@@ -171,8 +171,8 @@ void TestUnit::setTruth( QString t )
     m_truthT.clear();
     for( QString valStr : truthList )
     {
-        if( !valStr.isEmpty() )
-            m_truthT.push_back( valStr.toUInt( &ok, 16 ) );
+        if( valStr.isEmpty() ) continue;
+        m_truthT.push_back( valStr.toUInt( &ok, 16 ) );
     }
 }
 
@@ -190,7 +190,7 @@ void TestUnit::setInputs( QString i )
         m_outPin[i]->setLabelText( inputList.at(i) );
 
     updtOutPins();
-    updtData();
+    resizeVectors();
 }
 
 void TestUnit::setOutputs( QString o )
@@ -207,17 +207,18 @@ void TestUnit::setOutputs( QString o )
         m_inPin[i]->setLabelText( outputList.at(i) );
 
     updtInPins();
-    updtData();
+    resizeVectors();
 }
 
-void TestUnit::updtData()
+void TestUnit::resizeVectors() // Vector size is nº of combinations, bits in uint value is an output state
 {
     m_steps = pow( 2, m_outPin.size() ); // Output pins are the inputs of the tested device
     m_samples.clear();
-    m_samples.resize( m_steps );
+    m_samples.resize( m_steps, 0 );
 
+    if( m_truthT.size() == m_steps ) return;
     m_truthT.clear();
-    m_truthT.resize( m_steps );
+    m_truthT.resize( m_steps, 0 );
 }
 
 void TestUnit::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )

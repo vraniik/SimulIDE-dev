@@ -8,6 +8,7 @@
 
 #include "truthtable.h"
 #include "testunit.h"
+#include "mainwindow.h"
 
 TruthTable::TruthTable( TestUnit* tu, QWidget* parent )
           : QDialog( parent )
@@ -15,25 +16,26 @@ TruthTable::TruthTable( TestUnit* tu, QWidget* parent )
     setupUi( this );
 
     m_testUnit = tu;
-
-    m_blocked = false;
+    m_numInputs = 0;
+    m_numOutputs = 0;
 }
 
-bool TruthTable::setup( QString inputs, QString outputs, std::vector<uint>* samples, std::vector<uint>* truthT )
+void TruthTable::setup( QString inputs, QString outputs, std::vector<uint> truthT )
 {
-    m_blocked = true;
-    m_lastValue = "";
+    m_inputsStr = inputs;
+    m_outputsStr = outputs;
+    m_truthVector = truthT;
 
     QStringList inputList = inputs.split(",");
     inputList.removeAll(" ");
-    int numInputs = inputList.size();
-    int rows = pow( 2, numInputs );
+    m_numInputs = inputList.size();
+    int rows = pow( 2, m_numInputs );
 
     QStringList outputList = outputs.split(",");
     outputList.removeAll(" ");
-    int numOutputs = outputList.size();
+    m_numOutputs = outputList.size();
 
-    int columns = numInputs+numOutputs+1;
+    int columns = m_numInputs+m_numOutputs+1;
 
     QStringList header;
     for( QString output : outputList ) header.prepend( output );
@@ -44,60 +46,121 @@ bool TruthTable::setup( QString inputs, QString outputs, std::vector<uint>* samp
     table->setRowCount( rows );
     table->setColumnCount( columns );
     table->setHorizontalHeaderLabels( header );
-    table->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    //table->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     //table->horizontalHeader()->setSectionResizeMode( QHeaderView::Stretch ); // QHeaderView::ResizeToContents
 
-    bool testing = !(truthT->size() == 0);
-    bool ok = true;
+    float scale = MainWindow::self()->fontScale();
+    int fontSize = round(13*scale);
+    QFont font;
+    font.setFamily("Ubuntu Mono");
+    font.setBold( true );
+    font.setPixelSize( fontSize );
+
+    int columnWidth = round( fontSize*1.7 );
 
     for( int row=0; row<rows; ++row )
     {
-        uint valRow = samples->at( row );
-        uint truRow;
-        if( testing ) truRow = truthT->at( row );
+        uint truRow = truthT.at( row );
 
+        int bit = m_numOutputs-1;
         for( int col=0; col<columns; ++col )
         {
             QTableWidgetItem* it = new QTableWidgetItem();
+            it->setFont( font );
 
-            if( col == numInputs ){
+            if( col == m_numInputs )    // Separator Column
+            {
                 it->setFlags( 0 );
-                it->setBackground( QColor( 210, 210, 210 ) );
-                it->setFlags( it->flags() & ~Qt::ItemIsEditable );
-            }else{
+                it->setBackground( QColor( 150, 150, 150 ) );
+            }
+            else                        // Value Column
+            {
+                it->setFlags( Qt::ItemIsEnabled );
                 int value = 0;
-                int truth = 0;
 
-                if( col < numInputs )
+                if( col < m_numInputs ) // Input Column
                 {
-                    value = ( row & 1<<(numInputs-col-1));
-                    it->setFlags( it->flags() & ~Qt::ItemIsEditable );
-                }else{
-                    int bit = 1<<(numOutputs-(col-numInputs-1)-1);
-                    value = (valRow & bit);
-                    if( testing ){
-                        truth = (truRow & bit);
-                        if( value == truth ) it->setBackground( QColor( 100, 240, 100 ) );
-                        else{                it->setBackground( QColor( 255, 150,  10 ) );
-                            ok = false;
-                        }
-                    }
+                    value = ( row & 1<<(m_numInputs-col-1));
+                    if( value ) it->setBackground( QColor( 150, 255, 200 ) );
+                    else        it->setBackground( QColor( 240, 240, 255 ) );
+                }
+                else                    // Output Column
+                {
+                    value = (truRow & 1<<bit);
+                    bit--;
+                    if( value ) it->setBackground( QColor( 100, 255, 100 ) );
+                    else        it->setBackground( QColor( 220, 220, 255 ) );
                 }
                 QString valStr = value ? "H" : "L";
                 it->setText( valStr );
                 it->setTextAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
             }
             table->setItem( row, col, it );
+            table->setColumnWidth( col, columnWidth );
         }
     }
-    table->setColumnWidth( numInputs, 6 );
-    m_blocked = false;
+    table->setColumnWidth( m_numInputs, 8 );
+}
+
+void TruthTable::setItemColor( QTableWidgetItem* it, bool b )
+{
+    if( b ) it->setBackground( QColor( 100, 255, 100 ) );
+    else    it->setBackground( QColor( 220, 220, 255 ) );
+}
+
+bool TruthTable::checkThruth( std::vector<uint>* samples )
+{
+    bool ok = true;
+
+    for( int row=0; row<m_truthVector.size(); ++row ) // Get output values from Table
+    {
+        uint truthRow  = m_truthVector.at( row );
+        uint sampleRow = samples->at( row );
+        uint size = m_numInputs+m_numOutputs;
+
+        for( int bit=0; bit<m_numOutputs; ++bit )
+        {
+            QTableWidgetItem* it = table->item( row, size-bit );
+
+            int truthBit  = truthRow  & 1<<bit;
+            int sampleBit = sampleRow & 1<<bit;
+
+            if( truthBit == sampleBit ) setItemColor( it, truthBit );
+            else{
+                ok = false;                                     // Test failed
+                QString valStr = sampleBit ? "H" : "L";
+                it->setText( valStr );
+                it->setBackground( QColor( 255, 150,  10 ) );   // Red color
+            }
+        }
+    }
     return ok;
+}
+
+std::vector<uint> TruthTable::getTruthVector()
+{
+    std::vector<uint> outValues;
+
+    for( int row=0; row<table->rowCount(); ++row ) // Get output values from Table
+    {
+        uint truRow = 0;
+        int bit = m_numOutputs-1;
+        int columns = table->columnCount();
+        for( int col=columns-m_numOutputs; col<columns; ++col )
+        {
+            QTableWidgetItem* it = table->item( row, col );
+            if( it->text() == "H") truRow |= 1<<bit;
+            bit--;
+        }
+        outValues.emplace_back( truRow );
+    }
+    return outValues;
 }
 
 void TruthTable::on_saveButton_pressed()
 {
-    m_testUnit->save();
+    setup( m_inputsStr, m_outputsStr, getTruthVector() );
+    m_testUnit->save( m_truthVector );
 }
 
 void TruthTable::on_runButton_pressed()
@@ -105,20 +168,23 @@ void TruthTable::on_runButton_pressed()
     m_testUnit->runTest();
 }
 
+void TruthTable::on_clearButton_pressed()
+{
+    setup( m_inputsStr, m_outputsStr, m_truthVector );
+}
+
 void TruthTable::on_table_itemDoubleClicked( QTableWidgetItem* item )
 {
-    if( m_blocked ) return;
+    if( item->column() <= m_numInputs ) return;
 
-    m_lastValue = item->text();
+    QString text = item->text();
+    if( text == "H")
+    {
+        item->setText("L");
+        item->setBackground( QColor( 220, 220, 255 ) );
+    }else{
+        item->setText("H");
+        item->setBackground( QColor( 100, 255, 100 ) );
+    }
 }
 
-void TruthTable::on_table_itemChanged( QTableWidgetItem* item )
-{
-    if( m_blocked ) return;
-
-    QString text = item->text().toUpper();
-    if     ( text == "0" ) text = "L";
-    else if( text == "1" ) text = "H";
-    else if( text != "H" && text != "L" ) text = m_lastValue;
-    item->setText( text);
-}

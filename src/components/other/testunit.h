@@ -37,7 +37,7 @@ class TestUnit: public IoComponent, public eElement
         QString truth();
         void setTruth( QString t );
 
-        void save();
+        void save( std::vector<uint> outValues );
 
         void runTest();
 
@@ -48,11 +48,10 @@ class TestUnit: public IoComponent, public eElement
 
     private:
         void createTable();
-        void updtData();
+        void resizeVectors();
 
         double m_period;
 
-        bool m_testing;
         bool m_read;
         int m_steps;
 

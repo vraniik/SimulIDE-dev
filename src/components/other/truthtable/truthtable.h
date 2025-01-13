@@ -19,19 +19,28 @@ class TruthTable : public QDialog, private Ui::TruthTable
     public:
         TruthTable( TestUnit* tu, QWidget* parent=0 );
 
-        bool setup( QString inputs, QString outputs, std::vector<uint>* samples, std::vector<uint>* truthT );
+        void setup( QString inputs, QString outputs, std::vector<uint> truthT );
+
+        bool checkThruth( std::vector<uint>* samples );
 
     public slots:
         void on_saveButton_pressed();
         void on_runButton_pressed();
-        void on_table_itemChanged( QTableWidgetItem* item );
+        void on_clearButton_pressed();
         void on_table_itemDoubleClicked( QTableWidgetItem* item );
 
     private:
+        std::vector<uint> getTruthVector();
+        void setItemColor( QTableWidgetItem* it, bool b );
+
         TestUnit* m_testUnit;
 
-        bool m_blocked;
+        QString m_inputsStr;
+        QString m_outputsStr;
 
-        QString m_lastValue;
+        int m_numInputs;
+        int m_numOutputs;
+
+        std::vector<uint> m_truthVector;
 };
 #endif
