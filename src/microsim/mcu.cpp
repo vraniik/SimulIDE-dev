@@ -234,7 +234,7 @@ void Mcu::setupMcu()
 
     if( m_packageList.size() > 1 )
     addProperty(tr("Main"), new StrProp<Mcu>("Package", tr("Package"), m_packageList.keys().join(",")
-                                            , this, &Mcu::package, &Mcu::setPackage,0,"enum" ) );
+                                            , this, &Mcu::package, &Mcu::setPackage, propNoCopy,"enum" ) );
 
     if( m_eMcu.m_intOsc )
     {
