@@ -279,13 +279,13 @@ void SubCircuit::loadSubCircuit( QString doc )
                     comp->moveTo( QPointF( 0, 0 ) );
                     comp->setVisible( false );
                 }
-                comp->setHidden( true, true, true ); // Boards: hide non graphical
                 if( m_isLS && m_packageList.size() > 1 ) comp->setVisible( false ); // Don't show any component if Logic Symbol
             }
             else{
                 comp->moveTo( QPointF(20, 20) );
                 comp->setVisible( false );     // Not Boards: Don't show any component
             }
+            comp->setHidden( true, true, true ); // Needs to be hidden for propNoCopy
 
             if( comp->isMainComp() ) m_mainComponents[uid] = comp; // This component will add it's Context Menu and properties
 
