@@ -246,7 +246,7 @@ void Mcu::setupMcu()
 
     if( m_eMcu.flashSize() )
     {
-    addProperty(tr("Main"),new BoolProp<Mcu>("savePGM", tr("PGM persitent"),""
+    addProperty(tr("Main"),new BoolProp<Mcu>("savePGM", tr("PGM persistent"),""
                                             , this, &Mcu::savePGM, &Mcu::setSavePGM ));
 
     addProperty(tr("Main"),new StrProp <Mcu>("Program", tr("Firmware"),""
@@ -256,7 +256,7 @@ void Mcu::setupMcu()
                                             , this, &Mcu::autoLoad, &Mcu::setAutoLoad ));
     }
     if( m_eMcu.romSize() )
-    addProperty(tr("Main"),new BoolProp<Mcu>("saveEepr", tr("EEPROM persitent"),""
+    addProperty(tr("Main"),new BoolProp<Mcu>("saveEepr", tr("EEPROM persistent"),""
                                             , this, &Mcu::saveEepr, &Mcu::setSaveEepr ));
 
     // Config Property Group ------------------------------------
