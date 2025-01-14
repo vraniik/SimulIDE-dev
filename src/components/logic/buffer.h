@@ -16,13 +16,18 @@ class Buffer : public Gate
         Buffer( QString type, QString id );
         ~Buffer();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
+
+        void setSmall( bool s );
+        bool isSmall() { return m_small; }
 
         void setTristate( bool t ) override;
 
     protected:
         void updatePath() override;
+
+        bool m_small;
 };
 
 #endif

@@ -308,6 +308,12 @@ void Pin::setPinAngle( int angle )
     setRotation( 180-angle );
 }
 
+void Pin::setX( qreal x )
+{
+    QGraphicsItem::setX( x );
+    isMoved();
+}
+
 void Pin::setY( qreal y )
 {
     QGraphicsItem::setY( y );
@@ -424,7 +430,8 @@ void Pin::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget* )
         QPen pen = p->pen();
         pen.setWidthF( 1.8 );
         p->setPen(pen);
-        QRectF rect( 3.5,-2.2, 4.4, 4.4 );
+        int start = (m_length > 4) ? m_length-4.5 : 3.5;
+        QRectF rect( start,-2.2, 4.4, 4.4 );
         p->drawEllipse(rect);
     }
     if( !m_unused && m_animate )

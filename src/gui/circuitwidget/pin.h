@@ -57,6 +57,7 @@ class Pin : public QGraphicsItem, public ePin, public Updatable
         void setPinAngle( int angle );
         int pinAngle() { return m_angle; }
 
+        void setX( qreal x );
         void setY( qreal y );
 
         void setBoundingRect( QRect area ) { m_area = area; }
