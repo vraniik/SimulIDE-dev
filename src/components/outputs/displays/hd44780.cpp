@@ -139,7 +139,7 @@ void Hd44780::initPuPin( int n, QString l, IoPin* pin )
 {
     pin->setLabelText( l );
     pin->setOutHighV( 5 );
-    pin->setPullup( true );
+    pin->setPullup( 1e5 );
     m_pin[n] = pin;
 }
 

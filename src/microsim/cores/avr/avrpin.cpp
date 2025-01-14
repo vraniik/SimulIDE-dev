@@ -15,7 +15,7 @@ AvrPin::~AvrPin() {}
 
 void AvrPin::setPortState( bool state )
 {
-    setPullup( state );
+    setPullup( state ? 1e5 : 0 );
     McuPin::setPortState( state );
 }
 

@@ -107,12 +107,11 @@ class Pin : public QGraphicsItem, public ePin, public Updatable
 
         virtual Pin* getPin() override { return this; }
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
-
         void isMoved();
         void flip( int h, int v );
 
     protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
         void mousePressEvent( QGraphicsSceneMouseEvent* event ) override;
 
         pinType_t  m_pinType;

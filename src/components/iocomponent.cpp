@@ -22,6 +22,8 @@ IoComponent::IoComponent( QString type, QString id)
 {
     m_outValue = 0;
 
+    m_pullups = 0;
+
     m_openCol    = false;
     m_invInputs  = false;
     m_invOutputs = false;
@@ -73,6 +75,9 @@ QList<ComProperty*> IoComponent::outputProps()
 QList<ComProperty*> IoComponent::outputType()
 {
     return {
+        new DoubProp<IoComponent>("Pullups", tr("Ouput pullups"), "Ω"
+                                 , this, &IoComponent::pullUps, &IoComponent::setPullUps, propNoCopy ),
+
         new BoolProp<IoComponent>("Inverted", tr("Invert Outputs"), ""
                                  , this, &IoComponent::invertOuts, &IoComponent::setInvertOuts, propNoCopy ),
 
@@ -303,6 +308,12 @@ void IoComponent::setOpenCol( bool op )
     Simulator::self()->resumeSim();
 }
 
+void IoComponent::setPullUps( double p )
+{
+    m_pullups = p;
+    for( uint i=0; i<m_outPin.size(); ++i ) m_outPin[i]->setPullup( p );
+}
+
 void IoComponent::setRiseTime( double time )
 {
     LogicFamily::setRiseTime( time );
@@ -482,6 +493,7 @@ void IoComponent::setNumPins( std::vector<IoPin*>* pinList, uint pins
         }
     }
     setflip();
+    setPullUps( m_pullups );
     Circuit::self()->update();
 }
 

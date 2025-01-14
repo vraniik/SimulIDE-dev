@@ -57,7 +57,7 @@ I2CToParallel::I2CToParallel( QString type, QString id )
     for( int i=0; i<8; ++i )
     {
         m_outPin[i]->setPinMode( openCo );
-        m_outPin[i]->setPullup( true );
+        m_outPin[i]->setPullup( 1e5 );
     }
     m_cCode = 0b01010000; // 0x50, 80
 

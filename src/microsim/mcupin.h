@@ -46,7 +46,7 @@ class McuPin : public IoPin
 
         virtual void controlPin( bool outCtrl, bool dirCtrl ) override;
         virtual void scheduleState( bool state, uint64_t time ) override;
-        virtual void setPullup( bool up ) override;
+        virtual void setPullup( double p ) override;
 
         virtual void setAnalog( bool ) {;}
         virtual void ConfExtInt( uint8_t bits );

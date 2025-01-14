@@ -54,7 +54,7 @@ void McuPin::stamp()
 {
     IoPin::stamp();
     if( !m_dirCtrl ) setDirection( m_outMask );
-    setPullup( m_puMask );
+    setPullup( m_puMask ? 1e5 : 0 );
     if( !m_outCtrl && m_outMask ) IoPin::setOutState( true );
     update();
 }
@@ -142,9 +142,11 @@ void McuPin::controlPin( bool outCtrl, bool dirCtrl )
     m_outCtrl = outCtrl;
 }
 
-void McuPin::setPullup( bool up )
+void McuPin::setPullup( double p )
 {
-    IoPin::setPullup( up );
+    IoPin::setPullup( p );
+
+    bool up = p>0;
     if( up == m_puMask ) return;
     m_puMask = up;
 

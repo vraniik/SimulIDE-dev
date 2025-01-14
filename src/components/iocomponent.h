@@ -56,6 +56,9 @@ class IoComponent : public Component, public LogicFamily
         bool openCol() { return m_openCol; }
         void setOpenCol( bool op );
 
+        double pullUps() { return m_pullups; }
+        void setPullUps( double p );
+
         void init( QStringList pins );
         void initPin( IoPin* pin );
 
@@ -86,6 +89,8 @@ class IoComponent : public Component, public LogicFamily
         bool m_openCol;
         bool m_invOutputs;
         bool m_invInputs;
+
+        double m_pullups;
 
         uint m_width;
         uint m_height;

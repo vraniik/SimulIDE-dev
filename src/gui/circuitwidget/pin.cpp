@@ -43,14 +43,14 @@ Pin::Pin( int angle, const QPoint pos, QString id, int index, Component* parent,
     m_Vflip = 1;
     m_overScore = -1;
     
-    m_color[0] = Qt::black;
-    m_color[1] = QColor( 100, 100, 250 );
-    m_color[2] = QColor( 0, 0, 180 );;
-    m_color[3] = QColor( 60, 120, 60 );
-    m_color[4] = QColor( 0, 0, 180 );
-    m_color[5] = QColor( 180, 0, 0 );
-    m_color[6] = QColor( 100, 100, 250 );
-    m_color[7] = QColor( 250, 120, 0 );
+    m_color[undef_state] = Qt::black;
+    m_color[driven_low ] = QColor( 100, 100, 250 );
+    m_color[open_low   ] = QColor( 0, 0, 180 );;
+    m_color[open_high  ] = QColor( 60, 120, 60 );
+    m_color[out_low    ] = QColor( 0, 0, 180 );
+    m_color[out_high   ] = QColor( 180, 0, 0 );
+    m_color[input_low  ] = QColor( 100, 100, 250 );
+    m_color[input_high ] = QColor( 250, 120, 0 );
 
     QFont font;
     font.setFamily("Ubuntu Mono");
@@ -381,7 +381,7 @@ void Pin::updateStep()
     update();
 }
 
-void Pin::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget* )
+void Pin::paint( QPainter* p, const QStyleOptionGraphicsItem*, QWidget* )
 {
     if( !isVisible() ) return;
 

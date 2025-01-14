@@ -75,7 +75,7 @@ class IoPin : public Pin, public eElement
         }
 
         void setStateZ( bool z );
-        virtual void setPullup( bool up );
+        virtual void setPullup( double p );
 
         virtual void setInverted( bool invert ) override;
 
@@ -89,6 +89,7 @@ class IoPin : public Pin, public eElement
  static QStringList registerScript( asIScriptEngine* engine );
 
     protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
         inline void updtState()
         {

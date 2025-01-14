@@ -3,6 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#include <QPainter>
 #include <QtMath>
 #include <QMenu>
 
@@ -154,7 +155,7 @@ void IoPin::setPinMode( pinMode_t mode )
             ePin::stampAdmitance( m_admit );
             break;
         case openCo:
-            m_vddAdmit = cero_doub;
+            m_vddAdmit = 0; //cero_doub;
             break;
         case source:
             m_vddAdmit = 1/cero_doub;
@@ -193,7 +194,7 @@ bool IoPin::getInpState()
 void IoPin::setOutState( bool high ) // Set Output to Hight or Low
 {
     m_outState = m_nextState = high;
-    if( m_pinMode < openCo || m_stateZ ) return;
+    if( m_pinMode < openCo ) return;
 
     if( m_inverted ) high = !high;
 
@@ -210,8 +211,10 @@ void IoPin::setStateZ( bool z )
 {
     m_stateZ = z;
     if( z ){
-        m_outVolt = m_outLowV;
-        setImpedance( m_openImp );
+        m_gndAdmit = 1/m_openImp;
+        updtState();
+        //m_outVolt = m_outLowV;
+        //setImpedance( m_openImp );
     }else {
         pinMode_t pm = m_pinMode; // Force old pinMode
         m_pinMode = undef_mode;
@@ -224,12 +227,13 @@ double IoPin::getVoltage()
     return m_outVolt;
 }
 
-void IoPin::setPullup( bool up )
+void IoPin::setPullup( double p ) // previous 1e5
 {
-    if( up ) m_vddAdmEx = 1/1e5; // Activate pullup
-    else     m_vddAdmEx = 0;     // Deactivate pullup
+    if( p > 0 ) m_vddAdmEx = 1/p;
+    else        m_vddAdmEx = 0;
 
-    if( m_pinMode < output ) updtState();
+    if( m_pinMode < output || m_stateZ ) updtState();
+    update();
 }
 
 void IoPin::setImpedance( double imp )
@@ -276,6 +280,22 @@ void IoPin::stampAll()
 {
     ePin::stampAdmitance( m_admit );
     stampVolt( m_outVolt );
+}
+
+void IoPin::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w)
+{
+    if( !isVisible() ) return;
+    Pin::paint( p, o, w );
+
+    if( m_vddAdmEx == 0 ) return;
+
+    p->setBrush( QColor( 255, 180, 0 ) );
+    QPen pen = p->pen();
+    pen.setWidthF( 0 );
+    p->setPen(pen);
+    int start = (m_length > 4) ? m_length-4.5 : 3.5;
+    QRectF rect( start+0.6,-1.5, 3, 3 );
+    p->drawEllipse(rect);
 }
 
 // ---- Script Engine -------------------
