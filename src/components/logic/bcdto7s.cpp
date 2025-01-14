@@ -32,6 +32,9 @@ BcdTo7S::BcdTo7S( QString type, QString id )
     m_width  = 4;
     m_height = 8;
 
+    m_useReset = false;
+    m_tristate = true;
+
     init({         // Inputs:
             "IL03S0",
             "IL04S1",
@@ -47,13 +50,26 @@ BcdTo7S::BcdTo7S( QString type, QString id )
             "OR07g"
         });
 
-    createOePin( "IU01OE ", id+"-in4");
+    createOePin("IU01OE ", id+"-in4");
+
+    m_resetPin = new IoPin( 180, QPoint(-24, 8 ), m_id+"-Pin_reset", 0, this, input );
+    setupPin( m_resetPin,"L02RST");
+    m_resetPin->setVisible( false );
+    m_otherPin.emplace_back( m_resetPin );
+
+    setResetInv( true );    // Invert Reset Pin
 
     Simulator::self()->addToUpdateList( this );
 
     addPropGroup( { tr("Main"), {
         new StrProp<BcdTo7S>("Custom_Segments", tr("Custom Characters CSV"),""
-                            , this, &BcdTo7S::customChars, &BcdTo7S::setCustomChars ),
+                            , this, &BcdTo7S::customChars, &BcdTo7S::setCustomChars, propNoCopy ),
+
+        new BoolProp<BcdTo7S>("UseRS", tr("Reset Pin"),""
+                             , this, &BcdTo7S::pinReset, &BcdTo7S::setPinReset, propNoCopy ),
+
+        new BoolProp<BcdTo7S>("Reset_Inverted", tr("Reset Inverted"),""
+                              , this, &BcdTo7S::resetInv, &BcdTo7S::setResetInv ),
     },0} );
 
     addPropGroup( { tr("Electric"), IoComponent::inputProps()
@@ -61,7 +77,13 @@ BcdTo7S::BcdTo7S( QString type, QString id )
         new BoolProp<BcdTo7S>("Invert_Inputs", tr("Invert Inputs"),""
                              , this, &BcdTo7S::invertInps, &BcdTo7S::setInvertInps, propNoCopy )})
 
-        +IoComponent::outputProps()+IoComponent::outputType(),0 } );
+        +IoComponent::outputProps()
+        +IoComponent::outputType()
+        +QList<ComProperty*>({
+            new BoolProp<BcdTo7S>("Tristate", tr("Tristate"),""
+                               , this, &BcdTo7S::tristate, &BcdTo7S::setTristate ),
+        })
+    ,0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
@@ -90,6 +112,20 @@ void BcdTo7S::voltChanged()
 {
     LogicComponent::updateOutEnabled();
     BcdBase::voltChanged();
-    m_nextOutVal = m_digit;
+    if( m_useReset && m_resetPin->getInpState() ) m_nextOutVal = 0;
+    else                                          m_nextOutVal = m_digit;
     scheduleOutPuts( this );
+}
+
+void BcdTo7S::setPinReset( bool r )
+{
+    m_useReset = r;
+    m_resetPin->setVisible( r );
+    if( !r ) m_resetPin->removeConnector();
+}
+
+void BcdTo7S::setResetInv( bool inv )
+{
+    m_resetInv = inv;
+    m_resetPin->setInverted( inv );
 }

@@ -14,8 +14,6 @@ class BcdBase : public LogicComponent
         BcdBase( QString type, QString id );
         ~BcdBase();
 
-        bool tristate() { return true; }
-
         virtual void initialize() override;
         virtual void stamp() override;
         virtual void voltChanged() override;
