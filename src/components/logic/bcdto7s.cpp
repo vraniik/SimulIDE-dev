@@ -89,6 +89,16 @@ BcdTo7S::BcdTo7S( QString type, QString id )
 }
 BcdTo7S::~BcdTo7S(){}
 
+void BcdTo7S::stamp()
+{
+    BcdBase::stamp();
+
+    m_resetPin->changeCallBack( this, m_useReset );
+
+    //uint8_t value = m_segments[0];
+    //for( int i=0; i<7; ++i ) m_outPin[i]->setOutState( value & (1<<i) );
+}
+
 void BcdTo7S::updateStep()
 {
     if( !m_changed ) return;
@@ -98,14 +108,6 @@ void BcdTo7S::updateStep()
     else                                  voltChanged();
 
     update();
-}
-
-void BcdTo7S::stamp()
-{
-    BcdBase::stamp();
-
-    uint8_t value = m_segments[0];
-    for( int i=0; i<7; ++i ) m_outPin[i]->setOutState( value & (1<<i) );
 }
 
 void BcdTo7S::voltChanged()
