@@ -64,7 +64,7 @@ ShiftReg::ShiftReg( QString type, QString id )
     setupPin( m_rstPin, "L07Rst" );
     setupPin( m_serPin, "L00S" );
 
-    m_rstPin->setInverted( true );    // Invert Reset Pin
+    setResetInv( true );    // Invert Reset Pin
 
     addPropGroup( { tr("Main"), {
         new IntProp <ShiftReg>("Bits", tr("Size"),"_bits"
@@ -211,7 +211,6 @@ void ShiftReg::updatePins()
 
     setupPin( m_oePin, "U02OE" ); // Reposition OE pin
 }
-
 
 void ShiftReg::setResetInv( bool inv )
 {

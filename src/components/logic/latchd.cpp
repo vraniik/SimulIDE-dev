@@ -95,7 +95,7 @@ void LatchD::voltChanged()
     if( m_tristate ) updateOutEnabled();
     updateClock();
 
-    if( m_resetPin->getInpState() ) m_nextOutVal = 0;
+    if( m_useReset && m_resetPin->getInpState() ) m_nextOutVal = 0;
     else if( m_clkState == Clock_Allow )
     {
         m_nextOutVal = 0;
@@ -144,6 +144,7 @@ void LatchD::setPinReset( bool r )
     if( !r ) m_resetPin->removeConnector();
     updateSize();
 }
+
 void LatchD::updateSize()
 {
     int height = m_height-1;

@@ -68,7 +68,7 @@ BinCounter::BinCounter( QString type, QString id)
     addPropGroup( { tr("Main"), {
 
         new IntProp <BinCounter>("Bits", tr("Size"),"_bits"
-                             , this, &BinCounter::bits, &BinCounter::setBits, propNoCopy,"uint" ),
+                               , this, &BinCounter::bits, &BinCounter::setBits, propNoCopy,"uint" ),
 
         new IntProp <BinCounter>("Max_Value", tr("Top Value"),""
                                , this, &BinCounter::maxVal, &BinCounter::setMaxVal,0,"uint" ),

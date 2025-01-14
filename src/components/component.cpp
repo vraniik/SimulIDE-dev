@@ -429,7 +429,7 @@ void Component::setInvertPins( QString pins )
     for( QString pinStr : pinList )
     {
         Pin* pin = Circuit::self()->getPin( m_id+"-"+pinStr );
-        if( pin ) pin->setInverted( true );
+        if( pin ) pin->setInverted( !pin->inverted() );
     }
 }
 
