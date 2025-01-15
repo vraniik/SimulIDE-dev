@@ -101,7 +101,7 @@ class Circuit : public QGraphicsScene
         QList<Component*>* compList() { return &m_compList; }
         QList<Connector*>* conList()  { return &m_connList; }
         QList<Node*>*      nodeList() { return &m_nodeList; }
-        QHash<QString, CompBase*>* compMap() { return &m_compMap;}
+        QMap<QString, CompBase*>* compMap() { return &m_compMap;}
 
         Component* getCompById( QString id );
         QString origId( QString name ) { return m_idMap.value( name ); } // used by Shield
@@ -205,10 +205,10 @@ class Circuit : public QGraphicsScene
         SubPackage* m_board;
         SubCircuit* m_subCircuit;
 
-        QHash<QString, Pin*>      m_pinMap;   // Pin Id to Pin*
-        QHash<QString, Pin*>      m_LdPinMap; // Pin Id to Pin* while loading/pasting/importing
-        QHash<QString, QString>   m_idMap;    // Component seqNumber to new seqNumber (pasting)
-        QHash<QString, CompBase*> m_compMap;  // Component Id to Component*
+        QMap<QString, Pin*>      m_pinMap;   // Pin Id to Pin*
+        QMap<QString, Pin*>      m_LdPinMap; // Pin Id to Pin* while loading/pasting/importing
+        QMap<QString, QString>   m_idMap;    // Component seqNumber to new seqNumber (pasting)
+        QMap<QString, CompBase*> m_compMap;  // Component Id to Component*
 
         QTimer m_bckpTimer;
 

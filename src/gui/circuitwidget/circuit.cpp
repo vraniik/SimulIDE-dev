@@ -241,13 +241,13 @@ void Circuit::loadStrDoc( QString &doc )
                     endpin   = m_LdPinMap.value( endpinid );
                 }
 
-                if( !startpin && !m_pasting ) // Pin not found by name... find it by pos
+                if( !startpin ) // Pin not found by name... find it by pos
                 {
                     int itemX = pointList.first().toInt();
                     int itemY = pointList.at(1).toInt();
                     startpin = findPin( itemX, itemY, startpinid );
                 }
-                if( !endpin && !m_pasting ) // Pin not found by name... find it by pos
+                if( !endpin ) // Pin not found by name... find it by pos
                 {
                     int itemX = pointList.at( pointList.size()-2 ).toInt();
                     int itemY = pointList.last().toInt();
@@ -283,9 +283,9 @@ void Circuit::loadStrDoc( QString &doc )
                 if( m_pasting ) // Create new id
                 {
                     QString newNum = newSceneId();
-                    if( type == "Subcircuit" || type == "MCU" )
+                    //if( type == "Subcircuit" || type == "MCU" )  /// Problem with old component types
                         newUid = uid.split("-").first()+"-"+newNum;
-                    else newUid = type+"-"+newNum;
+                    //else newUid = type+"-"+newNum;
 
                     m_idMap[getSeqNumber( uid )] = newNum; // Map simu id to new id
                 }
