@@ -16,12 +16,14 @@ QString Chip::s_subcType = "None";
 
 #define tr(str) simulideTr("Chip",str)
 
-Chip::Chip( QString type, QString id )
+Chip::Chip( QString type, QString id, QString device )
     : Component( type, id )
     , eElement( id )
     , m_label( this )
 {
     m_id = id;
+    m_device = device;
+
     QStringList list = id.split("-");
     if( list.size() > 1 ) m_name = list.at( list.size()-2 ); // for example: "atmega328-1" to: "atmega328"
 
@@ -262,6 +264,30 @@ void Chip::initPackage( QString pkgStr )
     moveSignal();
     update();
     Circuit::self()->update();
+}
+
+QString Chip::getDevice( QString id ) // Static
+{
+    QString device;
+    QStringList list = id.split("-");
+    if( list.size() > 1 ){
+        device = list.at( list.size()-2 ); // for example: "atmega328-1" to: "atmega328"
+        list.takeLast();
+    }
+
+    if( Circuit::self()->getSubcircuit() ) // Nested SubCircuit
+    {
+        if( device.contains("@") ) list = device.split("@"); // Nested subcircuit not supported for versions < 1916
+
+        if( list.size() > 1 )  // Subcircuit inside Subcircuit: 1@74HC00 to 74HC00
+        {
+            QString n = list.first();
+            bool ok = false;
+            n.toInt(&ok);
+            if( ok ) device = list.last();
+        }
+    }
+    return device;
 }
 
 void Chip::setPinStr( QVector<propStr_t> properties )

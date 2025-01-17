@@ -33,39 +33,22 @@ Component* SubCircuit::construct( QString type, QString id )
     m_error = 0;
     m_subcDir = "";
 
-    QString name;
-    QStringList list = id.split("-");
-    if( list.size() > 1 ){
-        name = list.at( list.size()-2 ); // for example: "atmega328-1" to: "atmega328"
-        list.takeLast();
-    }
-
-    if( Circuit::self()->getSubcircuit() ){
-        if( name.contains("@") ) list = name.split("@");
-
-        if( list.size() > 1 )  // Subcircuit inside Subcircuit: 1_74HC00 to 74HC00
-        {
-            QString n = list.first();
-            bool ok = false;
-            n.toInt(&ok);
-            if( ok ) name = list.at( 1 );
-        }
-    }
+    QString device = Chip::getDevice( id );
 
     QMap<QString, QString> packageList;
     QString subcTyp = "None";
     QString pkgeFile;
     QString subcFile;
 
-    QString fileName = name+".sim1";
+    QString fileName = device+".sim1";
     subcFile = MainWindow::self()->getCircFilePath( fileName ); // Search sim1 in circuit or circuit/data folder
     if( subcFile.isEmpty() )                                    // Search sim1 in circuit/name or circuit/data/name folder
-        subcFile = MainWindow::self()->getCircFilePath( name+"/"+fileName );
+        subcFile = MainWindow::self()->getCircFilePath( device+"/"+fileName );
 
     if( subcFile.isEmpty() ) // Get subc folder from list
     {
-        m_subcDir = ComponentList::self()->getFileDir( name );
-        if( !m_subcDir.isEmpty() ) subcFile = m_subcDir+"/"+name+".sim1";
+        m_subcDir = ComponentList::self()->getFileDir( device );
+        if( !m_subcDir.isEmpty() ) subcFile = m_subcDir+"/"+device+".sim1";
     }
     else m_subcDir = QFileInfo( subcFile ).absolutePath();
 
@@ -76,15 +59,15 @@ Component* SubCircuit::construct( QString type, QString id )
 
         if( packageList.isEmpty() ) // Packages from package files
         {
-            pkgeFile  = m_subcDir+"/"+name+".package";
-            QString pkgFileLS = m_subcDir+"/"+name+"_LS.package";
+            pkgeFile  = m_subcDir+"/"+device+".package";
+            QString pkgFileLS = m_subcDir+"/"+device+"_LS.package";
             QString pkgName   = "2- DIP";
             QString pkgNameLS = "1- Logic Symbol";
 
             bool dip = QFile::exists( pkgeFile );
             bool ls  = QFile::exists( pkgFileLS );
             if( !dip && !ls ){
-                qDebug() << "SubCircuit::construct: Error No package files found for "<<name<<endl;
+                qDebug() << "SubCircuit::construct: Error No package files found for "<<device<<endl;
                 return nullptr;
             }
 
@@ -103,16 +86,16 @@ Component* SubCircuit::construct( QString type, QString id )
     }
 
     if( packageList.isEmpty() ){
-        qDebug() << "SubCircuit::construct: No Packages found for"<<name<<endl;
+        qDebug() << "SubCircuit::construct: No Packages found for"<<device<<endl;
         return nullptr;
     }
 
     SubCircuit* subcircuit = nullptr;
-    if     ( subcTyp == "Logic"  ) subcircuit = new LogicSubc( type, id );
-    else if( subcTyp == "Board"  ) subcircuit = new BoardSubc( type, id );
-    else if( subcTyp == "Shield" ) subcircuit = new ShieldSubc( type, id );
-    else if( subcTyp == "Module" ) subcircuit = new ModuleSubc( type, id );
-    else                           subcircuit = new SubCircuit( type, id );
+    if     ( subcTyp == "Logic"  ) subcircuit = new LogicSubc( type, id, device );
+    else if( subcTyp == "Board"  ) subcircuit = new BoardSubc( type, id, device );
+    else if( subcTyp == "Shield" ) subcircuit = new ShieldSubc( type, id, device );
+    else if( subcTyp == "Module" ) subcircuit = new ModuleSubc( type, id, device );
+    else                           subcircuit = new SubCircuit( type, id, device );
 
     if( m_error != 0 )
     {
@@ -154,8 +137,8 @@ LibraryItem* SubCircuit::libraryItem()
         SubCircuit::construct );
 }
 
-SubCircuit::SubCircuit( QString type, QString id )
-          : Chip( type, id )
+SubCircuit::SubCircuit( QString type, QString id, QString device )
+          : Chip( type, id, device )
 {
     m_lsColor = QColor( 235, 240, 255 );
     m_icColor = QColor( 20, 30, 60 );
@@ -181,7 +164,8 @@ void SubCircuit::loadSubCircuitFile( QString file )
 void SubCircuit::loadSubCircuit( QString doc )
 {
     QString numId = m_id;
-    numId = numId.split("-").last();
+    numId.remove( m_device+"-");
+
     Circuit* circ = Circuit::self();
 
     QList<Linker*> linkList;   // Linked  Component list

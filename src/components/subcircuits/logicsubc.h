@@ -10,7 +10,7 @@
 class LogicSubc : public SubCircuit
 {
     public:
-        LogicSubc( QString type, QString id );
+        LogicSubc( QString type, QString id, QString device );
         ~LogicSubc();
 
         double inputHighV() { return m_inHighV; }

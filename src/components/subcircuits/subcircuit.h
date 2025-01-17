@@ -13,7 +13,7 @@ class LibraryItem;
 class SubCircuit : public Chip
 {
     public:
-        SubCircuit( QString type, QString id );
+        SubCircuit( QString type, QString id, QString device );
         ~SubCircuit();
 
  static Component* construct( QString type, QString id );

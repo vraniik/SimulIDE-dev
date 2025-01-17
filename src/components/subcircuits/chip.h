@@ -11,7 +11,7 @@
 class Chip : public Component, public eElement
 {
     public:
-        Chip( QString type, QString id );
+        Chip( QString type, QString id, QString device=""  );
         ~Chip();
 
         virtual bool setPropStr( QString prop, QString val ) override;
@@ -48,6 +48,7 @@ class Chip : public Component, public eElement
  static QMap<QString, QString> getPackages( QString compText );
  static QString convertPackage( QString pkgText );
  static QString cleanPinName( QString name );
+ static QString getDevice( QString id );
  static QString s_subcType;
 
     protected:
@@ -85,6 +86,7 @@ class Chip : public Component, public eElement
         QColor m_icColor;
 
         QString m_name;
+        QString m_device;
         QString m_package;
         QString m_dataFile;
 

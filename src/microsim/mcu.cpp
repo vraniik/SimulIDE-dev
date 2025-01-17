@@ -56,7 +56,8 @@ LibraryItem* Mcu::libraryItem()
 Component* Mcu::construct( QString type, QString id )
 {
     m_error = 0;
-    Mcu* mcu = new Mcu( type, id );
+    QString device = Chip::getDevice( id );
+    Mcu* mcu = new Mcu( type, id, device );
     if( !m_error) m_error = McuCreator::createMcu( mcu, id );
 
     if( m_error > 0 )
@@ -69,8 +70,8 @@ Component* Mcu::construct( QString type, QString id )
     return mcu;
 }
 
-Mcu::Mcu( QString type, QString id )
-   : Chip( type, id )
+Mcu::Mcu( QString type, QString id, QString device )
+   : Chip( type, id, device )
    , m_eMcu( this, id )
 {
     qDebug() << "        Initializing"<<id;
@@ -199,11 +200,6 @@ Mcu::Mcu( QString type, QString id )
         if( QFileInfo::exists( pkgFileLS ) ){
             QString pkgStr = fileToString( pkgFileLS, "Mcu::Mcu" );
             m_packageList["2- "+m_device+"_LS"] = convertPackage( pkgStr );
-        }
-        QString pkgFileTQFP = baseFile+"_TQFP.package";
-        if( QFileInfo::exists( pkgFileLS ) ){
-            QString pkgStr = fileToString( pkgFileTQFP, "Mcu::Mcu" );
-            m_packageList["3- "+m_device+"_TQFP"] = convertPackage( pkgStr );
         }
     }
 

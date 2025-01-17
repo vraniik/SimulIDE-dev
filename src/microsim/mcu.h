@@ -26,7 +26,7 @@ class Mcu : public Chip, public Linker
         friend class SubCircuit;
 
     public:
-        Mcu( QString type, QString id );
+        Mcu( QString type, QString id, QString device );
         ~Mcu();
 
  static Mcu* self() { return m_pSelf; }

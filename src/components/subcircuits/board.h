@@ -12,7 +12,7 @@ class ShieldSubc;
 class BoardSubc : public SubCircuit
 {
     public:
-        BoardSubc( QString type, QString id );
+        BoardSubc( QString type, QString id, QString device );
         ~BoardSubc();
 
         virtual void setLogicSymbol( bool ls ) override;
