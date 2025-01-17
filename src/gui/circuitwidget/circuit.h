@@ -128,7 +128,7 @@ class Circuit : public QGraphicsScene
         const QString getFilePath() const { return m_filePath; }
         void setFilePath( QString f ) { m_filePath = f; }
 
-        bool saveString( QString &fileName, QString doc );
+        bool saveString( QString fileName, QString doc );
         QString circuitToString();
 
         int circuitRev() { return m_circRev; }

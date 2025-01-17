@@ -450,7 +450,7 @@ QString Circuit::circuitToString()
     return circuit;
 }
 
-bool Circuit::saveString( QString &fileName, QString doc )
+bool Circuit::saveString( QString fileName, QString doc )
 {
     QFile file( fileName );
     if( !file.open( QFile::WriteOnly | QFile::Text ))

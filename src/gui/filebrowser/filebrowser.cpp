@@ -20,15 +20,14 @@ FileBrowser::FileBrowser( QWidget *parent )
 {
     m_pSelf = this;
     m_showHidden = false;
-    
-    m_fileSystemModel = new QFileSystemModel(this);
-    m_fileSystemModel->setNameFilterDisables( false );
-    m_fileSystemModel->setRootPath( QDir::rootPath() );
-    
     m_currentPath = QDir::rootPath();
     
+    m_fileSystemModel = new QFileSystemModel( this );
+    m_fileSystemModel->setNameFilterDisables( false );
+    m_fileSystemModel->setRootPath( m_currentPath );
+
     setModel( m_fileSystemModel );
-    setRootIndex( m_fileSystemModel->index( QDir::rootPath() ));
+    setRootIndex( m_fileSystemModel->index( m_currentPath ));
     
     setHeaderHidden( true );
     hideColumn( 1 );

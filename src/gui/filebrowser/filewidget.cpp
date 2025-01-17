@@ -66,11 +66,11 @@ FileWidget::FileWidget( QWidget* parent )
     //connect( m_searchFiles, SIGNAL( editingFinished() ),
     //         this,          SLOT( searchChanged() ), Qt::UniqueConnection);
 
-    connect( m_cdUpButton,  SIGNAL(released()),
-             m_fileBrowser, SLOT(  cdUp()), Qt::UniqueConnection);
+    connect( m_cdUpButton,  SIGNAL( released() ),
+             m_fileBrowser, SLOT( cdUp() ), Qt::UniqueConnection);
              
     connect( m_path, SIGNAL( editingFinished() ),
-             this,   SLOT(  pathChanged()), Qt::UniqueConnection);
+             this,   SLOT(  pathChanged() ), Qt::UniqueConnection);
              
     int size = settings->beginReadArray("bookmarks");
     
