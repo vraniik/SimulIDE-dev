@@ -99,16 +99,17 @@ Mcu::Mcu( QString type, QString id )
     QString baseFile;
     QString dataFile = ComponentList::self()->getDataFile( m_device );
 
-    m_isTQFP = false;
+    //m_isTQFP = false;
     if( dataFile.isEmpty() )
     {
-        if( m_device.endsWith("TQFP") ) // Compatibilty with 1.1.0
+        /*if( m_device.endsWith(" TQFP") ) // Compatibilty with 1.1.0
         {
             m_isTQFP = true;
             m_device.remove(" TQFP");
             if( m_device.startsWith("m") ) m_device.replace("m", "mega");
         }
-        else if( m_device.startsWith("p") ) // Compatibilty with 0.4.15
+        else*/
+        if( m_device.startsWith("p") ) // Compatibilty with 0.4.15
         {
             if( m_device.endsWith("a") ) m_device.remove( m_device.size()-1, 1 );
             m_device.replace("f", "F");
@@ -117,7 +118,7 @@ Mcu::Mcu( QString type, QString id )
     }
     setName( m_device );
 
-    if( dataFile == "" ) // Component is not in SimulIDE, search in Circuit folder
+    if( dataFile.isEmpty() ) // Component is not in SimulIDE, search in Circuit folder
     {
         QDir mcuDir;
         QString folder = ComponentList::self()->getFileDir( m_device );
@@ -198,6 +199,11 @@ Mcu::Mcu( QString type, QString id )
         if( QFileInfo::exists( pkgFileLS ) ){
             QString pkgStr = fileToString( pkgFileLS, "Mcu::Mcu" );
             m_packageList["2- "+m_device+"_LS"] = convertPackage( pkgStr );
+        }
+        QString pkgFileTQFP = baseFile+"_TQFP.package";
+        if( QFileInfo::exists( pkgFileLS ) ){
+            QString pkgStr = fileToString( pkgFileTQFP, "Mcu::Mcu" );
+            m_packageList["3- "+m_device+"_TQFP"] = convertPackage( pkgStr );
         }
     }
 
@@ -303,8 +309,8 @@ void Mcu::setupMcu()
 
     if( hi.propList.size() > 0 ) addPropGroup( hi );
 
-    int index = m_isTQFP ? 1 : 0;
-    setPackage( m_packageList.keys().at( index ) );
+    //int index = m_isTQFP ? 2 : 0;
+    setPackage( m_packageList.keys().at( 0 ) );
 
     m_eMcu.getRamTable()->setRegisters( m_eMcu.m_regInfo.keys() );
     setUiFreq( m_uiFreq );
