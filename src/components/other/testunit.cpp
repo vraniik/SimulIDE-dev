@@ -168,11 +168,13 @@ void TestUnit::setTruth( QString t )
     QStringList truthList = t.split(",");
 
     bool ok;
+    int size = m_truthT.size();
     m_truthT.clear();
     for( QString valStr : truthList )
     {
         if( valStr.isEmpty() ) continue;
         m_truthT.push_back( valStr.toUInt( &ok, 16 ) );
+        if( m_truthT.size() == size ) break;
     }
 }
 
