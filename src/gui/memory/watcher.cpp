@@ -20,6 +20,9 @@ Watcher::Watcher( QWidget* parent, CoreBase* cpu )
 {
     setupUi(this);
 
+    setWindowFlags( Qt::Window | Qt::WindowTitleHint | Qt::Tool
+                   | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint );
+
     m_core = cpu;
     m_console= nullptr;
     m_header = false;
