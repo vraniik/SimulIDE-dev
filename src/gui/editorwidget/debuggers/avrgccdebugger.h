@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRGCCDEBUGGER_H
-#define AVRGCCDEBUGGER_H
+#pragma once
 
 #include "cdebugger.h"
 
@@ -25,5 +24,3 @@ class AvrGccDebugger : public cDebugger
 
         QString m_elfPath;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCS65CPU_H
-#define MCS65CPU_H
+#pragma once
 
 #include "mcs65interface.h"
 #include "iopin.h"
@@ -195,4 +194,3 @@ class Mcs65Cpu : public Mcs65Interface
         inline void TYA();
         inline void BXX();
 };
-#endif

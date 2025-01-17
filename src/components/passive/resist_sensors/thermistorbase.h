@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef THERMISTORBASE_H
-#define THERMISTORBASE_H
+#pragma once
 
 #include "varresbase.h"
 
@@ -23,5 +22,3 @@ class ThermistorBase : public VarResBase
     protected:
         bool m_ptc;
 };
-
-#endif

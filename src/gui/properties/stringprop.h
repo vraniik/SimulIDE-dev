@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef STRPROP_H
-#define STRPROP_H
+#pragma once
 
 #include "comproperty.h"
 
@@ -34,5 +33,3 @@ class StrProp : public ComProperty
         QString (Comp::*m_getter)();
         void    (Comp::*m_setter)(QString);
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PLOTSPINBOX_H
-#define PLOTSPINBOX_H
+#pragma once
 
 #include <QDoubleSpinBox>
 
@@ -23,4 +22,3 @@ class PlotSpinBox : public QDoubleSpinBox
 
         QString m_unit;
 };
-#endif

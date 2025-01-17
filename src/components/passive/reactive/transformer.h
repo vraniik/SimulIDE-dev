@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TRANSFORMER_H
-#define TRANSFORMER_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -72,4 +71,3 @@ class Transformer : public Component, public eElement
 
         std::vector<std::vector<double>> m_inva;
 };
-#endif

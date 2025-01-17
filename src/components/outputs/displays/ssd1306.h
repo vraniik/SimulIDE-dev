@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SSD1306_H
-#define SSD1306_H
+#pragma once
 
 #include "twimodule.h"
 #include "component.h"
@@ -108,5 +107,3 @@ class Ssd1306 : public Component, public TwiModule
 
         QColor m_foreground;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRUSART_H
-#define AVRUSART_H
+#pragma once
 
 #include "mcuuart.h"
 #include "mcutypes.h"
@@ -62,5 +61,3 @@ class AvrUsart : public McuUsart
         regBits_t m_UPE;
         regBits_t m_MPCM;
 };
-
-#endif

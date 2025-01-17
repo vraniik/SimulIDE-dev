@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CIRCUITVIEW_H
-#define CIRCUITVIEW_H
+#pragma once
 
 #include <QGraphicsView>
 
@@ -66,5 +65,3 @@ class CircuitView : public QGraphicsView
         QPoint m_mousePressPos;
         bool m_waitForDragStart;
 };
-
-#endif

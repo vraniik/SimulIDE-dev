@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRINTERRUPT_H
-#define AVRINTERRUPT_H
+#pragma once
 
 #include "mcuinterrupts.h"
 #include "mcutypes.h"
@@ -23,5 +22,3 @@ class AVRInterrupt : public Interrupt
     private:
         //regBits_t m_I;
 };
-
-#endif

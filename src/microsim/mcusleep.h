@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUSLEEP_H
-#define MCUSLEEP_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -28,4 +27,3 @@ class McuSleep : public McuModule, public eElement
 
         //uint8_t m_sleepMode; /// in McuModule
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUOCUNIT_H
-#define MCUOCUNIT_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -72,5 +71,3 @@ class McuOcUnit : public McuModule, public eElement
 
         bool m_pinSet;
 };
-
-#endif

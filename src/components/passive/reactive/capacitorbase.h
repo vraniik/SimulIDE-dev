@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CAPACITORBASE_H
-#define CAPACITORBASE_H
+#pragma once
 
 #include "reactive.h"
 
@@ -22,5 +21,3 @@ class CapacitorBase : public Reactive
 
         double m_capacitance;
 };
-
-#endif

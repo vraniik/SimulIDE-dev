@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SERIALTERM_H
-#define SERIALTERM_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -56,5 +55,3 @@ class SerialTerm : public Component, public UsartModule, public eElement
 
         QByteArray m_uartData;
 };
-
-#endif

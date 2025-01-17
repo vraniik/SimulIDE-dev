@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SUBPACKAGE_H
-#define SUBPACKAGE_H
+#pragma once
 
 #include "chip.h"
 #include "linker.h"
@@ -146,5 +145,3 @@ class EditDialog : public QDialog
         QCheckBox* m_pointCheckBox;
         QCheckBox* m_busCheckBox;
 };
-
-#endif

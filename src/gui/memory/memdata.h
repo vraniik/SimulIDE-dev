@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MEMDATA_H
-#define MEMDATA_H
+#pragma once
 
 #include <QVector>
 
@@ -38,7 +37,3 @@ class MemData
         static void saveHex( QVector<int>* data, int bits ); /// TODO
         static void saveBin( QVector<int>* data, int bits );
 };
-
-#endif
-
-

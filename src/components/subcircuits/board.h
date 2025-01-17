@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BOARD_H
-#define BOARD_H
+#pragma once
 
 #include "subcircuit.h"
 
@@ -30,4 +29,3 @@ class BoardSubc : public SubCircuit
         BoardSubc* m_parentBoard;     // A board this is attached to (this is a shield)
 
 };
-#endif

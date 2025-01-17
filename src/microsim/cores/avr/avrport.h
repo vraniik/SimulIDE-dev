@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRPORT_H
-#define AVRPORT_H
+#pragma once
 
 #include "mcuport.h"
 
@@ -20,5 +19,3 @@ class AvrPort : public McuPort
     protected:
         virtual McuPin* createPin( int i, QString id , Component* mcu ) override;
 };
-
-#endif

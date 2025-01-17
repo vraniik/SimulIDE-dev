@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef IOPIN_H
-#define IOPIN_H
+#pragma once
 
 #include <QColor>
 
@@ -141,4 +140,3 @@ class IoPin : public Pin, public eElement
 
         static eNode m_gndEnode;
 };
-#endif

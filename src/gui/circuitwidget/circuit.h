@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CIRCUIT_H
-#define CIRCUIT_H
+#pragma once
 
 #include <QGraphicsScene>
 #include <QTimer>
@@ -244,5 +243,3 @@ class Circuit : public QGraphicsScene
         QList<Node*>      m_oldNodes;
         QMap<CompBase*, QString> m_compStrMap;
 };
-
-#endif

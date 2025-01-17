@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MEMTABLE_H
-#define MEMTABLE_H
+#pragma once
 
 #include <QWidget>
 
@@ -58,5 +57,3 @@ class MemTable : public QWidget, private Ui::MemTable
         QTableWidgetItem* m_hoverItem;
         QVector<int>* m_data;
 };
-
-#endif

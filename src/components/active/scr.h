@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCR_H
-#define SCR_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -50,5 +49,3 @@ class SCR : public Component, public eElement
         eResistor* m_resistGa;
         eDiode*    m_diode;
 };
-
-#endif

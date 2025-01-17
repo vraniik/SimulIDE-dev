@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef HEADERWIDGET_H
-#define HEADERWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -25,5 +24,3 @@ class HeaderWidget : public QWidget, private Ui::HeaderWidget
 
         QString m_strVal;
 };
-
-#endif

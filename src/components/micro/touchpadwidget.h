@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TOUCHPADWIDGET_H
-#define TOUCHPADWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -29,4 +28,3 @@ class TouchPadWidget : public QWidget
         int m_xMousePos;
         int m_yMousePos;
 };
-#endif

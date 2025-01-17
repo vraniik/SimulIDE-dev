@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTPORT_H
-#define SCRIPTPORT_H
+#pragma once
 
 #include "scriptbase.h"
 #include "mcuport.h"
@@ -24,9 +23,4 @@ class ScriptPort : public ScriptBase, public McuPort
         virtual void setScript( QString script ) override;
 
         void setExtIntTrig( int pinNumber, int trig );
-
-    protected:
-
-
 };
-#endif

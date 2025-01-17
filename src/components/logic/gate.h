@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef GATE_H
-#define GATE_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -41,5 +40,3 @@ class Gate : public LogicComponent
 
         QPainterPath m_path;
 };
-
-#endif

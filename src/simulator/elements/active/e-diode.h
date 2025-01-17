@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EDIODE_H
-#define EDIODE_H
+#pragma once
 
 #include <QMap>
 
@@ -80,5 +79,3 @@ class eDiode : public eResistor
  static QMap<QString, diodeData_t> m_zeners;
  static QMap<QString, diodeData_t> m_leds;
 };
-
-#endif

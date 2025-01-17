@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SPIMODULE_H
-#define SPIMODULE_H
+#pragma once
 
 #include "e-clocked_device.h"
 
@@ -73,5 +72,3 @@ class SpiModule : public eClockedDevice
         IoPin* m_dataOutPin;
         IoPin* m_dataInPin;
 };
-#endif
-

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUDATASPACE_H
-#define MCUDATASPACE_H
+#pragma once
 
 #include <QHash>
 #include <vector>
@@ -70,5 +69,3 @@ class DataSpace
 
         RamTable* m_ramTable;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICUSART_H
-#define PICUSART_H
+#pragma once
 
 #include "mcuuart.h"
 #include "mcutypes.h"
@@ -61,5 +60,3 @@ class PicUsart : public McuUsart
         regBits_t m_OERR;
         regBits_t m_SYNC;
 };
-
-#endif

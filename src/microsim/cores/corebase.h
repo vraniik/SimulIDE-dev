@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COREBASE_H
-#define COREBASE_H
+#pragma once
 
 #include <QStringList>
 #include <QHash>
@@ -32,5 +31,3 @@ class CoreBase
 
         Display* m_display; // Find a place for this
 };
-
-#endif

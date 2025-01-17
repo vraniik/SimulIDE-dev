@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BATTERY_H
-#define BATTERY_H
+#pragma once
 
 #include "comp2pin.h"
 #include "e-resistor.h"
@@ -35,5 +34,3 @@ class Battery : public Comp2Pin, public eResistor
 
         bool m_connected;
 };
-
-#endif

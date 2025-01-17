@@ -3,11 +3,9 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICICUNIT_H
-#define PICICUNIT_H
+#pragma once
 
 #include "mcuicunit.h"
-
 
 class PicIcUnit : public McuIcUnit
 {
@@ -26,5 +24,3 @@ class PicIcUnit : public McuIcUnit
         uint64_t m_prescaler;
         uint64_t m_counter;
 };
-
-#endif

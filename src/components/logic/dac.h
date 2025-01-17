@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DAC_H
-#define DAC_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -34,5 +33,3 @@ class DAC : public LogicComponent
 
         int m_val;
 };
-
-#endif

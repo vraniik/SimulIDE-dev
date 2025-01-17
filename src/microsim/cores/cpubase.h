@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CPUCORE_H
-#define CPUCORE_H
+#pragma once
 
 #include "e_mcu.h"
 #include "corebase.h"
@@ -57,5 +56,3 @@ class CpuBase : public CoreBase
             else      *m_STATUS &= ~(1<<bit);
         }
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICCONFIGWORD_H
-#define PICCONFIGWORD_H
+#pragma once
 
 #include "mcuconfigword.h"
 #include "e-element.h"
@@ -69,4 +68,3 @@ class PicConfigWord04 : public PicConfigWord
 
         virtual bool setCfgWord( uint16_t addr, uint16_t data ) override;
 };
-#endif

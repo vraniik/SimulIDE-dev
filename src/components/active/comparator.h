@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPARATOR_H
-#define COMPARATOR_H
+#pragma once
 
 #include "component.h"
 #include "iocomponent.h"
@@ -28,5 +27,3 @@ class Comparator : public IoComponent, public eElement
         virtual QPainterPath shape() const override;
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

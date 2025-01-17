@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVREEPROM_H
-#define AVREEPROM_H
+#pragma once
 
 #include "mcueeprom.h"
 
@@ -36,5 +35,3 @@ class AvrEeprom : public McuEeprom
         regBits_t m_EEPE;
         regBits_t m_EERE;
 };
-
-#endif

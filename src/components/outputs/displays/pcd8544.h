@@ -14,8 +14,7 @@
 // Copyright: See COPYING file that comes with this distribution
 
 
-#ifndef PCD8544_H
-#define PCD8544_H
+#pragma once
 
 #include "component.h"
 #include "itemlibrary.h"
@@ -65,5 +64,3 @@ class Pcd8544 : public Component, public eElement
         Pin m_pSi;
         Pin m_pScl;
 };
-
-#endif

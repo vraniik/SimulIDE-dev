@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VALUEWIDGET_H
-#define VALUEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -33,5 +32,3 @@ class ValueWidget : public QWidget, private Ui::ValueWidget
 
         CoreBase* m_core;
 };
-
-#endif

@@ -1,6 +1,5 @@
 
-#ifndef Z80CYCLES_H
-#define Z80CYCLES_H
+#pragma once
 
 #include "z80core.h"
 // Table of number of machine cycles for instructions
@@ -67,5 +66,3 @@ const uint8_t Z80Core::sTableM1TStates[3][256] = {
     4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4,     // 0xA0
     4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,     // 0xC0
     4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 } }; // 0xE0
-
-#endif

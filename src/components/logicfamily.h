@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LOGICFAMILY_H
-#define LOGICFAMILY_H
+#pragma once
 
 #include <QMap>
 
@@ -94,4 +93,3 @@ class LogicFamily
 
  static QMap<QString, logicFamily_t> m_families;
 };
-#endif

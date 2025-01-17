@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CAPACITOR_H
-#define CAPACITOR_H
+#pragma once
 
 #include "capacitorbase.h"
 
@@ -21,5 +20,3 @@ class Capacitor : public CapacitorBase
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

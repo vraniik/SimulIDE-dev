@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LEDRGB_H
-#define LEDRGB_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -62,5 +61,3 @@ class LedRgb : public Component, public eElement
 
         eLed* m_led[3];
 };
-
-#endif

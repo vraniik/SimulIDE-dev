@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef Thermistor_H
-#define Thermistor_H
+#pragma once
 
 #include "thermistorbase.h"
 
@@ -33,5 +32,3 @@ class Thermistor : public ThermistorBase
         int m_bVal;
         int m_r25;
 };
-
-#endif

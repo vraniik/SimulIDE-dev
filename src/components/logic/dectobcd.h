@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DECTOBCD_H
-#define DECTOBCD_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -30,6 +29,3 @@ class DecToBcd : public LogicComponent
         bool m_16Bits;
         int  m_bits;
 };
-
-#endif
-

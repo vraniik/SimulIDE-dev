@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BOOLPROP_H
-#define BOOLPROP_H
+#pragma once
 
 #include "comproperty.h"
 
@@ -34,5 +33,3 @@ class BoolProp : public ComProperty
         bool (Comp::*m_getter)();
         void (Comp::*m_setter)(bool);
 };
-
-#endif

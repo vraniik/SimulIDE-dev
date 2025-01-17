@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef APPDIALOG_H
-#define APPDIALOG_H
+#pragma once
 
 #include <QDialog>
 
@@ -76,5 +75,3 @@ class AppDialog : public QDialog, private Ui::AppDialog
         uint64_t m_stepSize;
         uint64_t m_psPerSec;
 };
-
-#endif

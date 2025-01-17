@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LATCHD_H
-#define LATCHD_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -41,6 +40,3 @@ class LatchD : public LogicComponent
 
         IoPin* m_resetPin;
 };
-
-#endif
-

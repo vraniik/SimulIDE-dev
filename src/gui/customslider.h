@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CUSTOMSlider_H
-#define CUSTOMSlider_H
+#pragma once
 
 #include <QSlider>
 
@@ -17,4 +16,3 @@ class CustomSlider : public QSlider
     private:
         virtual void paintEvent( QPaintEvent* ) override;
 };
-#endif

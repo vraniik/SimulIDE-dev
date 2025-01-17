@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EMOSFET_H
-#define EMOSFET_H
+#pragma once
 
 #include "e-resistor.h"
 
@@ -44,5 +43,3 @@ class eMosfet : public eResistor
         bool m_Pchannel;
         bool m_depletion;
 };
-
-#endif

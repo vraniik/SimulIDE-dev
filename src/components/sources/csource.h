@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CSOURCE_H
-#define CSOURCE_H
+#pragma once
 
 #include "e-resistor.h"
 #include "component.h"
@@ -66,5 +65,3 @@ class Csource : public Component, public eResistor
         bool m_currSource;
         bool m_currControl;
 };
-
-#endif

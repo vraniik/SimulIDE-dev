@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SUBCIRCUIT_H
-#define SUBCIRCUIT_H
+#pragma once
 
 #include "chip.h"
 
@@ -55,5 +54,3 @@ class SubCircuit : public Chip
  static QStringList s_graphProps;
         void loadGraphProps();
 };
-#endif
-

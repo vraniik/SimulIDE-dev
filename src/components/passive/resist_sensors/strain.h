@@ -7,8 +7,7 @@
  *   santigoro@gmail.com                                                   *
  *                                                                         */
 
-#ifndef STRAIN_H
-#define STRAIN_H
+#pragma once
 
 #include "varresbase.h"
 
@@ -66,5 +65,3 @@ class Strain : public VarResBase
         double m_lambda_s = 2.5e-5;      // per °C for Aluminum body
         double m_delta_r_t;              // resisrance viariation due to thermal drift
 };
-
-#endif

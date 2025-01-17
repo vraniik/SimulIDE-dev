@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRINTOSC_H
-#define AVRINTOSC_H
+#pragma once
 
 #include "mcuintosc.h"
 
@@ -26,5 +25,3 @@ class AvrIntOsc : public McuIntOsc
 
         regBits_t m_CLKPS;
 };
-
-#endif

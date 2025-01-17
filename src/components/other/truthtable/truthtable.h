@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TRUTHTABLE_H
-#define TRUTHTABLE_H
+#pragma once
 
 #include <QDialog>
 
@@ -43,4 +42,3 @@ class TruthTable : public QDialog, private Ui::TruthTable
 
         std::vector<uint> m_truthVector;
 };
-#endif

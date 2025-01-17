@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EELEMENT_H
-#define EELEMENT_H
+#pragma once
 
 #include <vector>
 #include <QString>
@@ -53,4 +52,3 @@ class eElement
         bool m_changed;
         double m_step;
 };
-#endif

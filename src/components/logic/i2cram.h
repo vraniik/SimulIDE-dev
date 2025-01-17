@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I2CRAM_H
-#define I2CRAM_H
+#pragma once
 
 #include "twimodule.h"
 #include "iocomponent.h"
@@ -56,5 +55,3 @@ class I2CRam : public IoComponent, public TwiModule, public MemData
 
         bool m_persistent;
 };
-
-#endif

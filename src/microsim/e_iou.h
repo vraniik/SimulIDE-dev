@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EIOU_H
-#define EIOU_H
+#pragma once
 
 #include <QHash>
 
@@ -44,4 +43,3 @@ class eIou : public eElement
 
         QHash<QString, IoPort*> m_ioPorts;  // Access ioPORTS by name
 };
-#endif

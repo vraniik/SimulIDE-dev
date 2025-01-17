@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SWITCH_BASE_H
-#define SWITCH_BASE_H
+#pragma once
 
 #include "mech_contact.h"
 
@@ -43,5 +42,3 @@ class SwitchBase : public MechContact
 
         QMetaObject::Connection m_keyEventConn;
 };
-
-#endif

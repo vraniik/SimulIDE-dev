@@ -9,8 +9,7 @@
  *
  */
 
-#ifndef AVRCORE_H
-#define AVRCORE_H
+#pragma once
 
 #include "mcucpu.h"
 
@@ -41,4 +40,3 @@ class AvrCore : public McuCpu
         void flags_zns16( uint16_t res );
         int  is_instr_32b( uint32_t pc );
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef INODEBUGGER_H
-#define INODEBUGGER_H
+#pragma once
 
 #include <QMap>
 
@@ -48,5 +47,3 @@ class InoDebugger : public AvrGccDebugger
 
         QMap<QString, QString> m_boardMap;
 };
-
-#endif

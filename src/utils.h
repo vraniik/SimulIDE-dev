@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
 #include <QtMath>
 #include <QList>
@@ -100,5 +99,3 @@ QList<T> substract( QList<T> &l0, QList<T> &l1 ) // returns l0-l1
     for( T el : l0 ) if( !l1.contains( el ) ) list.append( el );
     return list;
 }
-#endif
-

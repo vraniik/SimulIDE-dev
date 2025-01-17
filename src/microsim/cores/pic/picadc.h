@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICADC_H
-#define PICADC_H
+#pragma once
 
 #include "mcuadc.h"
 #include "mcutypes.h"
@@ -139,4 +138,3 @@ class PicAdc3 : public PicAdc
 
     protected:
 };
-#endif

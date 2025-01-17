@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SOURCEWIDGET_H
-#define SOURCEWIDGET_H
+#pragma once
 
 #include "dialwidget.h"
 
@@ -18,5 +17,3 @@ class SourceWidget : public DialWidget
 
         CustomButton* pushButton;
 };
-#endif
-

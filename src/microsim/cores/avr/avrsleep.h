@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRSLEEP_H
-#define AVRSLEEP_H
+#pragma once
 
 #include "mcusleep.h"
 #include "mcutypes.h"
@@ -48,4 +47,3 @@ class AvrSleep : public McuSleep
         AvrSleep00( eMcu* mcu, QString name );
         ~AvrSleep00();
 }*/
-#endif

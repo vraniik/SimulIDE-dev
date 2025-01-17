@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef INFOWIDGET_H
-#define INFOWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -29,5 +28,3 @@ class InfoWidget : public QWidget, private Ui::infoWidget
     private:
  static InfoWidget* m_pSelf;
 };
-
-#endif

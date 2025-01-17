@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTCPU_H
-#define SCRIPTCPU_H
+#pragma once
 
 #include "scriptbase.h"
 #include "iopin.h"
@@ -117,4 +116,3 @@ class ScriptCpu : public ScriptBase, public McuCpu
 
         std::vector<ScriptPerif*> m_periferals;
 };
-#endif

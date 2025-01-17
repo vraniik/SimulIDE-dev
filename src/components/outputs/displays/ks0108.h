@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef KS0108_H
-#define KS0108_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -72,5 +71,3 @@ class Ks0108 : public Component, public eElement
         
         std::vector<IoPin*> m_dataPin;
 };
-
-#endif

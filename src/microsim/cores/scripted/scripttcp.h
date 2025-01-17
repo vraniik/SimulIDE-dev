@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTTCP_H
-#define SCRIPTTCP_H
+#pragma once
 
 #include "scriptperif.h"
 #include "tcpmodule.h"
@@ -39,5 +38,3 @@ class ScriptTcp : public TcpModule, public ScriptPerif
         asIScriptFunction* m_connected;
         asIScriptFunction* m_closed;
 };
-
-#endif

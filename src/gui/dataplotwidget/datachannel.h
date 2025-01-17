@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DATACHANNEL_H
-#define DATACHANNEL_H
+#pragma once
 
 #include "e-element.h"
 #include "updatable.h"
@@ -76,5 +75,3 @@ class DataChannel : public eElement, public Updatable
 
         PlotBase* m_plotBase;
 };
-
-#endif

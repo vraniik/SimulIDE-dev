@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUSPI_H
-#define MCUSPI_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "spimodule.h"
@@ -30,5 +29,3 @@ class McuSpi : public McuPrescaled, public SpiModule
         uint8_t* m_dataReg;
         uint8_t* m_statReg;
 };
-
-#endif

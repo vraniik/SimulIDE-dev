@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BUS_H
-#define BUS_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -40,6 +39,3 @@ class Bus : public Component, public eElement
         Pin* m_busPin0;
         Pin* m_busPin1;
 };
-
-#endif
-

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICEEPROM_H
-#define PICEEPROM_H
+#pragma once
 
 #include "mcueeprom.h"
 
@@ -34,5 +33,3 @@ class PicEeprom : public McuEeprom
         regBits_t m_WR;
         regBits_t m_RD;
 };
-
-#endif

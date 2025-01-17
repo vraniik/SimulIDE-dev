@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ENODE_H
-#define ENODE_H
+#pragma once
 
 #include<QHash>
 
@@ -119,5 +118,3 @@ class eNode
         bool m_single;
         //bool m_switched;
 };
-#endif
-

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BATCHTEST_H
-#define BATCHTEST_H
+#pragma once
 
 #include <QDir>
 
@@ -33,5 +32,3 @@ class BatchTest
         static QStringList m_circFiles;
         static QList<Component*> m_testUnits;
 };
-
-#endif

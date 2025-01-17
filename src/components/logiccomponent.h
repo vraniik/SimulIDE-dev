@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LOGICCOMPONENT_H
-#define LOGICCOMPONENT_H
+#pragma once
 
 #include "iocomponent.h"
 #include "e-clocked_device.h"
@@ -49,5 +48,3 @@ class LogicComponent : public IoComponent, public eClockedDevice
 
         IoPin* m_oePin;
 };
-
-#endif

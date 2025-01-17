@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CONFIGWORD_H
-#define CONFIGWORD_H
+#pragma once
 
 #include <QHash>
 
@@ -26,4 +25,3 @@ class ConfigWord
 
         QHash<uint16_t, uint16_t> m_cfgWords; // Config words
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRWDT_H
-#define AVRWDT_H
+#pragma once
 
 #include "mcuwdt.h"
 
@@ -73,4 +72,3 @@ class AvrWdt01 : public AvrWdt
     private:
         virtual void updtPrescaler( uint8_t newWDTCSR ) override;
 };
-#endif

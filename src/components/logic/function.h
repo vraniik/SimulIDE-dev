@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FUNCTION_H
-#define FUNCTION_H
+#pragma once
 
 #include "iocomponent.h"
 #include "scriptbase.h"
@@ -62,5 +61,3 @@ class Function : public IoComponent, public ScriptBase
 
         QString m_lastDir;
 };
-
-#endif

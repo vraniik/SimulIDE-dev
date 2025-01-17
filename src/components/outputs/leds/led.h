@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LED_H
-#define LED_H
+#pragma once
 
 #include "ledbase.h"
 #include "linker.h"
@@ -30,5 +29,3 @@ class Led : public LedBase, public Linker
         void drawBackground( QPainter* p ) override;
         void drawForeground( QPainter* p ) override;
 };
-
-#endif

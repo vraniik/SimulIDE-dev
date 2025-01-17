@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CLOCKBASE_H
-#define CLOCKBASE_H
+#pragma once
 
 #include "fixedvolt.h"
 
@@ -49,5 +48,3 @@ class ClockBase : public FixedVolt
         double m_freq;
         double m_remainder;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VOLTIMETER_H
-#define VOLTIMETER_H
+#pragma once
 
 #include "meter.h"
 
@@ -21,5 +20,3 @@ class Voltimeter : public Meter
 
         virtual void updateStep() override;
 };
-
-#endif

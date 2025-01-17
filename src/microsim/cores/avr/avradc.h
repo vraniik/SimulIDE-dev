@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRADC_H
-#define AVRADC_H
+#pragma once
 
 #include "mcuadc.h"
 #include "mcutypes.h"
@@ -177,4 +176,3 @@ class AvrAdc20 : public AvrAdc
         virtual void autotriggerConf() override;
         virtual void updtVref() override;
 };
-#endif

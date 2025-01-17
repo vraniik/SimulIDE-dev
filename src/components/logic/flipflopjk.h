@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FLIPFLOPJK_H
-#define FLIPFLOPJK_H
+#pragma once
 
 #include "flipflopbase.h"
 
@@ -22,5 +21,3 @@ class FlipFlopJK : public FlipFlopBase
     protected:
         void calcOutput();
 };
-
-#endif

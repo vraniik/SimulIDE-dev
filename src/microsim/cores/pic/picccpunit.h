@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICCCPUNIT_H
-#define PICCCPUNIT_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -54,5 +53,3 @@ class PicCcpUnit : public McuModule, public eElement
         PicOcUnit*  m_comUnit;
         PicPwmUnit* m_pwmUnit;
 };
-
-#endif

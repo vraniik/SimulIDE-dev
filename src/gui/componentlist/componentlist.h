@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPONENTLIST_H
-#define COMPONENTLIST_H
+#pragma once
 
 #include <QDropEvent>
 #include <QDir>
@@ -87,4 +86,3 @@ class ComponentList : public QTreeWidget
 
         ItemLibrary m_itemLibrary;
 };
-#endif

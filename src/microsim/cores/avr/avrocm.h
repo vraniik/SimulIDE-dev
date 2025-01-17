@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVROCM_H
-#define AVROCM_H
+#pragma once
 
 #include "mcuocm.h"
 
@@ -21,5 +20,3 @@ class AvrOcm : public McuOcm
     protected:
         virtual void OutputOcm() override;
 };
-
-#endif

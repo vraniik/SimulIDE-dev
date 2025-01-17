@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CHIP_H
-#define CHIP_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -99,5 +98,3 @@ class Chip : public Component, public eElement
 
         QGraphicsTextItem m_label;
 };
-
-#endif

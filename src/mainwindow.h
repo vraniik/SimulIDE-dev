@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QDir>
@@ -131,5 +130,3 @@ class MainWindow : public QMainWindow
         
         QSplitter*  m_mainSplitter;
 };
-
-#endif

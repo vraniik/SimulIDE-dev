@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SERIALPORT_H
-#define SERIALPORT_H
+#pragma once
 
 #include <QSerialPort>
 
@@ -81,5 +80,3 @@ class SerialPort : public Component, public UsartModule, public eElement
         QSerialPort::StopBits    m_stopBits;*/
         QSerialPort::FlowControl m_flowControl;
 };
-
-#endif

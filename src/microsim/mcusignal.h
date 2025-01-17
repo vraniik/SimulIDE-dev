@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUSIGNAL_H
-#define MCUSIGNAL_H
+#pragma once
 
 #include <vector>
 #include <inttypes.h>
@@ -110,5 +109,3 @@ class McuSignal
     private:
         CallBackBase* m_slot;
 };
-
-#endif

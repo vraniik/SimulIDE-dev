@@ -7,8 +7,7 @@
  *   santigoro@gmail.com                                                   *
  *                                                                         */
 
-#ifndef RTD_H
-#define RTD_H
+#pragma once
 
 #include "thermistorbase.h"
 
@@ -44,5 +43,3 @@ class RTD : public ThermistorBase
         double coef_temp_b = -5.775e-7;   // b*T2
         double coef_temp_c = -4.183e-12;  // c*(T-100)*T3 (T < 0 only)
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUUART_H
-#define MCUUART_H
+#pragma once
 
 #include "usartmodule.h"
 #include "mcumodule.h"
@@ -33,5 +32,3 @@ class McuUsart : public McuModule, public UsartModule
         regBits_t m_bit9Tx;
         regBits_t m_bit9Rx;
 };
-
-#endif

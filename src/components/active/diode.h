@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DIODE_H
-#define DIODE_H
+#pragma once
 
 #include "e-diode.h"
 #include "linkercomponent.h"
@@ -39,5 +38,3 @@ class Diode : public LinkerComponent, public eDiode
         eNode* m_midEnode;
         eResistor* m_resistor;
 };
-
-#endif

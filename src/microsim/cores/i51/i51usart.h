@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I51USART_H
-#define I51USART_H
+#pragma once
 
 #include "mcuuart.h"
 #include "mcutypes.h"
@@ -47,6 +46,3 @@ class I51Usart : public McuUsart
 
         bool m_stopBitError;
 };
-
-#endif
-

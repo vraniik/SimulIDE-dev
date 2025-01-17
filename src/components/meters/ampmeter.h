@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AMPERIMETER_H
-#define AMPERIMETER_H
+#pragma once
 
 #include "meter.h"
 
@@ -21,5 +20,3 @@ class Amperimeter : public Meter
 
         virtual void updateStep() override;
 };
-
-#endif

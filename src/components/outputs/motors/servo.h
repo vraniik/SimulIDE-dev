@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SERVO_H
-#define SERVO_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -46,5 +45,3 @@ class Servo : public LogicComponent
         uint64_t m_pulseStart;   // Simulation step
         uint64_t m_lastUpdate;   // Simulation step
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICOCUNIT_H
-#define PICOCUNIT_H
+#pragma once
 
 #include "mcuocunit.h"
 
@@ -80,5 +79,3 @@ class PicPwmUnit01 : public PicPwmUnit
 
         virtual void setup() override;
 };
-
-#endif

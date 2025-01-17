@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BUFFER_H
-#define BUFFER_H
+#pragma once
 
 #include "gate.h"
 
@@ -29,5 +28,3 @@ class Buffer : public Gate
 
         bool m_small;
 };
-
-#endif

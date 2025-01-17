@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef INTPROP_H
-#define INTPROP_H
+#pragma once
 
 #include "numprop.h"
 
@@ -34,5 +33,3 @@ class IntProp : public NumProp
         int  (Comp::*m_getter)();
         void (Comp::*m_setter)(int);
 };
-
-#endif

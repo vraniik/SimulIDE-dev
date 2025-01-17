@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPLABEL_H
-#define COMPLABEL_H
+#pragma once
 
 #include <QGraphicsTextItem>
 
@@ -53,4 +52,3 @@ class Label : public QGraphicsTextItem
         float m_labely;
         int m_labelrot;
 };
-#endif

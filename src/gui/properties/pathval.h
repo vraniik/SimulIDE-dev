@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PATHVAL_H
-#define PATHVAL_H
+#pragma once
 
 #include "ui_pathval.h"
 #include "propval.h"
@@ -27,5 +26,3 @@ class PathVal : public PropVal, private Ui::PathVal
         void on_value_editingFinished();
         void on_setPathButton_clicked();
 };
-
-#endif

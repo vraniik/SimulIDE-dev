@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef KEYPAD_H
-#define KEYPAD_H
+#pragma once
 
 #include "e-element.h"
 #include "push_base.h"
@@ -61,5 +60,3 @@ class KeyPad : public Component, public eElement
         std::vector<Pin*> m_rowPins;
         std::vector<Pin*> m_colPins;
 };
-
-#endif

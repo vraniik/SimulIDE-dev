@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LEDBAR_H
-#define LEDBAR_H
+#pragma once
 
 #include "component.h"
 #include "ledsmd.h"
@@ -52,5 +51,3 @@ class LedBar : public Component
         
         int m_size;
 };
-
-#endif

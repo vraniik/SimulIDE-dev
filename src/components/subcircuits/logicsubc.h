@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LOGICSUBC_H
-#define LOGICSUBC_H
+#pragma once
 
 #include "subcircuit.h"
 
@@ -47,4 +46,3 @@ class LogicSubc : public SubCircuit
         uint64_t m_timeHL;    // Time for Output voltage to switch from 90% to 10%
 
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RTCLOCK_H
-#define RTCLOCK_H
+#pragma once
 
 #include <QTime>
 
@@ -44,5 +43,3 @@ class RtClock : public eElement
 
         IoPin* m_outpin;
 };
-
-#endif

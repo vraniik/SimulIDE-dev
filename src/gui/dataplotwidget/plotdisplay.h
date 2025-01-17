@@ -3,8 +3,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef PLOTDISPLAY_H
-#define PLOTDISPLAY_H
+#pragma once
 
 #include <QPixmap>
 #include <QWidget>
@@ -106,6 +105,3 @@ class PlotDisplay : public QWidget
         QColor m_dark[2];
         QColor m_scaleColor[3];
 };
-
-#endif
-

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MUX_H
-#define MUX_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -34,5 +33,3 @@ class Mux : public LogicComponent
     private:
         int m_addrBits;
 };
-
-#endif

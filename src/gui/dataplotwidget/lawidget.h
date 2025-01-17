@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LAWIDGET_H
-#define LAWIDGET_H
+#pragma once
 
 #include <QDialog>
 #include <QVector>
@@ -75,6 +74,3 @@ class LaWidget : public QDialog, private Ui::LaWidget
 
         LAnalizer* m_analizer;
 };
-
-
-#endif

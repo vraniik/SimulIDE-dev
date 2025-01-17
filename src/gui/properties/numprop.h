@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef NUMPROP_H
-#define NUMPROP_H
+#pragma once
 
 #include "comproperty.h"
 
@@ -23,5 +22,3 @@ class NumProp : public ComProperty
 
         QString getStr( double val );
 };
-
-#endif

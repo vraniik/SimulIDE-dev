@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LAMP_H
-#define LAMP_H
+#pragma once
 
 #include "e-resistor.h"
 #include "comp2pin.h"
@@ -45,5 +44,3 @@ class Lamp : public Comp2Pin, public eResistor
         double m_lastPeriod;
         double m_brightness;
 };
-
-#endif

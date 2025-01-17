@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#pragma once
 
 #include <QGraphicsItem>
 #include <QGraphicsSceneMouseEvent>
@@ -236,5 +235,3 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
 };
 
 typedef Component* (*createItemPtr)( QString type, QString id );
-
-#endif

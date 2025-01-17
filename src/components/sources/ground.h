@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef GROUND_H
-#define GROUND_H
+#pragma once
 
 #include "component.h"
 
@@ -21,5 +20,3 @@ class Ground : public Component
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

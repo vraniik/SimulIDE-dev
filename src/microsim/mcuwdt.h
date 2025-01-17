@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUWDT_H
-#define MCUWDT_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "e-element.h"
@@ -34,4 +33,3 @@ class McuWdt : public McuPrescaled, public eElement
         uint64_t m_ovfPeriod; // overflow period in ps
         uint64_t m_clkPeriod; // clock period in ps
 };
-#endif

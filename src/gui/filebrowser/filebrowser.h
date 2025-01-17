@@ -17,8 +17,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FILEBROWSER_H
-#define FILEBROWSER_H
+#pragma once
 
 #include <QTreeView>
 
@@ -59,5 +58,3 @@ class FileBrowser : public QTreeView
 
         bool m_showHidden;
 };
-
-#endif

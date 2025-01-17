@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SIMULATOR_H
-#define SIMULATOR_H
+#pragma once
 
 #include "e-node.h"
 #include "e-element.h"
@@ -175,6 +174,3 @@ class Simulator : public QObject
 
         QElapsedTimer m_RefTimer;
 };
- #endif
-
-

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SEVENSEGMENT_H
-#define SEVENSEGMENT_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -67,6 +66,4 @@ class SevenSegment : public Component, public eElement
         std::vector<LedSmd*> m_segment;
         eNode* m_enode[8];
 };
-
-#endif
 

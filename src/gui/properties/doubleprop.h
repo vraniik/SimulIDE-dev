@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DOUBPROP_H
-#define DOUBPROP_H
+#pragma once
 
 #include "numprop.h"
 
@@ -34,5 +33,3 @@ class DoubProp : public NumProp
         double (Comp::*m_getter)();
         void   (Comp::*m_setter)(double);
 };
-
-#endif

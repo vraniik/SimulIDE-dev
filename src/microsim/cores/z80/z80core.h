@@ -17,8 +17,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef Z80CORE_H
-#define Z80CORE_H
+#pragma once
 
 #include "cpubase.h"
 #include "e-element.h"
@@ -274,4 +273,3 @@ class Z80Core : public CpuBase, public eElement
         template< eBlock type >
         inline void otxx();
 };
-#endif

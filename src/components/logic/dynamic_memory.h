@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DYNAMICMEMORY_H
-#define DYNAMICMEMORY_H
+#pragma once
 
 #include "logiccomponent.h"
 #include "memdata.h"
@@ -75,5 +74,3 @@ class DynamicMemory : public LogicComponent, public MemData
         IoPin* m_WePin;
         IoPin* m_OePin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICMRCORE_H
-#define PICMRCORE_H
+#pragma once
 
 #include "mcucpu.h"
 
@@ -126,5 +125,3 @@ class PicMrCore : public McuCpu
         inline void SUBLW( uint8_t k );
         inline void ADDLW( uint8_t k );
 };
-
-#endif

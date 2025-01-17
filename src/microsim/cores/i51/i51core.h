@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I51CORE_H
-#define I51CORE_H
+#pragma once
 
 #include "mcucpu.h"
 
@@ -248,5 +247,3 @@ class I51Core : public McuCpu, public eElement
         inline void movx_indir_dptr_a();
         inline void movx_indir_rx_a();
 };
-
-#endif

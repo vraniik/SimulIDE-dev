@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SHIFTREG_H
-#define SHIFTREG_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -51,5 +50,3 @@ class ShiftReg : public LogicComponent
         IoPin* m_rstPin;
         IoPin* m_serPin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICMSSP_H
-#define PICMSSP_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -39,5 +38,3 @@ class PicMssp : public McuModule, public eElement
         PicSpi* m_spiUnit;
         PicTwi* m_twiUnit;
 };
-
-#endif

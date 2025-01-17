@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef WS2812_H
-#define WS2812_H
+#pragma once
 
 #include "e-clocked_device.h"
 #include "component.h"
@@ -80,6 +79,3 @@ class WS2812 : public Component, public eClockedDevice
 
         IoPin* m_output;
 };
-
-#endif
-

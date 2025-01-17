@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef NUMVAL_H
-#define NUMVAL_H
+#pragma once
 
 #include "ui_numval.h"
 #include "propval.h"
@@ -35,5 +34,3 @@ class NumVal : public PropVal, private Ui::NumVal
 
         bool m_useMult;
 };
-
-#endif

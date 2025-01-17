@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICTIMER_H
-#define PICTIMER_H
+#pragma once
 
 #include "mcutimer.h"
 
@@ -128,4 +127,3 @@ class PicTimer161 : public PicTimer16bit
         virtual void configureClock() override;
         //virtual void sheduleEvents() override;
 };
-#endif

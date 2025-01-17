@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ERESISTOR_H
-#define ERESISTOR_H
+#pragma once
 
 #include "e-element.h"
 
@@ -33,5 +32,3 @@ class eResistor : public eElement
         double m_admit;
         double m_current;
 };
-
-#endif

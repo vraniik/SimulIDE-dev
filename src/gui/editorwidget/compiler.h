@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPILER_H
-#define COMPILER_H
+#pragma once
 
 #include <QString>
 #include <QProcess>
@@ -101,5 +100,3 @@ class Compiler : public QObject, public CompBase
 
         OutPanelText* m_outPane;
 };
-
-#endif

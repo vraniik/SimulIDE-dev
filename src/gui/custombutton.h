@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CUSTOMBUTTON_H
-#define CUSTOMBUTTON_H
+#pragma once
 
 #include <QToolButton>
 
@@ -17,4 +16,3 @@ class CustomButton : public QToolButton
     private:
         virtual void paintEvent( QPaintEvent* ) override;
 };
-#endif

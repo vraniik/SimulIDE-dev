@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCS65INTERFACE_H
-#define MCS65INTERFACE_H
+#pragma once
 
 #include "cpubase.h"
 #include "e-element.h"
@@ -21,5 +20,3 @@ class Mcs65Interface : public CpuBase, public eElement
     protected:
         QString getStrInst( uint8_t IR );
 };
-
-#endif

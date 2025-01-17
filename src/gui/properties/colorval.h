@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COLORVAL_H
-#define COLORVAL_H
+#pragma once
 
 #include "ui_colorval.h"
 #include "propval.h"
@@ -35,5 +34,3 @@ class ColorVal : public PropVal, private Ui::ColorVal
 
         bool m_blocked;
 };
-
-#endif

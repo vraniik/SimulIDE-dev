@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ANDGATE_H
-#define ANDGATE_H
+#pragma once
 
 #include "gate.h"
 #include "component.h"
@@ -23,5 +22,3 @@ class AndGate : public Gate
     protected:
         void updatePath() override;
 };
-
-#endif

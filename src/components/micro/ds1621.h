@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DS1621_H
-#define DS1621_H
+#pragma once
 
 #include "twimodule.h"
 #include "iocomponent.h"
@@ -67,5 +66,3 @@ class DS1621 : public IoComponent, public TwiModule
 
         QFont m_font;
 };
-
-#endif

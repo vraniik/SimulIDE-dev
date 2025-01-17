@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VOLTREG_H
-#define VOLTREG_H
+#pragma once
 
 #include "component.h"
 #include "e-resistor.h"
@@ -35,5 +34,3 @@ class VoltReg : public Component, public eResistor
 
         bool m_connected;
 };
-
-#endif

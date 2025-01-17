@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef OPAMP_H
-#define OPAMP_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -69,5 +68,3 @@ class OpAmp : public Component, public eElement
         IoPin* m_inputN;
         IoPin* m_output;
 };
-
-#endif

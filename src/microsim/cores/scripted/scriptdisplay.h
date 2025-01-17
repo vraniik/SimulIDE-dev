@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTDISPLAY_H
-#define SCRIPTDISPLAY_H
+#pragma once
 
 #include "scriptperif.h"
 #include "display.h"
@@ -33,5 +32,3 @@ class ScriptDisplay : public Display, public ScriptPerif
 
  static void registerScriptMetods( asIScriptEngine* engine );
 };
-
-#endif

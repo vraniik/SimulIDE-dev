@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICVREF_H
-#define PICVREF_H
+#pragma once
 
 #include "mcuvref.h"
 
@@ -52,5 +51,3 @@ class PicVrefE : public McuVref
         regBits_t m_CDAFVR;
         regBits_t m_ADFVR;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DS18B20_H
-#define DS18B20_H
+#pragma once
 
 #include <QFont>
 
@@ -70,5 +69,3 @@ class Ds18b20 : public Component , public OneWire
         int8_t  m_TL;  // TL register, alarm trigger register, can be stored in internal EEPROM
         uint8_t m_CFG; // Config register, can be stored in internal EEPROM
 };
-
-#endif

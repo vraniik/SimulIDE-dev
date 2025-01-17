@@ -3,9 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-
-#ifndef PICDAC_H
-#define PICDAC_H
+#pragma once
 
 #include "mcudac.h"
 
@@ -50,5 +48,3 @@ class PicDac:  public McuDac
 
         PicVrefE* m_fvr;
 };
-
-#endif

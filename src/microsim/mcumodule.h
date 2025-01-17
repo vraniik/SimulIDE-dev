@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUMODULE_H
-#define MCUMODULE_H
+#pragma once
 
 #include <QString>
 
@@ -51,4 +50,3 @@ class McuModule
         regBits_t m_configBitsB;
         regBits_t m_configBitsC;
 };
-#endif

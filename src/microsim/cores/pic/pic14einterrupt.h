@@ -2,9 +2,7 @@
  *   Copyright (C) 2020 by Santiago González                               *
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
-
-#ifndef Pic14eInterrupt_H
-#define Pic14eInterrupt_H
+#pragma once
 
 #include "picinterrupt.h"
 
@@ -28,5 +26,3 @@ class Pic14eInterrupt : public PicInterrupt
         uint8_t m_bsrSaved;
         uint8_t m_pclathSaved;
 };
-
-#endif

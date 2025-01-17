@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MEMORY_H
-#define MEMORY_H
+#pragma once
 
 #include "iocomponent.h"
 #include "e-element.h"
@@ -73,5 +72,3 @@ class Memory : public IoComponent, public eElement, public MemData
         IoPin* m_WePin;
         IoPin* m_OePin;
 };
-
-#endif

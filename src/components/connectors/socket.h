@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SOCKET_H
-#define SOCKET_H
+#pragma once
 
 #include "connbase.h"
 
@@ -27,5 +26,3 @@ class Socket : public ConnBase
     private:
         virtual void updatePixmap() override;
 };
-
-#endif

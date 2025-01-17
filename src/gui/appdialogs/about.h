@@ -3,13 +3,11 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#pragma once
+
 #include <QDialog>
 
 #include "ui_about.h"
-
-#ifndef ABOUTDIALOG_H
-#define ABOUTDIALOG_H
-
 
 class AboutDialog : public QDialog, private Ui::AboutDialog
 {
@@ -17,10 +15,4 @@ class AboutDialog : public QDialog, private Ui::AboutDialog
 
     public:
         AboutDialog( QWidget* parent=0 );
-
-    public slots:
-
 };
-
-
-#endif

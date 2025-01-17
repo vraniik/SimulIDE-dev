@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PIC14CORE_H
-#define PIC14CORE_H
+#pragma once
 
 #include "picmrcore.h"
 
@@ -43,5 +42,3 @@ protected:
             return addr;
         }
 };
-
-#endif

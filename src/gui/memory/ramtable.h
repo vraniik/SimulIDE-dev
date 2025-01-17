@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RAMTABLE_H
-#define RAMTABLE_H
+#pragma once
 
 #include <QWidget>
 
@@ -79,4 +78,3 @@ class RamTable : public QWidget, private Ui::RamTable
         int m_numRegs;
         int m_currentRow;
 };
-#endif // RAMTABLE_H

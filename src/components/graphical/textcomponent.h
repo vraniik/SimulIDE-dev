@@ -1,5 +1,4 @@
-﻿#ifndef TEXTCOMPONENT_H
-#define TEXTCOMPONENT_H
+﻿#pragma once
 
 #include "component.h"
 #include "linkercomponent.h"
@@ -79,5 +78,3 @@ class TextComponent : public LinkerComponent
         QString m_font;
         QString m_fontColor;
 };
-
-#endif

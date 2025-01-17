@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef OSCWIDGET_H
-#define OSCWIDGET_H
+#pragma once
 
 #include <QDialog>
 
@@ -80,6 +79,3 @@ class OscWidget : public QDialog, private Ui::OscWidget
 
         Oscope* m_oscope;
 };
-
-
-#endif

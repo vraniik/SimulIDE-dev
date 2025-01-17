@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ECOIL_H
-#define ECOIL_H
+#pragma once
 
 #include "e-resistor.h"
 
@@ -44,5 +43,3 @@ class eCoil : public eResistor
         eNode* m_enode0;
         eNode* m_enode1;
 };
-
-#endif

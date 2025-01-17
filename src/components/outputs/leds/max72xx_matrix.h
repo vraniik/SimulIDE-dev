@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MAX72XX_MATRIX_H
-#define MAX72XX_MATRIX_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -61,5 +60,3 @@ class Max72xx_matrix : public LogicComponent
         Pin* m_pinDin;
         IoPin* m_pinSck;
 };
-
-#endif

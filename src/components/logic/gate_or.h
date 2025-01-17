@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ORGATE_H
-#define ORGATE_H
+#pragma once
 
 #include "gate.h"
 #include "component.h"
@@ -24,5 +23,3 @@ class OrGate : public Gate
         bool calcOutput( int inputs ) override;
         void updatePath() override;
 };
-
-#endif

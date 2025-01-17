@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CONNECTOR_H
-#define CONNECTOR_H
+#pragma once
 
 #include "compbase.h"
 
@@ -79,5 +78,3 @@ class Connector : public CompBase
 
         QList<ConnectorLine*> m_conLineList;
 };
-
-#endif

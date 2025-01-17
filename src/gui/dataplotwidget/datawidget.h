@@ -2,12 +2,11 @@
  *   Copyright (C) 2020 by Santiago González                               *
  *                                                                         */
 
+#pragma once
+
 #include <QWidget>
 
 #include "ui_datawidget.h"
-
-#ifndef DATAWIDGET_H
-#define DATAWIDGET_H
 
 class Oscope;
 
@@ -38,6 +37,3 @@ class DataWidget : public QWidget, private Ui::DataWidget
 
         QList<QLineEdit*> m_chNames;
 };
-
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef WAVEGEN_H
-#define WAVEGEN_H
+#pragma once
 
 #include "clock-base.h"
 
@@ -119,5 +118,3 @@ class WaveGen : public ClockBase
         QStringList m_waves;
         QPixmap* m_wavePixmap;
 };
-
-#endif

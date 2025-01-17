@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EDITORWIDGET_H
-#define EDITORWIDGET_H
+#pragma once
 
 #include <QWidget>
 #include <QMenu>
@@ -188,5 +187,3 @@ class EditorWidget : public QWidget, public CompBase
         QAction* loadAct;
         QAction* findQtAct;
 };
-
-#endif

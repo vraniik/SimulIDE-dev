@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EDITORWINDOW_H
-#define EDITORWINDOW_H
+#pragma once
 
 #include "editorwidget.h"
 #include "updatable.h"
@@ -95,5 +94,3 @@ class EditorWindow : public EditorWidget, public Updatable
         QMap<QString, compilData_t> m_compilers;
         QMap<QString, compilData_t> m_assemblers;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PROBE_H
-#define PROBE_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -55,5 +54,3 @@ class Probe : public Component, public eElement
 
         IoPin* m_inputPin;
 };
-
-#endif

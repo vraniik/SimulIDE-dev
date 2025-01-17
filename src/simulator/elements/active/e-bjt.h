@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EBJT_H
-#define EBJT_H
+#pragma once
 
 #include "e-element.h"
 
@@ -52,5 +51,3 @@ class eBJT : public eElement
         ePin* m_CE;
         ePin* m_EC;
 };
-
-#endif

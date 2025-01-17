@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICCOMPARATOR_H
-#define PICCOMPARATOR_H
+#pragma once
 
 #include "mcucomparator.h"
 
@@ -135,4 +134,3 @@ class PicComp20 : public PicComp
 
     protected:
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CLOCK_H
-#define CLOCK_H
+#pragma once
 
 #include "clock-base.h"
 
@@ -23,5 +22,3 @@ class Clock : public ClockBase
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

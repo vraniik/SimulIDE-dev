@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TEXTVAL_H
-#define TEXTVAL_H
+#pragma once
 
 #include "ui_textval.h"
 #include "propval.h"
@@ -32,5 +31,3 @@ class TextVal : public PropVal, private Ui::TextVal
 
         //Scripted* m_scriptComp;
 };
-
-#endif

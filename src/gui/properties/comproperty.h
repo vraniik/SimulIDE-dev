@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPROPERTY_H
-#define COMPROPERTY_H
+#pragma once
 
 #include <QString>
 
@@ -38,5 +37,3 @@ class ComProperty
         QString m_unit;
         uint8_t m_flags;
 };
-
-#endif

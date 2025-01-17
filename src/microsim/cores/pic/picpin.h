@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PicPIN_H
-#define PicPIN_H
+#pragma once
 
 #include "mcupin.h"
 
@@ -23,9 +22,4 @@ class PicPin : public McuPin
         virtual void ConfExtInt( uint8_t bits ) override;
 
         virtual void setAnalog( bool an ) override;
-
-    protected:
-
 };
-
-#endif

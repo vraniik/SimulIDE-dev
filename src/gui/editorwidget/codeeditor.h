@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CODEEDITOR_H
-#define CODEEDITOR_H
+#pragma once
 
 #include <QPlainTextEdit>
 
@@ -209,4 +208,3 @@ class UserData : public QTextBlockUserData
         bool warning;
 
 };*/
-#endif

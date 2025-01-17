@@ -3,12 +3,11 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#pragma once
+
 #include <QDialog>
 
 #include "ui_findreplace.h"
-
-#ifndef FINDDIALOG_H
-#define FINDDIALOG_H
 
 class CodeEditor;
 
@@ -37,5 +36,3 @@ class FindReplace : public QDialog, private Ui::FindReplace
         QTextCursor m_textCursor;
         CodeEditor* m_editor;
 };
-
-#endif

@@ -7,8 +7,7 @@
  *   santigoro@gmail.com                                                   *
  *                                                                         */
 
-#ifndef KY023_H
-#define KY023_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -49,5 +48,3 @@ class KY023 : public Component, public eElement
         IoPin* m_vry;
         IoPin* m_sw;
 };
-
-#endif

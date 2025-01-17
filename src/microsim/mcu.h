@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCU_H
-#define MCU_H
+#pragma once
 
 #include "e_mcu.h"
 #include "chip.h"
@@ -157,4 +156,3 @@ class Mcu : public Chip, public Linker
 
         ScriptCpu* m_scriptLink;
 };
-#endif

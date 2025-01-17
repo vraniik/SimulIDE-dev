@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUVREF_H
-#define MCUVREF_H
+#pragma once
 
 #include <QList>
 
@@ -39,5 +38,3 @@ class McuVref : public McuModule, public eElement
 
         QList<McuModule*> m_callBacks;
 };
-
-#endif

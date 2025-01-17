@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EPIN_H
-#define EPIN_H
+#pragma once
 
 #include <QString>
 
@@ -56,5 +55,3 @@ class ePin
 
         bool m_inverted;
 };
-
-#endif

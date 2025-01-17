@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SERIALMON_H
-#define SERIALMON_H
+#pragma once
 
 #include <QDialog>
 
@@ -54,5 +53,3 @@ class SerialMonitor : public QDialog, private Ui::SerialMonitor, public Updatabl
 
         QByteArray m_outBuffer;
 };
-
-#endif

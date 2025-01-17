@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BINCOUNTER_H
-#define BINCOUNTER_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -42,5 +41,3 @@ class Counter : public LogicComponent
         IoPin* m_setPin;
         IoPin* m_rstPin;
 };
-
-#endif

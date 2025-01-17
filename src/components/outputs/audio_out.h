@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AUDIOOUT_H
-#define AUDIOOUT_H
+#pragma once
 
 #include <QAudioOutput>
 
@@ -60,5 +59,3 @@ class AudioOut : public Component, public eResistor
         bool m_started;
         bool m_buzzer;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BCDTO7S_H
-#define BCDTO7S_H
+#pragma once
 
 #include "bcdbase.h"
 
@@ -37,5 +36,3 @@ class BcdTo7S : public BcdBase
 
         IoPin* m_resetPin;
 };
-
-#endif

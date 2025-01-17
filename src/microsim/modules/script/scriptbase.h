@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTBASE_H
-#define SCRIPTBASE_H
+#pragma once
 
 #include "angelscript.h"
 #include "as_jit.h"
@@ -55,4 +54,3 @@ class ScriptBase : public eElement
 
         asDebugger* m_debugger;
 };
-#endif

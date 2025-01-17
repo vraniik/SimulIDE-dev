@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCROLLWIDGET_H
-#define SCROLLWIDGET_H
+#pragma once
 
 #include <QScrollBar>
 
@@ -20,4 +19,3 @@ class scrollWidget : public QScrollBar
 
         CodeEditor* m_editor;
 };
-#endif

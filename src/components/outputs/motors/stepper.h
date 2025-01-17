@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef STEPPER_H
-#define STEPPER_H
+#pragma once
 
 #include "linkercomponent.h"
 #include "e-element.h"
@@ -64,5 +63,3 @@ class Stepper : public LinkerComponent, public eElement
         ePin m_ePinB1Co;
         ePin m_ePinB2Co;
 };
-
-#endif

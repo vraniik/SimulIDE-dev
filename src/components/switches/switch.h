@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SWITCH_H
-#define SWITCH_H
+#pragma once
 
 #include "switch_base.h"
 
@@ -29,5 +28,3 @@ class Switch : public SwitchBase
     public slots:
         virtual void keyEvent( QString key, bool pressed ) override;
 };
-
-#endif

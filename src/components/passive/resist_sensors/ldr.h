@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LDR_H
-#define LDR_H
+#pragma once
 
 #include "varresbase.h"
 
@@ -34,5 +33,3 @@ class Ldr : public VarResBase
 
         double m_gamma;
 };
-
-#endif

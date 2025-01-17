@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef POINTPROP_H
-#define POINTPROP_H
+#pragma once
 
 #include "comproperty.h"
 #include "proputils.h"
@@ -35,5 +34,3 @@ class PointProp : public ComProperty
         QPointF (Comp::*m_getter)();
         void    (Comp::*m_setter)(QPointF);
 };
-
-#endif

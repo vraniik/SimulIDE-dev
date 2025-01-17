@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SDCCDEBUGGER_H
-#define SDCCDEBUGGER_H
+#pragma once
 
 #include "cdebugger.h"
 
@@ -21,5 +20,3 @@ class SdccDebugger : public cDebugger
 
         bool findCSEG();
 };
-
-#endif

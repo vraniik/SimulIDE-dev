@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BASEDEBUGGER_H
-#define BASEDEBUGGER_H
+#pragma once
 
 #include <QHash>
 
@@ -80,5 +79,3 @@ class BaseDebugger : public Compiler    // Base Class for all debuggers
         QHash<QString, int> m_functions;        // Function name list->start Address
         QList<int>          m_funcAddr;         // Function start Address list
 };
-
-#endif

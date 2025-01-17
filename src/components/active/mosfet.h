@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MOSFET_H
-#define MOSFET_H
+#pragma once
 
 #include "e-mosfet.h"
 #include "component.h"
@@ -27,5 +26,3 @@ class Mosfet : public Component, public eMosfet
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

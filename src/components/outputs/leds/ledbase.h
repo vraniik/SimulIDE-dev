@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LEDBASE_H
-#define LEDBASE_H
+#pragma once
 
 #include "e-led.h"
 #include "component.h"
@@ -55,5 +54,3 @@ class LedBase : public Component, public eLed
 
         static eNode m_gndEnode;
 };
-
-#endif

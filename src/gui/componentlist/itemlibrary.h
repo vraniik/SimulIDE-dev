@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ITEMLIBRARY_H
-#define ITEMLIBRARY_H
+#pragma once
 
 #include "component.h"
 
@@ -54,5 +53,3 @@ class LibraryItem
 
         createItemPtr createItem;
 };
-
-#endif

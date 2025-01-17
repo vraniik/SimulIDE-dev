@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef OSCOPECHANNEL_H
-#define OSCOPECHANNEL_H
+#pragma once
 
 #include "datachannel.h"
 #include "oscope.h"
@@ -46,5 +45,3 @@ class OscopeChannel : public DataChannel
 
         Oscope* m_oscope;
 };
-
-#endif

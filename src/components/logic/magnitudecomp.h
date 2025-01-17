@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MAGNITUDECOMP_H
-#define MAGNITUDECOMP_H
+#pragma once
 
 #include "iocomponent.h"
 #include "e-element.h"
@@ -31,5 +30,3 @@ class MagnitudeComp : public IoComponent, public eElement
 
         int m_bits;
 };
-
-#endif

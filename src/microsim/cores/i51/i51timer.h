@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I51TIMER_H
-#define I51TIMER_H
+#pragma once
 
 #include "mcutimer.h"
 
@@ -39,5 +38,3 @@ class I51Timer : public McuTimer
 
         McuPin* m_gatePin;
 };
-
-#endif

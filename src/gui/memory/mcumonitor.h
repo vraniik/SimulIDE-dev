@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUMONITOR_H
-#define MCUMONITOR_H
+#pragma once
 
 #include <QDialog>
 #include <QTableWidget>
@@ -52,5 +51,3 @@ class MCUMonitor : public QDialog, private Ui::McuMonitor
 
         bool m_jumpToAddress;
 };
-
-#endif

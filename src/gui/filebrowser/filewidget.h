@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FILEWIDGET_H
-#define FILEWIDGET_H
+#pragma once
 
 #include <QSplitter>
 
@@ -54,5 +53,3 @@ class FileWidget : public QSplitter
 
         bool m_blocked;
 };
-
-#endif

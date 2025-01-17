@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTPERIF_H
-#define SCRIPTPERIF_H
+#pragma once
 
 #include <QString>
 #include <QStringList>
@@ -32,5 +31,3 @@ class ScriptPerif
 
         QStringList m_methods;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PIN_H
-#define PIN_H
+#pragma once
 
 #include "component.h"
 #include "updatable.h"
@@ -145,5 +144,3 @@ class Pin : public QGraphicsItem, public ePin, public Updatable
 
         QGraphicsSimpleTextItem m_label;
 };
-
-#endif

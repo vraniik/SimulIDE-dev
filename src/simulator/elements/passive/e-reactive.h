@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EREACTIVE_H
-#define EREACTIVE_H
+#pragma once
 
 #include "e-resistor.h"
 
@@ -45,5 +44,3 @@ class eReactive : public eResistor
 
         bool m_running;
 };
-
-#endif

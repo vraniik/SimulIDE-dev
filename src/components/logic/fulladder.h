@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FULLADDER_H
-#define FULLADDER_H
+#pragma once
 
 #include "iocomponent.h"
 #include "e-element.h"
@@ -36,5 +35,3 @@ class FullAdder : public IoComponent, public eElement
         IoPin* m_ciPin;
         IoPin* m_coPin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VARRESISTOR_H
-#define VARRESISTOR_H
+#pragma once
 
 #include "varresbase.h"
 
@@ -23,5 +22,3 @@ class VarResistor : public VarResBase
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

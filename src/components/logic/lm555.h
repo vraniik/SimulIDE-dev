@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LM555_H
-#define LM555_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -61,5 +60,3 @@ class Lm555 : public Component, public eElement
 
         bool m_outState;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef REACTIVE_H
-#define REACTIVE_H
+#pragma once
 
 #include "e-reactive.h"
 #include "comp2pin.h"
@@ -36,5 +35,3 @@ class Reactive : public Comp2Pin, public eReactive
         eNode* m_midEnode;
         eResistor* m_resistor;
 };
-
-#endif

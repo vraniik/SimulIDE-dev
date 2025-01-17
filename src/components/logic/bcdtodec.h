@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BCDTODEC_H
-#define BCDTODEC_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -29,6 +28,3 @@ class BcdToDec : public LogicComponent
    private:
         bool m_16Bits;
 };
-
-#endif
-

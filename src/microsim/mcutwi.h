@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUTWI_H
-#define MCUTWI_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "twimodule.h"
@@ -34,5 +33,3 @@ class McuTwi : public McuPrescaled, public TwiModule
         uint8_t* m_dataReg;
         uint8_t* m_statReg;
 };
-
-#endif

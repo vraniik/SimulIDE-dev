@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef KY040_H
-#define KY040_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -61,5 +60,3 @@ class KY040 : public Component, public eElement
         IoPin* m_pinB;
         IoPin* m_sw;
 };
-
-#endif

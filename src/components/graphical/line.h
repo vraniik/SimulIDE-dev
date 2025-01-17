@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LINE_H
-#define LINE_H
+#pragma once
 
 #include "shape.h"
 
@@ -22,5 +21,3 @@ class Line : public Shape
         virtual QPainterPath shape() const override;
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

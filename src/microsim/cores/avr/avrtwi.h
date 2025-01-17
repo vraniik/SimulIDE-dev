@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRTWI_H
-#define AVRTWI_H
+#pragma once
 
 #include "mcutwi.h"
 //#include "mcutypes.h"
@@ -50,5 +49,3 @@ class AvrTwi : public McuTwi
         regBits_t m_TWINT;
 
 };
-
-#endif

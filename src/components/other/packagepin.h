@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PACKAGEPIN_H
-#define PACKAGEPIN_H
+#pragma once
 
 #include "pin.h"
 
@@ -29,4 +28,3 @@ class PackagePin : public Pin
     private:
         SubPackage* m_package;
 };
-#endif

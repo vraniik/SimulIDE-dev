@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUCREATOR_H
-#define MCUCREATOR_H
+#pragma once
 
 class Mcu;
 class eMcu;
@@ -80,5 +79,3 @@ class McuCreator
 
         static std::vector<ScriptPerif*> m_scriptPerif;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CDEBUGGER_H
-#define CDEBUGGER_H
+#pragma once
 
 #include "basedebugger.h"
 
@@ -17,5 +16,3 @@ class cDebugger : public BaseDebugger
     protected:
         virtual void preProcess() override;
 };
-
-#endif

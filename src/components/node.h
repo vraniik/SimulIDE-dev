@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef NODE_H
-#define NODE_H
+#pragma once
 
 #include "component.h"
 #include "pin.h"
@@ -36,4 +35,3 @@ class Node : public Component
 
         bool m_isBus;
 };
-#endif

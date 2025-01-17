@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RESISTOR_H
-#define RESISTOR_H
+#pragma once
 
 #include "e-resistor.h"
 #include "comp2pin.h"
@@ -22,6 +21,3 @@ class Resistor : public Comp2Pin, public eResistor
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif
-

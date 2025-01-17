@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef USARTMODULE_H
-#define USARTMODULE_H
+#pragma once
 
 #include<QList>
 
@@ -179,5 +178,3 @@ class UartTR : public McuModule, public eElement
 
         uint64_t m_period; // Baudrate period
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SHIELD_H
-#define SHIELD_H
+#pragma once
 
 #include "board.h"
 
@@ -34,4 +33,3 @@ class ShieldSubc : public BoardSubc
         QString m_boardId;
         QPointF m_boardPos;
 };
-#endif

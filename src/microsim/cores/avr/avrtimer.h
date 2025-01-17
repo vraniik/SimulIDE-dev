@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRTIMER_H
-#define AVRTIMER_H
+#pragma once
 
 #include "mcutimer.h"
 
@@ -170,5 +169,3 @@ class AvrTimer16bit : public AvrTimer
         uint8_t* m_topReg1L;
         uint8_t* m_topReg1H;
 };
-
-#endif

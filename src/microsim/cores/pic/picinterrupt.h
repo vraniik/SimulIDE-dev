@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PicINTERRUPT_H
-#define PicINTERRUPT_H
+#pragma once
 
 #include "mcuinterrupts.h"
 #include "mcutypes.h"
@@ -21,5 +20,3 @@ class PicInterrupt : public Interrupt
     private:
         //regBits_t m_GIE;
 };
-
-#endif

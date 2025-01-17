@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AIP31068_I2C_H
-#define AIP31068_I2C_H
+#pragma once
 
 #include "hd44780_base.h"
 #include "twimodule.h"
@@ -37,5 +36,3 @@ class Aip31068_i2c : public Hd44780_Base, public TwiModule
 
         IoPin* m_pinSda;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MUXANALOG_H
-#define MUXANALOG_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -56,5 +55,3 @@ class MuxAnalog : public Component, public eElement
         std::vector<Pin*> m_addrPin;
         std::vector<Pin*> m_chanPin;
 };
-
-#endif

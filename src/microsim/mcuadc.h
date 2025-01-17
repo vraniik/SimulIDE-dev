@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUADC_H
-#define MCUADC_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "e-element.h"
@@ -58,5 +57,3 @@ class McuAdc : public McuPrescaled, public eElement
         double m_vRefP;                // Positive Reference Voltage
         double m_vRefN;                // Negative Reference Voltage
 };
-
-#endif

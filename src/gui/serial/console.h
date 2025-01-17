@@ -1,5 +1,4 @@
-﻿#ifndef CONSOLE_H
-#define CONSOLE_H
+﻿#pragma once
 
 #include <QPlainTextEdit>
 
@@ -31,4 +30,3 @@ class Console : public QPlainTextEdit, public Updatable
         QString m_command;
         QString m_buffer;
 };
-#endif

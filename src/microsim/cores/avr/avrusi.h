@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRUSI_H
-#define AVRUSI_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -76,4 +75,3 @@ class AvrUsi : public McuModule, public eElement
 
         Interrupt* m_startInte;
 };
-#endif

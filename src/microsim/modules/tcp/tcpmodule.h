@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TCPMODULE_H
-#define TCPMODULE_H
+#pragma once
 
 #include <QMap>
 
@@ -60,5 +59,3 @@ class TcpModule : public eElement, public Updatable
         QSignalMapper* m_discontSM;
         QSignalMapper* m_readyReSM;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MANAGECOMPS_H
-#define MANAGECOMPS_H
+#pragma once
 
 #include <QDialog>
 
@@ -31,4 +30,3 @@ class manCompDialog : public QDialog, private Ui::manCompDialog
 
         bool m_initialized;
 };
-#endif

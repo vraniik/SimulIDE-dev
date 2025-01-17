@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef POTENTIOMETER_H
-#define POTENTIOMETER_H
+#pragma once
 
 #include "dialed.h"
 #include "e-resistor.h"
@@ -53,5 +52,3 @@ class Potentiometer : public Dialed, public eElement
         
         eNode* m_midEnode;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LEDMATRIX_H
-#define LEDMATRIX_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -67,5 +66,3 @@ class LedMatrix : public Component, public eElement
         int m_rows;
         int m_cols;
 };
-
-#endif

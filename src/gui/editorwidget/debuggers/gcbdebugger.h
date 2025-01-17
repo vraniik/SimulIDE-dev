@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef GCBDEBUGGER_H
-#define GCBDEBUGGER_H
+#pragma once
 
 #include "basedebugger.h"
 
@@ -23,4 +22,3 @@ class GcbDebugger : public BaseDebugger
         bool mapFlashToSource();
         void getSubs();
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#pragma once
 
 #include <QWidget>
 
@@ -58,5 +57,3 @@ class Display : public QWidget, public Updatable, public eElement
         std::vector<std::vector<int>> m_data;
         QRectF  m_area;
 };
-
-#endif

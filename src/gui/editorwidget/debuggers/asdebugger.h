@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ASDEBUGGER_H
-#define ASDEBUGGER_H
+#pragma once
 
 #include "basedebugger.h"
 
@@ -28,5 +27,3 @@ class asDebugger : public BaseDebugger
     private:
         ScriptCpu* m_device;
 };
-
-#endif

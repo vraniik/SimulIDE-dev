@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ADC_H
-#define ADC_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -32,5 +31,3 @@ class ADC : public LogicComponent
         double m_maxVolt;
         double m_maxValue;
 };
-
-#endif

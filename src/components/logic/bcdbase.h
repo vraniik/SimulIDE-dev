@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BCDBASE_H
-#define BCDBASE_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -28,5 +27,3 @@ class BcdBase : public LogicComponent
 
         QString m_customChars;
 };
-
-#endif

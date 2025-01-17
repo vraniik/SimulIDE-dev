@@ -3,11 +3,9 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I51PORT_H
-#define I51PORT_H
+#pragma once
 
 #include "mcuport.h"
-
 
 class I51Port : public McuPort
 {
@@ -22,5 +20,3 @@ class I51Port : public McuPort
     protected:
         virtual McuPin* createPin( int i, QString id , Component* mcu ) override;
 };
-
-#endif

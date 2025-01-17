@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef USARTTX_H
-#define USARTTX_H
+#pragma once
 
 #include "usartmodule.h"
 
@@ -23,5 +22,3 @@ class UartTx : public UartTR
     protected:
         void sendBit();
 };
-
-#endif

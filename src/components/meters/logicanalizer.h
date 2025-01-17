@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LANALIZER_H
-#define LANALIZER_H
+#pragma once
 
 #include "plotbase.h"
 
@@ -79,5 +78,3 @@ class LAnalizer : public PlotBase
         LaWidget*  m_laWidget;
         DataLaWidget* m_dataWidget;
 };
-
-#endif

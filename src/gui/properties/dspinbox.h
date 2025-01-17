@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DSPINBOX_H
-#define DSPINBOX_H
+#pragma once
 
 #include <QDoubleSpinBox>
 
@@ -25,5 +24,3 @@ class DSpinBox : public QDoubleSpinBox
  static double evaluate( QString exp );
  static asIScriptEngine* m_aEngine;
 };
-
-#endif

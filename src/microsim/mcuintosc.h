@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef INTOSC_H
-#define INTOSC_H
+#pragma once
 
 #include "e-element.h"
 #include "mcumodule.h"
@@ -58,4 +57,3 @@ class McuIntOsc : public McuModule, public eElement
 
         McuPin* m_clkPin[2];
 };
-#endif

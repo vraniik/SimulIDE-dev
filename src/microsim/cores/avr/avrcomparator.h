@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRCOMPARATOR_H
-#define AVRCOMPARATOR_H
+#pragma once
 
 #include "mcucomparator.h"
 #include "mcutypes.h"
@@ -45,5 +44,3 @@ class AvrComp : public McuComp
         regBits_t m_AIN0D;
         regBits_t m_AIN1D;
 };
-
-#endif

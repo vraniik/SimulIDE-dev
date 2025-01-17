@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ELLIPSE_H
-#define ELLIPSE_H
+#pragma once
 
 #include "shape.h"
 
@@ -22,5 +21,3 @@ class Ellipse : public Shape
         virtual QPainterPath shape() const override;
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RAIL_H
-#define RAIL_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -34,5 +33,3 @@ class Rail : public Component, public eElement
 
         IoPin* m_out;
 };
-
-#endif

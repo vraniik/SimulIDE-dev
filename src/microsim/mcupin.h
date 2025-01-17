@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUPIN_H
-#define MCUPIN_H
+#pragma once
 
 #include "iopin.h"
 #include "mcutypes.h"
@@ -83,5 +82,3 @@ class McuPin : public IoPin
 
         uint8_t m_pinMask;
 };
-
-#endif

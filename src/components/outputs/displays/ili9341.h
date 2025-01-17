@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ILI9341_H
-#define ILI9341_H
+#pragma once
 
 #include "component.h"
 #include "e-clocked_device.h"
@@ -84,5 +83,3 @@ class Ili9341 : public Component, public eClockedDevice
         IoPin m_pinSck;
         //Pin m_pinMiso;
 };
-
-#endif

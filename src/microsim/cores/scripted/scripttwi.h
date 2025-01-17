@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTTWI_H
-#define SCRIPTTWI_H
+#pragma once
 
 #include "scriptperif.h"
 #include "mcutwi.h"
@@ -35,5 +34,3 @@ class ScriptTwi : public McuTwi, public ScriptPerif
         asIScriptFunction* m_byteReceived;
         asIScriptFunction* m_writeByte;
 };
-
-#endif

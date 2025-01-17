@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LACHANNEL_H
-#define LACHANNEL_H
+#pragma once
 
 #include "datachannel.h"
 #include "logicanalizer.h"
@@ -39,5 +38,3 @@ class LaChannel : public DataChannel
 
         LAnalizer* m_analizer;
 };
-
-#endif

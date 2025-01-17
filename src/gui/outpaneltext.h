@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef OUTPANELTEXT_H
-#define OUTPANELTEXT_H
+#pragma once
 
 #include <QPlainTextEdit>
 #include <QSyntaxHighlighter>
@@ -53,5 +52,3 @@ class OutHighlighter : public QSyntaxHighlighter
         };
         QVector<HighlightingRule> highlightingRules;
 };
-
-#endif

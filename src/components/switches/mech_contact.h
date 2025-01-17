@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MECH_CONTACT_H
-#define MECH_CONTACT_H
+#pragma once
 
 #include "component.h"
 #include "e-resistor.h"
@@ -47,5 +46,3 @@ class MechContact : public Component, public eElement
 
         int m_pin0;
 };
-
-#endif

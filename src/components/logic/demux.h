@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DEMUX_H
-#define DEMUX_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -32,6 +31,3 @@ class Demux : public LogicComponent
     private:
         int m_addrBits;
 };
-
-#endif
-

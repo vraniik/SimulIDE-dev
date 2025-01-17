@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DIAL_H
-#define DIAL_H
+#pragma once
 
 #include "dialed.h"
 #include "dialwidget.h"
@@ -65,5 +64,3 @@ class Dial : public Dialed, public Linker
         int m_height;
         int m_border;
 };
-
-#endif

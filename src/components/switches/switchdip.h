@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SWITCHDIP_H
-#define SWITCHDIP_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -60,5 +59,3 @@ class SwitchDip : public Component, public eElement
         int m_size;
         int m_state;
 };
-
-#endif

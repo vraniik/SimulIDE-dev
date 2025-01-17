@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef HD44780_H
-#define HD44780_H
+#pragma once
 
 #include "hd44780_base.h"
 #include "e-element.h"
@@ -38,5 +37,3 @@ class Hd44780 : public Hd44780_Base, public eElement
         IoPin* m_pinEn;
         std::vector<IoPin*> m_dataPin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SRTINGVAL_H
-#define SRTINGVAL_H
+#pragma once
 
 #include "ui_strval.h"
 #include "propval.h"
@@ -26,5 +25,3 @@ class StrVal : public PropVal, private Ui::StrVal
     public slots:
         void on_value_editingFinished();
 };
-
-#endif

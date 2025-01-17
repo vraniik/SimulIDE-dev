@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICSLEEP_H
-#define PICSLEEP_H
+#pragma once
 
 #include "mcusleep.h"
 
@@ -14,4 +13,3 @@ class PicSleep : public McuSleep
         PicSleep( eMcu* mcu, QString name );
         ~PicSleep();
 };
-#endif

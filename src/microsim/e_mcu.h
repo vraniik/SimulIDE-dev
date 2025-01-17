@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef EMCU_H
-#define EMCU_H
+#pragma once
 
 #include "e_iou.h"
 #include "mcutimer.h"
@@ -163,5 +162,3 @@ class eMcu : public DataSpace, public eIou
         BaseDebugger* m_debugger;
         bool          m_debugging;
 };
-
-#endif

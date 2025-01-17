@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DATAUTILS_H
-#define DATAUTILS_H
+#pragma once
 
 #include <QStringList>
 
@@ -70,4 +69,3 @@ static inline void writeRegBits( regBits_t bits, bool value ) // Set/Clear bits 
 
 void writeBitsToReg( regBits_t bits, bool value, DataSpace* mcu ); // Write bits in a Register calling watchers
 
-#endif

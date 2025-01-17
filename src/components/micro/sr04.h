@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SR04_H
-#define SR04_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -39,5 +38,3 @@ class SR04 : public Component, public eElement
         
         IoPin* m_echo;
 };
-
-#endif

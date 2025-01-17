@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUOCM_H
-#define MCUOCM_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "e-element.h"
@@ -42,5 +41,3 @@ class McuOcm : public McuPrescaled, public eElement
         McuOcUnit* m_OC1;
         McuOcUnit* m_OC2;
 };
-
-#endif

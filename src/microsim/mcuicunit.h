@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUICUNIT_H
-#define MCUICUNIT_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -41,5 +40,3 @@ class McuIcUnit : public McuModule, public eElement
 
         bool m_fallingEdge;
 };
-
-#endif

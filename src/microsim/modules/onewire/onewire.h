@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ONEWIRE_H
-#define ONEWIRE_H
+#pragma once
 
 #include "e-element.h"
 
@@ -91,5 +90,3 @@ class OneWire : public eElement
 
  static QString arrayToHex( uint8_t* data, uint len );
 };
-
-#endif

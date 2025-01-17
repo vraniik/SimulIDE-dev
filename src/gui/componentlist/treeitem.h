@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TREEITEM_H
-#define TREEITEM_H
+#pragma once
 
 #include <QTreeWidget>
 
@@ -55,5 +54,3 @@ class TreeItem : public QTreeWidgetItem
 
         TreeItem* m_parent;
 };
-
-#endif

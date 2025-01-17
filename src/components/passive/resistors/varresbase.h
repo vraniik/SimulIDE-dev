@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VARRESBASE_H
-#define VARRESBASE_H
+#pragma once
 
 #include "e-resistor.h"
 #include "dialed.h"
@@ -44,5 +43,3 @@ class VarResBase : public Dialed, public eResistor
         double m_maxVal;
         double m_step;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I2CTOPARALLEL_H
-#define I2CTOPARALLEL_H
+#pragma once
 
 #include "twimodule.h"
 #include "iocomponent.h"
@@ -31,5 +30,3 @@ class I2CToParallel : public IoComponent, public TwiModule
 
         uint8_t m_portState;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CONNBASE_H
-#define CONNBASE_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -42,5 +41,3 @@ class ConnBase : public Component, public eElement
 
         QPixmap m_pinPixmap;
 };
-
-#endif

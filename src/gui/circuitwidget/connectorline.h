@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
  
-#ifndef CONNECTORLINE_H
-#define CONNECTORLINE_H
+#pragma once
 
 #include <QGraphicsItem>
 
@@ -83,6 +82,3 @@ class ConnectorLine : public QGraphicsItem
         ConnectorLine* m_prevLine;
         ConnectorLine* m_nextLine;
 };
-
-#endif
-

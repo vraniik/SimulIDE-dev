@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTMODULE_H
-#define SCRIPTMODULE_H
+#pragma once
 
 #include "mcumodule.h"
 #include "scriptbase.h"
@@ -35,4 +34,3 @@ class ScriptModule : public ScriptBase, public McuModule //eElement
         asIScriptFunction* m_callBackDoub;
         asIScriptFunction* m_callBack;
 };
-#endif

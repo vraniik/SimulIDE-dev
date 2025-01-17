@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DS1307_H
-#define DS1307_H
+#pragma once
 
 #include "twimodule.h"
 #include "component.h"
@@ -53,5 +52,3 @@ class DS1307 : public Component, public TwiModule
 
         RtClock m_clock;
 };
-
-#endif

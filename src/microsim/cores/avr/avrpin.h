@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRPIN_H
-#define AVRPIN_H
+#pragma once
 
 #include "mcupin.h"
 
@@ -26,5 +25,3 @@ class AvrPin : public McuPin
     protected:
 
 };
-
-#endif

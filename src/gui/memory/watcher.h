@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef WATCHER_H
-#define WATCHER_H
+#pragma once
 
 #include <QWidget>
 
@@ -60,5 +59,3 @@ class Watcher : public QWidget, private Ui::Watcher
 
         QBoxLayout* m_valuesLayout;
 };
-
-#endif

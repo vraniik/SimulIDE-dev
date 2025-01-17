@@ -3,9 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-
-#ifndef TWICODES_H
-#define TWICODES_H
+#pragma once
 
 /// TODO: this should dissapear once we use our own TWI Module
 enum {
@@ -68,4 +66,3 @@ enum twiState_t{
     TWI_NO_STATE               = 0xF8, //* 248 No relevant state information available; TWINT = �0�
     TWI_BUS_ERROR              = 0x00, // 000 Bus error due to an illegal START or STOP condition
 };
-#endif

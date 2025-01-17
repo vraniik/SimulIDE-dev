@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RESISTORDIP_H
-#define RESISTORDIP_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -63,5 +62,3 @@ class ResistorDip : public Component, public eElement
 
         static eNode m_puEnode;
 };
-
-#endif

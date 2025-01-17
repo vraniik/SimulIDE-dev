@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef RELAY_H
-#define RELAY_H
+#pragma once
 
 #include "mech_contact.h"
 #include "inductor.h"
@@ -43,5 +42,3 @@ class Relay : public MechContact
 
         bool m_relayOn;
 };
-
-#endif

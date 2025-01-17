@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DHT22_H
-#define DHT22_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -71,5 +70,3 @@ class Dht22 : public Component , public eElement
 
         IoPin* m_inpin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef IOCOMPONENT_H
-#define IOCOMPONENT_H
+#pragma once
 
 #include <queue>
 
@@ -101,5 +100,3 @@ class IoComponent : public Component, public LogicFamily
         std::vector<IoPin*> m_outPin;
         std::vector<IoPin*> m_otherPin;
 };
-
-#endif

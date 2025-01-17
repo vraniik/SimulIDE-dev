@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRSPI_H
-#define AVRSPI_H
+#pragma once
 
 #include "mcuspi.h"
 
@@ -38,5 +37,3 @@ class AvrSpi : public McuSpi
         regBits_t m_CPHA;
         regBits_t m_SPI2X;
 };
-
-#endif

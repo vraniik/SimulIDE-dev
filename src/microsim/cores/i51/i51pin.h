@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef I51PIN_H
-#define I51PIN_H
+#pragma once
 
 #include "mcupin.h"
 
@@ -30,5 +29,3 @@ class I51Pin : public McuPin
     protected:
 
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DCMOTOR_H
-#define DCMOTOR_H
+#pragma once
 
 #include "linkercomponent.h"
 #include "e-resistor.h"
@@ -51,5 +50,3 @@ class DcMotor : public LinkerComponent, public eResistor
         uint64_t m_lastTime;
         uint64_t m_updtTime;
 };
-
-#endif

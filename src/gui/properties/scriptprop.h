@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTPROP_H
-#define SCRIPTPROP_H
+#pragma once
 
 #include "comproperty.h"
 
@@ -34,5 +33,3 @@ class ScriptProp : public ComProperty
         QString (Comp::*m_getter)(ComProperty*);
         void    (Comp::*m_setter)(ComProperty*, QString);
 };
-
-#endif

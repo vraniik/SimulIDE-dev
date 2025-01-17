@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DIAC_H
-#define DIAC_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -56,6 +55,3 @@ class Diac : public Component, public eElement
         eDiode* m_diode1;
         eDiode* m_diode2;
 };
-
-#endif
-

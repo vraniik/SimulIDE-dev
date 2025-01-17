@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef COMPBASE_H
-#define COMPBASE_H
+#pragma once
 
 #include <QString>
 #include <QPointF>
@@ -69,5 +68,3 @@ class CompBase
         QList<propGroup> m_propGroups;
         QMap<QString, ComProperty*> m_propMap;
 };
-
-#endif

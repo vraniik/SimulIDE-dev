@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SEVENSEGMENTBCD_H
-#define SEVENSEGMENTBCD_H
+#pragma once
 
 #include "bcdbase.h"
 
@@ -40,5 +39,3 @@ class SevenSegmentBCD : public BcdBase
         IoPin *m_dotPin;
         IoPin *m_enablePin;
 };
-
-#endif

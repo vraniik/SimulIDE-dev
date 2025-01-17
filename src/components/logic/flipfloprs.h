@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FLIPFLOPRS_H
-#define FLIPFLOPRS_H
+#pragma once
 
 #include "flipflopbase.h"
 
@@ -21,5 +20,3 @@ class FlipFlopRS : public FlipFlopBase
 
         virtual void voltChanged() override;
 };
-
-#endif

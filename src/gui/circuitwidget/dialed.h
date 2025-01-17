@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DIALED_H
-#define DIALED_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -43,5 +42,3 @@ class Dialed : public Component
         DialWidget m_dialW;
         QGraphicsProxyWidget* m_proxy;
 };
-
-#endif

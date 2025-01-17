@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VARSOURCE_H
-#define VARSOURCE_H
+#pragma once
 
 #include "component.h"
 #include "sourcewidget.h"
@@ -53,6 +52,3 @@ class VarSource : public Component, public eElement
         CustomButton* m_button;
         QGraphicsProxyWidget* m_proxy;
 };
-
-#endif
-

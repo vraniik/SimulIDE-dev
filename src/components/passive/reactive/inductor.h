@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef INDUCTOR_H
-#define INDUCTOR_H
+#pragma once
 
 #include "reactive.h"
 
@@ -33,5 +32,3 @@ class Inductor : public Reactive
 
         double m_inductance;
 };
-
-#endif

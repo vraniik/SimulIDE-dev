@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICSPI_H
-#define PICSPI_H
+#pragma once
 
 #include "mcuspi.h"
 
@@ -47,5 +46,3 @@ class PicSpi : public McuSpi
         regBits_t m_CKP;
         regBits_t m_CKE;
 };
-
-#endif

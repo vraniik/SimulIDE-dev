@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TWIMODULE_H
-#define TWIMODULE_H
+#pragma once
 
 #include "e-clocked_device.h"
 #include "avrtwicodes.h" // Using AVR states comes at hand
@@ -108,5 +107,3 @@ class TwiModule : public eClockedDevice
         IoPin* m_sda;
         IoPin* m_scl;
 };
-
-#endif

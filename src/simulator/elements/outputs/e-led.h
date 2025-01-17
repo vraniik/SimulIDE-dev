@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ELED_H
-#define ELED_H
+#pragma once
 
 #include "e-resistor.h"
 
@@ -52,5 +51,3 @@ class eLed : public eResistor
         double m_impedance;
         double m_lastThCurrent;
 };
-
-#endif

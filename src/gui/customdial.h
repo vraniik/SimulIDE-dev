@@ -1,5 +1,4 @@
-#ifndef CUSTOMDIAL_H
-#define CUSTOMDIAL_H
+#pragma once
 
 #include <QDial>
 
@@ -12,4 +11,3 @@ class CustomDial : public QDial
     private:
         virtual void paintEvent( QPaintEvent* e ) override;
 };
-#endif

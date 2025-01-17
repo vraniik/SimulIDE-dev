@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TOUCHPAD_H
-#define TOUCHPAD_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -91,5 +90,3 @@ class TouchPad : public Component, public eElement
         TouchPadWidget m_touchpadW;
         QGraphicsProxyWidget* m_proxy;
 };
-
-#endif

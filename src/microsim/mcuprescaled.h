@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUPRESCALED_H
-#define MCUPRESCALED_H
+#pragma once
 
 #include "mcumodule.h"
 
@@ -25,5 +24,3 @@ class McuPrescaled : public McuModule
         uint16_t m_prescaler;               // Actual Prescaler value
         std::vector<uint16_t> m_prescList;  // Prescaler values
 };
-
-#endif

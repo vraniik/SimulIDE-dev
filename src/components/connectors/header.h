@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef HEADER_H
-#define HEADER_H
+#pragma once
 
 #include "connbase.h"
 
@@ -29,5 +28,3 @@ class Header : public ConnBase
 
         bool m_pointDown;
 };
-
-#endif

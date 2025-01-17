@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BJT_H
-#define BJT_H
+#pragma once
 
 #include "e-bjt.h"
 #include "component.h"
@@ -26,5 +25,3 @@ class BJT : public Component, public eBJT
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };
-
-#endif

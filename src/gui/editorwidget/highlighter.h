@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef HIGHLIGHTER_H
-#define HIGHLIGHTER_H
+#pragma once
 
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
@@ -49,5 +48,3 @@ class Highlighter : public QSyntaxHighlighter
         QRegExp m_multiEnd;
         QTextCharFormat m_multiFormat;
 };
-
-#endif

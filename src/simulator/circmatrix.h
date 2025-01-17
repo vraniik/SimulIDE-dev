@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CIRCMATRIX_H
-#define CIRCMATRIX_H
+#pragma once
 
 #include <vector>
 #include <QList>
@@ -66,6 +65,3 @@ class CircMatrix
         //bool m_admitChanged;
         //bool m_currChanged;
 };
- #endif
-
-

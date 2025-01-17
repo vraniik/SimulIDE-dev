@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ZENER_H
-#define ZENER_H
+#pragma once
 
 #include "diode.h"
 
@@ -19,5 +18,3 @@ class Zener : public Diode
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 };
-
-#endif

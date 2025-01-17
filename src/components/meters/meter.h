@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef METER_H
-#define METER_H
+#pragma once
 
 #include "e-resistor.h"
 #include "component.h"
@@ -37,5 +36,3 @@ class Meter : public Component, public eResistor
         IoPin* m_outPin;
         QGraphicsSimpleTextItem m_display;
 };
-
-#endif

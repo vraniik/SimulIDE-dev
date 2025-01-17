@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SHAPE_H
-#define SHAPE_H
+#pragma once
 
 #include "component.h"
 
@@ -53,5 +52,3 @@ class Shape : public Component
 
         bool m_changed;
 };
-
-#endif

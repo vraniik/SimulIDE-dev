@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef USARTRX_H
-#define USARTRX_H
+#pragma once
 
 #include <queue>
 
@@ -37,5 +36,3 @@ class UartRx : public UartTR
         int  m_fifoP;
         int  m_fifoSize;
 };
-
-#endif

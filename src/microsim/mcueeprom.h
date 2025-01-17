@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUEEPROM_H
-#define MCUEEPROM_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -33,5 +32,3 @@ class McuEeprom : public McuModule, public eElement
         uint32_t m_address;
         uint8_t* m_dataReg;
 };
-
-#endif

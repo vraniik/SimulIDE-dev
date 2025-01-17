@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef BOOLVAL_H
-#define BOOLVAL_H
+#pragma once
 
 #include "ui_boolval.h"
 #include "propval.h"
@@ -26,5 +25,3 @@ class BoolVal : public PropVal, private Ui::BoolVal
     public slots:
         void on_trueVal_toggled( bool checked );
 };
-
-#endif

@@ -17,8 +17,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef ULA_ZX48K_H
-#define ULA_ZX48K_H
+#pragma once
 
 #include "cpubase.h"
 #include "e-element.h"
@@ -142,5 +141,3 @@ class ULA_ZX48k : public CpuBase, public eElement
         IoPort* m_dPort;
         IoPort* m_kbPort;
 };
-
-#endif

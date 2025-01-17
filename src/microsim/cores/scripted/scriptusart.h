@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTUSART_H
-#define SCRIPTUSART_H
+#pragma once
 
 #include "scriptperif.h"
 #include "mcuuart.h"
@@ -32,5 +31,3 @@ class ScriptUsart : public McuUsart, public ScriptPerif
         asIScriptFunction* m_byteReceived;
         asIScriptFunction* m_frameSent;
 };
-
-#endif

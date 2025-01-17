@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LABELVAL_H
-#define LABELVAL_H
+#pragma once
 
 #include <QWidget>
 
@@ -19,5 +18,3 @@ class LabelVal : public QWidget, private Ui::LabelVal
 
         void setLabelVal( QString caption );
 };
-
-#endif

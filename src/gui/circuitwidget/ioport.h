@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef IOPORT_H
-#define IOPORT_H
+#pragma once
 
 #include <vector>
 
@@ -78,5 +77,3 @@ class IoPort :public eElement
         std::vector<outState_t>* m_outVector;
         std::vector<std::vector<outState_t>> m_outVectors;
 };
-
-#endif

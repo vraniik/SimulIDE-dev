@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef TESTUNIT_H
-#define TESTUNIT_H
+#pragma once
 
 #include "iocomponent.h"
 #include "e-element.h"
@@ -64,4 +63,3 @@ class TestUnit: public IoComponent, public eElement
 
         TruthTable* m_truthTable;
 };
-#endif

@@ -2,12 +2,11 @@
  *   Copyright (C) 2020 by Santiago González                               *
  *                                                                         */
 
+#pragma once
+
 #include <QWidget>
 
 #include "ui_datalawidget.h"
-
-#ifndef DATALAWIDGET_H
-#define DATALAWIDGET_H
 
 class PlotBase;
 
@@ -41,6 +40,3 @@ class DataLaWidget : public QWidget, private Ui::DataLaWidget
 
         QList<QLineEdit*> m_chNames;
 };
-
-
-#endif

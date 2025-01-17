@@ -3,11 +3,9 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICTWI_H
-#define PICTWI_H
+#pragma once
 
 #include "mcutwi.h"
-//#include "mcutypes.h"
 
 class eMcu;
 //class McuPin;
@@ -61,5 +59,3 @@ class PicTwi : public McuTwi
         regBits_t m_RW;
         regBits_t m_BF;
 };
-
-#endif

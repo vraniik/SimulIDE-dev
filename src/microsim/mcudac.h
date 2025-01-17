@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUDAC_H
-#define MCUDAC_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -43,5 +42,3 @@ class McuDac: public McuModule, public eElement
         McuPin* m_nRefPin;   // Negative Vref Pin
         McuPin* m_outPin;    // Output Pin
 };
-
-#endif

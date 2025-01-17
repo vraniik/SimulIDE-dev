@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef SCRIPTSPI_H
-#define SCRIPTSPI_H
+#pragma once
 
 #include "scriptperif.h"
 #include "mcuspi.h"
@@ -32,5 +31,3 @@ class ScriptSpi : public McuSpi, public ScriptPerif
 
         asIScriptFunction* m_byteReceived;
 };
-
-#endif

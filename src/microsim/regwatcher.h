@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef REGWATCHER_H
-#define REGWATCHER_H
+#pragma once
 
 #include <QDebug>
 
@@ -73,4 +72,3 @@ void watchBitNames( QString bitNames, int write
     if( regAddr )
         watchRegister( regAddr, write, inst, func, mcu, bitMask );
 }
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PIC14ECORE_H
-#define PIC14ECORE_H
+#pragma once
 
 #include "picmrcore.h"
 
@@ -100,4 +99,3 @@ class Pic14eCore : public PicMrCore
         inline void MOVIW( uint8_t n, uint8_t k );
         inline void MOVWI( uint8_t n, uint8_t k );
 };
-#endif

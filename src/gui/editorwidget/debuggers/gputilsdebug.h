@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef GPUTILSDEBUG_H
-#define GPUTILSDEBUG_H
+#pragma once
 
 class BaseDebugger;
 
@@ -20,5 +19,3 @@ class GputilsDebug
         static bool mapFlashToSource( BaseDebugger* debugger );
         //static bool mapFlashToAsm( BaseDebugger* debugger );
 };
-
-#endif

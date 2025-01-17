@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVROCUNIT_H
-#define AVROCUNIT_H
+#pragma once
 
 #include "mcuocunit.h"
 
@@ -28,5 +27,3 @@ class AvrOcUnit : public McuOcUnit
 
         uint16_t m_OCRXmask;
 };
-
-#endif

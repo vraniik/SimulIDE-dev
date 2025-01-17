@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ECLOCKEDDEVICE_H
-#define ECLOCKEDDEVICE_H
+#pragma once
 
 #include "component.h"
 #include "e-element.h"
@@ -54,5 +53,3 @@ class eClockedDevice : public eElement
 
         IoPin* m_clkPin;
 };
-
-#endif

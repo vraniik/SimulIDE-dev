@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PUSHBASE_H
-#define PUSHBASE_H
+#pragma once
 
 #include "switch_base.h"
 
@@ -19,5 +18,3 @@ class PushBase : public SwitchBase
         void onbuttonReleased();
         virtual void keyEvent( QString key, bool pressed );
 };
-
-#endif

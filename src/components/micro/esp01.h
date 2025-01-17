@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ESP01_H
-#define ESP01_H
+#pragma once
 
 #include "e-element.h"
 #include "component.h"
@@ -94,5 +93,3 @@ class Esp01 : public Component, public UsartModule, public eElement
         QSignalMapper* m_discontSM;
         QSignalMapper* m_readyReSM;
 };
-
-#endif

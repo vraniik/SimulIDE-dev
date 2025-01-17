@@ -7,8 +7,7 @@
  *   santigoro@gmail.com                                                   *
  *                                                                         */
 
-#ifndef JOYSTICKWIDGET_H
-#define JOYSTICKWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -42,5 +41,3 @@ class JoystickWidget : public QWidget
         QPointF center();
         void updateOutputValues();
 };
-#endif
-

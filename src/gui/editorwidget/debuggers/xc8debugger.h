@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef XC8DEBUGGER_H
-#define XC8DEBUGGER_H
+#pragma once
 
 #include "avrgccdebugger.h"
 
@@ -14,5 +13,3 @@ class Xc8Debugger : public AvrGccDebugger
         Xc8Debugger( CodeEditor* parent, OutPanelText* outPane );
         ~Xc8Debugger();
 };
-
-#endif

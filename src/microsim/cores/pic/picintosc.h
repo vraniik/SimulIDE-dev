@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICINTOSC_H
-#define PICINTOSC_H
+#pragma once
 
 #include "mcuintosc.h"
 
@@ -74,4 +73,3 @@ class PicIntOsc02 : public PicIntOsc
         regBits_t m_IRCF;
         regBits_t m_SPLLEN;
 };
-#endif

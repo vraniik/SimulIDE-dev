@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PUSH_H
-#define PUSH_H
+#pragma once
 
 #include "push_base.h"
 
@@ -21,5 +20,3 @@ class Push : public PushBase
 
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
 };
-
-#endif

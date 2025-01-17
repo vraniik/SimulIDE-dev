@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef XORGATE_H
-#define XORGATE_H
+#pragma once
 
 #include "gate.h"
 #include "component.h"
@@ -26,4 +25,3 @@ class XorGate : public Gate
         bool calcOutput( int inputs ) override;
         void updatePath() override;
 };
-#endif

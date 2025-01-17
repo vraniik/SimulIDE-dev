@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LINKERCOMPONENT_H
-#define LINKERCOMPONENT_H
+#pragma once
 
 #include "component.h"
 #include "linker.h"
@@ -37,5 +36,3 @@ class LinkerComponent : public Component, public Linker
         double m_minVal;
         double m_maxVal;
 };
-
-#endif

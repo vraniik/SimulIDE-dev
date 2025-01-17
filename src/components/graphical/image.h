@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef IMAGE_H
-#define IMAGE_H
+#pragma once
 
 #include "shape.h"
 
@@ -35,5 +34,3 @@ class Image : public Shape
         QPixmap m_image;
         QMovie* m_movie;
 };
-
-#endif

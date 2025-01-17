@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef UPDATABLE_H
-#define UPDATABLE_H
+#pragma once
 
 class Updatable
 {
@@ -14,5 +13,3 @@ class Updatable
 
         virtual void updateStep(){;}
 };
-
-#endif

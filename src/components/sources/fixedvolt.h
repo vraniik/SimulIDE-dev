@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FIXEDVOLT_H
-#define FIXEDVOLT_H
+#pragma once
 
 #include <QToolButton>
 #include <QGraphicsProxyWidget>
@@ -54,5 +53,3 @@ class FixedVolt : public Component, public eElement
         CustomButton* m_button;
         QGraphicsProxyWidget* m_proxy;
 };
-
-#endif

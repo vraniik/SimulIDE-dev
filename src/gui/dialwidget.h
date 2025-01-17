@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef DIALWIDGET_H
-#define DIALWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -48,5 +47,3 @@ class DialWidget : public QWidget
         CustomDial*      m_knob;
         CustomSlider*    m_slider;
 };
-#endif
-

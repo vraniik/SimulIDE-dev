@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef AVRICUNIT_H
-#define AVRICUNIT_H
+#pragma once
 
 #include "mcuicunit.h"
 
@@ -16,5 +15,3 @@ class AvrIcUnit : public McuIcUnit
 
         virtual void configureA( uint8_t val ) override;
 };
-
-#endif

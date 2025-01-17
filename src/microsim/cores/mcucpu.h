@@ -3,11 +3,9 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUCPU_H
-#define MCUCPU_H
+#pragma once
 
 #include "cpubase.h"
-
 
 class McuCpu : public CpuBase
 {
@@ -141,4 +139,3 @@ class McuCpu : public CpuBase
             return res;
         }
 };
-#endif

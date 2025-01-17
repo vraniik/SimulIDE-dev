@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUINTERRUPTS_H
-#define MCUINTERRUPTS_H
+#pragma once
 
 #include <QString>
 #include <QMap>
@@ -117,5 +116,3 @@ class Interrupts
 
         QMap<QString, Interrupt*> m_intList;         // Access Interrupts by name
 };
-
-#endif

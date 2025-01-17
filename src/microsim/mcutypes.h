@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUTYPES_H
-#define MCUTYPES_H
+#pragma once
 
 #include <inttypes.h>
 #include "mcusignal.h"
@@ -20,5 +19,3 @@ struct regBits_t{
     uint8_t* reg=0;
     uint16_t regAddr=0;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef VOLTSOURCE_H
-#define VOLTSOURCE_H
+#pragma once
 
 #include "varsource.h"
 
@@ -25,5 +24,3 @@ class VoltSource : public VarSource
     private:
         IoPin* m_outPin;
 };
-
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef FLIPFLOPBASE_H
-#define FLIPFLOPBASE_H
+#pragma once
 
 #include "logiccomponent.h"
 
@@ -40,4 +39,3 @@ class FlipFlopBase : public LogicComponent
         IoPin* m_setPin;
         IoPin* m_rstPin;
 };
-#endif

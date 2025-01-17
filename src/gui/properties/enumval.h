@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef ENUMVAL_H
-#define ENUMVAL_H
+#pragma once
 
 #include "ui_enumval.h"
 #include "propval.h"
@@ -32,5 +31,3 @@ class EnumVal : public PropVal, private Ui::EnumVal
     protected:
         QStringList m_enums;
 };
-
-#endif

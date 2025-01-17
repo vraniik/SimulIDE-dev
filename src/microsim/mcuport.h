@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUPORT_H
-#define MCUPORT_H
+#pragma once
 
 #include <vector>
 
@@ -81,5 +80,3 @@ class McuPort : public McuModule
         uint16_t m_inAddr;
         uint16_t m_dirAddr;
 };
-
-#endif

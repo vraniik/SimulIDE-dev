@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MODULE_H
-#define MODULE_H
+#pragma once
 
 #include "shield.h"
 
@@ -22,4 +21,3 @@ class ModuleSubc : public ShieldSubc
     protected:
         virtual void renameTunnels() override;
 };
-#endif

@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUCOMPARATOR_H
-#define MCUCOMPARATOR_H
+#pragma once
 
 #include "mcumodule.h"
 #include "e-element.h"
@@ -41,5 +40,3 @@ class McuComp : public McuModule, public eElement
         McuPin* m_pinN;
         McuPin* m_pinOut;
 };
-
-#endif

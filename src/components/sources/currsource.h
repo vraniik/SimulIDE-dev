@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CURRSOURCE_H
-#define CURRSOURCE_H
+#pragma once
 
 #include "varsource.h"
 
@@ -26,5 +25,3 @@ class CurrSource : public VarSource
     private:
         Pin* m_outPin;
 };
-
-#endif

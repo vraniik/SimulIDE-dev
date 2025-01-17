@@ -41,23 +41,21 @@ Component* SubCircuit::construct( QString type, QString id )
     }
 
     if( Circuit::self()->getSubcircuit() ){
-        int rev = Circuit::self()->circuitRev();
-        if( rev >= 2220 ){ if( name.contains("@") ) list = name.split("@");}
-        else if( name.contains("_") ) list = name.split("_");
+        if( name.contains("@") ) list = name.split("@");
+
+        if( list.size() > 1 )  // Subcircuit inside Subcircuit: 1_74HC00 to 74HC00
+        {
+            QString n = list.first();
+            bool ok = false;
+            n.toInt(&ok);
+            if( ok ) name = list.at( 1 );
+        }
     }
 
     QMap<QString, QString> packageList;
     QString subcTyp = "None";
     QString pkgeFile;
     QString subcFile;
-
-    if( list.size() > 1 )  // Subcircuit inside Subcircuit: 1_74HC00 to 74HC00
-    {
-        QString n = list.first();
-        bool ok = false;
-        n.toInt(&ok);
-        if( ok ) name = list.at( 1 );
-    }
 
     QString fileName = name+".sim1";
     subcFile = MainWindow::self()->getCircFilePath( fileName ); // Search sim1 in circuit or circuit/data folder
@@ -203,7 +201,7 @@ void SubCircuit::loadSubCircuit( QString doc )
 
         if( type == "Connector" )
         {
-            QString startPinId, endPinId, enodeId;
+            QString startPinId, endPinId;
             QStringList pointList;
 
             for( propStr_t prop : properties )

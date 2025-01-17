@@ -1,5 +1,4 @@
-#ifndef Z80REGS_H
-#define Z80REGS_H
+#pragma once
 
 // Class Z80RegPair allows access to two 8 bit registers as one 16 bits register pair.
 // The register pair is composed by calling constuctor with references to high byte and low byte.
@@ -126,5 +125,3 @@ class Z80Flags {
         // Calculation parity of bits in reg. Result is true for odd number of bits and false for even number of bits.
         bool parity( uint8_t reg ) { reg ^= (reg >> 1); reg ^= (reg >> 2); reg ^= (reg >> 4); return (reg & 0x01); }
 };
-
-#endif

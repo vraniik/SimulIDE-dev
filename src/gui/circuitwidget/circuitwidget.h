@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef CIRCUITWIDGET_H
-#define CIRCUITWIDGET_H
+#pragma once
 
 #include <QMenu>
 #include <QToolBar>
@@ -108,5 +107,3 @@ class CircuitWidget : public QWidget
         AppDialog*   m_appPropW;
         AboutDialog* m_about;
 };
-
-#endif

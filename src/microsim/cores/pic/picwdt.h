@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PICWDT_H
-#define PICWDT_H
+#pragma once
 
 #include "mcuwdt.h"
 
@@ -29,4 +28,3 @@ class PicWdt : public McuWdt
         regBits_t m_PSA;
 
 };
-#endif

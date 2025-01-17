@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef PROPVAL_H
-#define PROPVAL_H
+#pragma once
 
 #include <QWidget>
 
@@ -43,5 +42,3 @@ class PropVal : public QWidget
         ComProperty* m_property;
         PropDialog*  m_propDialog;
 };
-
-#endif

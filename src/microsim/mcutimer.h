@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef MCUTIMER_H
-#define MCUTIMER_H
+#pragma once
 
 #include "mcuprescaled.h"
 #include "e-element.h"
@@ -103,5 +102,3 @@ class McuTimer : public McuPrescaled, public eElement
         McuIcUnit* m_ICunit;              // Input Capture unit;
         std::vector<McuOcUnit*> m_ocUnit; // Output Compare Units
 };
-
-#endif

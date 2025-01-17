@@ -3,8 +3,7 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
-#ifndef LINKER_H
-#define LINKER_H
+#pragma once
 
 #include <QSet>
 #include <QCursor>
@@ -43,5 +42,3 @@ class Linker
 
         QCursor m_linkCursor;
 };
-
-#endif
