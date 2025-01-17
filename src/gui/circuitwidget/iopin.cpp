@@ -194,7 +194,7 @@ bool IoPin::getInpState()
 void IoPin::setOutState( bool high ) // Set Output to Hight or Low
 {
     m_outState = m_nextState = high;
-    if( m_pinMode < openCo ) return;
+    if( m_pinMode < openCo  || m_stateZ ) return;
 
     if( m_inverted ) high = !high;
 
@@ -211,10 +211,10 @@ void IoPin::setStateZ( bool z )
 {
     m_stateZ = z;
     if( z ){
-        m_gndAdmit = 1/m_openImp;
-        updtState();
-        //m_outVolt = m_outLowV;
-        //setImpedance( m_openImp );
+        //m_gndAdmit = 1/m_openImp;
+        //updtState();
+        m_outVolt = m_outLowV;
+        setImpedance( m_openImp );
     }else {
         pinMode_t pm = m_pinMode; // Force old pinMode
         m_pinMode = undef_mode;
