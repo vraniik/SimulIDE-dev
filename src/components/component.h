@@ -213,7 +213,7 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
 
         Linker* m_linkedTo;
 
-        QString m_background;   // BackGround Image path
+        QString  m_background;  // BackGround Image path
         QPixmap* m_backPixmap;  // Background Pixmap
 
         QColor  m_color;
@@ -233,5 +233,3 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
 
         //QGraphicsItemGroup* m_group;
 };
-
-typedef Component* (*createItemPtr)( QString type, QString id );

@@ -60,15 +60,9 @@ BJT::~BJT(){}
 
 void BJT::updateStep()
 {
-    if( Circuit::self()->animate() ) update();
-    if( m_changed ) voltChanged(); // m_changed cleared at eDiode::voltChanged
-}
+    if( Circuit::self()->animate() || m_changed ) update();
 
-void BJT::setPnp( bool pnp )
-{
-    m_PNP = pnp;
-    m_changed = true;
-    update();
+    if( m_changed ) eBJT::voltChanged(); // m_changed cleared at eBJT::voltChanged
 }
 
 void BJT::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )

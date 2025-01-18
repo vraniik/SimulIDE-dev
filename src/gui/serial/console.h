@@ -1,4 +1,9 @@
-﻿#pragma once
+﻿/***************************************************************************
+ *   Copyright (C) 2023 by Santiago González                               *
+ *                                                                         *
+ ***( see copyright.txt file at root folder )*******************************/
+
+#pragma once
 
 #include <QPlainTextEdit>
 

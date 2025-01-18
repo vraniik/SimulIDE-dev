@@ -1,9 +1,7 @@
-/*            USAGE
-
-CustomDial* dial = new CustomDial(this);
-
-dial->setStyleSheet("background-color: #27272B; color: #FFFFFF;");
-dial->setStyleSheet("qproperty-knobRadius: 5; qproperty-knobMargin: 5;"); */
+/***************************************************************************
+ *   Copyright (C) 2023 by Santiago González                               *
+ *                                                                         *
+ ***( see copyright.txt file at root folder )*******************************/
 
 #include "customdial.h"
 

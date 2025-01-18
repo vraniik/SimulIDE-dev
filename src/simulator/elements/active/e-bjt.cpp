@@ -93,7 +93,7 @@ void eBJT::voltChanged()
     double voltBC = voltB-voltC;
     double voltBE = voltB-voltE;
 
-    if( m_changed ) m_changed = false;
+    if( m_changed ) m_changed = false;      // Forze recalculation
     else if( qFabs(voltBC-m_voltBC) < .01
           && qFabs(voltBE-m_voltBE) < .01 )
         { m_step = 0; return; }

@@ -310,12 +310,12 @@ void ItemLibrary::addItem( LibraryItem* item )
 // CLASS LIBRARYITEM *********************************************************
 
 LibraryItem::LibraryItem( QString name, QString category, QString iconName,
-                          QString type, createItemPtr _createItem )
+                          QString type, createItemPtr createItem )
 {
-    m_name      = name;
-    m_category  = category;
-    m_iconfile  = iconName;
-    m_type      = type;
-    createItem  = _createItem;
+    m_name       = name;
+    m_category   = category;
+    m_iconfile   = iconName;
+    m_type       = type;
+    m_createItem = createItem;
 }
 LibraryItem::~LibraryItem() { }

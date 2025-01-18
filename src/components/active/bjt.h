@@ -19,9 +19,7 @@ class BJT : public Component, public eBJT
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 
-        virtual void setPnp( bool pnp ) override;
-
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };

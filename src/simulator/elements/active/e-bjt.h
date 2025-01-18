@@ -14,15 +14,15 @@ class eBJT : public eElement
         eBJT( QString id );
         virtual ~eBJT();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void voltChanged() override;
 
         double gain() { return m_gain; }
         void setGain( double gain );
 
-        virtual bool pnp()              { return m_PNP; }
-        virtual void setPnp( bool pnp ) { m_PNP = pnp; m_changed = true; }
+        bool pnp()              { return m_PNP; }
+        void setPnp( bool pnp ) { m_PNP = pnp; m_changed = true; }
 
         double threshold() { return m_vCrit; }
         void   setThreshold( double vCrit );
@@ -39,6 +39,7 @@ class eBJT : public eElement
         double m_vCrit;
         double m_rgain;
         double m_fgain;
+
         bool m_PNP;
 
         eElement m_BEjunction;

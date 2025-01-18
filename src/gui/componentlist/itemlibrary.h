@@ -29,7 +29,7 @@ class ItemLibrary
         QList<LibraryItem*> m_items;
 };
 
-
+typedef Component* (*createItemPtr)( QString type, QString id );
 class LibraryItem
 {
     public:
@@ -43,7 +43,7 @@ class LibraryItem
         QString iconfile() { return m_iconfile; }
         QString type()     { return m_type; }
 
-        createItemPtr createItemFnPtr() { return createItem; }
+        createItemPtr createItemFnPtr() { return m_createItem; }
 
     private:
         QString m_name;
@@ -51,5 +51,5 @@ class LibraryItem
         QString m_iconfile;
         QString m_type;
 
-        createItemPtr createItem;
+        createItemPtr m_createItem;
 };

@@ -1,4 +1,9 @@
-﻿#pragma once
+﻿/***************************************************************************
+ *   Copyright (C) 2017 by Santiago González                               *
+ *                                                                         *
+ ***( see copyright.txt file at root folder )*******************************/
+
+#pragma once
 
 #include "component.h"
 #include "linkercomponent.h"
