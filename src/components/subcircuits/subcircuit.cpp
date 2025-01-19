@@ -37,7 +37,6 @@ Component* SubCircuit::construct( QString type, QString id )
 
     QString device = Chip::getDevice( id );
 
-    QString subcTyp = "None";
     QString subcFile;
     subcData_t subcData;
 
@@ -46,8 +45,9 @@ Component* SubCircuit::construct( QString type, QString id )
     if( subcFile.isEmpty() )                                    // Search sim1 in circuit/name or circuit/data/name folder
         subcFile = MainWindow::self()->getCircFilePath( device+"/"+fileName );
 
-    bool isLocal = false;
-    if( !subcFile.isEmpty() ) // Files found in Circuit folder
+    bool isLocal = !subcFile.isEmpty();
+
+    if( isLocal )             // Files found in Circuit folder
     {
         s_subcDir = QFileInfo( subcFile ).absolutePath();
         subcData = s_localDevices.value( device ); // Check if data already stored
@@ -61,6 +61,7 @@ Component* SubCircuit::construct( QString type, QString id )
         subcData = s_globalDevices.value( device ); // Check if data already stored
     }
 
+    QString subcTyp = subcData.subcType;
     QString circuit = subcData.circuit;
     QMap<QString, QString> packageList = subcData.packageList;
 
@@ -90,7 +91,7 @@ Component* SubCircuit::construct( QString type, QString id )
         }
         // Save device data
         circuit = fileToString( subcFile, "SubCircuit::loadSubCircuit" );
-        subcData_t deviceData = { circuit, packageList };
+        subcData_t deviceData = { subcTyp, circuit, packageList };
         if( isLocal ) s_localDevices.insert( device, deviceData );
         else          s_globalDevices.insert( device, deviceData );
     }

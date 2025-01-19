@@ -14,6 +14,7 @@ class SubCircuit : public Chip
 {
     struct subcData_t
     {
+        QString subcType;
         QString circuit;
         QMap<QString, QString> packageList;
     };
