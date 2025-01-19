@@ -12,6 +12,12 @@ class LibraryItem;
 
 class SubCircuit : public Chip
 {
+    struct subcData_t
+    {
+        QString circuit;
+        QMap<QString, QString> packageList;
+    };
+
     public:
         SubCircuit( QString type, QString id, QString device );
         ~SubCircuit();
@@ -30,6 +36,8 @@ class SubCircuit : public Chip
 
         virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
+ static void clearLocalData() { s_localDevices.clear(); } // Clear Data for Subcircuits in Circuit folder
+
     protected:
         void loadSubCircuitFile( QString file );
         void loadSubCircuit( QString doc );
@@ -44,13 +52,16 @@ class SubCircuit : public Chip
         virtual Pin* updatePin( QString id, QString type, QString label,
                                 int xpos, int ypos, int angle, int length=8, int space=0 ) override;
 
-        QHash<QString, Component*> m_mainComponents;
- static QString m_subcDir;      // Subcircuit Path
+        QMap<QString, Component*> m_mainComponents;
+ static QString s_subcDir;      // Subcircuit Path
 
-        QList<Component*>       m_compList;
-        QList<Tunnel*>          m_subcTunnels;
-        QHash<QString, Tunnel*> m_pinTunnels;
+        QList<Component*>      m_compList;
+        QList<Tunnel*>         m_subcTunnels;
+        QMap<QString, Tunnel*> m_pinTunnels;
 
  static QStringList s_graphProps;
         void loadGraphProps();
+
+ static QMap<QString, subcData_t> s_globalDevices;  // Data for Subcircuits (global)
+ static QMap<QString, subcData_t> s_localDevices;   // Data for Subcircuits in Circuit folder (cleared at Circuit close)
 };

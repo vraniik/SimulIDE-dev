@@ -633,6 +633,7 @@ void Circuit::clearCircuit() // Remove everything ( Clear Circuit )
         if( node->scene() ) removeItem( node );
         delete node;
     }
+    SubCircuit::clearLocalData(); // Clear Data for Subcircuits in Circuit folder
     m_deleting = false;
 }
 

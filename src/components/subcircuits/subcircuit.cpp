@@ -25,64 +25,74 @@
 
 #define tr(str) simulideTr("SubCircuit",str)
 
-QString SubCircuit::m_subcDir = "";
+QString SubCircuit::s_subcDir = "";
 QStringList SubCircuit::s_graphProps;
+QMap<QString, SubCircuit::subcData_t> SubCircuit::s_globalDevices;  // Data for Subcircuits (global)
+QMap<QString, SubCircuit::subcData_t> SubCircuit::s_localDevices;   // Data for Subcircuits in Circuit folder (deleted at Circuit close)
 
 Component* SubCircuit::construct( QString type, QString id )
 {
     m_error = 0;
-    m_subcDir = "";
+    s_subcDir = "";
 
     QString device = Chip::getDevice( id );
 
-    QMap<QString, QString> packageList;
     QString subcTyp = "None";
-    QString pkgeFile;
     QString subcFile;
+    subcData_t subcData;
 
     QString fileName = device+".sim1";
     subcFile = MainWindow::self()->getCircFilePath( fileName ); // Search sim1 in circuit or circuit/data folder
     if( subcFile.isEmpty() )                                    // Search sim1 in circuit/name or circuit/data/name folder
         subcFile = MainWindow::self()->getCircFilePath( device+"/"+fileName );
 
-    if( subcFile.isEmpty() ) // Get subc folder from list
+    bool isLocal = false;
+    if( !subcFile.isEmpty() ) // Files found in Circuit folder
     {
-        m_subcDir = ComponentList::self()->getFileDir( device );
-        if( !m_subcDir.isEmpty() ) subcFile = m_subcDir+"/"+device+".sim1";
+        s_subcDir = QFileInfo( subcFile ).absolutePath();
+        subcData = s_localDevices.value( device ); // Check if data already stored
+        isLocal = true;
     }
-    else m_subcDir = QFileInfo( subcFile ).absolutePath();
+    else                      // Get Files from list
+    {
+        s_subcDir = ComponentList::self()->getFileDir( device );
+        if( !s_subcDir.isEmpty() ) subcFile = s_subcDir+"/"+device+".sim1";
 
-    if( !subcFile.isEmpty() )
+        subcData = s_globalDevices.value( device ); // Check if data already stored
+    }
+
+    QString circuit = subcData.circuit;
+    QMap<QString, QString> packageList = subcData.packageList;
+
+    if( circuit.isEmpty() ) // We need to load data from files
     {
         packageList = getPackages( subcFile ); // Try packages from sim1 file
-        subcTyp = s_subcType;
+        subcTyp = Chip::s_subcType;
 
         if( packageList.isEmpty() ) // Packages from package files
         {
-            pkgeFile  = m_subcDir+"/"+device+".package";
-            QString pkgFileLS = m_subcDir+"/"+device+"_LS.package";
-            QString pkgName   = "2- DIP";
-            QString pkgNameLS = "1- Logic Symbol";
-
-            bool dip = QFile::exists( pkgeFile );
-            bool ls  = QFile::exists( pkgFileLS );
-            if( !dip && !ls ){
-                qDebug() << "SubCircuit::construct: Error No package files found for "<<device<<endl;
-                return nullptr;
-            }
+            QString pkgeFile  = s_subcDir+"/"+device+".package";
+            QString pkgFileLS = s_subcDir+"/"+device+"_LS.package";
 
             Chip::s_subcType = "None";
-            if( dip ){
+            if( QFile::exists( pkgeFile ) )
+            {
                 QString pkgStr = fileToString( pkgeFile, "SubCircuit::construct" );
-                packageList[pkgName] = convertPackage( pkgStr );
-                subcTyp = s_subcType;
+                packageList["2- DIP"] = convertPackage( pkgStr );
+                subcTyp = Chip::s_subcType;
             }
-            if( ls ){
+            if( QFile::exists( pkgFileLS ) )
+            {
                 QString pkgStr = fileToString( pkgFileLS, "SubCircuit::construct" );
-                packageList[pkgNameLS] = convertPackage( pkgStr );
-                if( subcTyp == "None" ) subcTyp = s_subcType;
+                packageList["1- Logic Symbol"] = convertPackage( pkgStr );
+                if( subcTyp == "None" ) subcTyp = Chip::s_subcType;
             }
         }
+        // Save device data
+        circuit = fileToString( subcFile, "SubCircuit::loadSubCircuit" );
+        subcData_t deviceData = { circuit, packageList };
+        if( isLocal ) s_localDevices.insert( device, deviceData );
+        else          s_globalDevices.insert( device, deviceData );
     }
 
     if( packageList.isEmpty() ){
@@ -109,13 +119,20 @@ Component* SubCircuit::construct( QString type, QString id )
         subcircuit->m_packageList = packageList;
         subcircuit->m_dataFile = subcFile;
 
-        if( packageList.size() > 1 ) // Add package list if there is more than 1 to choose
+        if( packageList.size() > 1 ) // Add package list Property if there is more than 1 to choose
         subcircuit->addProperty( tr("Main"),
         new StrProp <SubCircuit>("Package", tr("Package"), pkges.join(",")
                                 , subcircuit, &SubCircuit::package, &SubCircuit::setPackage,0,"enum" ));
 
         subcircuit->setPackage( pkges.first() );
-        if( m_error == 0 ) subcircuit->loadSubCircuitFile( subcFile );
+        if( m_error == 0 )
+        {
+            QString oldFilePath = Circuit::self()->getFilePath();
+
+            Circuit::self()->setFilePath( subcFile );    // Path to find subcircuits/Scripted in our data folder
+            subcircuit->loadSubCircuit( circuit );
+            Circuit::self()->setFilePath( oldFilePath ); // Restore original filePath
+        }
     }
     if( m_error > 0 )
     {
@@ -149,18 +166,6 @@ SubCircuit::SubCircuit( QString type, QString id, QString device )
 }
 SubCircuit::~SubCircuit(){}
 
-void SubCircuit::loadSubCircuitFile( QString file )
-{
-    QString doc = fileToString( file, "SubCircuit::loadSubCircuit" );
-
-    QString oldFilePath = Circuit::self()->getFilePath();
-    Circuit::self()->setFilePath( file );             // Path to find subcircuits/Scripted in our data folder
-
-    loadSubCircuit( doc );
-
-    Circuit::self()->setFilePath( oldFilePath ); // Restore original filePath
-}
-
 void SubCircuit::loadSubCircuit( QString doc )
 {
     QString numId = m_id;
@@ -181,7 +186,7 @@ void SubCircuit::loadSubCircuit( QString doc )
         if( itemType.name != "itemtype") continue;
         QString type = itemType.value.toString();
 
-        if( type == "Package" || type == "Subcircuit" ) continue;
+        if( type == "Package" ) continue;
 
         if( type == "Connector" )
         {
@@ -233,7 +238,7 @@ void SubCircuit::loadSubCircuit( QString doc )
             {
                 comp->remProperty("Logic_Symbol");
                 mcu = (Mcu*)comp;
-                mcu->m_subcFolder = m_subcDir+"/";
+                mcu->m_subcFolder = s_subcDir+"/";
             }
 
             for( propStr_t prop : properties )
