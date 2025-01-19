@@ -17,6 +17,7 @@ HEADERS      = $$files( $$PWD/src/*.h, true )
 TRANSLATIONS = $$files( $$PWD/resources/translations/*.ts )
 FORMS       += $$files( $$PWD/src/*.ui, true )
 RESOURCES    = $$PWD/src/application.qrc
+RESOURCES   += $$PWD/src/data.qrc
 
 INCLUDEPATH += $$PWD/src \
     $$PWD/src/components \
@@ -106,6 +107,13 @@ macx {
     OS = MacOs
     QMAKE_LFLAGS += -no-pie
     ICON = $$PWD/resources/icons/simulide.icns
+
+QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7
+QMAKE_CXX  = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
+QMAKE_LINK = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
+
+    QMAKE_CXXFLAGS -= -stdlib=libc++
+    QMAKE_LFLAGS   -= -stdlib=libc++
 }
 
 CONFIG += qt 
@@ -113,7 +121,7 @@ CONFIG += warn_on
 CONFIG += no_qml_debug
 CONFIG *= c++11
 
-REV_NO = $$system($(which date) +\"\\\"%m%d\\\"\")
+REV_NO = $$system($(which date) +\"\\\"%y%m%d\\\"\")
 #$$system( git rev-parse --short HEAD )
 DEFINES += REVNO=\\\"$$REV_NO\\\"
 DEFINES += APP_VERSION=\\\"$$VERSION-$$RELEASE\\\"
@@ -130,32 +138,6 @@ INCLUDEPATH += $$MOC_DIR
 
 DESTDIR = $$TARGET_PREFIX
 
-win32 | linux {
-    mkpath( $$TARGET_PREFIX/data )
-    mkpath( $$TARGET_PREFIX/examples )
-
-    copy2dest.commands = \
-        $(COPY_DIR) $$PWD/resources/data     $$TARGET_PREFIX; \
-        $(COPY_DIR) $$PWD/resources/examples $$TARGET_PREFIX; \
-}
-
-macx {
-QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7
-QMAKE_CXX  = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
-QMAKE_LINK = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
-
-    QMAKE_CXXFLAGS -= -stdlib=libc++
-    QMAKE_LFLAGS   -= -stdlib=libc++
-
-    mkpath( $$TARGET_PREFIX/simulide.app )
-    mkpath( $$TARGET_PREFIX/simulide.app/Contents/MacOs/data )
-    mkpath( $$TARGET_PREFIX/simulide.app/Contents/MacOs/examples )
-
-    copy2dest.commands = \
-        $(COPY_DIR) $$PWD/resources/data     $$TARGET_PREFIX/simulide.app/Contents/MacOs; \
-        $(COPY_DIR) $$PWD/resources/examples $$TARGET_PREFIX/simulide.app/Contents/MacOs;
-}
-
 runLrelease.commands = \
     lrelease $$PWD/resources/translations/*.ts; \
     lrelease $$PWD/resources/translations/qt/*.ts; \
@@ -163,9 +145,7 @@ runLrelease.commands = \
     $(MOVE) $$PWD/resources/translations/qt/*.qm $$PWD/resources/qm;
 
 QMAKE_EXTRA_TARGETS += runLrelease
-QMAKE_EXTRA_TARGETS += copy2dest
 PRE_TARGETDEPS      += runLrelease
-POST_TARGETDEPS     += copy2dest
 
 message( "-----------------------------------")
 message( "    "                               )

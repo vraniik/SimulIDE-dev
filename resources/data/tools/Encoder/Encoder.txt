@@ -1,0 +1,13 @@
+Decimal/Hexadecimal Encoder.
+
+Use the slider to set the output value.
+
+
+Property: (default value)
+
+Main:
+- HEX: (yes)
+   Configure as Hexadecimal or Decimal Encoder.
+
+- Value: (0)
+   Current value (save circuit to keep last value).

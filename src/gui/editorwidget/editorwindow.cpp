@@ -259,14 +259,16 @@ BaseDebugger* EditorWindow::createDebugger( QString name, CodeEditor* ce, QStrin
 
 void EditorWindow::loadCompilers()
 {
+    // User compilerdata
     QString compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/compilers");
     loadCompilerSet( compilsPath, &m_compilers );
     compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/assemblers");
     loadCompilerSet( compilsPath, &m_assemblers );
 
-    compilsPath = MainWindow::self()->getFilePath("data/codeeditor/compilers/compilers");
+    // Embeed compiler data
+    compilsPath = ":/data/codeeditor/compilers/compilers";
     loadCompilerSet( compilsPath, &m_compilers );
-    compilsPath = MainWindow::self()->getFilePath("data/codeeditor/compilers/assemblers");
+    compilsPath = ":/data/codeeditor/compilers/assemblers";
     loadCompilerSet( compilsPath, &m_assemblers );
 }
 
