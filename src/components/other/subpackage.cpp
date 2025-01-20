@@ -515,6 +515,7 @@ QString SubPackage::packagePins()
 void SubPackage::setPackagePins( QString pinsStr )
 {
     if( !m_pkgeFile.isEmpty() ) return;
+    if( pinsStr == " " ) return;
 
     QVector<QStringRef> pins = pinsStr.splitRef("&#xa;");
     for( QStringRef pin : pins )
