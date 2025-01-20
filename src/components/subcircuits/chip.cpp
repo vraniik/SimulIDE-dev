@@ -254,7 +254,7 @@ void Chip::initPackage( QString pkgStr )
                 else if( name == "logic_symbol") m_isLS = ( val == "true" );
             }
             if( !bckgndData.isEmpty() ) setBckGndData( bckgndData );
-            setBackground( background );
+            if( !background.isEmpty() ) setBackground( background );
         }
         else if( item == "Pin" ) setPinStr( properties );
     }

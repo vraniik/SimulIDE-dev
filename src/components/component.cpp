@@ -659,11 +659,8 @@ void Component::paintSelected( QPainter* p )
 void Component::paint( QPainter* p, const QStyleOptionGraphicsItem*, QWidget* )
 {
     QPen pen( Qt::black, 1.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin );
-    QColor color;
-
-    color = m_color;
 
     //p->drawPath( shape() );
-    p->setBrush( color );
+    p->setBrush( m_color );
     p->setPen( pen );
 }
