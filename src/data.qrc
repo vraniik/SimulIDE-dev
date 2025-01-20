@@ -31,11 +31,8 @@
     <file alias="/arduino/Nano/Nano.sim1.~1~">../resources/data/arduino/Nano/Nano.sim1.~1~</file>
     <file alias="/arduino/Nano/nano_board.png">../resources/data/arduino/Nano/nano_board.png</file>
     <file alias="/arduino/Nano/Nano_icon.png">../resources/data/arduino/Nano/Nano_icon.png</file>
-    <file alias="/arduino/Uno/Uno.package">../resources/data/arduino/Uno/Uno.package</file>
     <file alias="/arduino/Uno/Uno.sim1">../resources/data/arduino/Uno/Uno.sim1</file>
-    <file alias="/arduino/Uno/uno_board.png">../resources/data/arduino/Uno/uno_board.png</file>
     <file alias="/arduino/Uno/Uno_icon.png">../resources/data/arduino/Uno/Uno_icon.png</file>
-    <file alias="/arduino/Uno/Uno_LS.package">../resources/data/arduino/Uno/Uno_LS.package</file>
     <file alias="/AVR/mega128.mcu">../resources/data/AVR/mega128.mcu</file>
     <file alias="/AVR/mega1280.mcu">../resources/data/AVR/mega1280.mcu</file>
     <file alias="/AVR/mega1281.mcu">../resources/data/AVR/mega1281.mcu</file>
