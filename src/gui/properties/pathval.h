@@ -16,7 +16,7 @@ class PathVal : public PropVal, private Ui::PathVal
     Q_OBJECT
     
     public:
-        PathVal( PropDialog* parent, CompBase* comp, ComProperty* prop );
+        PathVal( PropDialog* parent, CompBase* comp, ComProperty* prop, bool isFile );
         ~PathVal();
 
         virtual void setup( bool ) override;
@@ -25,4 +25,7 @@ class PathVal : public PropVal, private Ui::PathVal
     public slots:
         void on_value_editingFinished();
         void on_setPathButton_clicked();
+
+    private:
+        bool m_isFile;
 };

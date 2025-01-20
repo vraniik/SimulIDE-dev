@@ -106,7 +106,8 @@ void PropDialog::setComponent( CompBase* comp, bool isComp )
                 else if( type == "uint"    ) mp = new NumVal( this, comp, prop );
                 else if( type == "int"     ) mp = new NumVal( this, comp, prop );
                 else if( type == "string"  ) mp = new StrVal( this, comp, prop );
-                else if( type == "path"    ) mp = new PathVal( this, comp, prop );
+                else if( type == "path"    ) mp = new PathVal( this, comp, prop, false );
+                else if( type == "file"    ) mp = new PathVal( this, comp, prop, true );
                 else if( type == "textEdit") mp = new TextVal( this, comp, prop );
                 else if( type == "enum"    ) mp = new EnumVal( this, comp, prop );
                 else if( type == "bool"    ) mp = new BoolVal( this, comp, prop );
