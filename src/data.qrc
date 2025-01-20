@@ -715,7 +715,6 @@
     <file alias="/PIC/pic/pic14_regs.xml">../resources/data/PIC/pic/pic14_regs.xml</file>
     <file alias="/PIC/pic/pic14e_regs.xml">../resources/data/PIC/pic/pic14e_regs.xml</file>
     <file alias="/PIC/pic/types.txt">../resources/data/PIC/pic/types.txt</file>
-    <file alias="/shields/DigitShield/DigitShield.package">../resources/data/shields/DigitShield/DigitShield.package</file>
     <file alias="/shields/DigitShield/DigitShield.sim1">../resources/data/shields/DigitShield/DigitShield.sim1</file>
     <file alias="/shields/DigitShield/DigitShield_icon.png">../resources/data/shields/DigitShield/DigitShield_icon.png</file>
     <file alias="/shields/LcdShield/LcdShield.package">../resources/data/shields/LcdShield/LcdShield.package</file>
