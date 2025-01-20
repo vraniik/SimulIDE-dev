@@ -717,7 +717,6 @@
     <file alias="/PIC/pic/types.txt">../resources/data/PIC/pic/types.txt</file>
     <file alias="/shields/DigitShield/DigitShield.sim1">../resources/data/shields/DigitShield/DigitShield.sim1</file>
     <file alias="/shields/DigitShield/DigitShield_icon.png">../resources/data/shields/DigitShield/DigitShield_icon.png</file>
-    <file alias="/shields/LcdShield/LcdShield.package">../resources/data/shields/LcdShield/LcdShield.package</file>
     <file alias="/shields/LcdShield/LcdShield.sim1">../resources/data/shields/LcdShield/LcdShield.sim1</file>
     <file alias="/shields/LcdShield/LcdShield_icon.png">../resources/data/shields/LcdShield/LcdShield_icon.png</file>
     <file alias="/tools/Encoder/Encoder.sim1">../resources/data/tools/Encoder/Encoder.sim1</file>
