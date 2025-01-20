@@ -29,6 +29,8 @@ Chip::Chip( QString type, QString id, QString device )
 
     m_subcType = "None";
     m_isBoard = false;
+    m_border  = false;
+    m_hasBckGndData = false;
 
     m_isLS = false;
     m_initialized = false;
@@ -44,6 +46,8 @@ Chip::Chip( QString type, QString id, QString device )
     
     m_lsColor = QColor( 255, 255, 255 );
     m_icColor = QColor( 50, 50, 70 );
+    m_pkgColor = m_lsColor;
+    m_color   = m_lsColor;
 
     QFont f;
     f.setFamily("Ubuntu Mono");
@@ -234,18 +238,23 @@ void Chip::initPackage( QString pkgStr )
         QStringRef item = properties.takeFirst().name;
         if( item == "Package" )
         {
+            QString background;
+            QString bckgndData;
+
             for( propStr_t property : properties )
             {
                 QString   name = property.name.toString().toLower();  // Property name
                 QStringRef val = property.value;                      // Property value
 
-                if     ( name == "width"     ) m_width  = val.split(" ").first().toInt();
-                else if( name == "height"    ) m_height = val.split(" ").first().toInt();
-                else if( name == "name"      ) embedName = val.toString();
-                else if( name == "background") setBackground( val.toString() );
-                else if( name == "bckgnddata") setBckGndData( val.toString() );
+                if     ( name == "width"     ) m_width    = val.split(" ").first().toInt();
+                else if( name == "height"    ) m_height   = val.split(" ").first().toInt();
+                else if( name == "name"      ) embedName  = val.toString();
+                else if( name == "background") background = val.toString();
+                else if( name == "bckgnddata") bckgndData = val.toString();
                 else if( name == "logic_symbol") m_isLS = ( val == "true" );
             }
+            if( !bckgndData.isEmpty() ) setBckGndData( bckgndData );
+            setBackground( background );
         }
         else if( item == "Pin" ) setPinStr( properties );
     }
@@ -362,14 +371,9 @@ void Chip::addNewPin( QString id, QString type, QString label, int pos, int xpos
 void Chip::setLogicSymbol( bool ls )
 {
     m_isLS = ls;
-    QColor labelColor = QColor( 0, 0, 0 );
 
-    if( ls ){
-        if( !m_customColor ) m_color = m_lsColor;
-    }else{
-        if( !m_customColor ) m_color = m_icColor;
-        labelColor = QColor( 250, 250, 200 );
-    }
+    updateColor();
+    QColor labelColor = ls ? QColor( 0, 0, 0 ) : QColor( 250, 250, 200 );
     for( Pin* pin : m_pin ) pin->setLabelColor( labelColor );
 
     Circuit::self()->update();
@@ -377,6 +381,7 @@ void Chip::setLogicSymbol( bool ls )
 
 void Chip::setBckGndData( QString data )
 {
+    m_hasBckGndData = false;
     if( m_backPixmap )
     {
         delete m_backPixmap;
@@ -384,17 +389,27 @@ void Chip::setBckGndData( QString data )
     }
     if( data.isEmpty() ) return;
 
+    m_hasBckGndData = true;
     m_backPixmap = new QPixmap();
 
+    QStringRef dataRef( &data );
     QByteArray ba;
     bool ok;
-    for( int i=0; i<data.size(); i+=2 )
+    for( int i=0; i<dataRef.size(); i+=2 )
     {
-        QString ch = data.mid( i, 2 );
+        QStringRef ch = dataRef.mid( i, 2 );
         ba.append( ch.toInt( &ok, 16 ) );
     }
     m_backPixmap->loadFromData( ba );
     update();
+}
+
+void Chip::embeedBackground( QString pixmapPath )
+{
+    if( m_hasBckGndData ) return;
+
+    if( !m_backPixmap ) m_backPixmap = new QPixmap();
+    m_backPixmap->load( pixmapPath );
 }
 
 void Chip::setBackground( QString bck )
@@ -407,12 +422,19 @@ void Chip::setBackground( QString bck )
         QStringList rgb = bck.split(",");
         if( rgb.size() < 3 ) return;
 
-        m_color = QColor( rgb.at(0).toInt(), rgb.at(1).toInt(), rgb.at(2).toInt() );
+        m_pkgColor = QColor( rgb.at(0).toInt(), rgb.at(1).toInt(), rgb.at(2).toInt() );
         m_customColor = true;
+        updateColor();
     }
     else if( bck != "" )
     {
-        QString pixmapPath = MainWindow::self()->getCircFilePath( bck ); // Image in circuit/data folder
+        QString pixmapPath;
+
+        if( QFile::exists( bck ) )// full path to image
+        {
+             pixmapPath = bck;
+        }
+        else pixmapPath = MainWindow::self()->getCircFilePath( bck ); // Image in circuit/data folder
 
         if( !QFile::exists( pixmapPath ) ){
             QDir dir = QFileInfo( m_dataFile ).absoluteDir();
@@ -421,12 +443,28 @@ void Chip::setBackground( QString bck )
         if( !QFile::exists( pixmapPath ) )                    // Image in user/data/images or simulide/data/images
             pixmapPath = MainWindow::self()->getDataFilePath("images/"+bck );
 
-        if( QFile::exists( pixmapPath ) )
-        {
-            if( !m_backPixmap ) m_backPixmap = new QPixmap();
-            m_backPixmap->load( pixmapPath );
+        if( QFile::exists( pixmapPath ) ) embeedBackground( pixmapPath );
+        else{
+            m_background = "";
+            setBckGndData("");
         }
     }
+    else setBckGndData("");
+    update();
+}
+
+void Chip::setPkgColorStr( QString color )
+{
+    m_pkgColor = QColor( color );
+    updateColor();
+}
+
+void Chip::updateColor()
+{
+    if( m_customColor ) m_color = m_pkgColor;
+    else if( m_isLS   ) m_color = m_lsColor;
+    else                m_color = m_icColor;
+
     update();
 }
 
@@ -468,9 +506,19 @@ void Chip::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
                          , m_area.width()-m_leftMargin-m_rightMargin
                          , m_area.height()-m_topMargin-m_bottomMargin );
 
-    if( m_backPixmap ) p->drawPixmap( imgArea, *m_backPixmap );
-    else{
+    //if( m_backPixmap ) p->drawPixmap( imgArea, *m_backPixmap );
+    //else
+    {
+        if( m_backPixmap )
+        {
+            if( m_customColor ) p->setBrush( m_pkgColor );
+            else                p->setBrush( QColor( 0, 0, 0, 0 ) );
+            if( !m_border ) p->setPen( Qt::NoPen );
+        }
         p->drawRoundedRect( m_area, 1, 1);
+
+        if( m_backPixmap ) p->drawPixmap( imgArea, *m_backPixmap );
+
         if( m_backData  )
         {
             p->setRenderHint( QPainter::Antialiasing, true );
@@ -491,7 +539,7 @@ void Chip::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
             painter.end();
             p->drawImage( imgArea, img );
         }
-        else if( !this->isBoard() && !m_isLS /*&& m_background.isEmpty()*/ )
+        else if( !this->isBoard() && !m_isLS /*&& m_background.isEmpty()*/ ) // Chip arc
         {
             p->setPen( QColor( 170, 170, 150 ) );
             if( m_width == m_height ) p->drawEllipse( 4, 4, 4, 4);

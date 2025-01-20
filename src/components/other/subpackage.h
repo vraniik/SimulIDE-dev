@@ -31,28 +31,29 @@ class SubPackage : public Chip, public Linker
         QString packageFile() { return m_pkgeFile; }
         void setPackageFile( QString package );
 
-        QString bckGndData() { return m_BckGndData; }
-        virtual void setBckGndData( QString data ) override;
-        virtual void setBackground( QString bck ) override;
+        QString bckGndData() { return m_bckGndData; }
+        void setBckGndData( QString data ) override;
 
-        virtual void setLogicSymbol( bool ls ) override;
+        void setCustomColor( bool c ) override;
+
+        void setLogicSymbol( bool ls ) override;
 
         QString packagePins();
         void setPackagePins( QString pinsStr );
 
-        virtual std::vector<Pin*> getPins() override { std::vector<Pin*> p; return p; } // Used to access wires (we have no wires)
+        std::vector<Pin*> getPins() override { std::vector<Pin*> p; return p; } // Used to access wires (we have no wires)
 
         void setEventPin( Pin* pin ) { m_eventPin = pin; }
 
         void savePackage( QString fileName );
 
-        virtual void setSubcTypeStr( QString s ) override;
+        void setSubcTypeStr( QString s ) override;
 
-        virtual void compSelected( Component* comp ) override;  // Use link mechanism to select main components
+        void compSelected( Component* comp ) override;  // Use link mechanism to select main components
 
-        virtual void moveSignal() override {;}
+        void moveSignal() override {;}
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
         void invertPin( bool invert );
         void setPinId( QString id );
@@ -67,7 +68,7 @@ class SubPackage : public Chip, public Linker
         void setBusPin( bool bus );
         void editPin();
         void deleteEventPin();
-    
+
     protected:
         void loadPackage();
         void slotSave();
@@ -82,10 +83,16 @@ class SubPackage : public Chip, public Linker
         void addNewPin( QString id, QString type, QString label,
                             int pos, int xpos, int ypos, int angle, int length=8, int space=0 ) override;
 
+        void embeedBackground( QString pixmapPath ) override;
+
+        void slotProperties() override;
+
     private:
         QString pinEntry( Pin* pin );
         QString pinStrEntry( Pin* pin );
         QString adjustSize( QString str, int size );
+
+        void updtProperties();
 
  static QString m_lastPkg;
 
@@ -103,7 +110,7 @@ class SubPackage : public Chip, public Linker
 
         QString m_pkgeFile;     // file containig package defs
 
-        QString m_BckGndData;   // Embedded background png data
+        QString m_bckGndData;   // Embedded background png data
 
         Pin* m_eventPin;
         QList<Pin*> m_pkgePins;

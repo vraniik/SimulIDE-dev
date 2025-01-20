@@ -14,7 +14,7 @@ class Chip : public Component, public eElement
         Chip( QString type, QString id, QString device=""  );
         ~Chip();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool setPropStr( QString prop, QString val ) override;
 
         bool isBoard() { return m_isBoard; }
 
@@ -25,7 +25,16 @@ class Chip : public Component, public eElement
         virtual void setLogicSymbol( bool ls );
 
         virtual void setBckGndData( QString data );
-        virtual void setBackground( QString bck ) override;
+        void setBackground( QString bck ) override;
+
+        bool customColor() { return m_customColor; }
+        virtual void setCustomColor( bool c ){ m_customColor = c; }
+
+        QString pkgColorStr() { return m_pkgColor.name(); }
+        void setPkgColorStr( QString color );
+
+        bool border() { return m_border; }
+        void setBorder( bool b ) { m_border = b; update(); }
 
         QString name() { return m_name; }
         void setName( QString name );
@@ -41,9 +50,9 @@ class Chip : public Component, public eElement
         void setMargins( QString margins );
         QString getMargins() { return m_margins; }
 
-        virtual void setflip() override;
+        void setflip() override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
  static QMap<QString, QString> getPackages( QString compText );
  static QString convertPackage( QString pkgText );
@@ -65,7 +74,11 @@ class Chip : public Component, public eElement
 
         void setPinStr( QVector<propStr_t> properties );
 
-        virtual void findHelp() override;
+        virtual void embeedBackground( QString pixmapPath );
+
+        void findHelp() override;
+
+        void updateColor();
 
         int m_width;
         int m_height;
@@ -79,11 +92,14 @@ class Chip : public Component, public eElement
         bool m_initialized;
         bool m_customColor;
         bool m_isBoard;
+        bool m_border;
+        bool m_hasBckGndData;
 
         QString m_subcType;
 
         QColor m_lsColor;
         QColor m_icColor;
+        QColor m_pkgColor;
 
         QString m_name;
         QString m_device;
