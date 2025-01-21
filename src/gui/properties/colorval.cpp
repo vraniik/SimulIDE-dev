@@ -9,7 +9,6 @@
 #include "component.h"
 #include "comproperty.h"
 #include "propdialog.h"
-//#include "mainwindow.h"
 
 ColorVal::ColorVal( PropDialog* parent, CompBase* comp, ComProperty* prop )
         : PropVal( parent, comp, prop )
@@ -21,25 +20,19 @@ ColorVal::~ColorVal(){}
 
 void ColorVal::setup( bool )
 {
-    //float scale = MainWindow::self()->fontScale();
-    //QFont font = valLabel->font();
-    //font.setPixelSize( 11.0*scale );
-    //valLabel->setFont( font );
-    //colorW->setFont( font );
-    //valueBox->setFont( font );
-
-    QFontMetrics fm( colorW->font() );
-    float scale = fm.width(" ")/2;
-    colorW->setFixedWidth( 170.0*scale );
+    //QFontMetrics fm( colorW->font() );
+    //float scale = fm.width(" ")/2;
+    //colorW->setFixedWidth( 170.0*scale );
 
     valLabel->setText( m_property->capt() );
 
-    m_color = m_property->getValStr(); /// FIXME // comp->property( m_propName.toUtf8() ).value<QColor>();
+    QString colorStr = m_property->getValStr();
+    m_color = QColor( colorStr );
 
     QPalette pal = colorW->palette();
     pal.setColor( QPalette::Base, m_color );
     colorW->setPalette( pal );
-    //colorW->setText( m_color.name() );
+    colorW->setText( colorStr );
     colorW->setReadOnly( true );
     colorW->installEventFilter(this);
 
@@ -61,16 +54,17 @@ void ColorVal::changeColor()
     if( m_blocked ) return;
     if( !m_component ) return;
 
-    QColor color = QColorDialog::getColor( m_color, this );
+    QColor color = QColorDialog::getColor( m_color, this, tr("Select Color"), QColorDialog::DontUseNativeDialog );
     if(!color.isValid() ) return;
     m_color = color;
 
-    m_component->setPropStr( m_propName, m_color.name() ); /// FIXME
+    QString colorStr = m_color.name();
+    m_component->setPropStr( m_propName, colorStr );
 
     QPalette pal = colorW->palette();
     pal.setColor( QPalette::Base, m_color );
     colorW->setPalette( pal );
-    //colorW->setText( m_color.name() );
+    colorW->setText( colorStr );
 
     m_propDialog->changed();
 }
