@@ -470,6 +470,15 @@ void SubPackage::embeedBackground( QString pixmapPath )
     setBckGndData( bckData );
 }
 
+void SubPackage::setBackground( QString bck )
+{
+    m_background = bck;
+
+    if( bck.isEmpty() ) setBckGndData("");
+    else                Chip::setBackground( bck );
+    update();
+}
+
 void SubPackage::setLogicSymbol( bool ls )
 {
     QColor labelColor = ls ? QColor( 0, 0, 0 ) : QColor( 250, 250, 200 );

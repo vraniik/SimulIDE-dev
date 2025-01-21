@@ -406,8 +406,6 @@ void Chip::setBckGndData( QString data )
 
 void Chip::embeedBackground( QString pixmapPath )
 {
-    if( m_hasBckGndData ) return;
-
     if( !m_backPixmap ) m_backPixmap = new QPixmap();
     m_backPixmap->load( pixmapPath );
 }
@@ -426,7 +424,7 @@ void Chip::setBackground( QString bck )
         m_customColor = true;
         updateColor();
     }
-    else if( bck != "" )
+    else if( !bck.isEmpty() && !m_hasBckGndData )
     {
         QString pixmapPath;
 
@@ -436,7 +434,8 @@ void Chip::setBackground( QString bck )
         }
         else pixmapPath = MainWindow::self()->getCircFilePath( bck ); // Image in circuit/data folder
 
-        if( !QFile::exists( pixmapPath ) ){
+        if( !QFile::exists( pixmapPath ) )
+        {
             QDir dir = QFileInfo( m_dataFile ).absoluteDir();
             pixmapPath = dir.absoluteFilePath( bck );              // Image in subcircuit folder
         }
@@ -444,12 +443,7 @@ void Chip::setBackground( QString bck )
             pixmapPath = MainWindow::self()->getDataFilePath("images/"+bck );
 
         if( QFile::exists( pixmapPath ) ) embeedBackground( pixmapPath );
-        else{
-            m_background = "";
-            setBckGndData("");
-        }
     }
-    else setBckGndData("");
     update();
 }
 

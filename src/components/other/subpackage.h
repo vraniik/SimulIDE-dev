@@ -84,6 +84,7 @@ class SubPackage : public Chip, public Linker
                             int pos, int xpos, int ypos, int angle, int length=8, int space=0 ) override;
 
         void embeedBackground( QString pixmapPath ) override;
+        void setBackground( QString bck ) override;
 
         void slotProperties() override;
 
