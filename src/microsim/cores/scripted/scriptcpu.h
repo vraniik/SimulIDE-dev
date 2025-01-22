@@ -102,9 +102,9 @@ class ScriptCpu : public ScriptBase, public McuCpu
         asIScriptContext* m_extClockCtx;
 
         std::vector<ComProperty*> m_scriptProps;
-        QHash<QString, QString> m_propFunctions;
-        QHash<QString, asIScriptFunction*> m_propGetters;
-        QHash<QString, asIScriptFunction*> m_propSetters;
+        QMap<QString, QString> m_propFunctions;
+        QMap<QString, asIScriptFunction*> m_propGetters;
+        QMap<QString, asIScriptFunction*> m_propSetters;
 
         QStringList m_types;
         QMap<QString, QStringList> m_typeWords;

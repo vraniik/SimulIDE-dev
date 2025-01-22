@@ -178,7 +178,7 @@ ScriptCpu::ScriptCpu( eMcu* mcu )
                                    , asMETHODPR( ScriptCpu, setLinkedValue, (int,double,int), void)
                                    , asCALL_THISCALL );
 
-    memberList << "setLinkedString( int index, string valuie, int i )";
+    memberList << "setLinkedString( int index, string value, int i )";
     m_aEngine->RegisterObjectMethod("ScriptCpu", "void setLinkedString( int index, string v, int i )"
                                    , asMETHODPR( ScriptCpu, setLinkedString, (int,const string,int), void)
                                    , asCALL_THISCALL );
