@@ -266,9 +266,9 @@ int McuCreator::processFile( QString fileName )
                     if( subC ){
                         pg = subC->getPropGroup( group );
                         if( pg ){
-                            for( ComProperty* p : subProps ) subC->addProperty( group, p, false );
+                            for( ComProperty* p : subProps ) subC->addProperty( group, p/*, false*/ ); // If false properties are saved but not set at circuit open
                         }
-                        else subC->addPropGroup( {group, subProps, 0}, false );
+                        else subC->addPropGroup( {group, subProps, 0}/*, false*/ );
                     }
                 }
                 node = node.nextSibling();
