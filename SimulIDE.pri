@@ -13,6 +13,7 @@ QT += serialport
 QT += multimedia widgets
 
 SOURCES      = $$files( $$PWD/src/*.cpp, true )
+SOURCES     += $$files( $$PWD/src/angel/src/*.S, true )
 HEADERS      = $$files( $$PWD/src/*.h, true )
 TRANSLATIONS = $$files( $$PWD/resources/translations/*.ts )
 FORMS       += $$files( $$PWD/src/*.ui, true )
@@ -101,11 +102,11 @@ win32 {
 }
 linux {
     OS = Linux
-    QMAKE_LFLAGS += -no-pie
+#    QMAKE_LFLAGS += -no-pie
 }
 macx {
     OS = MacOs
-    QMAKE_LFLAGS += -no-pie
+#    QMAKE_LFLAGS += -no-pie
     ICON = $$PWD/resources/icons/simulide.icns
 
 QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7
