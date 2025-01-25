@@ -23,11 +23,12 @@ class ADC : public LogicComponent
         virtual void runEvent() override { IoComponent::runOutputs(); }
 
         double maxVolt() { return m_maxVolt; }
-        void setMaxVolt( double v ) { m_maxVolt = v; }
+        void setMaxVolt( double v );
 
         void setNumOutputs( int pins );
         
     protected:
+        double m_ratio;
         double m_maxVolt;
-        double m_maxValue;
+        uint m_maxValue;
 };

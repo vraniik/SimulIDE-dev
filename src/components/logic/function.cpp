@@ -107,7 +107,7 @@ void Function::stamp()
 {
     IoComponent::initState();
 
-    for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this );
+    for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this );
 
     if( !m_compiled )
     {
@@ -132,14 +132,14 @@ void Function::voltChanged()
 
 bool Function::getInputState( int pin )
 {
-    if( (uint)pin >= m_inPin.size() ) return false;
-    return m_inPin[pin]->getInpState();
+    if( (uint)pin >= m_inpPin.size() ) return false;
+    return m_inpPin[pin]->getInpState();
 }
 
 double Function::getInputVoltage( int pin )
 {
-    if( (uint)pin >= m_inPin.size() ) return 0;
-    return m_inPin[pin]->getVoltage();
+    if( (uint)pin >= m_inpPin.size() ) return 0;
+    return m_inpPin[pin]->getVoltage();
 }
 
 void Function::setOutputState( int pin, bool s )
@@ -175,7 +175,7 @@ void Function::createScript()
     m_script = "\n// "+m_id+" Script --------;\n";
 
     m_script += "\n// Declaring Variables:\n";
-    for( uint i=0; i<m_inPin.size(); ++i )
+    for( uint i=0; i<m_inpPin.size(); ++i )
     {
         QString n = QString::number(i);
         m_script += "double vi"+n+" = 0;\n";
@@ -189,7 +189,7 @@ void Function::createScript()
     }
     m_script += "\nvoid voltChanged()\n{\n";
     m_script += "  // Getting data:\n";
-    for( uint i=0; i<m_inPin.size(); ++i )
+    for( uint i=0; i<m_inpPin.size(); ++i )
     {
         QString n = QString::number(i);
         m_script += "  vi"+n+" = fu.getInputVoltage("+n+");\n";
@@ -297,7 +297,7 @@ void Function::updateArea( uint ins, uint outs )
 
 void Function::setNumInputs( int inputs )
 {
-    if( (uint)inputs == m_inPin.size() ) return;
+    if( (uint)inputs == m_inpPin.size() ) return;
     if( inputs < 1 ) return;
 
     m_height = m_outPin.size()*2-1;
@@ -313,7 +313,7 @@ void Function::setNumOutputs( int outs )
     if( (uint)outs == m_outPin.size() ) return;
     if( outs < 1 ) return;
     
-    updateArea( m_inPin.size(), outs );
+    updateArea( m_inpPin.size(), outs );
     int halfH = (m_height/2)*8;
 
     uint oldSize = m_outPin.size();

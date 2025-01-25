@@ -84,7 +84,7 @@ LatchD::~LatchD(){}
 void LatchD::stamp()
 {
     if( m_trigger != Clock )
-    { for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this ); }
+    { for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this ); }
 
     m_resetPin->changeCallBack( this );
     LogicComponent::stamp();
@@ -100,7 +100,7 @@ void LatchD::voltChanged()
     {
         m_nextOutVal = 0;
         for( uint i=0; i<m_outPin.size(); ++i )
-            if( m_inPin[i]->getInpState() ) m_nextOutVal |= 1<<i;
+            if( m_inpPin[i]->getInpState() ) m_nextOutVal |= 1<<i;
     }
     scheduleOutPuts( this );
 }
@@ -119,7 +119,7 @@ void LatchD::setChannels( int channels )
 
     for( int i=0; i<channels; i++ )
     {
-        m_inPin[i]->setY( y+i*8 );
+        m_inpPin[i]->setY( y+i*8 );
         m_outPin[i]->setY( y+i*8 );
     }
     updateSize();

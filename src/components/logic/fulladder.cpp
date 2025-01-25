@@ -34,10 +34,10 @@ FullAdder::FullAdder( QString type, QString id)
     m_bits   = 0;
 
     m_area = QRect(-8,-(m_height/2)*8, m_width*8, m_height*8 );
-    m_inPin.resize( 1 );
+    m_inpPin.resize( 1 );
     m_outPin.resize( 1 );
 
-    m_inPin[0]  = m_ciPin = createPin("IR01Ci", m_id+"-ci");
+    m_inpPin[0]  = m_ciPin = createPin("IR01Ci", m_id+"-ci");
     m_outPin[0] = m_coPin = createPin("OR03Co", m_id+"-co");
     setBits( 1 );
 
@@ -56,7 +56,7 @@ FullAdder::~FullAdder(){}
 void FullAdder::stamp()
 {
     IoComponent::initState();
-    for( IoPin* pin : m_inPin ) pin->changeCallBack( this );
+    for( IoPin* pin : m_inpPin ) pin->changeCallBack( this );
 }
 
 void FullAdder::voltChanged()
@@ -66,8 +66,8 @@ void FullAdder::voltChanged()
     int A=0, B=0;
     for( int i=0; i<m_bits; ++i )
     {
-        if( m_inPin[1+i]->getInpState()        ) A |= 1<<i;
-        if( m_inPin[1+i+m_bits]->getInpState() ) B |= 1<<i;
+        if( m_inpPin[1+i]->getInpState()        ) A |= 1<<i;
+        if( m_inpPin[1+i+m_bits]->getInpState() ) B |= 1<<i;
     }
     m_nextOutVal = A + B + Ci;
 
@@ -90,9 +90,9 @@ void FullAdder::setBits( int b )
     {
         QString iStr = ( b > 1 ) ? QString::number(i) : "";
 
-        m_inPin[1+i]->setY( m_area.y()+i*8+8 );
-        m_inPin[1+i]->setLabelText("A"+iStr );
-        m_inPin[1+b+i]->setLabelText("B"+iStr );
+        m_inpPin[1+i]->setY( m_area.y()+i*8+8 );
+        m_inpPin[1+i]->setLabelText("A"+iStr );
+        m_inpPin[1+b+i]->setLabelText("B"+iStr );
         m_outPin[1+i]->setLabelText("S"+iStr );
     }
     m_coPin->setY( m_area.y()+b*8+16 );
@@ -102,8 +102,8 @@ void FullAdder::setBits( int b )
 
 Pin* FullAdder::getPin( QString pinName )
 {
-    if( pinName == "in0" ) return m_inPin[1];
-    if( pinName == "in1" ) return m_inPin[2];
+    if( pinName == "in0" ) return m_inpPin[1];
+    if( pinName == "in1" ) return m_inpPin[2];
     if( pinName == "in2" ) return m_ciPin;
     if( pinName == "out0") return m_outPin[1];
     if( pinName == "out1") return m_coPin;

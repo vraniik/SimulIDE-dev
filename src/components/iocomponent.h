@@ -30,15 +30,17 @@ class IoComponent : public Component, public LogicFamily
 
         void updtProperties();
 
-        virtual void setSupplyV( double v ) override;
-        virtual void setInpHighV( double volt ) override;
-        virtual void setInpLowV( double volt ) override;
-        virtual void setOutHighV( double volt ) override;
-        virtual void setOutLowV( double volt ) override;
-        virtual void setInputImp( double imp ) override;
-        virtual void setOutImp( double imp ) override;
-        virtual void setRiseTime( double time ) override;
-        virtual void setFallTime( double time ) override;
+        void setSupplyV( double v ) override;
+        void setInpHighV( double volt ) override;
+        void setInpLowV( double volt ) override;
+        void setOutHighV( double volt ) override;
+        void setOutLowV( double volt ) override;
+        void setInputImp( double imp ) override;
+        void setOutImp( double imp ) override;
+        void setRiseTime( double time ) override;
+        void setFallTime( double time ) override;
+        void setInpPullups( double p ) override;
+        void setOutPullups( double p ) override;
 
         bool invertOuts() { return m_invOutputs; }
         void setInvertOuts( bool invert );
@@ -46,7 +48,7 @@ class IoComponent : public Component, public LogicFamily
         bool invertInps() { return m_invInputs; }
         virtual void setInvertInps( bool invert );
 
-        int  numInps() { return m_inPin.size(); }
+        int  numInps() { return m_inpPin.size(); }
         virtual void setNumInps( uint pins, QString label="I", int bit0=0, int id0=0 );
 
         int  numOuts() { return m_outPin.size(); }
@@ -55,22 +57,18 @@ class IoComponent : public Component, public LogicFamily
         bool openCol() { return m_openCol; }
         void setOpenCol( bool op );
 
-        double pullUps() { return m_pullups; }
-        void setPullUps( double p );
-
         void init( QStringList pins );
         void initPin( IoPin* pin );
 
-        virtual std::vector<Pin*> getPins() override;
+        std::vector<Pin*> getPins() override;
 
-        virtual void remove() override;
+        void remove() override;
 
-        virtual void setHidden( bool hid, bool hidArea=false, bool hidLabel=false ) override;
-
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void setHidden( bool hid, bool hidArea=false, bool hidLabel=false ) override;
 
     protected:
-        virtual void slotProperties() override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void slotProperties() override;
 
         IoPin* createPin( QString data, QString id );
         void setupPin( IoPin *pin, QString data );
@@ -89,14 +87,12 @@ class IoComponent : public Component, public LogicFamily
         bool m_invOutputs;
         bool m_invInputs;
 
-        double m_pullups;
-
         uint m_width;
         uint m_height;
 
         eElement* m_eElement;
 
-        std::vector<IoPin*> m_inPin;
+        std::vector<IoPin*> m_inpPin;
         std::vector<IoPin*> m_outPin;
         std::vector<IoPin*> m_otherPin;
 };

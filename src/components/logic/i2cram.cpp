@@ -48,11 +48,11 @@ I2CRam::I2CRam( QString type, QString id )
             "IR03A2"
         });
 
-    m_inPin[0]->setPinMode( openCo );
-    TwiModule::setSdaPin( m_inPin[0] );
+    m_inpPin[0]->setPinMode( openCo );
+    TwiModule::setSdaPin( m_inpPin[0] );
 
-    m_inPin[1]->setPinMode( openCo );
-    TwiModule::setSclPin( m_inPin[1] );
+    m_inpPin[1]->setPinMode( openCo );
+    TwiModule::setSclPin( m_inpPin[1] );
 
     m_persistent = false;
     m_cCode = 0b01010000; // 0x50, 80
@@ -97,7 +97,7 @@ void I2CRam::stamp()           // Called at Simulation Start
     TwiModule::setMode( TWI_SLAVE );
 
     for( int i=2; i<5; i++ )     // Initialize address pins
-        m_inPin[i]->changeCallBack( this );
+        m_inpPin[i]->changeCallBack( this );
 }
 
 void I2CRam::updateStep()
@@ -110,9 +110,9 @@ void I2CRam::voltChanged()             // Some Pin Changed State, Manage it
 {
     m_address = m_cCode;
 
-    if( m_inPin[2]->getInpState() ) m_address += 1;
-    if( m_inPin[3]->getInpState() ) m_address += 2;
-    if( m_inPin[4]->getInpState() ) m_address += 4;
+    if( m_inpPin[2]->getInpState() ) m_address += 1;
+    if( m_inpPin[3]->getInpState() ) m_address += 2;
+    if( m_inpPin[4]->getInpState() ) m_address += 4;
 
     TwiModule::voltChanged();        // Run I2C Engine
 

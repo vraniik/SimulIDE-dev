@@ -155,7 +155,7 @@ void DynamicMemory::voltChanged()        // Some Pin Changed State, Manage it
                 m_rowAddress = 0;
                 for( int i=0; i<m_rowAddrBits; ++i )             // Get Row Address
                 {
-                    bool state = m_inPin[i]->getInpState();
+                    bool state = m_inpPin[i]->getInpState();
                     if( state ) m_rowAddress += pow( 2, i );
                 }
                 refreshRow = m_rowAddress; //qDebug() << "Row address" << m_rowAddress;
@@ -177,7 +177,7 @@ void DynamicMemory::voltChanged()        // Some Pin Changed State, Manage it
             m_address = m_rowAddress * pow( 2, m_rowAddrBits );
             for( int i=0; i<m_colAddrBits; ++i )                // Get Address
             {
-                bool state = m_inPin[i]->getInpState();
+                bool state = m_inpPin[i]->getInpState();
                 if( state ) m_address += pow( 2, i );
             }
             //qDebug() << "Address" << m_address;
@@ -214,8 +214,8 @@ void DynamicMemory::updatePins()
     
     for( int i=0; i<m_addrBits; i++ )
     {
-        m_inPin[i]->setPos( QPoint(-24,origY+8+i*8 ) );
-        m_inPin[i]->isMoved();
+        m_inpPin[i]->setPos( QPoint(-24,origY+8+i*8 ) );
+        m_inpPin[i]->isMoved();
     }
     for( int i=0; i<m_dataBits; i++ )
     {
@@ -293,20 +293,20 @@ void DynamicMemory::createAddrBits( int bits )
     int chans = m_addrBits + bits;
     int origY = -(m_height/2)*8;
     
-    m_inPin.resize( chans );
+    m_inpPin.resize( chans );
     
     for( int i=m_addrBits; i<chans; i++ )
     {
         QString number = QString::number(i);
 
-        m_inPin[i] = new IoPin( 180, QPoint(-24,origY+8+i*8 ), m_id+"-in"+number, i, this, input );
-        m_inPin[i]->setLabelText( "A"+number );
-        m_inPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
-        initPin( m_inPin[i] );
+        m_inpPin[i] = new IoPin( 180, QPoint(-24,origY+8+i*8 ), m_id+"-in"+number, i, this, input );
+        m_inpPin[i]->setLabelText( "A"+number );
+        m_inpPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
+        initPin( m_inpPin[i] );
 }   }
 
 void DynamicMemory::deleteAddrBits( int bits )
-{ LogicComponent::deletePins( &m_inPin, bits ); }
+{ LogicComponent::deletePins( &m_inpPin, bits ); }
 
 void DynamicMemory::setDataBits( int bits )
 {

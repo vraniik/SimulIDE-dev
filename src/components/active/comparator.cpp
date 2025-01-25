@@ -44,17 +44,17 @@ Comparator::Comparator( QString type, QString id )
     m_area = QRect(-18,-8*2, 36, 8*2*2 );
     setLabelPos(-16,-32, 0);
 
-    m_inPin[0]->setPos( QPoint(-16-8,-8) );
-    m_inPin[0]->setFontSize( 9 );
-    m_inPin[0]->setSpace( 1.7 );
-    m_inPin[0]->setLabelText("+");
-    m_inPin[0]->setLabelColor( Qt::red );
+    m_inpPin[0]->setPos( QPoint(-16-8,-8) );
+    m_inpPin[0]->setFontSize( 9 );
+    m_inpPin[0]->setSpace( 1.7 );
+    m_inpPin[0]->setLabelText("+");
+    m_inpPin[0]->setLabelColor( Qt::red );
 
-    m_inPin[1]->setPos( QPoint(-16-8, 8) );
-    m_inPin[1]->setFontSize( 9 );
-    m_inPin[1]->setSpace( 1.7 );
-    m_inPin[1]->setLabelText("–");  // U+2013
-    m_inPin[1]->setLabelColor( QColor( 0, 0, 0 ) );
+    m_inpPin[1]->setPos( QPoint(-16-8, 8) );
+    m_inpPin[1]->setFontSize( 9 );
+    m_inpPin[1]->setSpace( 1.7 );
+    m_inpPin[1]->setLabelText("–");  // U+2013
+    m_inpPin[1]->setLabelColor( QColor( 0, 0, 0 ) );
 
     m_outPin[0]->setPos( QPoint( 16+8, 0) );
 
@@ -70,12 +70,12 @@ Comparator::~Comparator(){}
 void Comparator::stamp()
 {
     IoComponent::initState();
-    for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this );
+    for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this );
 }
 
 void Comparator::voltChanged() // Called when any pin node change volt
 {
-    double vd = m_inPin[0]->getVoltage()-m_inPin[1]->getVoltage();
+    double vd = m_inpPin[0]->getVoltage()-m_inpPin[1]->getVoltage();
     m_nextOutVal = (vd > 0) ? 1:0;
     scheduleOutPuts( this );
 }

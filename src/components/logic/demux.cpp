@@ -45,8 +45,8 @@ Demux::Demux( QString type, QString id )
             "IL05DI"
         });
 
-    m_inPin[1]->setLength( 6 );
-    m_inPin[0]->setLength( 4 );
+    m_inpPin[1]->setLength( 6 );
+    m_inpPin[0]->setLength( 4 );
 
     setNumOuts( 8 );
     createOePin("IU01OE ", id+"-in4");
@@ -75,7 +75,7 @@ Demux::~Demux(){}
 
 void Demux::stamp()
 {
-    for( int i=0; i<4; ++i ) m_inPin[i]->changeCallBack( this );
+    for( int i=0; i<4; ++i ) m_inpPin[i]->changeCallBack( this );
     LogicComponent::stamp();
     voltChanged();
 }
@@ -86,10 +86,10 @@ void Demux::voltChanged()
 
     int address = 0;
 
-    if( m_inPin[3]->getInpState() )
+    if( m_inpPin[3]->getInpState() )
     {
         for( int i=0; i<3; ++i )
-            if( m_inPin[i]->getInpState() ) address += pow( 2, i );
+            if( m_inpPin[i]->getInpState() ) address += pow( 2, i );
 
         m_nextOutVal = 1<<address;
     }
@@ -117,7 +117,7 @@ void Demux::setAddrBits( int bits )
 
     for( int i=0; i<3; ++i )
     {
-        Pin* pin = m_inPin[i];
+        Pin* pin = m_inpPin[i];
         if( i < bits )
         {
             pin->setVisible( true );

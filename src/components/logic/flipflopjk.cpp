@@ -40,9 +40,9 @@ FlipFlopJK::FlipFlopJK( QString type, QString id )
             "OR03!Q",
         });
 
-    m_setPin = m_inPin[2];
-    m_rstPin = m_inPin[3];
-    m_clkPin = m_inPin[4];
+    m_setPin = m_inpPin[2];
+    m_rstPin = m_inpPin[3];
+    m_clkPin = m_inpPin[4];
 
     setSrInv( true );           // Invert Set & Reset pins
     setClockInv( false );       //Don't Invert Clock pin
@@ -52,8 +52,8 @@ FlipFlopJK::~FlipFlopJK(){}
 
 void FlipFlopJK::calcOutput()
 {
-    bool J = m_inPin[0]->getInpState();
-    bool K = m_inPin[1]->getInpState();
+    bool J = m_inpPin[0]->getInpState();
+    bool K = m_inpPin[1]->getInpState();
     bool Q = m_outPin[0]->getOutState();
 
     m_Q0 = (J && !Q) || (!K && Q) ;

@@ -30,6 +30,7 @@ Chip::Chip( QString type, QString id, QString device )
     m_subcType = "None";
     m_isBoard = false;
     m_border  = false;
+    m_customColor = false;
     m_hasBckGndData = false;
 
     m_isLS = false;

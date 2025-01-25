@@ -73,7 +73,7 @@ DecToBcd::~DecToBcd(){}
 
 void DecToBcd::stamp()
 {
-    for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this );
+    for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this );
     LogicComponent::stamp();
 }
 
@@ -82,7 +82,10 @@ void DecToBcd::voltChanged()
     if( m_tristate ) LogicComponent::updateOutEnabled();
 
     int i;
-    for( i=m_bits-2; i>=0; --i ) { if( m_inPin[i]->getInpState() ) break; }
+    for( i=m_bits-2; i>=0; --i )
+    {
+        if( m_inpPin[i]->getInpState() ) break;
+    }
     m_nextOutVal = i+1;
     scheduleOutPuts( this );
 }

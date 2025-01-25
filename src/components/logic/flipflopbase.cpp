@@ -58,7 +58,7 @@ void FlipFlopBase::stamp()
     m_rstPin->changeCallBack( this );
 
     if( m_trigger != Clock ) // J K or D
-    { for( int i=0; i<m_dataPins; i++ ) m_inPin[i]->changeCallBack( this ); }
+    { for( int i=0; i<m_dataPins; i++ ) m_inpPin[i]->changeCallBack( this ); }
 
     LogicComponent::stamp();
     m_outPin[0]->setOutState( m_Q0 );

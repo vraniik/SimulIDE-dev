@@ -47,9 +47,9 @@ Servo::Servo( QString type, QString id )
             "IL05 Sig"
         });
 
-    for( int i=0; i<3;i++ ) m_inPin[i]->setLabelColor( QColor( 250, 250, 200 ) );
+    for( int i=0; i<3;i++ ) m_inpPin[i]->setLabelColor( QColor( 250, 250, 200 ) );
 
-    m_clkPin = m_inPin[2];         // Input Clock
+    m_clkPin = m_inpPin[2];         // Input Clock
 
     setLabelPos(-16,-40, 0);
     setShowId( true );
@@ -78,12 +78,12 @@ void Servo::stamp()
     m_pulseStart = 0;
     m_lastUpdate = Simulator::self()->circTime()/1e6;
 
-    if( m_inPin[0]->isConnected()
-     && m_inPin[1]->isConnected()
-     && m_inPin[2]->isConnected() )
+    if( m_inpPin[0]->isConnected()
+     && m_inpPin[1]->isConnected()
+     && m_inpPin[2]->isConnected() )
     {
-        m_inPin[0]->changeCallBack( this, true );
-        m_inPin[1]->changeCallBack( this, true );
+        m_inpPin[0]->changeCallBack( this, true );
+        m_inpPin[1]->changeCallBack( this, true );
     }
     LogicComponent::stamp();
 }
@@ -113,7 +113,7 @@ void Servo::voltChanged()
 
     uint64_t time_us = Simulator::self()->circTime()/1e6;
     
-    if(!(m_inPin[0]->getInpState()-m_inPin[1]->getInpState()))// not power
+    if(!(m_inpPin[0]->getInpState()-m_inpPin[1]->getInpState()))// not power
     {
         m_targetPos = 90;
         m_pulseStart = 0;

@@ -34,11 +34,12 @@ ADC::ADC( QString type, QString id )
 {
     m_width  = 4;
     m_height = 9;
+    qDebug() << sizeof(ADC);
+    m_maxVolt = 5;
 
     setLabelPos(-16,-80, 0);
     setNumOutputs( 8 );    // Create Output Pins
     setNumInps( 1, "In" );
-    m_maxVolt = 5;
 
     addPropGroup( { tr("Main"), {
         new IntProp <ADC>("Num_Bits", tr("Size"),"_bits"
@@ -55,14 +56,14 @@ ADC::~ADC(){}
 
 void ADC::stamp()
 {
-    m_inPin[0]->changeCallBack( this );
+    m_inpPin[0]->changeCallBack( this );
     LogicComponent::stamp();
 }
 
 void ADC::voltChanged()
 {
-    double volt = m_inPin[0]->getVoltage();
-    m_nextOutVal = volt*m_maxValue/m_maxVolt+0.1;
+    double volt = m_inpPin[0]->getVoltage();
+    m_nextOutVal = volt*m_ratio+0.1;
     if( m_nextOutVal > m_maxValue ) m_nextOutVal = m_maxValue;
     LogicComponent::scheduleOutPuts( this );
 }
@@ -71,6 +72,14 @@ void ADC::setNumOutputs( int outs )
 {
     if( outs < 1 ) return;
     m_maxValue = pow( 2, outs )-1;
+    m_ratio = m_maxValue/m_maxVolt;
     IoComponent::setNumOuts( outs, "D" );
     updtInPins();
 }
+
+void ADC::setMaxVolt( double v )
+{
+    m_maxVolt = v;
+    m_ratio = m_maxValue/m_maxVolt;
+}
+

@@ -52,13 +52,13 @@ DS1621::DS1621( QString type, QString id )
       "OL03Tout"
      });
 
-    m_inPin[0]->setPinMode( openCo );
-    TwiModule::setSdaPin( m_inPin[0] );
+    m_inpPin[0]->setPinMode( openCo );
+    TwiModule::setSdaPin( m_inpPin[0] );
 
-    m_inPin[1]->setPinMode( openCo );
-    TwiModule::setSclPin( m_inPin[1] );
+    m_inpPin[1]->setPinMode( openCo );
+    TwiModule::setSclPin( m_inpPin[1] );
 
-    for( IoPin* pin : m_inPin )  pin->setLabelColor( QColor( 250, 250, 200 ) );
+    for( IoPin* pin : m_inpPin )  pin->setLabelColor( QColor( 250, 250, 200 ) );
     for( IoPin* pin : m_outPin ) pin->setLabelColor( QColor( 250, 250, 200 ) );
 
     QPushButton* u_button = new QPushButton();
@@ -132,7 +132,7 @@ void DS1621::stamp() // Called at Simulation Start
 
     TwiModule::setMode( TWI_SLAVE );
 
-    for( int i=2; i<5; i++ ) m_inPin[i]->changeCallBack( this );
+    for( int i=2; i<5; i++ ) m_inpPin[i]->changeCallBack( this );
 }
 
 void DS1621::runEvent() // Conversion done 750  ms
@@ -148,9 +148,9 @@ void DS1621::runEvent() // Conversion done 750  ms
 void DS1621::voltChanged()             // Some Pin Changed State, Manage it
 {
     m_address = m_cCode;
-    if( m_inPin[2]->getInpState() ) m_address += 1;
-    if( m_inPin[3]->getInpState() ) m_address += 2;
-    if( m_inPin[4]->getInpState() ) m_address += 4;
+    if( m_inpPin[2]->getInpState() ) m_address += 1;
+    if( m_inpPin[3]->getInpState() ) m_address += 2;
+    if( m_inpPin[4]->getInpState() ) m_address += 4;
 
     TwiModule::voltChanged();        // Run I2C Engine
 }

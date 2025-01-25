@@ -39,9 +39,9 @@ FlipFlopD::FlipFlopD( QString type, QString id )
             "OR02!Q"
         });
 
-    m_setPin = m_inPin[1];
-    m_rstPin = m_inPin[2];
-    m_clkPin = m_inPin[3];
+    m_setPin = m_inpPin[1];
+    m_rstPin = m_inpPin[2];
+    m_clkPin = m_inpPin[3];
 
     setSrInv( true );       // Inver Set & Reset pins
     setClockInv( false );   // Don't Invert Clock pin
@@ -51,5 +51,5 @@ FlipFlopD::~FlipFlopD(){}
 
 void FlipFlopD::calcOutput()
 {
-    m_nextOutVal = m_inPin[0]->getInpState()? 1:2; // D state
+    m_nextOutVal = m_inpPin[0]->getInpState()? 1:2; // D state
 }

@@ -61,7 +61,7 @@ DAC::~DAC(){}
 
 void DAC::stamp()
 {
-    for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this );
+    for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this );
 
     m_outPin[0]->setOutState( true );
     m_val = -1;
@@ -71,8 +71,8 @@ void DAC::voltChanged()
 {
     m_val = 0;
 
-    for( uint i=0; i<m_inPin.size(); ++i )
-        if( m_inPin[i]->getInpState() ) m_val += pow( 2, i );
+    for( uint i=0; i<m_inpPin.size(); ++i )
+        if( m_inpPin[i]->getInpState() ) m_val += pow( 2, i );
 
     Simulator::self()->addEvent( m_delayBase*m_delayMult, this );
 }

@@ -120,7 +120,7 @@ void ShiftReg::voltChanged()
 
         if( m_ldInps != ldInps ){
             m_ldInps = ldInps;
-            for( IoPin* pin : m_inPin )
+            for( IoPin* pin : m_inpPin )
                 pin->changeCallBack( this, ldInps );
         }
     }
@@ -129,8 +129,8 @@ void ShiftReg::voltChanged()
     else if( m_parallelIn && m_ldInps )  // Load parallel
     {
         m_nextOutVal = 0;
-        for( uint i=0; i<m_inPin.size(); ++i )
-            if( m_inPin[i]->getInpState() ) m_nextOutVal |= 1<<i;
+        for( uint i=0; i<m_inpPin.size(); ++i )
+            if( m_inpPin[i]->getInpState() ) m_nextOutVal |= 1<<i;
     }
     else if( clkRising )                 // Shift
     {
@@ -169,7 +169,7 @@ void ShiftReg::setParallelIn( bool p )
 
     if( p ) voltChanged();
     else{
-        for( IoPin* pin : m_inPin )
+        for( IoPin* pin : m_inpPin )
             pin->changeCallBack( this, false );
     }
 }

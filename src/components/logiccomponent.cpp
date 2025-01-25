@@ -105,19 +105,19 @@ void LogicComponent::enableOutputs( bool en )
 void LogicComponent::setInpHighV( double volt )
 {
     IoComponent::setInpHighV( volt );
-    if( m_clkPin) m_clkPin->setInputHighV( m_inHighV );
+    if( m_clkPin) m_clkPin->setInputHighV( m_inpHighV );
 }
 
 void LogicComponent::setInpLowV( double volt )
 {
     IoComponent::setInpLowV( volt );
-    if( m_clkPin) m_clkPin->setInputLowV( m_inLowV );
+    if( m_clkPin) m_clkPin->setInputLowV( m_inpLowV );
 }
 
 void LogicComponent::setInputImp( double imp )
 {
     IoComponent::setInputImp( imp );
     Simulator::self()->pauseSim();
-    if( m_clkPin) m_clkPin->setInputImp( m_inImp );
+    if( m_clkPin) m_clkPin->setInputImp( m_inpImp );
     Simulator::self()->resumeSim();
 }

@@ -12,9 +12,11 @@ struct logicFamily_t{
     double inpLHp;
     double inpHLp;
     double inpImp;
+    double inpPul;
     double outHip;
     double outLop;
     double outImp;
+    double outPul;
 };
 
 class LogicFamily
@@ -26,23 +28,29 @@ class LogicFamily
         double supplyV() { return m_supplyV; }
         virtual void setSupplyV( double v ){;}
 
-        double inpHighV() { return m_inHighV; }
+        double inpHighV() { return m_inpHighV; }
         virtual void setInpHighV( double v );
 
-        double inpLowV() { return m_inLowV; }
+        double inpLowV() { return m_inpLowV; }
         virtual void setInpLowV( double v );
 
-        double outHighV() { return m_ouHighV; }
+        double inpPullups() { return m_inpPullups; }
+        virtual void setInpPullups( double p ){;}
+
+        double outHighV() { return m_outHighV; }
         virtual void setOutHighV( double v );
 
-        double outLowV() { return m_ouLowV; }
+        double outLowV() { return m_outLowV; }
         virtual void setOutLowV( double v );
 
-        double inputImp() { return m_inImp; }
+        double inputImp() { return m_inpImp; }
         virtual void setInputImp( double i ){;}
 
-        double outImp() { return m_ouImp; }
+        double outImp() { return m_outImp; }
         virtual void setOutImp( double i ){;}
+
+        double outPullups() { return m_outPullups; }
+        virtual void setOutPullups( double p ){;}
 
         double propSize() { return m_delayMult; }
         void setPropSize( double g ) { m_delayMult = g; }
@@ -77,17 +85,20 @@ class LogicFamily
         bool m_enableSupply;
 
         double m_supplyV;
-        double m_inHighV;
-        double m_inHighVp;
-        double m_inLowV;
-        double m_inLowVp;
-        double m_ouHighV;
-        double m_ouHighVp;
-        double m_ouLowV;
-        double m_ouLowVp;
+        double m_inpHighV;
+        double m_inpHighVp;
+        double m_inpLowV;
+        double m_inpLowVp;
+        double m_outHighV;
+        double m_outHighVp;
+        double m_outLowV;
+        double m_outLowVp;
 
-        double m_inImp;
-        double m_ouImp;
+        double m_inpImp;
+        double m_outImp;
+
+        double m_inpPullups;
+        double m_outPullups;
 
         QString m_family;
 

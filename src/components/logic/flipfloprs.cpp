@@ -38,9 +38,9 @@ FlipFlopRS::FlipFlopRS( QString type, QString id )
             "OR03!Q",
         });
 
-    m_setPin = m_inPin[0];
-    m_rstPin = m_inPin[1];
-    m_clkPin = m_inPin[2];
+    m_setPin = m_inpPin[0];
+    m_rstPin = m_inpPin[1];
+    m_clkPin = m_inpPin[2];
 
     setSrInv( true );       // Inver Set & Reset pins
     setClockInv( false );   // Don't Invert Clock pin

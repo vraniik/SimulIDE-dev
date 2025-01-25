@@ -64,7 +64,7 @@ BcdToDec::~BcdToDec(){}
 
 void BcdToDec::stamp()
 {
-    for( int i=0; i<4; ++i ) m_inPin[i]->changeCallBack( this );
+    for( int i=0; i<4; ++i ) m_inpPin[i]->changeCallBack( this );
     LogicComponent::stamp();
 
     m_outPin[0]->setOutState( true );
@@ -77,7 +77,7 @@ void BcdToDec::voltChanged()
 
     int dec = 0;
     for( int i=0; i<4; ++i )
-        if( m_inPin[i]->getInpState() ) dec += pow( 2, i );
+        if( m_inpPin[i]->getInpState() ) dec += pow( 2, i );
 
     m_nextOutVal = 1<<dec;
     scheduleOutPuts( this );

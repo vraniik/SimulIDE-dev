@@ -94,17 +94,11 @@ class IoPin : public Pin, public eElement
         {
             double vddAdmit = m_vddAdmit + m_vddAdmEx;
             double gndAdmit = m_gndAdmit + m_gndAdmEx;
-            m_admit         = vddAdmit+gndAdmit;
-
-            m_outVolt = m_outHighV*vddAdmit/m_admit;
+            double current  = m_outHighV*vddAdmit;
+            m_admit = vddAdmit + gndAdmit;
+            m_outVolt = current/m_admit;
             ePin::stampAdmitance( m_admit );
-            stampVolt( m_outVolt );
-            /// Optimized to:
-            /*double current = m_outHighV*vddAdmit;
-            if( m_enode ){
-                m_enode->stampAdmitance( this, m_admit  );
-                m_enode->stampCurrent( this, current );
-            }else m_outVolt = current/m_admit;          // Used by getVoltage()*/
+            ePin::stampCurrent( current );
         }
         inline void stampAll();
         inline void stampVolt( double v) { ePin::stampCurrent( v*m_admit ); }
@@ -118,8 +112,8 @@ class IoPin : public Pin, public eElement
 
         double m_vddAdmit;  // Out stage
         double m_gndAdmit;  // Out Stage
-        double m_vddAdmEx;  // Extra Source (vref out)
-        double m_gndAdmEx;  // Extra Source (vref out)
+        double m_vddAdmEx;  // Extra Source (vref out or pullup)
+        double m_gndAdmEx;  // Extra Source (vref out or pulldown)
 
         double m_inputImp;
         double m_outputImp;

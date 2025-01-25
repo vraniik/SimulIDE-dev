@@ -123,8 +123,8 @@ void BinCounter::voltChanged()
     else if( m_parallelIn && m_ldPin->getInpState() ) // Load
     {
         m_counter = 0;
-        for( uint i=0; i<m_inPin.size(); ++i )
-            if( m_inPin[i]->getInpState() ) m_counter |= 1<<i;
+        for( uint i=0; i<m_inpPin.size(); ++i )
+            if( m_inpPin[i]->getInpState() ) m_counter |= 1<<i;
 
         m_nextOutVal = m_counter;
     }
@@ -186,7 +186,7 @@ void BinCounter::setParallelIn( bool p )
 
     if( p ) voltChanged();
     else{
-        for( IoPin* pin : m_inPin )
+        for( IoPin* pin : m_inpPin )
             pin->changeCallBack( this, false );
     }
 }

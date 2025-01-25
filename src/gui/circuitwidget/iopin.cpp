@@ -204,7 +204,7 @@ void IoPin::setOutState( bool high ) // Set Output to Hight or Low
         updtState();
     }else{
         m_outVolt = high ? m_outHighV : m_outLowV;
-        stampVolt( m_outVolt );
+        ePin::stampCurrent( m_outVolt*m_admit );
 }   }
 
 void IoPin::setStateZ( bool z )
@@ -247,10 +247,10 @@ void IoPin::setInputImp( double imp )
     m_inputImp = imp;
     if( m_pinMode == input )
     {
-        //m_gndAdmit = 1/m_inputImp;
-        //updtState();
-        m_admit = 1/m_inputImp;
-        ePin::stampAdmitance( m_admit );
+        m_gndAdmit = 1/m_inputImp;
+        updtState();
+        //m_admit = 1/m_inputImp;
+        //ePin::stampAdmitance( m_admit );
     }
 }
 
@@ -259,10 +259,10 @@ void IoPin::setOutputImp( double imp )
     m_outputImp = imp;
     if( m_pinMode == output )
     {
-        //m_vddAdmit = 1/m_outputImp;
-        //updtState();
-        m_admit = 1/m_outputImp;
-        ePin::stampAdmitance( m_admit );
+        m_vddAdmit = 1/m_outputImp;
+        updtState();
+        //m_admit = 1/m_outputImp;
+        //ePin::stampAdmitance( m_admit );
     }
 }
 

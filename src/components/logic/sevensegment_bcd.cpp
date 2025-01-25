@@ -49,21 +49,21 @@ SevenSegmentBCD::SevenSegmentBCD( QString type, QString id )
             << "IU01."
             ;
     init( pinList );
-    for( uint i=0; i<m_inPin.size(); ++i )
+    for( uint i=0; i<m_inpPin.size(); ++i )
     {
-        m_inPin[i]->setX( m_inPin[i]->x()-4);
-        m_inPin[i]->setSpace( 1 );
-        m_inPin[i]->setFontSize( 4 );
-        m_inPin[i]->setLabelColor( QColor( 250, 250, 200 ) );
+        m_inpPin[i]->setX( m_inpPin[i]->x()-4);
+        m_inpPin[i]->setSpace( 1 );
+        m_inpPin[i]->setFontSize( 4 );
+        m_inpPin[i]->setLabelColor( QColor( 250, 250, 200 ) );
     }
 
     m_showEnablePin = false;
-    m_enablePin = m_inPin[4];
+    m_enablePin = m_inpPin[4];
     m_enablePin->setInverted( true );
     m_enablePin->setVisible( false );
 
     m_showDotPin = false;
-    m_dotPin = m_inPin[5];
+    m_dotPin = m_inpPin[5];
     m_dotPin->setVisible( false );
 
     setLabelPos(-16,-40, 0);
@@ -122,7 +122,7 @@ bool SevenSegmentBCD::setLinkedTo( Linker* li )
 {
     bool linked = Component::setLinkedTo( li );
     if( li && linked )
-        for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->removeConnector();
+        for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->removeConnector();
 
     setHidden( (li && linked), false, false );
 

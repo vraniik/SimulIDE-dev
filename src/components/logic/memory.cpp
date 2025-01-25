@@ -111,8 +111,8 @@ void Memory::stamp()                   // Called at Simulation Start
 
     if( !m_persistent ) m_ram.fill( 0 );
 
-    for( uint i=0; i<m_inPin.size(); ++i )
-        m_inPin[i]->changeCallBack( this, m_asynchro );
+    for( uint i=0; i<m_inpPin.size(); ++i )
+        m_inpPin[i]->changeCallBack( this, m_asynchro );
 
     m_WePin->changeCallBack( this );
     m_CsPin->changeCallBack( this );
@@ -123,7 +123,7 @@ void Memory::updateStep()
 {
     if( m_changed )
     {
-        for( IoPin* pin : m_inPin  ) pin->changeCallBack( this, m_asynchro && m_cs );
+        for( IoPin* pin : m_inpPin  ) pin->changeCallBack( this, m_asynchro && m_cs );
         for( IoPin* pin : m_outPin ) pin->changeCallBack( this, m_asynchro && m_cs && m_we );
         m_changed = false;
     }
@@ -154,7 +154,7 @@ void Memory::voltChanged()        // Some Pin Changed State, Manage it
     m_address = 0;
     for( int i=0; i<m_addrBits; ++i )        // Get Address
     {
-        bool state = m_inPin[i]->getInpState();
+        bool state = m_inpPin[i]->getInpState();
         if( state ) m_address += pow( 2, i );
     }
     if( m_we ){                              // Write
@@ -200,8 +200,8 @@ void Memory::updatePins()
     
     for( int i=0; i<m_addrBits; i++ )
     {
-        m_inPin[i]->setPos( QPoint(-24,origY+8+i*8 ) );
-        m_inPin[i]->isMoved();
+        m_inpPin[i]->setPos( QPoint(-24,origY+8+i*8 ) );
+        m_inpPin[i]->isMoved();
     }
     for( int i=0; i<m_dataBits; i++ )
     {
@@ -245,20 +245,20 @@ void Memory::createAddrBits( int bits )
     int chans = m_addrBits + bits;
     int origY = -(m_height/2)*8;
     
-    m_inPin.resize( chans );
+    m_inpPin.resize( chans );
     
     for( int i=m_addrBits; i<chans; i++ )
     {
         QString number = QString::number(i);
 
-        m_inPin[i] = new IoPin( 180, QPoint(-24,origY+8+i*8 ), m_id+"-in"+number, i, this, input );
-        m_inPin[i]->setLabelText( "A"+number );
-        m_inPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
-        initPin( m_inPin[i] );
+        m_inpPin[i] = new IoPin( 180, QPoint(-24,origY+8+i*8 ), m_id+"-in"+number, i, this, input );
+        m_inpPin[i]->setLabelText( "A"+number );
+        m_inpPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
+        initPin( m_inpPin[i] );
 }   }
 
 void Memory::deleteAddrBits( int bits )
-{ IoComponent::deletePins( &m_inPin, bits ); }
+{ IoComponent::deletePins( &m_inpPin, bits ); }
 
 void Memory::setDataBits( int bits )
 {

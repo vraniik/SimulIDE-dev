@@ -65,7 +65,7 @@ void MagnitudeComp::stamp()
     //m_outPin[0]->setOutState( true );
     //m_outPin[2]->setOutState( true );
 
-    for( IoPin* pin : m_inPin ) pin->changeCallBack( this );
+    for( IoPin* pin : m_inpPin ) pin->changeCallBack( this );
 }
 
 void MagnitudeComp::voltChanged() // Called when any pin node change volt
@@ -73,12 +73,12 @@ void MagnitudeComp::voltChanged() // Called when any pin node change volt
     int iA = 0, A = 0, B = 0;
 
     for( int i=0; i<3; ++i )
-        if( m_inPin[i]->getInpState() ) iA |= 1<<i;
+        if( m_inpPin[i]->getInpState() ) iA |= 1<<i;
 
     for( int i=0; i<m_bits; ++i )
     {
-        if( m_inPin[3+i]->getInpState()        ) A |= 1<<i;
-        if( m_inPin[3+m_bits+i]->getInpState() ) B |= 1<<i;
+        if( m_inpPin[3+i]->getInpState()        ) A |= 1<<i;
+        if( m_inpPin[3+m_bits+i]->getInpState() ) B |= 1<<i;
     }
 
     if     ( A > B ) m_nextOutVal = 0b001;
@@ -100,7 +100,7 @@ void MagnitudeComp::setBits( int b )
     setNumInps( 3+b*2, "I"); // Set a label to get Pin 1 full cell below edge
 
     for( int i=0; i<b; ++i ){
-        m_inPin[3+i]->setLabelText("A"+QString::number(i) );
-        m_inPin[3+b+i]->setLabelText("B"+QString::number(i) );
+        m_inpPin[3+i]->setLabelText("A"+QString::number(i) );
+        m_inpPin[3+b+i]->setLabelText("B"+QString::number(i) );
     }
 }

@@ -45,13 +45,13 @@ I2CToParallel::I2CToParallel( QString type, QString id )
 
     setNumOuts( 8,"D" );
 
-    m_inPin[0]->setPinMode( openCo );
-    TwiModule::setSdaPin( m_inPin[0] );
+    m_inpPin[0]->setPinMode( openCo );
+    TwiModule::setSdaPin( m_inpPin[0] );
     
-    m_inPin[1]->setPinMode( openCo );
-    TwiModule::setSclPin( m_inPin[1] );
+    m_inpPin[1]->setPinMode( openCo );
+    TwiModule::setSclPin( m_inpPin[1] );
 
-    m_int = m_inPin[5];
+    m_int = m_inpPin[5];
     m_int->setPinMode( openCo );
 
     for( int i=0; i<8; ++i )
@@ -88,8 +88,8 @@ void I2CToParallel::stamp()             // Called at Simulation Start
     
     for( int i=2; i<5; ++i )
     {
-        m_inPin[i]->update();
-        m_inPin[i]->changeCallBack( this ); // Callbacks address pins
+        m_inpPin[i]->update();
+        m_inpPin[i]->changeCallBack( this ); // Callbacks address pins
     }
 }
 
@@ -97,9 +97,9 @@ void I2CToParallel::voltChanged()        // Some Pin Changed State, Manage it
 {
     m_address = m_cCode;
 
-    if( m_inPin[2]->getInpState() ) m_address += 1;
-    if( m_inPin[3]->getInpState() ) m_address += 2;
-    if( m_inPin[4]->getInpState() ) m_address += 4;
+    if( m_inpPin[2]->getInpState() ) m_address += 1;
+    if( m_inpPin[3]->getInpState() ) m_address += 2;
+    if( m_inpPin[4]->getInpState() ) m_address += 4;
 
     int value = 0;
     for( int i=0; i<8; ++i )

@@ -49,8 +49,8 @@ Mux::Mux( QString type, QString id )
             "OR03!Y"
         });
 
-    m_inPin[9]->setLength( 6 );
-    m_inPin[10]->setLength( 4 );
+    m_inpPin[9]->setLength( 6 );
+    m_inpPin[10]->setLength( 4 );
 
     createOePin( "IU03OE ", id+"-in11");
 
@@ -80,7 +80,7 @@ Mux::~Mux(){}
 
 void Mux::stamp()
 {
-    for( int i=0; i<11; ++i ) m_inPin[i]->changeCallBack( this );
+    for( int i=0; i<11; ++i ) m_inpPin[i]->changeCallBack( this );
     LogicComponent::stamp();
 }
 
@@ -91,9 +91,9 @@ void Mux::voltChanged()
     int address = 0;
 
     for( int i=8; i<11; ++i )
-        if( m_inPin[i]->getInpState() ) address |= 1<<(i-8) ;
+        if( m_inpPin[i]->getInpState() ) address |= 1<<(i-8) ;
 
-    bool out = m_inPin[address]->getInpState();
+    bool out = m_inpPin[address]->getInpState();
     m_nextOutVal = out? 1:2;
     scheduleOutPuts( this );
 }
@@ -117,7 +117,7 @@ void Mux::setAddrBits( int bits )
 
     for( int i=0; i<3; ++i )
     {
-        Pin* pin = m_inPin[bit0+i];
+        Pin* pin = m_inpPin[bit0+i];
         if( i < bits )
         {
             pin->setVisible( true );
@@ -130,7 +130,7 @@ void Mux::setAddrBits( int bits )
     }
     for( int i=0; i<8; ++i )
     {
-        Pin* pin = m_inPin[i];
+        Pin* pin = m_inpPin[i];
         if( i < channels )
         {
             pin->setVisible( true );

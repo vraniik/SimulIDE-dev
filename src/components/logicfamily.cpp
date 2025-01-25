@@ -16,17 +16,17 @@ LogicFamily::LogicFamily()
     m_enableSupply = true;
 
     m_supplyV  = 5.0; // Power Supply
-    m_inHighVp = 0.5;
-    m_inHighV  = 2.5;
-    m_inLowVp  = 0.5;
-    m_inLowV   = 2.5;
-    m_ouHighVp = 1;
-    m_ouHighV  = 5;
-    m_ouLowVp  = 0;
-    m_ouLowV   = 0;
+    m_inpHighVp = 0.5;
+    m_inpHighV  = 2.5;
+    m_inpLowVp  = 0.5;
+    m_inpLowV   = 2.5;
+    m_outHighVp = 1;
+    m_outHighV  = 5;
+    m_outLowVp  = 0;
+    m_outLowV   = 0;
 
-    m_inImp = 1e9;
-    m_ouImp = 40;
+    m_inpImp = 1e9;
+    m_outImp = 40;
 
     m_delayMult = 1;
     m_delayBase = 10*1000; // 10 ns
@@ -41,25 +41,25 @@ LogicFamily::~LogicFamily(){}
 void LogicFamily::setInpHighV( double v )
 {
     if( m_blocked ) return;
-    m_inHighVp = v/m_supplyV;
+    m_inpHighVp = v/m_supplyV;
 }
 
 void LogicFamily::setInpLowV( double v )
 {
     if( m_blocked ) return;
-    m_inLowVp = v/m_supplyV;
+    m_inpLowVp = v/m_supplyV;
 }
 
 void LogicFamily::setOutHighV( double v )
 {
     if( m_blocked ) return;
-    m_ouHighVp = v/m_supplyV;
+    m_outHighVp = v/m_supplyV;
 }
 
 void LogicFamily::setOutLowV( double v )
 {
     if( m_blocked ) return;
-    m_ouLowVp = v/m_supplyV;
+    m_outLowVp = v/m_supplyV;
 }
 
 void LogicFamily::setPropDelay( double pd )
@@ -98,13 +98,13 @@ void LogicFamily::setFamilyData( logicFamily_t lf )
 
     setSupplyV( m_supplyV );
 
-    m_inHighVp = lf.inpLHp;
-    m_inLowVp  = lf.inpHLp;
-    m_inImp    = lf.inpImp;
+    m_inpHighVp = lf.inpLHp;
+    m_inpLowVp  = lf.inpHLp;
+    m_inpImp    = lf.inpImp;
 
-    m_ouHighVp = lf.outHip;
-    m_ouLowVp  = lf.outLop;
-    m_ouImp    = lf.outImp;
+    m_outHighVp = lf.outHip;
+    m_outLowVp  = lf.outLop;
+    m_outImp    = lf.outImp;
 
     updateData();
 }
@@ -113,20 +113,22 @@ void LogicFamily::updateData()
 {
     m_blocked = true;
 
-    setInpHighV( m_supplyV * m_inHighVp );
-    setInpLowV(  m_supplyV * m_inLowVp );
-    setInputImp( m_inImp );
+    setInpHighV( m_supplyV * m_inpHighVp );
+    setInpLowV(  m_supplyV * m_inpLowVp );
+    setInputImp( m_inpImp );
+    setInpPullups( m_inpPullups );
 
-    setOutHighV( m_supplyV * m_ouHighVp);
-    setOutLowV(  m_supplyV * m_ouLowVp );
-    setOutImp(   m_ouImp );
+    setOutHighV( m_supplyV * m_outHighVp);
+    setOutLowV(  m_supplyV * m_outLowVp );
+    setOutImp(   m_outImp );
+    setOutPullups( m_outPullups );
     m_blocked = false;
 }
 
 void LogicFamily::getFamilies() // Static
 {
-    m_families["Default"] = { -1, 0.5, 0.5, 1e9, 1, 0, 40 };
-    m_families["Custom"]  = { -1, 0.5, 0.5, 1e9, 1, 0, 40 };
+    m_families["Default"] = { -1, 0.5, 0.5, 1e9, 0, 1, 0, 40, 0 };
+    m_families["Custom"]  = { -1, 0.5, 0.5, 1e9, 0, 1, 0, 40, 0 };
 
     QString modelsFile = MainWindow::self()->getDataFilePath("logic_families.model");
     if( !QFile::exists( modelsFile ) ) return;
@@ -148,9 +150,11 @@ void LogicFamily::getFamilies() // Static
             else if( propName == "inpLHp") family.inpLHp = propValue;
             else if( propName == "inpHLp") family.inpHLp = propValue;
             else if( propName == "inpImp") family.inpImp = propValue;
+            else if( propName == "inpPul") family.inpPul = propValue;
             else if( propName == "outHip") family.outHip = propValue;
             else if( propName == "outLop") family.outLop = propValue;
             else if( propName == "outImp") family.outImp = propValue;
+            else if( propName == "outPul") family.outPul = propValue;
         }
         m_families[familyName] = family;
     }

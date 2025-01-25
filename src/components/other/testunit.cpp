@@ -109,8 +109,8 @@ void TestUnit::runEvent() // Running test
         m_read = false;
 
         uint inputVal = 0;
-        for( uint i=0; i<m_inPin.size(); ++i )
-            if( m_inPin[i]->getInpState() ) inputVal |= 1<<i;
+        for( uint i=0; i<m_inpPin.size(); ++i )
+            if( m_inpPin[i]->getInpState() ) inputVal |= 1<<i;
 
         m_samples[m_outValue] = inputVal;
 
@@ -206,7 +206,7 @@ void TestUnit::setOutputs( QString o )
     IoComponent::setNumInps( size, "O" );
 
     for( int i=0; i<size; ++i )
-        m_inPin[i]->setLabelText( outputList.at(i) );
+        m_inpPin[i]->setLabelText( outputList.at(i) );
 
     updtInPins();
     resizeVectors();

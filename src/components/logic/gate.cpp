@@ -39,7 +39,7 @@ QList<ComProperty*> Gate::outputProps()
 void Gate::stamp()
 {
     LogicComponent::stamp();
-    for( uint i=0; i<m_inPin.size(); ++i ) m_inPin[i]->changeCallBack( this );
+    for( uint i=0; i<m_inpPin.size(); ++i ) m_inpPin[i]->changeCallBack( this );
 
     m_outPin[0]->setOutState( m_initState );
 
@@ -52,9 +52,9 @@ void Gate::voltChanged()
 
     int inputs = 0;
 
-    for( uint i=0; i<m_inPin.size(); ++i )
+    for( uint i=0; i<m_inpPin.size(); ++i )
     {
-        bool state = m_inPin[i]->getInpState();
+        bool state = m_inpPin[i]->getInpState();
         if( state ) inputs++;
     }
     bool out = calcOutput( inputs ); // In each gate type
@@ -66,7 +66,7 @@ void Gate::voltChanged()
 
 bool Gate::calcOutput( int inputs )
 {
-    return ((uint)inputs == m_inPin.size()); // Default for: Buffer, Inverter, And, Nand
+    return ((uint)inputs == m_inpPin.size()); // Default for: Buffer, Inverter, And, Nand
 }
 
 void Gate::setNumInputs( int inputs )
@@ -74,7 +74,7 @@ void Gate::setNumInputs( int inputs )
     if( inputs < m_minInputs ) return;
     IoComponent::setNumInps( inputs, "" );
     m_outPin[0]->setY( 0 );
-    m_area = QRect( -11, -4*m_inPin.size(), 19, 4*2*m_inPin.size() );
+    m_area = QRect( -11, -4*m_inpPin.size(), 19, 4*2*m_inpPin.size() );
 
     updatePath();
 }
