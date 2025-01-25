@@ -30,6 +30,8 @@ void LogicComponent::stamp()
     eClockedDevice::stamp();
     if( m_oePin ) m_oePin->changeCallBack( this );
     m_outEnable = true;
+
+    voltChanged();
 }
 
 std::vector<Pin*> LogicComponent::getPins()

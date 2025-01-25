@@ -77,7 +77,6 @@ void Demux::stamp()
 {
     for( int i=0; i<4; ++i ) m_inpPin[i]->changeCallBack( this );
     LogicComponent::stamp();
-    voltChanged();
 }
 
 void Demux::voltChanged()
