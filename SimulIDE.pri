@@ -13,7 +13,6 @@ QT += serialport
 QT += multimedia widgets
 
 SOURCES      = $$files( $$PWD/src/*.cpp, true )
-SOURCES     += $$files( $$PWD/src/angel/src/*.S, true )
 HEADERS      = $$files( $$PWD/src/*.h, true )
 TRANSLATIONS = $$files( $$PWD/resources/translations/*.ts )
 FORMS       += $$files( $$PWD/src/*.ui, true )
@@ -81,6 +80,7 @@ INCLUDEPATH += $$PWD/src \
     $$PWD/src/angel/src
 
 QMAKE_CXXFLAGS += -Wno-unused-parameter
+QMAKE_CXXFLAGS += -Wno-deprecated-declarations
 QMAKE_CXXFLAGS += -Wno-implicit-fallthrough
 QMAKE_CXXFLAGS += -fno-strict-aliasing      #AngelScript
 QMAKE_CXXFLAGS += -Wno-cast-function-type   #AngelScript
@@ -94,6 +94,10 @@ QMAKE_CXXFLAGS_DEBUG -= -O1
 QMAKE_CXXFLAGS_DEBUG -= -O2
 QMAKE_CXXFLAGS_DEBUG -= -O3
 QMAKE_CXXFLAGS_DEBUG += -O0
+
+contains( QMAKE_TARGET.arch, arm64 ) {
+    SOURCES += $$files( $$PWD/src/angel/src/*.S, true )
+}
 
 win32 {
     OS = Windows
