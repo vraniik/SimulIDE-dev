@@ -112,7 +112,7 @@ bool TruthTable::checkThruth( std::vector<uint>* samples )
 {
     bool ok = true;
 
-    for( int row=0; row<m_truthVector.size(); ++row ) // Get output values from Table
+    for( uint row=0; row<m_truthVector.size(); ++row ) // Get output values from Table
     {
         uint truthRow  = m_truthVector.at( row );
         uint sampleRow = samples->at( row );

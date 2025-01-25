@@ -17,7 +17,7 @@ class ScriptPerif
         ScriptPerif( QString name );
         ~ScriptPerif();
 
-        virtual QStringList registerScript( ScriptCpu* cpu ){;}
+        virtual QStringList registerScript( ScriptCpu* cpu ){ QStringList l; return l;}
         virtual void startScript(){;}
 
         QString type() { return m_type; }

@@ -168,7 +168,7 @@ void TestUnit::setTruth( QString t )
     QStringList truthList = t.split(",");
 
     bool ok;
-    int size = m_truthT.size();
+    uint size = m_truthT.size();
     m_truthT.clear();
     for( QString valStr : truthList )
     {
@@ -218,7 +218,7 @@ void TestUnit::resizeVectors() // Vector size is nº of combinations, bits in ui
     m_samples.clear();
     m_samples.resize( m_steps, 0 );
 
-    if( m_truthT.size() == m_steps ) return;
+    if( m_truthT.size() == (uint)m_steps ) return;
     m_truthT.clear();
     m_truthT.resize( m_steps, 0 );
 }

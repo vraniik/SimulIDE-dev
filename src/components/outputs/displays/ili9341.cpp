@@ -203,17 +203,19 @@ void Ili9341::getParameter()
             }break;
             case 0x33:   // Vertical Scrolling Definition
             {
-                if     ( m_readBytes == 6 ) m_TFA = (uint16_t)m_rxReg << 8; // TFA [15:8]
-                else if( m_readBytes == 5 ) m_TFA |= m_rxReg;               // TFA [7:0]
-                else if( m_readBytes == 4 ) m_VSA = (uint16_t)m_rxReg << 8; // VSA [15:8]
-                else if( m_readBytes == 3 ) m_VSA |= m_rxReg;               // VSA [7:0]
-                else if( m_readBytes == 2 ) m_BFA = (uint16_t)m_rxReg << 8; // BFA [15:8]
-                else;                       m_BFA |= m_rxReg;               // BFA [7:0]
+                if     ( m_readBytes == 6 ) m_TFA  = (uint16_t)m_rxReg << 8; // TFA [15:8]
+                else if( m_readBytes == 5 ) m_TFA |= m_rxReg;                // TFA [7:0]
+                else if( m_readBytes == 4 ) m_VSA  = (uint16_t)m_rxReg << 8; // VSA [15:8]
+                else if( m_readBytes == 3 ) m_VSA |= m_rxReg;                // VSA [7:0]
+                else if( m_readBytes == 2 ) m_BFA  = (uint16_t)m_rxReg << 8; // BFA [15:8]
+                else                        m_BFA |= m_rxReg;                // BFA [7:0]
+                /// else;                       m_BFA |= m_rxReg;               // BFA [7:0] ???
             }break;
             case 0x37:   // Vertical Scrolling Start Address, Ignored if Partial Mode
             {
                 if( m_readBytes == 2 ) m_VSP = (uint16_t)m_rxReg << 8; // VSP [15:8]
-                else;                  m_VSP |= m_rxReg;               // VSP [7:0]
+                else                   m_VSP |= m_rxReg;               // VSP [7:0]
+                /// else;                  m_VSP |= m_rxReg;               // VSP [7:0] ???
             }break;
             case 0x3A:
             {

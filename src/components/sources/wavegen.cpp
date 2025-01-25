@@ -234,7 +234,7 @@ void WaveGen::setDuty( double duty )
 
 void WaveGen::setSteps( int steps )
 {
-    if( steps > m_stepsPC ) steps = m_stepsPC;
+    if( (uint)steps > m_stepsPC ) steps = m_stepsPC;
     else if( steps < 1 ) steps = 1;
 
     m_steps = steps;

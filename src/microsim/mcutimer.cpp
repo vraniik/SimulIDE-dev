@@ -90,7 +90,7 @@ void McuTimer::clockStep()  // Timer driven by external clock
 {
     m_countVal++;
     for( McuOcUnit* ocUnit : m_ocUnit ) ocUnit->clockStep( m_countVal ); ///
-    if( m_countVal == m_ovfMatch+1 ) runEvent();
+    if( m_countVal == m_ovfMatch+(uint)1 ) runEvent();
 }
 
 void McuTimer::runEvent()           // Overflow
