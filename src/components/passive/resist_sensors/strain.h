@@ -22,22 +22,20 @@ class Strain : public VarResBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void initialize() override;
-        virtual void updateStep() override;
+        void initialize() override;
+        void updateStep() override;
 
-        double refTemp()              { return m_ref_temp; }
-        void   setRefTemp( double t ) { m_ref_temp = t; }
+        double refTemp() { return m_ref_temp; }
+        void   setRefTemp( double t );
 
-        double getTemp()              { return m_temp; }
-        void   setTemp( double t)     { m_temp= t; }
+        double getTemp() { return m_temp; }
+        void   setTemp( double t);
 
-        //public slots:
-          void senseChanged( int val );
-
-          virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     private:
         double sensorFunction ( double forceN );
+        void updateParameters();
 
         uint64_t m_step;
         uint64_t m_last_step;
@@ -63,5 +61,7 @@ class Strain : public VarResBase
         double m_alpha_r  = 2e-5;        // per °C for Constantan
         double m_lambda_j = 1.7e-5;      // per °C for Constantan
         double m_lambda_s = 2.5e-5;      // per °C for Aluminum body
-        double m_delta_r_t;              // resisrance viariation due to thermal drift
+        double m_delta_r_t;              // resisrance variation due to thermal drift
+
+        double m_drPrecalc; // Precalculate known parameters to speed up resistance update
 };

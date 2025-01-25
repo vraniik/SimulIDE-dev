@@ -36,10 +36,10 @@ LibraryItem* Strain::libraryItem()
 Strain::Strain( QString type, QString id )
       : VarResBase( type, id )
 {
-    m_areaComp = QRectF(-12,-20, 24, 24 );
-    m_area     = m_areaComp;
+    m_area = QRectF(-12,-20, 24, 24 );
+    Dialed::m_areaComp = m_area;
 
-    setVal( 0 );  // start at 0 °C
+    VarResBase::setVal( 0 );
 
     addPropGroup( { tr("Main"), {
         new DoubProp<Strain>("Force_N", tr("Current Value"), "N"
@@ -54,6 +54,7 @@ Strain::Strain( QString type, QString id )
         new DoubProp<Strain>("Dial_Step", tr("Dial Step"), "N"
                             , this, &Strain::getStep, &Strain::setStep )
     }, 0} );
+
     addPropGroup( { tr("Parameters"), {
         new DoubProp<Strain>("Ref_Temp", tr("Ref. Temperature"), "ºC"
                             , this, &Strain::refTemp, &Strain::setRefTemp ),
@@ -98,11 +99,12 @@ void Strain::updateStep()
 
     double res = sensorFunction( m_value );
     eResistor::setResistance( res );
+
     if( m_propDialog ) m_propDialog->updtValues();
     else setValLabelText( getPropStr( showProp() ) );
 }
 
-void Strain::senseChanged( int val ) // Called when dial is rotated
+/*void Strain::senseChanged( int val ) // Called when dial is rotated
 {
     //qDebug() <<"Strain::senseChanged" << val;
     //double sense = (double)(m_dial->value());
@@ -112,20 +114,39 @@ void Strain::senseChanged( int val ) // Called when dial is rotated
     //m_dialW.dial->setValue(m_sense);
     //m_t0_tau = (double) (Simulator::self()->step())/1e6;
     //m_last_resist = m_resist;
+}*/
+
+
+double Strain::sensorFunction( double forceN )
+{
+  double resistance;
+
+  m_delta_r = m_drPrecalc*forceN;
+
+  resistance = m_r0 + m_delta_r + m_delta_r_t;
+  return resistance;
 }
 
-
-double Strain::sensorFunction(double forceN )
+void Strain::updateParameters()
 {
-  double resisteance;
-  m_k_long = 1+2.0*m_coef_poisson+m_cste_bridgman*(1-2*m_coef_poisson);
-  //qDebug() << "K = " << m_k_long;
-  m_k = m_k_long * (1 - m_coef_transverse);
-  m_section_body = m_h_body * m_w_body;
-  m_delta_r = m_r0*m_k*forceN/(m_young_modulus*m_section_body);
-  m_delta_r_t = (m_alpha_r+m_k*(m_lambda_s - m_lambda_j)) * (m_temp - m_ref_temp) * m_r0;
-  resisteance = m_r0 + m_delta_r + m_delta_r_t;
-  return resisteance;
+    m_k_long = 1+2.0*m_coef_poisson+m_cste_bridgman*(1-2*m_coef_poisson);
+    //qDebug() << "K = " << m_k_long;
+    m_k = m_k_long * (1 - m_coef_transverse);
+    m_section_body = m_h_body * m_w_body;
+    m_delta_r_t = (m_alpha_r+m_k*(m_lambda_s - m_lambda_j)) * (m_temp - m_ref_temp) * m_r0;
+    m_drPrecalc = m_r0*m_k/(m_young_modulus*m_section_body);
+}
+
+void Strain::setRefTemp( double t )
+{
+    m_ref_temp = t;
+    updateParameters();
+}
+
+void Strain::setTemp( double t)
+{
+    m_temp= t;
+    updateParameters();
 }
 
 void Strain::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
