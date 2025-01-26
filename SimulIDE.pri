@@ -106,11 +106,9 @@ win32 {
 }
 linux {
     OS = Linux
-#    QMAKE_LFLAGS += -no-pie
 }
 macx {
     OS = MacOs
-#    QMAKE_LFLAGS += -no-pie
     ICON = $$PWD/resources/icons/simulide.icns
 
 QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7

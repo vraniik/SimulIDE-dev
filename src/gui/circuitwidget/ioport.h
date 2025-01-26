@@ -26,7 +26,7 @@ class IoPort :public eElement
         ~IoPort();
 
         void reset();
-        virtual void runEvent() override;
+        void runEvent() override;
 
         void scheduleState( uint32_t val, uint64_t time );
         void setOutState( uint32_t val );
@@ -57,7 +57,7 @@ class IoPort :public eElement
 
     protected:
         void createPins( Component* comp, QString pins, uint32_t pinMask );
-        virtual IoPin* createPin( int i, QString id , Component* comp );
+        IoPin* createPin( int i, QString id , Component* comp );
 
         inline void nextStep();
 

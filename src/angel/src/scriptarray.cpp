@@ -355,7 +355,7 @@ CScriptArray &CScriptArray::operator=(const CScriptArray &other)
 CScriptArray::CScriptArray(asITypeInfo *ti, void *buf)
 {
 	// The object type should be the template instance of the array
-	assert( ti && string(ti->GetName()) == "array" );
+    assert( ti && string(ti->GetName()) == "array" );
 
 	refCount = 1;
 	gcFlag = false;
@@ -438,7 +438,7 @@ CScriptArray::CScriptArray(asITypeInfo *ti, void *buf)
 CScriptArray::CScriptArray(asUINT length, asITypeInfo *ti)
 {
 	// The object type should be the template instance of the array
-	assert( ti && string(ti->GetName()) == "array" );
+    assert( ti && string(ti->GetName()) == "array" );
 
 	refCount = 1;
 	gcFlag = false;
@@ -485,7 +485,7 @@ CScriptArray::CScriptArray(const CScriptArray &other)
 CScriptArray::CScriptArray(asUINT length, void *defVal, asITypeInfo *ti)
 {
 	// The object type should be the template instance of the array
-	assert( ti && string(ti->GetName()) == "array" );
+    assert( ti && string(ti->GetName()) == "array" );
 
 	refCount = 1;
 	gcFlag = false;

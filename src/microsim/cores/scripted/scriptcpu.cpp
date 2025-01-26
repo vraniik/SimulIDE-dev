@@ -17,9 +17,10 @@
 #include "mcu.h"
 #include "utils.h"
 
+#include "as_module.h"
+
 #include "scriptprop.h"
 
-using namespace std;
 
 ScriptCpu::ScriptCpu( eMcu* mcu )
          : ScriptBase( mcu->getId()+"-"+"ScriptCpu" )
@@ -205,8 +206,6 @@ void ScriptCpu::setScriptFile( QString scriptFile, bool compile )
     ScriptBase::setScriptFile( scriptFile, compile );
     if( compile ) compileScript();
 }
-
-#include "as_module.h"
 
 int ScriptCpu::compileScript()
 {

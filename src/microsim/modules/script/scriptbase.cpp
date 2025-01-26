@@ -13,8 +13,6 @@
 #include "utils.h"
 #include "asdebugger.h"
 
-using namespace std;
-
 void ScriptBase::MessageCallback( const asSMessageInfo* msg )
 {
     QString type = " ERROR ";
@@ -34,7 +32,7 @@ void ScriptBase::MessageCallback( const asSMessageInfo* msg )
     //qDebug() << msg->section << "line:" << msg->row << msg->col << type << msg->message;
 }
 
-void print( string &msg )
+void print( std::string &msg )
 {
     qDebug() << msg.c_str();
 }

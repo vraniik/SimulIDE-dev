@@ -8,8 +8,6 @@
 #include "scriptperif.h"
 #include "tcpmodule.h"
 
-using namespace std;
-
 class eMcu;
 class ScriptCpu;
 class asIScriptFunction;
@@ -22,8 +20,8 @@ class ScriptTcp : public TcpModule, public ScriptPerif
 
         void reset();
 
-        void connectToHost( int link, const string host, int port );
-        void sendMsgToHost( const string msg, int link );
+        void connectToHost( int link, const std::string host, int port );
+        void sendMsgToHost( const std::string msg, int link );
 
         virtual QStringList registerScript( ScriptCpu* cpu ) override;
         virtual void startScript() override;
