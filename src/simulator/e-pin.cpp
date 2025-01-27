@@ -32,8 +32,8 @@ void ePin::setEnode( eNode* enode )
 void ePin::setEnodeComp( eNode* enode )
 {
     m_enodeComp = enode;
-    int enodeConNum = enode ? enode->getNodeNumber() : 0;
-    if( m_enode && m_enodeComp ) m_enode->addConnection( this, enodeConNum );
+    if( m_enode && m_enodeComp )
+        m_enode->addConnection( this, enode->getNodeNumber() );
 }
 
 void ePin::addSingAdm( int node, double admit )

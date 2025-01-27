@@ -14,7 +14,7 @@
 eNode::eNode( QString id )
 {
     m_id = id;
-    m_nodeNum = 0;
+    m_nodeNum = -1;
 
     m_voltChEl     = nullptr;
     m_nonLinEl     = nullptr;
@@ -38,7 +38,6 @@ eNode::~eNode()
 void eNode::initialize()
 {
     m_voltChanged  = true; // Used for wire animation
-    //m_switched     = false;
     m_single       = false;
     m_changed      = false;
     m_currChanged  = false;
@@ -100,8 +99,6 @@ void eNode::stampAdmitance( ePin* epin, double admit ) // Be sure msg doesn't co
         if( conn->epin == epin ) { conn->value = admit; break; } // Connection found
         conn = conn->next;
     }
-
-    //if( admit == 0 ) m_switched = true;
     m_admitChanged = true;
     changed();
 }
@@ -136,7 +133,6 @@ void eNode::stampSingAdm( ePin* epin, double admit )
         if( conn->epin == epin ) { conn->value = admit; break; } // Connection found
         conn = conn->next;
     }
-    /// if( admit == 0 ) m_switched = true;
     m_admitChanged = true;
     changed();
 }
@@ -174,13 +170,12 @@ void eNode::changed()
 
 void eNode::stampMatrix()
 {
-    if( m_nodeNum == 0 ) return;
+    if( m_nodeNum < 0 ) return;
     m_changed = false;
 
     if( m_admitChanged )
     {
         m_totalAdmit = 0;
-        //if( m_switched ) m_totalAdmit += 1e-12; // Weak connection to ground
 
         if( m_single ){
             Connection* conn = m_firstAdmit;
@@ -194,7 +189,7 @@ void eNode::stampMatrix()
                 double adm = conn->value;
                 int  enode = conn->node;
 
-                if( enode > 0 ){        // Calculate admitances to nodes
+                if( enode >= 0 ){        // Calculate admitances to nodes
                     na = m_nodeAdmit;
                     while( na ){
                         if( na->node == enode ){ na->value += adm; break; }
@@ -211,7 +206,7 @@ void eNode::stampMatrix()
                 double adm = conn->value;
                 int  enode = conn->node;
 
-                if( enode > 0 ){        // Add sinle admitance to node
+                if( enode >= 0 ){        // Add sinle admitance to node
                     na = m_nodeAdmit;
                     while( na ){
                         if( na->node == enode ){ na->value += adm; break; }
@@ -224,7 +219,7 @@ void eNode::stampMatrix()
             while( na ){                  // Stamp non diagonal
                 int    enode = na->node;
                 double admit = na->value;
-                if( enode > 0 ) CircMatrix::self()->stampMatrix( m_nodeNum, enode, -admit );
+                if( enode >= 0 ) CircMatrix::self()->stampMatrix( m_nodeNum, enode, -admit );
                 na = na->next;
             }
         }
@@ -236,7 +231,7 @@ void eNode::stampMatrix()
         Connection* conn = m_firstCurrent;
         while( conn ){ m_totalCurr += conn->value; conn = conn->next; } // Calculate total current
 
-        if( !m_single ) CircMatrix::self()->stampCoef(  m_nodeGroup, m_nodeNum, m_totalCurr );
+        if( !m_single ) CircMatrix::self()->stampCoef( m_nodeGroup, m_nodeNum, m_totalCurr );
         m_currChanged  = false;
     }
     if( m_single ) solveSingle();

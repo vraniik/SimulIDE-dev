@@ -39,14 +39,14 @@ void CircMatrix::addConnections( int enodNum, QList<int>* nodeGroup, QList<int>*
     nodeGroup->append( enodNum );
     allNodes->removeOne( enodNum );
 
-    eNode* enod = m_eNodeList->at( enodNum-1 );
+    eNode* enod = m_eNodeList->at( enodNum );
     enod->setSingle( false );
 
     QList<int> cons = enod->getConnections();
 
     for( int nodeNum : cons )
     {
-        if( nodeNum == 0 ) continue;
+        if( nodeNum < 0 ) continue;
         if( !nodeGroup->contains( nodeNum ) ) addConnections( nodeNum, nodeGroup, allNodes );
     }
 }
@@ -54,7 +54,7 @@ void CircMatrix::addConnections( int enodNum, QList<int>* nodeGroup, QList<int>*
 void CircMatrix::analyze()
 {
     QList<int> allNodes;
-    for( int i=0; i<m_numEnodes; i++ ) allNodes.append( i+1 );
+    for( int i=0; i<m_numEnodes; i++ ) allNodes.append( i );
 
     m_aList.clear();
     m_aFaList.clear();
@@ -71,7 +71,7 @@ void CircMatrix::analyze()
         int numEnodes = nodeGroup.size();
         if( numEnodes==1 )           // Sigle nodes do by themselves
         {
-            eNode* enod = m_eNodeList->at( nodeGroup[0]-1 );
+            eNode* enod = m_eNodeList->at( nodeGroup[0] );
             enod->setSingle( true );
             singleNode++;
         }else{
@@ -80,18 +80,18 @@ void CircMatrix::analyze()
             dp_vector_t b;
             QList<eNode*> eNodeActive;
 
-            a.resize( numEnodes , dp_vector_t( numEnodes , 0 ) );
-            ap.resize( numEnodes , d_vector_t( numEnodes , 0 ) );
-            b.resize( numEnodes , 0 );
+            a.resize( numEnodes, dp_vector_t( numEnodes, 0 ) );
+            ap.resize( numEnodes, d_vector_t( numEnodes, 0 ) );
+            b.resize( numEnodes, 0 );
 
             int ny=0;
             for( int y=0; y<m_numEnodes; ++y )    // Copy data to reduced Matrix
             {
-                if( !nodeGroup.contains( y+1 ) ) continue;
+                if( !nodeGroup.contains( y ) ) continue;
                 int nx=0;
                 for( int x=0; x<m_numEnodes; ++x )
                 {
-                    if( !nodeGroup.contains( x+1 ) ) continue;
+                    if( !nodeGroup.contains( x ) ) continue;
                     a[nx][ny] = &(m_circMatrix[x][y]);
                     nx++;
                 }

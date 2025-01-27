@@ -28,14 +28,14 @@ class CircMatrix
 
         inline void stampDiagonal( int group, int n, double value ){
             m_admitChanged[group] = true;
-            m_circMatrix[n-1][n-1] = value;      // eNode numbers start at 1
+            m_circMatrix[n][n] = value;      // eNode numbers start at 1
         }
         inline void stampMatrix( int row, int col, double value ){
-            m_circMatrix[row-1][col-1] = value;      // eNode numbers start at 1
+            m_circMatrix[row][col] = value;      // eNode numbers start at 1
         }
         inline void stampCoef( int group, int row, double value ){
             m_currChanged[group] = true;
-            m_coefVect[row-1] = value;
+            m_coefVect[row] = value;
         }
 
     private:
@@ -61,7 +61,4 @@ class CircMatrix
 
         d_matrix_t m_circMatrix;
         d_vector_t m_coefVect;
-
-        //bool m_admitChanged;
-        //bool m_currChanged;
 };

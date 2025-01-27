@@ -298,7 +298,7 @@ void Simulator::startSim( bool paused )
     for( int i=0; i<m_eNodeList.size(); i++ )         // Initialize eNodes
     {
         eNode* enode = m_eNodeList.at(i);
-        enode->setNodeNumber( i+1 );
+        enode->setNodeNumber( i );
         enode->initialize();
         //qDebug() << "initializing  "<< enode->itemId();
     }
