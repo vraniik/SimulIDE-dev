@@ -11,6 +11,7 @@
 #include "simulator.h"
 #include "iopin.h"
 #include "custombutton.h"
+#include "label.h"
 
 #include "doubleprop.h"
 #include "boolprop.h"
@@ -119,17 +120,23 @@ void FixedVolt::setSmall( bool s )
 {
     m_small = s;
 
+    QFont font = m_idLabel->font();
+
     if( s ){
         m_button->setMaximumSize( 9, 9 );
         m_button->setGeometry(-5,-5, 9, 9);
         m_proxy->setPos( QPointF(-8,-4.5) );
         m_area = QRect( 4, -4, 8, 8 );
+        font.setPixelSize( 7 );
     }else{
         m_button->setMaximumSize( 16, 16 );
         m_button->setGeometry(-20,-16, 16, 16);
         m_proxy->setPos( QPoint(-32,-8) );
         m_area = QRect(-10,-10, 20, 20 );
+        font.setPixelSize( 8 );
     }
+    m_idLabel->setFont( font );
+
     Circuit::self()->update();
 }
 
