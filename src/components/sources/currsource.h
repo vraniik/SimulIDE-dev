@@ -16,11 +16,11 @@ class CurrSource : public VarSource
         CurrSource( QString type, QString id );
         ~CurrSource();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
+        void stamp() override;
+        void updateStep() override;
 
     private:
         Pin* m_outPin;

@@ -22,12 +22,13 @@ class Battery : public Comp2Pin, public eResistor
         double voltage() { return m_volt; }
         void setVoltage( double volt );
 
-        virtual void setResistance( double resist ) override;
+        void setResistance( double resist ) override;
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
+        void stamp() override;
+        void updateStep() override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+    protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     private:
         double m_volt;

@@ -23,10 +23,11 @@ class Rail : public Component, public eElement
         double volt() { return m_volt; }
         void setVolt( double v );
 
-        virtual void stamp() override;
+        void stamp() override;
 
-        virtual QPainterPath shape() const override;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+    protected:
+        QPainterPath shape() const override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     private:
         double m_volt;

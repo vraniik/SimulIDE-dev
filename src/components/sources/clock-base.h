@@ -15,8 +15,8 @@ class ClockBase : public FixedVolt
 
         virtual bool setPropStr( QString prop, QString val ) override;
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
+        void stamp() override;
+        void updateStep() override;
 
         bool alwaysOn() { return m_alwaysOn; }
         void setAlwaysOn( bool on );

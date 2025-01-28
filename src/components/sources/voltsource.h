@@ -16,10 +16,10 @@ class VoltSource : public VarSource
         VoltSource( QString type, QString id );
         ~VoltSource();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 
     private:
         IoPin* m_outPin;

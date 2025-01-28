@@ -27,10 +27,10 @@ class WaveGen : public ClockBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool setPropStr( QString prop, QString val ) override;
 
-        virtual void stamp() override;
-        virtual void runEvent() override;
+        void stamp() override;
+        void runEvent() override;
 
         double duty() { return m_duty; }
         void setDuty( double duty );
@@ -59,15 +59,14 @@ class WaveGen : public ClockBase
         bool floating() { return m_floating; }
         void setFloating( bool f );
 
-        virtual void setFreq( double freq ) override;
-
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )override;
+        void setFreq( double freq ) override;
         
         void slotLoad();
-        virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
     protected:
-        virtual void slotProperties() override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )override;
+        void slotProperties() override;
 
     private:
         void genSine();

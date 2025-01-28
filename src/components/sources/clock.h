@@ -18,7 +18,8 @@ class Clock : public ClockBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void runEvent() override;
+        void runEvent() override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+    protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };

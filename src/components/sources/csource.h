@@ -19,9 +19,9 @@ class Csource : public Component, public eResistor
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void updateStep() override;
+        void stamp() override;
+        void voltChanged() override;
+        void updateStep() override;
 
         double gain() { return m_gain; }
         void setGain( double g );
@@ -46,8 +46,9 @@ class Csource : public Component, public eResistor
         virtual bool setLinkedTo( Linker* li ) override;
         virtual void setLinkedValue( double v, int i=0 ) override;
 
+    protected:
         //virtual QPainterPath shape() const;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected slots:
         virtual void slotProperties() override;

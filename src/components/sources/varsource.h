@@ -27,15 +27,14 @@ class VarSource : public Component, public eElement
         bool running();
         void setRunning( bool r );
 
-        virtual void initialize() override;
-
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void initialize() override;
 
     public slots:
         void onbuttonclicked();
         void dialChanged( int val );
 
     protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
         void updateButton();
         void updtValue( double v );
 
