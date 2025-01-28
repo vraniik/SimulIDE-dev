@@ -55,11 +55,12 @@ BinCounter::BinCounter( QString type, QString id)
     setupPin( m_rstPin,"L07Rst");
     setupPin( m_ldPin ,"L00LD" );
     setupPin( m_rcoPin,"R06CO" );
-    setupPin( m_rboPin,"R06BO" );
+    setupPin( m_rboPin,"R07BO" );
 
     m_ldPin->setVisible( false );
-    m_rcoPin->setVisible( false );
     m_dirPin->setVisible( false );
+    m_rcoPin->setVisible( false );
+    m_rboPin->setVisible( false );
     m_bidirectional = false;
     m_parallelIn = false;
     m_useRCO = false;
@@ -136,9 +137,9 @@ void BinCounter::voltChanged()
 
         m_nextOutVal = m_counter;
     }
-    else if( clkRising )
+    else if( clkRising )              // Clock edge
     {
-        if( m_dirPin->getInpState() )
+        if( m_dirPin->getInpState() ) // Count up
         {
             m_counter++;
             if     ( m_counter == m_topValue ) m_rcoPin->scheduleState( true, m_delayBase*m_delayMult );
@@ -147,7 +148,7 @@ void BinCounter::voltChanged()
                 m_counter = 0;
                 m_rcoPin->scheduleState( false, m_delayBase*m_delayMult );
             }
-        }else{
+        }else{                        // Count down
             m_counter--;
             if     ( m_counter == 0 ) m_rboPin->scheduleState( true, m_delayBase*m_delayMult );
             else if( m_counter < 0 )
@@ -215,8 +216,13 @@ void BinCounter::setParallelIn( bool p )
 void BinCounter::setUseRCO( bool rco )
 {
     m_useRCO = rco;
-    if( !rco ) m_rcoPin->removeConnector();
+    if( !rco )
+    {
+        m_rcoPin->removeConnector();
+        m_rboPin->removeConnector();
+    }
     m_rcoPin->setVisible( rco );
+    m_rboPin->setVisible( rco );
     updatePins();
 }
 

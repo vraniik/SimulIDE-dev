@@ -29,10 +29,10 @@ class IoPin : public Pin, public eElement
         IoPin( int angle, const QPoint pos, QString id, int index, Component* parent, pinMode_t mode=source );
         ~IoPin();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void runEvent() override;
+        void initialize() override;
+        void stamp() override;
+        void updateStep() override;
+        void runEvent() override;
 
         virtual void scheduleState( bool state, uint64_t time );
 
@@ -59,7 +59,7 @@ class IoPin : public Pin, public eElement
         virtual void setOutState( bool high );
         virtual void toggleOutState( uint64_t time=0 ) { scheduleState( !m_outState, time ); }
 
-        virtual double getVoltage() override;
+        double getVoltage() override;
         inline void setVoltage( double volt )
         {
             if( m_outVolt == volt ) return;
@@ -76,7 +76,7 @@ class IoPin : public Pin, public eElement
         void setStateZ( bool z );
         virtual void setPullup( double p );
 
-        virtual void setInverted( bool invert ) override;
+        void setInverted( bool invert ) override;
 
         virtual void controlPin( bool outCtrl , bool dirCtrl ){;}
 
