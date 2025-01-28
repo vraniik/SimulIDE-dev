@@ -239,7 +239,8 @@ void ComponentList::loadXml( QString xmlFile )
                     {
                         if( type == "Subcircuit" )
                         {
-                            QString compFolder = QFileInfo( xmlFile ).absolutePath()+"/"+folder+"/"+name;
+                            QString compFolder = QFileInfo( xmlFile ).absolutePath()+"/"+folder;
+                            if( !QFile::exists( compFolder+"/"+name+".sim1" ) ) compFolder = compFolder+"/"+name;
                             m_dirFileList[ name ] = compFolder;
                         }
                         m_dataFileList[ name ] = xmlFile;   // Save xml File used to create this item
