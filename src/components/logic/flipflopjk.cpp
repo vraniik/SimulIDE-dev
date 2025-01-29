@@ -46,7 +46,7 @@ FlipFlopJK::FlipFlopJK( QString type, QString id )
 
     setSrInv( true );           // Invert Set & Reset pins
     setClockInv( false );       //Don't Invert Clock pin
-    setTrigger( Clock );
+    setTriggerStr("Clock");
 }
 FlipFlopJK::~FlipFlopJK(){}
 

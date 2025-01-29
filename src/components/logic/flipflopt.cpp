@@ -45,7 +45,7 @@ FlipFlopT::FlipFlopT( QString type, QString id )
 
     setSrInv( true );       // Inver Set & Reset pins
     setClockInv( false );   // Don't Invert Clock pin
-    setTrigger( Clock );
+    setTriggerStr("Clock");
 }
 FlipFlopT::~FlipFlopT(){}
 
