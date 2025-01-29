@@ -115,6 +115,7 @@ void BinCounter::stamp()
 
     m_rstPin->changeCallBack( this );
     m_ldPin->changeCallBack( this );
+    m_clkPin->changeCallBack( this );
 
     LogicComponent::stamp();
 }
