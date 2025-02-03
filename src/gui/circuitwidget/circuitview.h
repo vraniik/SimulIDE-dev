@@ -25,6 +25,8 @@ class CircuitView : public QGraphicsView
         bool showScroll() { return m_showScroll; }
         void setShowScroll( bool show );
 
+        QRectF selectedRect();
+
         void overrideCursor( const QCursor &cursor );
 
         qreal getScale() { return m_scale; }
