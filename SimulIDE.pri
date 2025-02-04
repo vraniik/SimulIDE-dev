@@ -95,9 +95,6 @@ QMAKE_CXXFLAGS_DEBUG -= -O2
 QMAKE_CXXFLAGS_DEBUG -= -O3
 QMAKE_CXXFLAGS_DEBUG += -O0
 
-contains( QMAKE_TARGET.arch, arm64 ) {
-    SOURCES += $$files( $$PWD/src/angel/src/*.S, true )
-}
 
 win32 {
     OS = Windows
@@ -106,17 +103,26 @@ win32 {
 }
 linux {
     OS = Linux
+    contains( QMAKE_HOST.arch, arm64 ) {
+        SOURCES += $$PWD/src/angel/src/as_callfunc_arm_gcc.S
+    }
 }
 macx {
     OS = MacOs
     ICON = $$PWD/resources/icons/simulide.icns
 
-QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7
-QMAKE_CXX  = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
-QMAKE_LINK = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
+    contains( QMAKE_HOST.arch, arm64 ) {
+        SOURCES += $$PWD/src/angel/src/as_callfunc_arm64_xcode.S
+    }
 
     QMAKE_CXXFLAGS -= -stdlib=libc++
     QMAKE_LFLAGS   -= -stdlib=libc++
+
+# To use gcc in MacOs you must force it.
+# Edit to match your system:
+    QMAKE_CC   = /usr/local/Cellar/gcc@7/7.5.0_4/bin/gcc-7
+    QMAKE_CXX  = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
+    QMAKE_LINK = /usr/local/Cellar/gcc@7/7.5.0_4/bin/g++-7
 }
 
 CONFIG += qt 
