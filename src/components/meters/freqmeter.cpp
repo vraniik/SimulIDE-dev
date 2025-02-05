@@ -25,7 +25,7 @@ LibraryItem* FreqMeter::libraryItem()
         tr("Frequency Meter"),
         "Meters",
         "frequencimeter.png",
-        "FreqMeter",
+        "FreqMeter,Frequencimeter",
         FreqMeter::construct);
 }
 

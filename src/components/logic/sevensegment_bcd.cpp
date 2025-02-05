@@ -25,7 +25,7 @@ LibraryItem* SevenSegmentBCD::libraryItem()
         tr("7 Seg BCD"),
         "Other Logic",
         "7segbcd.png",
-        "7-Seg BCD", /// FIXME: only alphanumeric in Component type
+        "7 Seg BCD,7-Seg BCD",
         SevenSegmentBCD::construct );
 }
 

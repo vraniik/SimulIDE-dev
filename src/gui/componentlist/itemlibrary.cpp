@@ -307,6 +307,15 @@ void ItemLibrary::addItem( LibraryItem* item )
     if( item ) m_items.append( item );
 }
 
+Component* ItemLibrary::createItem( QString type, QString id )
+{
+    for( LibraryItem* item : m_items )
+        if( item->isType( type ) )
+            return item->createItemFnPtr()( item->type(), id );
+
+    return nullptr;
+}
+
 // CLASS LIBRARYITEM *********************************************************
 
 LibraryItem::LibraryItem( QString name, QString category, QString iconName,
@@ -315,7 +324,14 @@ LibraryItem::LibraryItem( QString name, QString category, QString iconName,
     m_name       = name;
     m_category   = category;
     m_iconfile   = iconName;
-    m_type       = type;
     m_createItem = createItem;
+
+    m_typeList = type.split(",");
+    m_type     = m_typeList.first();
 }
 LibraryItem::~LibraryItem() { }
+
+bool LibraryItem::isType( QString type )
+{
+    return m_typeList.contains( type );
+}

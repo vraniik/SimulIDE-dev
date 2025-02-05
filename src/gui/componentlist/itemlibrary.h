@@ -18,6 +18,7 @@ class ItemLibrary
  static ItemLibrary* self() { return m_pSelf; }
 
         QList<LibraryItem*> items() { return m_items; }
+        Component* createItem( QString type, QString id );
 
         void addItem( LibraryItem* item );
         
@@ -42,6 +43,7 @@ class LibraryItem
         QString category() { return m_category; }
         QString iconfile() { return m_iconfile; }
         QString type()     { return m_type; }
+        bool isType( QString type );
 
         createItemPtr createItemFnPtr() { return m_createItem; }
 
@@ -50,6 +52,7 @@ class LibraryItem
         QString m_category;
         QString m_iconfile;
         QString m_type;
+        QStringList m_typeList;
 
         createItemPtr m_createItem;
 };

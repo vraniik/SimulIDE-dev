@@ -306,8 +306,7 @@ void Circuit::loadStrDoc( QString &doc )
                     m_compMap[newUid] = joint;
                 }
                 else{
-                    if( type == "Frequencimeter" ) type = "FreqMeter";
-                    m_subCircuit = nullptr;  // Subcircuits set this value at
+                    m_subCircuit = nullptr;                             // Subcircuits set this value
                     Component* comp = createItem( type, newUid );
 
                     if( !comp ){ qDebug() << " ERROR Creating Component: "<< type << uid;
@@ -535,16 +534,9 @@ Component* Circuit::createComponent( QString type, QString name, QPoint pos, boo
 
 Component* Circuit::createItem( QString type, QString id, bool map )
 {
-    Component* comp = nullptr;
-    for( LibraryItem* item : ItemLibrary::self()->items() )
-    {
-        if( !item->createItemFnPtr() ) continue; // Is category
-        if( item->type() != type ) continue;
-
-        comp = item->createItemFnPtr()( type, id );
-        break;
-    }
+    Component* comp = ItemLibrary::self()->createItem( type, id );
     if( comp && map ) m_compMap[id] = comp;
+
     return comp;
 }
 
