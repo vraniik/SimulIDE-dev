@@ -5,6 +5,7 @@
 
 #include <QApplication>
 #include <QSettings>
+#include <QStandardPaths>
 //#include <QDebug>
 
 #include "inodebugger.h"
@@ -187,11 +188,25 @@ void InoDebugger::setToolPath( QString path )
             for( QString line : configLines )
             {
                 if( !line.contains("data: ") ) continue;
-                m_toolPath = QDir::fromNativeSeparators( line. split("data: ").last() )+"/packages/arduino/tools/avr-gcc/";
+                m_toolPath = QDir::fromNativeSeparators( line. split("data: ").last() );
+                break;
+            }
+
+            if (m_toolPath.isEmpty()) // Fix empty config
+            {
+#ifndef Q_OS_UNIX
+                m_toolPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/Arduino15";
+#else
+                m_toolPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+"/.arduino15";
+#endif
+            }
+
+            if (!m_toolPath.isEmpty())
+            {
+                m_toolPath += "/packages/arduino/tools/avr-gcc/";
                 QDir toolDir( m_toolPath );
                 QStringList dirList = toolDir.entryList( QDir::Dirs, QDir::Name | QDir::Reversed );
                 if( !dirList.isEmpty() ) m_toolPath += dirList[0]+"/bin/";
-                break;
             }
 
             command = builder;
