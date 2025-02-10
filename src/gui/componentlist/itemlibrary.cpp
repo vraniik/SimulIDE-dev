@@ -310,7 +310,7 @@ void ItemLibrary::addItem( LibraryItem* item )
 Component* ItemLibrary::createItem( QString type, QString id )
 {
     for( LibraryItem* item : m_items )
-        if( item->isType( type ) )
+        if( item->isType( type ) && item->createItemFnPtr() )
             return item->createItemFnPtr()( item->type(), id );
 
     return nullptr;
