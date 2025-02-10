@@ -5,6 +5,8 @@
 
 #pragma once
 
+//#define DEBUG_EVENTS
+
 #include "e-node.h"
 #include "e-element.h"
 
@@ -115,8 +117,15 @@ class Simulator : public QObject
 
         //inline void stopTimer();
         //inline void initTimer();
-
         eElement* m_firstEvent;
+
+#ifdef DEBUG_EVENTS
+        uint64_t m_events;
+        uint64_t m_maxEvents;
+        uint64_t m_totEvents;
+        uint64_t m_findEvents;
+        uint64_t m_maxfinds;
+#endif
 
         QFuture<void> m_CircuitFuture;
 

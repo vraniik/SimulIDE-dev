@@ -75,6 +75,24 @@ void Simulator::timerEvent( QTimerEvent* e )  //update at m_timerTick_ms rate (5
 
     if( m_state == SIM_WAITING ) return;
 
+    // Get Simulation times
+    m_simPsPF = m_circTime-m_tStep;
+    m_tStep   = m_circTime;
+
+#ifdef DEBUG_EVENTS
+    double simMilis = (double)m_simPsPF/1e9;
+    uint64_t eventPerMili = 0;
+    if( m_totEvents && simMilis ) eventPerMili = (double)m_totEvents/simMilis;
+    double finds = 0;
+    if( m_totEvents && m_findEvents ) finds = (double)m_findEvents/(double)m_totEvents;
+
+    qDebug() << "Simulator::timerEvent" << m_totEvents<< eventPerMili << finds << m_maxfinds << m_maxEvents << m_events;
+    m_maxEvents = 0;
+    m_totEvents = 0;
+    m_findEvents = 0;
+    m_maxfinds = 0;
+#endif
+
     uint64_t currentTime = m_RefTimer.nsecsElapsed();
     double fps = 1e9/(currentTime-m_timerTime);
     m_realFPS = (m_realFPS*9+fps)/10;
@@ -113,9 +131,7 @@ void Simulator::timerEvent( QTimerEvent* e )  //update at m_timerTick_ms rate (5
     if( m_loopTime > m_refTime ) simLoop = m_loopTime-m_refTime;
     m_simLoad = (m_simLoad+100*simLoop/timer_ns)/2;
 
-    // Get Simulation times
-    m_simPsPF = m_circTime-m_tStep;
-    m_tStep   = m_circTime;
+
 
     if( m_state == SIM_RUNNING ) // Run Circuit in a parallel thread
         m_CircuitFuture = QtConcurrent::run( this, &Simulator::runCircuit );
@@ -165,6 +181,9 @@ void Simulator::runCircuit()
             m_circTime = event->eventTime;
             m_firstEvent = event->nextEvent;    // free Event
             event->nextEvent = nullptr;
+#ifdef DEBUG_EVENTS
+            m_events--;
+#endif
             event->eventTime = 0;
             event->runEvent();                  // Run event callback
             event = m_firstEvent;
@@ -232,6 +251,14 @@ void Simulator::resetSim()
     m_changedNode = nullptr;
     m_voltChanged = nullptr;
     m_nonLinear = nullptr;
+
+#ifdef DEBUG_EVENTS
+    m_events = 0;
+    m_maxEvents = 0;
+    m_totEvents = 0;
+    m_findEvents = 0;
+    m_maxfinds = 0;
+#endif
 }
 
 void Simulator::createNodes()
@@ -437,12 +464,28 @@ void Simulator::addEvent( uint64_t time, eElement* el )
     eElement* last  = nullptr;
     eElement* event = m_firstEvent;
 
-    while( event ){
+#ifdef DEBUG_EVENTS
+    uint64_t finds = 0;
+#endif
+
+    while( event )
+    {
+#ifdef DEBUG_EVENTS
+        finds++;
+#endif
         if( time <= event->eventTime ) break; // Insert event here
         last  = event;
         event = event->nextEvent;
     }
     el->eventTime = time;
+
+#ifdef DEBUG_EVENTS
+    if( finds > m_maxfinds ) m_maxfinds = finds;
+    m_events++;
+    m_totEvents++;
+    m_findEvents += finds;
+    if( m_events > m_maxEvents ) m_maxEvents = m_events;
+#endif
 
     if( last ) last->nextEvent = el;
     else       m_firstEvent = el; // List was empty or insert First
@@ -465,6 +508,9 @@ void Simulator::cancelEvents( eElement* el )
             if( last ) last->nextEvent = next;
             else       m_firstEvent = next;
             event->nextEvent = nullptr;
+#ifdef DEBUG_EVENTS
+            m_events--;
+#endif
         }
         else last = event;
         event = next;
