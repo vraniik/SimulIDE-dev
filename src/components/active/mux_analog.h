@@ -30,7 +30,7 @@ class MuxAnalog : public Component, public eElement
         void setAddrBits( int bits );
 
         double impedance() { return 1/m_admit; }
-        void setImpedance( double i ) { m_admit = 1/i; m_changed = true; }
+        void setImpedance( double i );
         
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
         

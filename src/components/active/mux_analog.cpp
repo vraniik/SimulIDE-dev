@@ -121,6 +121,13 @@ void MuxAnalog::runEvent()
         else if( m_resistor[i]->admit() != cero_doub ) m_resistor[i]->setAdmit( cero_doub );
 }   }
 
+void MuxAnalog::setImpedance( double i )
+{
+    if( i <= 0 ) return;
+    m_admit = 1/i;
+    m_changed = true;
+}
+
 void MuxAnalog::setAddrBits( int bits )
 {
     if( bits == m_addrBits ) return;
