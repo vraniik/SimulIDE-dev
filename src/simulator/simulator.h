@@ -9,6 +9,7 @@
 
 #include "e-node.h"
 #include "e-element.h"
+#include "analogclock.h"
 
 enum simState_t{
     SIM_STOPPED=0,
@@ -182,4 +183,5 @@ class Simulator : public QObject
         double   m_simLoad;
 
         QElapsedTimer m_RefTimer;
+        AnalogClock m_analogClock;
 };

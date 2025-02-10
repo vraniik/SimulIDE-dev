@@ -972,7 +972,7 @@
                 </colorrole>
                 <colorrole role="PlaceholderText">
                  <brush brushstyle="SolidPattern">
-                  <color alpha="255">
+                  <color alpha="128">
                    <red>85</red>
                    <green>0</green>
                    <blue>127</blue>
@@ -1010,7 +1010,7 @@
                 </colorrole>
                 <colorrole role="PlaceholderText">
                  <brush brushstyle="SolidPattern">
-                  <color alpha="255">
+                  <color alpha="128">
                    <red>85</red>
                    <green>0</green>
                    <blue>127</blue>
@@ -1048,7 +1048,7 @@
                 </colorrole>
                 <colorrole role="PlaceholderText">
                  <brush brushstyle="SolidPattern">
-                  <color alpha="255">
+                  <color alpha="128">
                    <red>85</red>
                    <green>0</green>
                    <blue>127</blue>
@@ -1338,7 +1338,7 @@
               </sizepolicy>
              </property>
              <property name="text">
-              <string>Reactive Step</string>
+              <string>Analog Step</string>
              </property>
             </widget>
            </item>

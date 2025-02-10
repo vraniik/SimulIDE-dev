@@ -27,6 +27,7 @@ Simulator::Simulator( QObject* parent )
     m_pSelf = this;
 
     m_matrix = new CircMatrix();
+    addToElementList( &m_analogClock );
 
     m_fps = 20;
     m_timerId   = 0;
@@ -186,8 +187,12 @@ void Simulator::runCircuit()
 #endif
             event->eventTime = 0;
             event->runEvent();                  // Run event callback
-            event = m_firstEvent;
-            if( event ) nextTime = event->eventTime;
+
+            if( m_firstEvent )
+            {
+                event = m_firstEvent;
+                nextTime = event->eventTime;
+            }
             else break;
         }
         solveCircuit();
