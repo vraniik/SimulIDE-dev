@@ -46,14 +46,24 @@ Clock::Clock( QString type, QString id )
 }
 Clock::~Clock(){}
 
+void Clock::updateStep()
+{
+    if( !m_changed ) return;
+    m_changed = false;
+
+    Simulator::self()->cancelEvents( this );
+    m_outpin->setOutState( false );
+    m_state = false;
+
+    if( m_isRunning ) Simulator::self()->addEvent( m_stepsPC/2, this );
+}
+
 void Clock::runEvent()
 {
     m_state = !m_state;
     m_outpin->setOutState( m_state );
 
-    m_remainder += m_fstepsPC-(double)m_stepsPC;
-    uint64_t remainerInt = m_remainder;
-    m_remainder -= remainerInt;
+    uint64_t remainerInt = getRemainer();
 
     if( m_isRunning ) Simulator::self()->addEvent( m_stepsPC/2+remainerInt, this );
 }

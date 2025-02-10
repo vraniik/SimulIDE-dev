@@ -29,14 +29,13 @@ class WaveGen : public ClockBase
 
         bool setPropStr( QString prop, QString val ) override;
 
+ void updateStep() override{;}
+        void initialize() override;
         void stamp() override;
         void runEvent() override;
 
         double duty() { return m_duty; }
         void setDuty( double duty );
-
-        int steps() { return m_steps; }
-        void setSteps( int steps );
 
         double phaseShift() { return m_phaseShift; }
         void setPhaseShift( double p ) { m_phaseShift = p; }
@@ -94,10 +93,11 @@ class WaveGen : public ClockBase
         double m_halfW;
         double m_time;
         double m_phaseShift;
+        double m_phaseTime;
         
-        int      m_steps;
-        uint64_t m_qSteps;
-        uint64_t m_nextStep;
+        //int      m_steps;
+        //uint64_t m_qSteps;
+        uint64_t m_eventTime;
 
         uint m_index;
         uint16_t m_audioFormat;

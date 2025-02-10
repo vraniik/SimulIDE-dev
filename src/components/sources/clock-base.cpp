@@ -44,22 +44,6 @@ void ClockBase::stamp()
     if( !Simulator::self()->isPaused() ) m_changed = true;
 }
 
-void ClockBase::updateStep()
-{
-    if( !m_changed ) return;
-    m_changed = false;
-
-    Simulator::self()->cancelEvents( this );
-    m_outpin->setOutState( false );
-    m_state = false;
-
-    if( m_isRunning )
-    {
-        m_lastTime = Simulator::self()->circTime();
-        Simulator::self()->addEvent( 1, this );
-    }
-}
-
 void ClockBase::setAlwaysOn( bool on )
 {
     m_alwaysOn = on;
@@ -75,7 +59,7 @@ void ClockBase::setFreq( double freq )
     m_freq = freq;
     m_remainder = 0;
 
-    setRunning( (m_isRunning || m_alwaysOn) && (freq>0) );
+    setRunning( m_isRunning || m_alwaysOn );
 }
 
 void ClockBase::setRunning( bool running )
@@ -91,7 +75,6 @@ void ClockBase::setLinkedValue( double v, int )
 {
     setFreq( v );
 }
-
 
 void ClockBase::setHidden( bool hide, bool hidArea, bool hidLabel )
 {

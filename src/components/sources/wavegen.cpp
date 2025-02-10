@@ -55,7 +55,7 @@ WaveGen::WaveGen( QString type, QString id )
     m_pin[1] = m_gndpin = new IoPin( 0, QPoint(16,4), id+"-gndnod", 0, this, source );
     m_gndpin->setVisible( false );
     
-    setSteps( 100 );
+    //setSteps( 100 );
     setDuty( 50 );
 
     Simulator::self()->addToUpdateList( this );
@@ -74,9 +74,6 @@ WaveGen::WaveGen( QString type, QString id )
 
         new DoubProp<WaveGen>("Phase", tr("Phase shift"), "_º"
                              , this, &WaveGen::phaseShift, &WaveGen::setPhaseShift ),
-
-        new IntProp <WaveGen>("Steps", tr("Quality"), "_Steps"
-                             , this, &WaveGen::steps, &WaveGen::setSteps ),
 
         new DoubProp<WaveGen>("Duty", tr("Duty"), "_\%"
                              , this, &WaveGen::duty, &WaveGen::setDuty ),
@@ -116,9 +113,25 @@ bool WaveGen::setPropStr( QString prop, QString val )
     return true;
 }
 
+void WaveGen::initialize()
+{
+    Simulator::self()->cancelEvents( this );
+    AnalogClock::self()->remClkElement( this );
+
+    if     ( m_waveType == Wav    ) m_eventTime = m_stepsPC;
+    else if( m_waveType == Square ) m_eventTime = m_fstepsPC-m_halfW;
+    else if( m_waveType == Random ) m_eventTime = m_stepsPC/3;
+    else{
+        m_eventTime = 0;
+        if( m_isRunning ) AnalogClock::self()->addClkElement( this );
+    }
+    if( m_isRunning && m_eventTime ) Simulator::self()->addEvent( m_eventTime, this );
+}
+
 void WaveGen::stamp()
 {
-    ClockBase::stamp();
+    //ClockBase::stamp();
+    m_phaseTime = m_stepsPC*m_phaseShift/360;
     m_lastVout = m_vOut = 0;
     m_index = 0;
 
@@ -147,8 +160,8 @@ void WaveGen::stamp()
 
 void WaveGen::runEvent()
 {
-    m_time = fmod( (Simulator::self()->circTime()-m_lastTime) - m_stepsPC*m_phaseShift/360, m_fstepsPC );
-    
+    m_time = fmod( Simulator::self()->circTime() - m_phaseTime, m_fstepsPC );
+
     switch( m_waveType ) {
         case Sine:     genSine(); break;
         case Saw:      genSaw(); break;
@@ -172,32 +185,25 @@ void WaveGen::runEvent()
         }
         else m_outpin->setVoltage( m_voltBase+m_voltage*m_vOut );
     }
-    m_remainder += m_fstepsPC-(double)m_stepsPC;
-    uint64_t remainerInt = m_remainder;
-    m_remainder -= remainerInt;
 
-    if( m_isRunning )
-        Simulator::self()->addEvent( m_nextStep+remainerInt, this );
+    if( m_eventTime ) Simulator::self()->addEvent( m_eventTime, this );
 }
 
 void WaveGen::genSine()
 {
     m_time = qDegreesToRadians( (double)m_time*360/m_fstepsPC );
     m_vOut = sin( m_time )/2+0.5;
-    m_nextStep = m_qSteps;
 }
 
 void WaveGen::genSaw()
 {
     m_vOut = m_time/m_fstepsPC;
-    m_nextStep = m_qSteps;
 }
 
 void WaveGen::genTriangle()
 {
     if( m_time >= m_halfW ) m_vOut = 1-(m_time-m_halfW)/(m_fstepsPC-m_halfW);
     else                    m_vOut = m_time/m_halfW;
-    m_nextStep = m_qSteps;
 }
 
 void WaveGen::genSquare()
@@ -205,22 +211,23 @@ void WaveGen::genSquare()
     if( m_vOut == 1 )
     {
         m_vOut = 0;
-        m_nextStep = m_fstepsPC-m_halfW;
+        m_eventTime = m_fstepsPC-m_halfW;
     }else{
         m_vOut = 1;
-        m_nextStep = m_halfW;
-}   }
+        m_eventTime = m_halfW;
+    }
+    m_eventTime += getRemainer();
+}
 
 void WaveGen::genRandom()
 {
     m_vOut = (double)rand()/(double)RAND_MAX;
-    m_nextStep = m_halfW;
 }
 
 void WaveGen::genWav()
 {
     m_vOut = m_data.at( m_index );
-    m_nextStep = m_qSteps;
+
     m_index++;
     if( m_index >= m_data.size() ) m_index = 0;
 }
@@ -232,20 +239,13 @@ void WaveGen::setDuty( double duty )
     m_halfW = m_fstepsPC*m_duty/100;
 }
 
-void WaveGen::setSteps( int steps )
-{
-    if( (uint)steps > m_stepsPC ) steps = m_stepsPC;
-    else if( steps < 1 ) steps = 1;
-
-    m_steps = steps;
-    m_qSteps  = m_stepsPC/steps;
-}
-
 void WaveGen::setFreq( double freq )
 {
     ClockBase::setFreq( freq );
     setDuty( m_duty );
-    setSteps( m_steps );
+
+    if     ( m_waveType == Square ) m_eventTime = m_fstepsPC-m_halfW;
+    else if( m_waveType == Random ) m_eventTime = m_stepsPC/3;
 }
 
 void WaveGen::setSemiAmpli( double v )
@@ -286,6 +286,7 @@ void WaveGen::setFloating( bool f )
 
 void WaveGen::setWaveType( QString type )
 {
+     Simulator::self()->pauseSim();
     m_waveTypeStr = type;
     if( m_showVal && (m_showProperty == "Wave_Type") )
         setValLabelText( type );
@@ -302,7 +303,8 @@ void WaveGen::setWaveType( QString type )
     if( m_wavePixmap ) delete m_wavePixmap;
     m_wavePixmap = new QPixmap( pixmapPath );
     updtProperties();
-    update();
+    if( Simulator::self()->isRunning() ) initialize();
+    Simulator::self()->resumeSim();
 }
 
 void WaveGen::updtProperties()
@@ -311,15 +313,13 @@ void WaveGen::updtProperties()
 
     bool showFile = false;
     bool showDuty = false;
-    bool showSteps = true;
 
-    if     ( m_waveType == Triangle) { showDuty = true; }
-    else if( m_waveType == Square  ) { showDuty = true; showSteps = false; }
-    else if( m_waveType == Wav     ) { showFile = true; showSteps = false; }
+    if     ( m_waveType == Triangle) showDuty = true;
+    else if( m_waveType == Square  ) showDuty = true;
+    else if( m_waveType == Wav     ) showFile = true;
 
     m_propDialog->showProp("File", showFile );
     m_propDialog->showProp("Duty", showDuty );
-    m_propDialog->showProp("Steps", showSteps );
 
     //m_propDialog->showProp("Mid_Volt", !m_bipolar || !m_floating );
     m_propDialog->showProp("Floating", m_bipolar );
@@ -478,7 +478,7 @@ void WaveGen::setFile( QString fileName )
             }
         }
         setFreq( m_sampleRate );
-        setSteps( 1 );
+        //setSteps( 1 );
         qDebug() << "WaveGen::setFile Success Loaded wav file:\n" << fileNameAbs;
     }
     else qDebug() << "WaveGen::setFile Error reading wav file:\n" << fileNameAbs;

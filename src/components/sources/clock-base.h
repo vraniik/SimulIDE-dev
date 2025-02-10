@@ -16,7 +16,6 @@ class ClockBase : public FixedVolt
         virtual bool setPropStr( QString prop, QString val ) override;
 
         void stamp() override;
-        void updateStep() override;
 
         bool alwaysOn() { return m_alwaysOn; }
         void setAlwaysOn( bool on );
@@ -37,11 +36,17 @@ class ClockBase : public FixedVolt
         virtual void onbuttonclicked() override;
 
     protected:
-        bool m_state;
+        uint64_t getRemainer()
+        {
+            m_remainder += m_fstepsPC-(double)m_stepsPC;
+            uint64_t remainerInt = m_remainder;
+            m_remainder -= remainerInt;
+            return remainerInt;
+        }
+
         bool m_isRunning;
         bool m_alwaysOn;
 
-        uint64_t m_lastTime;
         uint64_t m_stepsPC;
         double m_fstepsPC;
 
