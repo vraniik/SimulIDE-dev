@@ -31,8 +31,8 @@ CapacitorBase::CapacitorBase( QString type, QString id )
         new DoubProp<CapacitorBase>("InitVolt"   , tr("Initial Voltage"), "V"
                                    , this, &CapacitorBase::initVolt, &CapacitorBase::setInitVolt ),
 
-        new DoubProp<CapacitorBase>("ReaStep", tr("Reactive Step"), "ns"
-                                   , this, &CapacitorBase::reaStep , &CapacitorBase::setReaStep,0 )
+        //new DoubProp<CapacitorBase>("ReaStep", tr("Reactive Step"), "ns"
+        //                           , this, &CapacitorBase::reaStep , &CapacitorBase::setReaStep,0 )
     },0 } );
 
     setShowProp("Capacitance");

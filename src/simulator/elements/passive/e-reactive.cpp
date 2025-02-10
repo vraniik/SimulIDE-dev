@@ -7,6 +7,7 @@
 #include "e-pin.h"
 #include "e-node.h"
 #include "simulator.h"
+#include "analogclock.h"
 
 eReactive::eReactive( QString id )
          : eResistor( id )
@@ -15,8 +16,13 @@ eReactive::eReactive( QString id )
     m_reacStep = 0;
     m_InitCurr = 0;
     m_InitVolt = 0;
+
+    AnalogClock::self()->addClkElement( this );
 }
-eReactive::~eReactive(){}
+eReactive::~eReactive()
+{
+    AnalogClock::self()->remClkElement( this );
+}
 
 void eReactive::stamp()
 {
@@ -38,18 +44,20 @@ void eReactive::stamp()
             m_ePin[0]->stampCurrent( m_curSource );
             m_ePin[1]->stampCurrent(-m_curSource );
         }
-        m_ePin[0]->changeCallBack( this );
-        m_ePin[1]->changeCallBack( this );
+        //m_ePin[0]->changeCallBack( this );
+        //m_ePin[1]->changeCallBack( this );
     }
     m_running = false;
+    //Simulator::self()->addEvent( m_timeStep, this );
 }
 
-void eReactive::voltChanged()
+/*void eReactive::voltChanged()
 {
     if( m_running ) return;
     m_running = true;
-    Simulator::self()->addEvent( m_timeStep, this );
-}
+    //runEvent();
+    //Simulator::self()->addEvent( m_timeStep, this );
+}*/
 
 void eReactive::runEvent()
 {
@@ -60,20 +68,25 @@ void eReactive::runEvent()
         m_volt = volt;
         m_curSource = updtCurr();
 
+        //qDebug() << "eReactive::runEvent " << volt << m_curSource;
+
         m_ePin[0]->stampCurrent( m_curSource );
         m_ePin[1]->stampCurrent(-m_curSource );
-        Simulator::self()->addEvent( m_timeStep, this );
+
     }
-    else m_running = false;
+    //else m_running = false;
+    /// Simulator::self()->addEvent( m_timeStep, this );
 }
 
 void eReactive::updtReactStep()
 {
-    if( m_reacStep ) m_timeStep = m_reacStep;
-    else             m_timeStep = Simulator::self()->reactStep(); // Time in ps
+    //if( m_reacStep ) m_timeStep = m_reacStep;
+    //else
+        m_timeStep = Simulator::self()->reactStep(); // Time in ps
     m_tStep = (double)m_timeStep/1e12;         // Time in seconds
     eResistor::setResistance( updtRes() );
 
     m_running = false;
-    Simulator::self()->cancelEvents( this );
+    //Simulator::self()->cancelEvents( this );
+    //Simulator::self()->addEvent( m_timeStep, this );
 }

@@ -13,9 +13,9 @@ class eReactive : public eResistor
         eReactive( QString id );
         ~eReactive();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override;
+        void stamp() override;
+        //void voltChanged() override;
+        void runEvent() override;
 
         double initVolt() { return m_InitVolt; }
         void setInitVolt( double v ) { m_InitVolt = v; }
