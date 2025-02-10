@@ -169,7 +169,7 @@ void MechContact::setNClose( bool nc )
     update();
 }
 
-void MechContact::paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget )
+void MechContact::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )
 {
     if( m_ButHidden ) return;
 

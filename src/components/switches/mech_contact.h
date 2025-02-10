@@ -23,16 +23,16 @@ class MechContact : public Component, public eElement
         virtual bool nClose() { return m_nClose; }
         virtual void setNClose( bool nc );
 
-        virtual void stamp() override;
-        virtual void remove() override;
-        virtual void updateStep() override { if( m_changed ) { m_changed = false; update(); } }
+        void stamp() override;
+        void remove() override;
+        void updateStep() override { if( m_changed ) { m_changed = false; update(); } }
 
         void  SetupSwitches( int poles, int throws );
         void  SetupButton();
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
-
     protected:
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+
         virtual void setSwitch( bool on );
 
         std::vector<eResistor*> m_switches;

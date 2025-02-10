@@ -108,6 +108,8 @@ void CircMatrix::analyze()
             group++;
         }
     }
+    m_admitChanged.clear();
+    m_currChanged.clear();
     m_admitChanged.resize( group, true );
     m_currChanged.resize(  group, true );
 
