@@ -7,7 +7,7 @@
 #include <QSettings>
 #include <QStandardPaths>
 //#include <QDebug>
-
+#include <QtGlobal>
 #include "inodebugger.h"
 #include "codeeditor.h"
 #include "outpaneltext.h"
@@ -194,10 +194,14 @@ void InoDebugger::setToolPath( QString path )
 
             if (m_toolPath.isEmpty()) // Fix empty config
             {
-#ifndef Q_OS_UNIX
-                m_toolPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/Arduino15";
+#ifndef Q_OS_UNIX   // Windows
+                m_toolPath = QStandardPaths::writableLocation( QStandardPaths::GenericDataLocation )+"/Arduino15";
 #else
-                m_toolPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+"/.arduino15";
+  #ifdef Q_OS_LINUX // Linux
+                m_toolPath = QStandardPaths::writableLocation( QStandardPaths::HomeLocation )+"/.arduino15";
+  #else             // MacOS
+                m_toolPath = QStandardPaths::writableLocation( QStandardPaths::GenericDataLocation )+"/../Arduino15";
+  #endif
 #endif
             }
 
