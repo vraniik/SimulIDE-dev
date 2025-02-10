@@ -107,9 +107,15 @@ void Simulator::timerEvent( QTimerEvent* e )  //update at m_timerTick_ms rate (5
     }
     else if( m_warning > 0 )
     {
-        int type = (m_warning < 100)? 1:2;
-        CircuitWidget::self()->setMsg( m_warnings.value( m_warning), type );
-        m_warning = -10;
+        if( m_warning == 200 )
+        {
+            qDebug() << "Warning: Simulator::addEvent Repeated event";
+            m_warning = 0;
+        }else{
+            int type = (m_warning < 100)? 1:2;
+            CircuitWidget::self()->setMsg( m_warnings.value( m_warning), type );
+            m_warning = -10;
+        }
     }
     else if( m_warning < 0 )
     { if( ++m_warning == 0 ) CircuitWidget::self()->setMsg( " "+tr("Running")+" ", 0 ); }
@@ -462,8 +468,10 @@ void Simulator::addEvent( uint64_t time, eElement* el )
 {
     if( m_state < SIM_STARTING ) return;
 
-    if( el->eventTime )
-    { qDebug() << "Warning: Simulator::addEvent Repeated event"<<el->getId(); return; }
+    if( el->eventTime ){
+        m_warning = 200; //qDebug() << "Warning: Simulator::addEvent Repeated event"<<el->getId();
+        return;
+    }
 
     time += m_circTime;
     eElement* last  = nullptr;

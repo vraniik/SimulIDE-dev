@@ -132,8 +132,8 @@ class Simulator : public QObject
 
         CircMatrix* m_matrix;
 
-        QHash<int, QString> m_errors;
-        QHash<int, QString> m_warnings;
+        QMap<int, QString> m_errors;
+        QMap<int, QString> m_warnings;
 
         QList<eNode*> m_eNodeList;
 
