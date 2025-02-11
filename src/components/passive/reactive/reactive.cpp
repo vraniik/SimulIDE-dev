@@ -70,11 +70,11 @@ void Reactive::setResist( double resist )
     m_resistor->setResSafe( resist );
 }
 
-void Reactive::setReaStep( double r )
+/*void Reactive::setReaStep( double r )
 {
     m_reacStep = r*1e12;
     m_changed = true;
-}
+}*/
 
 void Reactive::setLinkedValue( double v, int i )
 {

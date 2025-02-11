@@ -24,8 +24,8 @@ class Reactive : public Comp2Pin, public eReactive
         double resist() { return m_resistor->resistance(); }
         void setResist( double resist );
 
-        double reaStep() { return m_reacStep*1e-12; }
-        void setReaStep( double r );
+        //double reaStep() { return m_reacStep*1e-12; }
+        //void setReaStep( double r );
 
         virtual void setCurrentValue( double c ){;}
 

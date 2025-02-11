@@ -13,7 +13,6 @@ eReactive::eReactive( QString id )
          : eResistor( id )
 {
     m_value    = 0;
-    m_reacStep = 0;
     m_InitCurr = 0;
     m_InitVolt = 0;
 
@@ -47,8 +46,10 @@ void eReactive::stamp()
         //m_ePin[0]->changeCallBack( this );
         //m_ePin[1]->changeCallBack( this );
     }
-    m_running = false;
+    //m_running = false;
     //Simulator::self()->addEvent( m_timeStep, this );
+
+    updtReactStep();
 }
 
 /*void eReactive::voltChanged()
@@ -80,13 +81,12 @@ void eReactive::runEvent()
 
 void eReactive::updtReactStep()
 {
-    //if( m_reacStep ) m_timeStep = m_reacStep;
-    //else
-        m_timeStep = Simulator::self()->reactStep(); // Time in ps
+    m_timeStep = AnalogClock::self()->getStep(); // Time in ps
     m_tStep = (double)m_timeStep/1e12;         // Time in seconds
     eResistor::setResistance( updtRes() );
 
-    m_running = false;
+    //m_running = false;
     //Simulator::self()->cancelEvents( this );
     //Simulator::self()->addEvent( m_timeStep, this );
 }
+

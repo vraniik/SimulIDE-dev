@@ -19,7 +19,7 @@ ClockBase::ClockBase( QString type, QString id )
     m_isRunning = false;
     m_alwaysOn  = false;
 
-    m_stepsPC = 0;
+    m_psPerCycleInt = 0;
     ClockBase::setFreq( 1000 );
 
     Simulator::self()->addToUpdateList( this );
@@ -53,8 +53,8 @@ void ClockBase::setAlwaysOn( bool on )
 
 void ClockBase::setFreq( double freq )
 {
-    m_fstepsPC = 1e6*1e6/freq;
-    m_stepsPC  = m_fstepsPC;
+    m_psPerCycleDbl = 1e6*1e6/freq;
+    m_psPerCycleInt = m_psPerCycleDbl;
     
     m_freq = freq;
     m_remainder = 0;

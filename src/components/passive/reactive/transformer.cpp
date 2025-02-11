@@ -11,6 +11,7 @@
 #include "circuitwidget.h"
 #include "simulator.h"
 #include "circuit.h"
+#include "e-reactive.h"
 #include "pin.h"
 
 #include "doubleprop.h"
@@ -73,7 +74,7 @@ void Transformer::stamp()
     setupInducts( &m_primary );
     setupInducts( &m_secondary );
 
-    m_reacStep = Simulator::self()->reactStep();
+    m_reacStep = AnalogClock::self()->getStep();
     double tStep = (double)m_reacStep/1e12;
 
     int i, j, k;

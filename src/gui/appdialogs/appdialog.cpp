@@ -10,6 +10,7 @@
 #include "simulator.h"
 #include "circuit.h"
 #include "circuitwidget.h"
+#include "analogclock.h"
 
 AppDialog::AppDialog( QWidget* parent )
          : QDialog( parent )
@@ -48,7 +49,7 @@ AppDialog::AppDialog( QWidget* parent )
     m_stepSize = Simulator::self()->stepSize();
     m_stepUnit = log10(m_stepSize)/3;
 
-    uint64_t reactStep = Simulator::self()->reactStep();
+    uint64_t reactStep = AnalogClock::self()->getPeriod();
     int unit = 0; // ps
     uint64_t mult = 1;
     uint64_t step = reactStep / mult;
@@ -259,7 +260,7 @@ void AppDialog::updtReactStep()
     if( m_blocked ) return;
     uint64_t mult = pow( 1000, reactStepUnitBox->currentIndex() );
     uint64_t reactStep = mult*reactStepBox->value();
-    Simulator::self()->setReactStep( reactStep );
+    AnalogClock::self()->setPeriod( reactStep );
 }
 
 void AppDialog::on_slopeStepsBox_editingFinished()

@@ -12,6 +12,7 @@
 #include "circuit.h"
 #include "simulator.h"
 #include "itemlibrary.h"
+#include "analogclock.h"
 #include "mainwindow.h"
 #include "circuitwidget.h"
 #include "comproperty.h"
@@ -370,7 +371,7 @@ void Circuit::loadStrDoc( QString &doc )
                 if     ( prop.name == "stepSize") m_simulator->setStepSize( prop.value.toULongLong() );
                 else if( prop.name == "stepsPS" ) m_simulator->setStepsPerSec(prop.value.toULongLong() );
                 else if( prop.name == "NLsteps" ) m_simulator->setMaxNlSteps( prop.value.toUInt() );
-                else if( prop.name == "reaStep" ) m_simulator->setReactStep( prop.value.toULongLong() );
+                else if( prop.name == "reaStep" ) AnalogClock::self()->setPeriod( prop.value.toULongLong() );
                 else if( prop.name == "animate" ) m_animate = prop.value.toInt();
                 else if( prop.name == "width"   ) m_sceneWidth  = prop.value.toInt();
                 else if( prop.name == "height"  ) m_sceneHeight = prop.value.toInt();
@@ -427,7 +428,7 @@ QString Circuit::circuitHeader()
     header += "stepSize=\""+ QString::number( m_simulator->stepSize() )+"\" ";
     header += "stepsPS=\"" + QString::number( m_simulator->stepsPerSec() )+"\" ";
     header += "NLsteps=\"" + QString::number( m_simulator->maxNlSteps() )+"\" ";
-    header += "reaStep=\"" + QString::number( m_simulator->reactStep() )+"\" ";
+    header += "reaStep=\"" + QString::number( AnalogClock::self()->getPeriod() )+"\" ";
     header += "animate=\"" + QString::number( m_animate ? 1 : 0 )+"\" ";
     header += "width=\""   + QString::number( m_sceneWidth )+"\" ";
     header += "height=\""  + QString::number( m_sceneHeight )+"\" ";

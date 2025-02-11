@@ -19,10 +19,19 @@ class AnalogClock : public eElement
         void addClkElement( eElement* e );
         void remClkElement( eElement* e );
 
+        void setPeriod( uint64_t p );
+        uint64_t getPeriod() { return m_period; }
+
+        void setDivider( uint64_t d );
+
+        uint64_t getStep(){ return m_step; }
+
  static AnalogClock* self() { return m_pSelf; }
 
     private:
         uint64_t m_period; // in ps
+        uint64_t m_step;
+        uint64_t m_divider;
 
         eElement* m_clkElement;
 

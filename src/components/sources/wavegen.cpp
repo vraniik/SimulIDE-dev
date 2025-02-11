@@ -18,6 +18,7 @@
 #include "propdialog.h"
 #include "mainwindow.h"
 #include "circuitwidget.h"
+#include "e-reactive.h"
 
 #include "doubleprop.h"
 #include "stringprop.h"
@@ -48,6 +49,7 @@ WaveGen::WaveGen( QString type, QString id )
     m_phaseShift = 0;
     m_voltMid  = 0;
     m_lastVout = 0;
+    m_minSteps = 100;
     m_waveType = Sine;
     m_wavePixmap = nullptr;
 
@@ -74,6 +76,9 @@ WaveGen::WaveGen( QString type, QString id )
 
         new DoubProp<WaveGen>("Phase", tr("Phase shift"), "_º"
                              , this, &WaveGen::phaseShift, &WaveGen::setPhaseShift ),
+
+        new IntProp <WaveGen>("Steps", tr("Minimum Steps"), ""
+                             , this, &WaveGen::minSteps, &WaveGen::setMinSteps ),
 
         new DoubProp<WaveGen>("Duty", tr("Duty"), "_\%"
                              , this, &WaveGen::duty, &WaveGen::setDuty ),
@@ -118,9 +123,9 @@ void WaveGen::initialize()
     Simulator::self()->cancelEvents( this );
     AnalogClock::self()->remClkElement( this );
 
-    if     ( m_waveType == Wav    ) m_eventTime = m_stepsPC;
-    else if( m_waveType == Square ) m_eventTime = m_fstepsPC-m_halfW;
-    else if( m_waveType == Random ) m_eventTime = m_stepsPC/3;
+    if     ( m_waveType == Wav    ) m_eventTime = m_psPerCycleInt;
+    else if( m_waveType == Square ) m_eventTime = m_psPerCycleDbl-m_halfW;
+    else if( m_waveType == Random ) m_eventTime = m_psPerCycleInt/3;
     else{
         m_eventTime = 0;
         if( m_isRunning ) AnalogClock::self()->addClkElement( this );
@@ -131,7 +136,7 @@ void WaveGen::initialize()
 void WaveGen::stamp()
 {
     //ClockBase::stamp();
-    m_phaseTime = m_stepsPC*m_phaseShift/360;
+    m_phaseTime = m_psPerCycleInt*m_phaseShift/360;
     m_lastVout = m_vOut = 0;
     m_index = 0;
 
@@ -160,7 +165,7 @@ void WaveGen::stamp()
 
 void WaveGen::runEvent()
 {
-    m_time = fmod( Simulator::self()->circTime() - m_phaseTime, m_fstepsPC );
+    m_time = fmod( Simulator::self()->circTime() - m_phaseTime, m_psPerCycleDbl );
 
     switch( m_waveType ) {
         case Sine:     genSine(); break;
@@ -191,18 +196,18 @@ void WaveGen::runEvent()
 
 void WaveGen::genSine()
 {
-    m_time = qDegreesToRadians( (double)m_time*360/m_fstepsPC );
+    m_time = qDegreesToRadians( (double)m_time*360/m_psPerCycleDbl );
     m_vOut = sin( m_time )/2+0.5;
 }
 
 void WaveGen::genSaw()
 {
-    m_vOut = m_time/m_fstepsPC;
+    m_vOut = m_time/m_psPerCycleDbl;
 }
 
 void WaveGen::genTriangle()
 {
-    if( m_time >= m_halfW ) m_vOut = 1-(m_time-m_halfW)/(m_fstepsPC-m_halfW);
+    if( m_time >= m_halfW ) m_vOut = 1-(m_time-m_halfW)/(m_psPerCycleDbl-m_halfW);
     else                    m_vOut = m_time/m_halfW;
 }
 
@@ -211,7 +216,7 @@ void WaveGen::genSquare()
     if( m_vOut == 1 )
     {
         m_vOut = 0;
-        m_eventTime = m_fstepsPC-m_halfW;
+        m_eventTime = m_psPerCycleDbl-m_halfW;
     }else{
         m_vOut = 1;
         m_eventTime = m_halfW;
@@ -232,20 +237,45 @@ void WaveGen::genWav()
     if( m_index >= m_data.size() ) m_index = 0;
 }
 
+void WaveGen::setMinSteps( int steps )
+{
+    m_minSteps = steps;
+    WaveGen::setFreq( m_freq );
+}
+
 void WaveGen::setDuty( double duty )
 {
     if( duty > 100 ) duty = 100;
     m_duty = duty;
-    m_halfW = m_fstepsPC*m_duty/100;
+    m_halfW = m_psPerCycleDbl*m_duty/100;
 }
 
 void WaveGen::setFreq( double freq )
 {
-    ClockBase::setFreq( freq );
+    //ClockBase::setFreq( freq );
+
+    double psPerCycleDbl = 1e6*1e6/freq;
+
+    uint64_t minimum = AnalogClock::self()->getStep()*m_minSteps; // Minimum 100 steps per wave cycle
+
+    if( psPerCycleDbl < minimum ) // Scale Step
+    {
+        double divider = minimum/psPerCycleDbl;
+        AnalogClock::self()->setDivider( std::ceil( divider ) );
+    }
+
+    m_psPerCycleDbl = psPerCycleDbl;
+    m_psPerCycleInt = psPerCycleDbl;
+
+    m_freq = freq;
+    m_remainder = 0;
+
+    setRunning( m_isRunning || m_alwaysOn );
+
     setDuty( m_duty );
 
-    if     ( m_waveType == Square ) m_eventTime = m_fstepsPC-m_halfW;
-    else if( m_waveType == Random ) m_eventTime = m_stepsPC/3;
+    if     ( m_waveType == Square ) m_eventTime = m_psPerCycleDbl-m_halfW;
+    else if( m_waveType == Random ) m_eventTime = m_psPerCycleInt/3;
 }
 
 void WaveGen::setSemiAmpli( double v )

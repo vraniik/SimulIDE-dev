@@ -85,8 +85,8 @@ Relay::Relay( QString type, QString id )
         new DoubProp<Inductor>("Rcoil", tr("Resistance"),"Ω"
                               , m_inductor, &Inductor::resist, &Inductor::setResist),
 
-        new DoubProp<Inductor>("ReaStep", tr("Reactive Step"),"ns"
-                              ,m_inductor, &Inductor::reaStep, &Inductor::setReaStep,0,"uint" )
+        //new DoubProp<Inductor>("ReaStep", tr("Reactive Step"),"ns"
+        //                      ,m_inductor, &Inductor::reaStep, &Inductor::setReaStep,0,"uint" )
     }, 0} );
 }
 Relay::~Relay(){}

@@ -55,7 +55,7 @@ void Clock::updateStep()
     m_outpin->setOutState( false );
     m_state = false;
 
-    if( m_isRunning ) Simulator::self()->addEvent( m_stepsPC/2, this );
+    if( m_isRunning ) Simulator::self()->addEvent( m_psPerCycleInt/2, this );
 }
 
 void Clock::runEvent()
@@ -65,7 +65,7 @@ void Clock::runEvent()
 
     uint64_t remainerInt = getRemainer();
 
-    if( m_isRunning ) Simulator::self()->addEvent( m_stepsPC/2+remainerInt, this );
+    if( m_isRunning ) Simulator::self()->addEvent( m_psPerCycleInt/2+remainerInt, this );
 }
 
 void Clock::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )

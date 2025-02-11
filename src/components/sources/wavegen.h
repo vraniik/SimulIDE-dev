@@ -34,6 +34,9 @@ class WaveGen : public ClockBase
         void stamp() override;
         void runEvent() override;
 
+        int minSteps() { return m_minSteps; }
+        void setMinSteps( int steps );
+
         double duty() { return m_duty; }
         void setDuty( double duty );
 
@@ -96,7 +99,7 @@ class WaveGen : public ClockBase
         double m_phaseTime;
         
         //int      m_steps;
-        //uint64_t m_qSteps;
+        uint64_t m_minSteps;
         uint64_t m_eventTime;
 
         uint m_index;

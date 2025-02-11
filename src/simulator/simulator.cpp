@@ -35,7 +35,6 @@ Simulator::Simulator( QObject* parent )
     m_psPerSec  = 1e12;
     m_stepSize  = 1e6;
     m_stepsPS   = 1e6;
-    m_reactStep = 1e6;
     m_maxNlstp  = 100000;
     m_slopeSteps = 0;
 

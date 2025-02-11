@@ -29,6 +29,8 @@ class eReactive : public eResistor
         virtual double updtRes(){ return 0.0;}
         virtual double updtCurr(){ return 0.0;}
 
+        //bool m_running;
+
         double m_value; // Capacitance or Inductance
 
         double m_InitCurr;
@@ -39,8 +41,5 @@ class eReactive : public eResistor
 
         double m_tStep;
 
-        uint64_t m_reacStep;
         uint64_t m_timeStep;
-
-        bool m_running;
 };

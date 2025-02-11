@@ -38,7 +38,7 @@ class ClockBase : public FixedVolt
     protected:
         uint64_t getRemainer()
         {
-            m_remainder += m_fstepsPC-(double)m_stepsPC;
+            m_remainder += m_psPerCycleDbl-(double)m_psPerCycleInt;
             uint64_t remainerInt = m_remainder;
             m_remainder -= remainerInt;
             return remainerInt;
@@ -47,8 +47,8 @@ class ClockBase : public FixedVolt
         bool m_isRunning;
         bool m_alwaysOn;
 
-        uint64_t m_stepsPC;
-        double m_fstepsPC;
+        uint64_t m_psPerCycleInt;
+        double m_psPerCycleDbl;
 
         double m_freq;
         double m_remainder;
