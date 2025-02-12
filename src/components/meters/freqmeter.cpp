@@ -45,9 +45,9 @@ FreqMeter::FreqMeter( QString type, QString id )
     m_idLabel->setPos(-12,-24);
     setLabelPos(-32,-24, 0);
 
-    QFont f( "Helvetica [Cronyx]", 10, QFont::Bold );
-    f.setPixelSize( 12 );
-    m_display.setFont( f );
+    QFont font("Ubuntu Mono", 13, QFont::Bold );
+    font.setPixelSize( 13 );
+    m_display.setFont( font );
     m_display.setBrush( Qt::yellow );
     m_display.setPos( -30, -6 );
     m_display.setVisible( true );

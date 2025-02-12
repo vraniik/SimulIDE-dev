@@ -37,10 +37,10 @@ Meter::Meter( QString type, QString id )
     m_idLabel->setPos(-12,-24);
     setLabelPos(-24,-40, 0);
 
-    QFont f( "Helvetica [Cronyx]", 10, QFont::Bold );
-    f.setPixelSize(12);
-    m_display.setFont(f);
-    m_display.setBrush(  Qt::yellow );
+    QFont font("Ubuntu Mono", 10, QFont::Bold );
+    font.setPixelSize( 13 );
+    m_display.setFont( font );
+    m_display.setBrush( Qt::yellow );
     m_display.setPos( -22, -22 );
     m_display.setVisible( true );
 
