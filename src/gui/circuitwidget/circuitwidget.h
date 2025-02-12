@@ -39,6 +39,7 @@ class CircuitWidget : public QWidget
         void pauseDebug();
         void debugPaused();
         void resumeDebug();
+        void updtAppDialog();
 
         void simDebugMessage( QString msg ) { m_outPane.appendLine( msg.remove("\"") ); }
 

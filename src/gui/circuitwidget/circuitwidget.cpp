@@ -454,6 +454,11 @@ void CircuitWidget::pauseCirc()
     }
 }
 
+void CircuitWidget::updtAppDialog()
+{
+    if( m_appPropW ) m_appPropW->updtValues();
+}
+
 void CircuitWidget::settApp()
 {
     if( !m_appPropW )

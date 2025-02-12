@@ -23,6 +23,7 @@ class AnalogClock : public eElement
         uint64_t getPeriod() { return m_period; }
 
         void setDivider( uint64_t d );
+        uint64_t getDivider() { return m_divider; }
 
         uint64_t getStep(){ return m_step; }
 

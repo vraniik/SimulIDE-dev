@@ -49,18 +49,31 @@ AppDialog::AppDialog( QWidget* parent )
     m_stepSize = Simulator::self()->stepSize();
     m_stepUnit = log10(m_stepSize)/3;
 
-    uint64_t reactStep = AnalogClock::self()->getPeriod();
+    uint64_t targetStep = AnalogClock::self()->getPeriod();
     int unit = 0; // ps
     uint64_t mult = 1;
-    uint64_t step = reactStep / mult;
-    while( remainder( reactStep, mult*1e3 ) == 0 )
+    uint64_t step = targetStep;
+    while( remainder( targetStep, mult*1e3 ) == 0 )
     {
         unit += 1;
         mult *= 1e3;
-        step = reactStep / mult;
+        step = targetStep / mult;
     }
     reactStepBox->setValue( step );
     reactStepUnitBox->setCurrentIndex( unit );
+
+    uint64_t realStep = AnalogClock::self()->getStep();
+    step = realStep;
+    unit = 0;
+    mult = 1;
+    while( remainder( realStep, mult*1e3 ) == 0 )
+    {
+        unit += 1;
+        mult *= 1e3;
+        step = realStep / mult;
+    }
+    realStepBox->setValue( step );
+    realStepUnitBox->setCurrentIndex( unit );
 
     nlStepsBox->setValue( Simulator::self()->maxNlSteps() );
     slopeStepsBox->setValue( Simulator::self()->slopeSteps() );
@@ -106,7 +119,10 @@ void AppDialog::updtHelp()
     adjustSize();
 }
 
-void AppDialog::updtValues(){}
+void AppDialog::updtValues()
+{
+    updtReactStep();
+}
 
 // App Settings -------------------------------
 
@@ -261,6 +277,19 @@ void AppDialog::updtReactStep()
     uint64_t mult = pow( 1000, reactStepUnitBox->currentIndex() );
     uint64_t reactStep = mult*reactStepBox->value();
     AnalogClock::self()->setPeriod( reactStep );
+
+    uint64_t realStep = reactStep/AnalogClock::self()->getDivider();
+    uint64_t step = realStep;
+    mult = 1;
+    int unit = 0;
+    while( remainder( realStep, mult*1e3 ) == 0 )
+    {
+        unit += 1;
+        mult *= 1e3;
+        step = realStep / mult;
+    }
+    realStepBox->setValue( step );
+    realStepUnitBox->setCurrentIndex( unit );
 }
 
 void AppDialog::on_slopeStepsBox_editingFinished()

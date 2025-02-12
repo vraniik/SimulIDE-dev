@@ -6,6 +6,7 @@
 #include "analogclock.h"
 #include "simulator.h"
 #include "e-reactive.h"
+#include "circuitwidget.h"
 
 AnalogClock* AnalogClock::m_pSelf = nullptr;
 
@@ -15,14 +16,13 @@ AnalogClock::AnalogClock()
     m_pSelf = this;
     m_clkElement = nullptr;
     m_divider = 1;
-    m_period  = 1e6;
+    m_period = m_step = 1e6;
 }
 AnalogClock::~AnalogClock(){}
 
 void AnalogClock::stamp()
 {
-    m_divider = 1;
-    m_step = m_period;
+    setDivider( 1 );
     if( m_clkElement ) Simulator::self()->addEvent( m_period, this );
 }
 
@@ -74,4 +74,5 @@ void AnalogClock::setDivider( uint64_t d )
 {
     m_divider = d;
     m_step = m_period/m_divider;
+    CircuitWidget::self()->updtAppDialog();
 }
