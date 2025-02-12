@@ -239,6 +239,7 @@ void WaveGen::genWav()
 
 void WaveGen::setMinSteps( int steps )
 {
+    if( steps < 10 ) steps = 10;
     m_minSteps = steps;
     WaveGen::setFreq( m_freq );
 }

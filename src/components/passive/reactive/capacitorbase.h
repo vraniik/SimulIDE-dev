@@ -13,11 +13,11 @@ class CapacitorBase : public Reactive
         CapacitorBase( QString type, QString id );
         ~CapacitorBase();
 
-        virtual void setCurrentValue( double c ) override;
+        void setCurrentValue( double c ) override;
 
     protected:
-        virtual double updtRes()  override { return m_tStep/m_capacitance; }
-        virtual double updtCurr() override { return m_volt*m_admit; }
+        double updtRes()  override { return m_tStep/m_capacitance; }
+        double updtCurr() override { return m_volt*m_admit; }
 
         double m_capacitance;
 };

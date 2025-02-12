@@ -27,8 +27,8 @@ class Inductor : public Reactive
         virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected:
-        virtual double updtRes()  override { return m_inductance/m_tStep; }
-        virtual double updtCurr() override { return m_curSource - m_volt*m_admit; }
+        double updtRes()  override { return m_inductance/m_tStep; }
+        double updtCurr() override { return m_curSource - m_volt*m_admit; }
 
         double m_inductance;
 };
