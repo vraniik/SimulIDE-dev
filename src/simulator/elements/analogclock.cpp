@@ -17,8 +17,6 @@ AnalogClock::AnalogClock()
     m_clkElement = nullptr;
     m_divider = 1;
     m_period = m_step = 1e6;
-
-    Simulator::self()->addToUpdateList( this );
 }
 AnalogClock::~AnalogClock(){}
 

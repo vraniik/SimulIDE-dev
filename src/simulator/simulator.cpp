@@ -28,6 +28,7 @@ Simulator::Simulator( QObject* parent )
 
     m_matrix = new CircMatrix();
     addToElementList( &m_analogClock );
+    addToUpdateList( &m_analogClock );
 
     m_fps = 20;
     m_timerId   = 0;
