@@ -16,19 +16,19 @@ class VoltReg : public Component, public eResistor
         VoltReg( QString type, QString id );
         ~VoltReg();
         
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         double outVolt() { return m_vRef; }
         void setOutVolt( double v ) { m_vRef = v; m_changed = true; }
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w );
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w );
 
-    protected:
+    private:
         double m_vRef;
         double m_lastCurrent;
 

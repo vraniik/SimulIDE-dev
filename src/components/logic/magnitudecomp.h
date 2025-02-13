@@ -19,9 +19,9 @@ class MagnitudeComp : public IoComponent, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         int bits() { return m_bits; }
         void setBits( int b );

@@ -20,10 +20,11 @@ class Comparator : public IoComponent, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
-        virtual QPainterPath shape() const override;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        QPainterPath shape() const override;
+
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };

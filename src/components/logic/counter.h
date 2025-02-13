@@ -24,9 +24,9 @@ class Counter : public LogicComponent
         bool pinSet() { return m_pinSet; }
         void useSetPin( bool set );
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         int maxVal() { return m_TopValue; }
         void setMaxVal( int v ) { m_TopValue = v; }

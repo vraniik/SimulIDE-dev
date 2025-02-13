@@ -33,9 +33,9 @@ class BinCounter : public LogicComponent
         bool srInv() { return m_resetInv; }
         void setSrInv( bool inv );
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         int maxVal() { return m_topValue; }
         void setMaxVal( int v ) { m_topValue = v; }

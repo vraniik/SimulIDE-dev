@@ -15,12 +15,12 @@ class LatchD : public LogicComponent
         LatchD( QString type, QString id );
         ~LatchD();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override{ IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override{ IoComponent::runOutputs(); }
 
         int channels() { return m_channels; }
         void setChannels( int channels );
@@ -28,8 +28,8 @@ class LatchD : public LogicComponent
         bool pinReset() { return m_useReset; }
         void setPinReset( bool r );
 
-        virtual void setTristate( bool t ) override;
-        virtual void setTrigger( trigger_t trigger ) override;
+        void setTristate( bool t ) override;
+        void setTrigger( trigger_t trigger ) override;
 
     private:
         void updateSize();

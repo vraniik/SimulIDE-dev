@@ -20,15 +20,15 @@ class Mux : public LogicComponent
   static Component* construct( QString type, QString id );
   static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override{ IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override{ IoComponent::runOutputs(); }
 
         int addrBits() { return m_addrBits; }
         void setAddrBits( int bits );
         
-        virtual QPainterPath shape() const override;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        QPainterPath shape() const override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     private:
         int m_addrBits;

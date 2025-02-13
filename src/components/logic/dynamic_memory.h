@@ -19,10 +19,10 @@ class DynamicMemory : public LogicComponent, public MemData
         static Component* construct( QString type, QString id );
         static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
+        void runEvent() override;
 
         int rowAddrBits() { return m_rowAddrBits; }
         int colAddrBits() { return m_colAddrBits; }

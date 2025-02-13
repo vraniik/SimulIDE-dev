@@ -18,8 +18,8 @@ class SevenSegmentBCD : public BcdBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         bool isShowEnablePin() { return m_showEnablePin; }
         void setShowEnablePin( bool show );
@@ -27,8 +27,8 @@ class SevenSegmentBCD : public BcdBase
         bool isShowDotPin() { return m_showDotPin; }
         void setShowDotPin( bool show );
 
-        virtual bool setLinkedTo( Linker* li ) override;
-        virtual void setLinkedValue( double v, int i=0  ) override;
+        bool setLinkedTo( Linker* li ) override;
+        void setLinkedValue( double v, int i=0  ) override;
 
         void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 

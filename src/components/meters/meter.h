@@ -16,18 +16,18 @@ class Meter : public Component, public eResistor
         Meter( QString type, QString id );
         ~Meter();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool setPropStr( QString prop, QString val ) override;
 
         bool swithchPins() { return m_switchPins; }
         void setSwitchPins( bool s );
 
-        virtual void initialize() override { m_crashed = false;}
-        virtual void updateStep() override;
+        void initialize() override { m_crashed = false;}
+        void updateStep() override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected:
-        virtual void setflip() override;
+        void setflip() override;
 
         QString m_unit;
         double m_dispValue;

@@ -15,8 +15,8 @@ class Voltimeter : public Meter
         Voltimeter( QString type, QString id );
         ~Voltimeter();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 };

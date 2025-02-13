@@ -18,11 +18,11 @@ class Socket : public ConnBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 
         void updatePins() override { connectPins( false ); }
         void connectPins( bool connect );
 
     private:
-        virtual void updatePixmap() override;
+        void updatePixmap() override;
 };

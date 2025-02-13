@@ -21,10 +21,10 @@ class Diac : public Component, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         double resOn() { return m_resOn; }
         void setResOn( double r ) { m_resOn = r; m_changed = true; }
@@ -38,10 +38,9 @@ class Diac : public Component, public eElement
         double holdCurr() { return m_holdCurr; }
         void setHoldCurr( double v ) { m_holdCurr = v; m_changed = true; }
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     private:
-
         double m_resOn;
         double m_resOff;
         double m_brkVolt;

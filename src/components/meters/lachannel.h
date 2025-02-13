@@ -16,17 +16,16 @@ class LaChannel : public DataChannel
         friend class LAnalizer;
 
     public:
-
         LaChannel( LAnalizer* la, QString id );
         ~LaChannel();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void voltChanged() override;
 
         void setPin( Pin* p );
 
-        virtual void setIsBus( bool b ) override;
+        void setIsBus( bool b ) override;
         void registerEnode( eNode* enode, int n=-1 );
 
     private:

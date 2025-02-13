@@ -17,17 +17,17 @@ class I2CRam : public IoComponent, public TwiModule, public MemData
         I2CRam( QString type, QString id );
         ~I2CRam();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void initialize() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void stamp() override;
+        void initialize() override;
+        void updateStep() override;
+        void voltChanged() override;
 
-        virtual void startWrite() override;
-        virtual void writeByte() override;
-        virtual void readByte() override;
+        void startWrite() override;
+        void writeByte() override;
+        void readByte() override;
 
         void setMem( QString m );
         QString getMem();
@@ -45,7 +45,7 @@ class I2CRam : public IoComponent, public TwiModule, public MemData
 
 
     protected:
-        virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
     private:
         QVector<int> m_ram;

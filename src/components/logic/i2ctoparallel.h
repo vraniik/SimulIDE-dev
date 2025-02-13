@@ -19,11 +19,11 @@ class I2CToParallel : public IoComponent, public TwiModule
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void writeByte() override;
-        virtual void readByte() override;
-        virtual void startWrite() override;
+        void stamp() override;
+        void voltChanged() override;
+        void writeByte() override;
+        void readByte() override;
+        void startWrite() override;
 
     protected:
         IoPin* m_int;

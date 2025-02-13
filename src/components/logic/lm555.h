@@ -21,15 +21,15 @@ class Lm555 : public Component, public eElement
         Lm555( QString type, QString id );
         ~Lm555();
         
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override;
+        void initialize() override;
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override;
         
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected:
         IoPin* m_output;

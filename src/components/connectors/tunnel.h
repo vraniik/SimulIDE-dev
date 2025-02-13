@@ -57,7 +57,7 @@ class Tunnel : public Component
 
     protected:
         void mousePressEvent( QGraphicsSceneMouseEvent* event ) override;
-        virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
         void showHide( bool show );
         void setGroupName( QString name, bool single );

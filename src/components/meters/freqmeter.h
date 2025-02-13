@@ -19,18 +19,18 @@ class FreqMeter : public Component, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         double filter() { return m_filter; }
         void setFilter( double f ) { m_filter = f; }
         
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
         
     protected:
-        virtual void setflip() override;
+        void setflip() override;
 
         bool m_rising;
         bool m_falling;

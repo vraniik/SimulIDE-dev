@@ -21,10 +21,10 @@ class Header : public ConnBase
         bool pointDown() { return m_pointDown; }
         void setPointDown( bool down );
 
-        virtual void updatePins() override;
+        void updatePins() override;
 
     private:
-        virtual void updatePixmap() override;
+        void updatePixmap() override;
 
         bool m_pointDown;
 };

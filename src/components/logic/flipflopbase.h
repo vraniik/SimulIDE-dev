@@ -19,10 +19,10 @@ class FlipFlopBase : public LogicComponent
         bool pinsRS() { return m_useRS; }
         void usePinsRS( bool rs );
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override{ IoComponent::runOutputs(); }
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
+        void runEvent() override{ IoComponent::runOutputs(); }
 
         bool sPinState();
         bool rPinState();

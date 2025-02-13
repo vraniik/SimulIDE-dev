@@ -20,11 +20,11 @@ class MuxAnalog : public Component, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override;
-        virtual void remove() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
+        void runEvent() override;
+        void remove() override;
 
         int addrBits() { return m_addrBits; }
         void setAddrBits( int bits );
@@ -32,7 +32,7 @@ class MuxAnalog : public Component, public eElement
         double impedance() { return 1/m_admit; }
         void setImpedance( double i );
         
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
         
     private:
         void createAddrBits( int c );

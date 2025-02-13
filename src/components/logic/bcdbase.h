@@ -13,9 +13,9 @@ class BcdBase : public LogicComponent
         BcdBase( QString type, QString id );
         ~BcdBase();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void voltChanged() override;
 
         QString customChars() { return m_customChars; }
         void setCustomChars( QString chars );

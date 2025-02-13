@@ -15,8 +15,8 @@ class FlipFlopRS : public FlipFlopBase
         FlipFlopRS( QString type, QString id );
         ~FlipFlopRS();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
 
-        virtual void voltChanged() override;
+        void voltChanged() override;
 };

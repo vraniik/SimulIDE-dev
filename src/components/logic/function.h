@@ -18,12 +18,12 @@ class Function : public IoComponent, public ScriptBase
         Function( QString type, QString id );
         ~Function();
         
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         QString functions() { return m_funcList.join(","); }
         void setFunctions( QString f );

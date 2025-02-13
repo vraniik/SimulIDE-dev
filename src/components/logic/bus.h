@@ -17,8 +17,8 @@ class Bus : public Component, public eElement
         Bus( QString type, QString id );
         ~Bus();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
         
         int numLines() { return m_numLines; }
         void setNumLines( int lines );
@@ -26,9 +26,9 @@ class Bus : public Component, public eElement
         int startBit() { return m_startBit; }
         void setStartBit( int bit );
 
-        virtual void registerEnode( eNode* enode, int n=-1 ) override;
+        void registerEnode( eNode* enode, int n=-1 ) override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget );
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget );
         
     protected:
         int m_height;

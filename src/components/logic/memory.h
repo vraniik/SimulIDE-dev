@@ -17,13 +17,13 @@ class Memory : public IoComponent, public eElement, public MemData
         Memory( QString type, QString id );
         ~Memory();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem* libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         void setMem( QString m );
         QString getMem();

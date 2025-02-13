@@ -18,5 +18,5 @@ class Rectangle : public Shape
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };

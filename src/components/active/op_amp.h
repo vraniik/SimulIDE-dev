@@ -20,10 +20,10 @@ class OpAmp : public Component, public eElement
         static Component* construct( QString type, QString id );
         static LibraryItem* libraryItem();
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void initialize() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         double gain() { return m_gain; }
         void setGain( double g ) { m_gain = g; m_changed = true; }
@@ -43,8 +43,8 @@ class OpAmp : public Component, public eElement
         bool switchPins() { return m_switchPins; }
         void setSwitchPins( bool s );
 
-        virtual QPainterPath shape() const override;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        QPainterPath shape() const override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected:
         virtual void slotProperties() override;

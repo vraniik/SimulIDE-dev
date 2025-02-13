@@ -18,17 +18,17 @@ class Image : public Shape
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void setBackground( QString bck ) override;
-        virtual QString background() override;
+        void setBackground( QString bck ) override;
+        QString background() override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     public slots:
         void updateGif( const QRect &rect );
         void slotLoad();
 
     protected:
-        virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
+        void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
     private:
         QPixmap m_image;

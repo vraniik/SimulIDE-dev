@@ -16,8 +16,8 @@ class XorGate : public Gate
         XorGate( QString type, QString id );
         ~XorGate();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
 
         void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 

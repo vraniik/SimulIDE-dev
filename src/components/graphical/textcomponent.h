@@ -25,7 +25,7 @@ class TextComponent : public LinkerComponent
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 
         int  margin();
         void setMargin( int margin );
@@ -54,10 +54,10 @@ class TextComponent : public LinkerComponent
         qreal opac() { return m_opac; }
         void setOpac( qreal op );
 
-        virtual void createLinks( QList<Component*>*compList ) override;
-        virtual void compSelected( Component* comp ) override;
-        virtual void setLinkedString( QString str, int i=0 ) override;
-        virtual void setLinkedValue( double v, int i=0 ) override;
+        void createLinks( QList<Component*>*compList ) override;
+        void compSelected( Component* comp ) override;
+        void setLinkedString( QString str, int i=0 ) override;
+        void setLinkedValue( double v, int i=0 ) override;
 
         void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 

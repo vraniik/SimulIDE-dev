@@ -18,9 +18,9 @@ class DAC : public LogicComponent
  static Component* construct( QString type, QString id );
  static LibraryItem *libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override;
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override;
 
         double maxVolt() { return m_maxVolt; }
         void setMaxVolt( double v ) { m_maxVolt = v; }

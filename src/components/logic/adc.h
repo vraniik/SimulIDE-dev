@@ -18,9 +18,9 @@ class ADC : public LogicComponent
  static Component*   construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         double maxVolt() { return m_maxVolt; }
         void setMaxVolt( double v );

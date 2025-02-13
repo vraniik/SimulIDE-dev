@@ -17,9 +17,9 @@ class Gate : public LogicComponent
 
         QList<ComProperty*> outputProps();
 
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override { IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override { IoComponent::runOutputs(); }
 
         bool initHigh() { return m_initState; }
         void setInitHigh( bool s) { m_initState = s; }

@@ -19,10 +19,10 @@ class Mosfet : public Component, public eMosfet
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 
-        virtual void setPchannel( bool p ) override;
-        virtual void setDepletion( bool d ) override;
+        void setPchannel( bool p ) override;
+        void setDepletion( bool d ) override;
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 };

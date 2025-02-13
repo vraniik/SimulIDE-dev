@@ -18,5 +18,5 @@ class Amperimeter : public Meter
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void updateStep() override;
+        void updateStep() override;
 };

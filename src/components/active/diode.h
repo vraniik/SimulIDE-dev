@@ -19,18 +19,18 @@ class Diode : public LinkerComponent, public eDiode
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void voltChanged() override;
+        void voltChanged() override;
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool setPropStr( QString prop, QString val ) override;
 
-        virtual void initialize() override;
-        virtual void stamp() override;
-        virtual void updateStep() override;
+        void initialize() override;
+        void stamp() override;
+        void updateStep() override;
 
-        virtual double resistance() override{ return m_resistor->resistance(); }
-        virtual void setResSafe( double resist ) override { m_resistor->setResSafe(resist);}
+        double resistance() override{ return m_resistor->resistance(); }
+        void setResSafe( double resist ) override { m_resistor->setResSafe(resist);}
 
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
 
     private:
         bool m_isZener;

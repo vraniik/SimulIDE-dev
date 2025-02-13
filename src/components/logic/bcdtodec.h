@@ -18,9 +18,9 @@ class BcdToDec : public LogicComponent
         static Component* construct( QString type, QString id );
         static LibraryItem* libraryItem();
         
-        virtual void stamp() override;
-        virtual void voltChanged() override;
-        virtual void runEvent() override{ IoComponent::runOutputs(); }
+        void stamp() override;
+        void voltChanged() override;
+        void runEvent() override{ IoComponent::runOutputs(); }
 
         bool is16Bits() { return m_16Bits; }
         void set_16bits( bool set );

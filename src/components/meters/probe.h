@@ -20,9 +20,9 @@ class Probe : public Component, public eElement
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        virtual void stamp() override;
-        virtual void updateStep() override;
-        virtual void voltChanged() override;
+        void stamp() override;
+        void updateStep() override;
+        void voltChanged() override;
 
         void setVolt( double volt );
 
@@ -35,10 +35,10 @@ class Probe : public Component, public eElement
         bool pauseState() { return m_pauseState; }
         void setPauseState( bool s ) { m_pauseState = s; }
 
-        virtual void rotateAngle( double a ) override;
+        void rotateAngle( double a ) override;
 
-        virtual QPainterPath shape() const override;
-        virtual void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+        QPainterPath shape() const override;
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
 
     protected:
         void contextMenu( QGraphicsSceneContextMenuEvent* e, QMenu* m ) override;

@@ -15,9 +15,9 @@ class FlipFlopJK : public FlipFlopBase
         FlipFlopJK( QString type, QString id );
         ~FlipFlopJK();
 
-        static Component* construct( QString type, QString id );
-        static LibraryItem *libraryItem();
+ static Component* construct( QString type, QString id );
+ static LibraryItem *libraryItem();
 
     protected:
-        void calcOutput();
+        void calcOutput() override;
 };
