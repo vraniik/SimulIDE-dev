@@ -17,6 +17,8 @@ AnalogClock::AnalogClock()
     m_clkElement = nullptr;
     m_divider = 1;
     m_period = m_step = 1e6;
+
+    Simulator::self()->addToUpdateList( this );
 }
 AnalogClock::~AnalogClock(){}
 
@@ -24,6 +26,13 @@ void AnalogClock::stamp()
 {
     setDivider( 1 );
     if( m_clkElement ) Simulator::self()->addEvent( m_period, this );
+}
+
+void AnalogClock::updateStep()
+{
+    if( !m_changed ) return;
+    m_changed = false;
+    CircuitWidget::self()->updtAppDialog();
 }
 
 void AnalogClock::runEvent()
@@ -34,7 +43,7 @@ void AnalogClock::runEvent()
         clkElement->runEvent();
         clkElement = clkElement->nextEvent;
     }
-    Simulator::self()->addEvent( m_period/m_divider, this );
+    Simulator::self()->addEvent( m_step, this );
 }
 
 void AnalogClock::addClkElement( eElement* e )
@@ -74,5 +83,5 @@ void AnalogClock::setDivider( uint64_t d )
 {
     m_divider = d;
     m_step = m_period/m_divider;
-    CircuitWidget::self()->updtAppDialog();
+    m_changed = true;
 }

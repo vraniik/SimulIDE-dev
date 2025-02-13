@@ -173,36 +173,33 @@ void Simulator::runCircuit()
     solveCircuit(); // Solve any pending changes
     if( m_state < SIM_RUNNING ) return;
 
-    eElement* event = m_firstEvent;
+    eElement* event;
     uint64_t endRun = m_circTime + m_psPF; // Run upto next Timer event
     uint64_t nextTime;
 
-    while( event )                              // Simulator event loop
+    while( m_firstEvent )                       // Simulator event loop
     {
-        if( event->eventTime > endRun ) break;  // All events for this Timer Tick are done
+        if( m_firstEvent->eventTime > endRun ) break;  // All events for this Timer Tick are done
 
         nextTime = m_circTime;
         while( m_circTime == nextTime )         // Run all event with same timeStamp
         {
-            m_circTime = event->eventTime;
-            m_firstEvent = event->nextEvent;    // free Event
-            event->nextEvent = nullptr;
+            m_circTime = m_firstEvent->eventTime;
+            event = m_firstEvent;
+            m_firstEvent = event->nextEvent;
+
+            event->runEvent();                  // Run event callback
+            event->nextEvent = nullptr;         // free Event
+            event->eventTime = 0;
+
 #ifdef DEBUG_EVENTS
             m_events--;
 #endif
-            event->eventTime = 0;
-            event->runEvent();                  // Run event callback
-
-            if( m_firstEvent )
-            {
-                event = m_firstEvent;
-                nextTime = event->eventTime;
-            }
-            else break;
+            if( !m_firstEvent ) break;
+            nextTime = m_firstEvent->eventTime;
         }
         solveCircuit();
         if( m_state < SIM_RUNNING ) break;
-        event = m_firstEvent;               // m_firstEvent can be an event added at solveCircuit()
     }
     if( m_state > SIM_WAITING ) m_circTime = endRun;
     m_loopTime = m_RefTimer.nsecsElapsed();

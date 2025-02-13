@@ -6,13 +6,15 @@
 #pragma once
 
 #include "e-element.h"
+#include "updatable.h"
 
-class AnalogClock : public eElement
+class AnalogClock : public eElement, public Updatable
 {
     public:
         AnalogClock();
         ~AnalogClock();
 
+        void updateStep() override;
         void stamp() override;
         void runEvent() override;
 
