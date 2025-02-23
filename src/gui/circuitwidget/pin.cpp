@@ -378,6 +378,7 @@ void Pin::animate( bool an )
 void Pin::updateStep()
 {
     if( m_unused ) return;
+    //if( my_connector ) my_connector->updateLines();
     update();
 }
 

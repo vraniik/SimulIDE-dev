@@ -28,6 +28,8 @@ IoComponent::IoComponent( QString type, QString id)
     m_openCol    = false;
     m_invInputs  = false;
     m_invOutputs = false;
+
+    m_openImp = 100/eElement::cero_doub;
 }
 IoComponent::~IoComponent(){}
 
@@ -71,7 +73,10 @@ QList<ComProperty*> IoComponent::outputProps()
                                  , this, &IoComponent::outLowV, &IoComponent::setOutLowV ),
 
         new DoubProp<IoComponent>("Out_Imped", tr("Output Impedance"), "Ω"
-                                 , this, &IoComponent::outImp, &IoComponent::setOutImp )
+                                 , this, &IoComponent::outImp, &IoComponent::setOutImp ),
+
+        new DoubProp<IoComponent>("Oen_Imped", tr("Output Z Impedance"), "Ω"
+                                  , this, &IoComponent::openImp, &IoComponent::setOpenImp )
     };
     return props;
 }
@@ -273,6 +278,17 @@ void IoComponent::setOutImp( double imp )
     for( IoPin* pin : m_inpPin )   pin->setOutputImp( imp );
     for( IoPin* pin : m_outPin )   pin->setOutputImp( imp );
     for( IoPin* pin : m_otherPin ) pin->setOutputImp( imp );
+    Simulator::self()->resumeSim();
+}
+
+void IoComponent::setOpenImp( double imp )
+{
+    m_openImp = imp;
+
+    Simulator::self()->pauseSim();
+    for( IoPin* pin : m_inpPin )   pin->setOpenImp( imp );
+    for( IoPin* pin : m_outPin )   pin->setOpenImp( imp );
+    for( IoPin* pin : m_otherPin ) pin->setOpenImp( imp );
     Simulator::self()->resumeSim();
 }
 

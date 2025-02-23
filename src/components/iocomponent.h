@@ -42,6 +42,9 @@ class IoComponent : public Component, public LogicFamily
         void setInpPullups( double p ) override;
         void setOutPullups( double p ) override;
 
+        double openImp() { return m_openImp; }
+        void setOpenImp( double imp );
+
         bool invertOuts() { return m_invOutputs; }
         void setInvertOuts( bool invert );
 
@@ -86,6 +89,8 @@ class IoComponent : public Component, public LogicFamily
         bool m_openCol;
         bool m_invOutputs;
         bool m_invInputs;
+
+        double m_openImp;
 
         uint m_width;
         uint m_height;

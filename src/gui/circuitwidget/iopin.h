@@ -52,6 +52,7 @@ class IoPin : public Pin, public eElement
         void  setOutLowV( double v ) { m_outLowV = v; }
 
         virtual void setOutputImp( double imp );
+        virtual void setOpenImp( double imp );
         virtual void setImpedance( double imp );
 
         virtual bool getInpState();
