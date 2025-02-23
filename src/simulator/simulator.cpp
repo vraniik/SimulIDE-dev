@@ -189,10 +189,9 @@ void Simulator::runCircuit()
             event = m_firstEvent;
             m_firstEvent = event->nextEvent;
 
-            event->runEvent();                  // Run event callback
             event->nextEvent = nullptr;         // free Event
             event->eventTime = 0;
-
+            event->runEvent();                  // Run event callback
 #ifdef DEBUG_EVENTS
             m_events--;
 #endif
