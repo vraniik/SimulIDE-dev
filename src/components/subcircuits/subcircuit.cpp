@@ -440,7 +440,7 @@ void SubCircuit::remove()
 
 void SubCircuit::contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu )
 {
-    event->accept();
+    if( event ) event->accept();
     addMainCompsMenu( menu );
     Component::contextMenu( event, menu );
 }
