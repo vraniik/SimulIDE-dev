@@ -88,7 +88,7 @@ void IoPin::updateStep()
             case source: m_pinState = state? out_high : out_low; break;
         }
     }
-    update();
+    Pin::updateStep();
 }
 
 void IoPin::runEvent()
@@ -263,6 +263,16 @@ void IoPin::setOutputImp( double imp )
         updtState();
         //m_admit = 1/m_outputImp;
         //ePin::stampAdmitance( m_admit );
+    }
+}
+
+void IoPin::setOpenImp( double imp )
+{
+    m_openImp = imp;
+
+    if( m_pinMode == output && m_stateZ )
+    {
+        setImpedance( m_openImp );
     }
 }
 
