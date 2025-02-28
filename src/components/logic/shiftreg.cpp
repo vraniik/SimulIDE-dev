@@ -169,6 +169,7 @@ void ShiftReg::setParallelIn( bool p )
 
     if( p ) voltChanged();
     else{
+        m_serPin->removeConnector();
         for( IoPin* pin : m_inpPin )
             pin->changeCallBack( this, false );
     }
@@ -182,7 +183,11 @@ void ShiftReg::setBidirectional( bool b )
     m_dirPin->setVisible( b );
 
     if( b ) m_dinPin->setLabelText("DR");
-    else    m_dinPin->setLabelText("DI");
+    else{
+        m_dilPin->removeConnector();
+        m_dirPin->removeConnector();
+        m_dinPin->setLabelText("DI");
+    }
 }
 
 void ShiftReg::updatePins()
