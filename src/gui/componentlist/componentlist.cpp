@@ -60,7 +60,7 @@ void ComponentList::createList()
 
     m_customComp = false;
     LoadLibraryItems();
-    LoadCompSetAt( QDir(":/data") );
+    //LoadCompSetAt( QDir(":/data") );
     m_customComp = true;
 
     /*addCategory( tr("Ternary")    ,"Ternary", "Logic", ":/subc.png" );

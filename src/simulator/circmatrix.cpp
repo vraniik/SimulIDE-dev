@@ -10,7 +10,7 @@
 #include "circmatrix.h"
 #include "simulator.h"
 
-CircMatrix* CircMatrix::m_pSelf = 0l;
+CircMatrix* CircMatrix::m_pSelf = nullptr;
 
 CircMatrix::CircMatrix()
 {

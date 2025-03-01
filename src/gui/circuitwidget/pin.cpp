@@ -34,9 +34,9 @@ Pin::Pin( int angle, const QPoint pos, QString id, int index, Component* parent,
     m_animate = false;
     m_warning = false;
     
-    m_dataCannel = NULL;
-    my_connector = NULL;
-    m_conPin     = NULL;
+    m_dataCannel = nullptr;
+    my_connector = nullptr;
+    m_conPin     = nullptr;
     m_angle      = angle;
     m_space = 0;
     m_Hflip = 1;
