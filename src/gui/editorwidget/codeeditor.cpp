@@ -99,7 +99,7 @@ CodeEditor::CodeEditor( QWidget* parent, OutPanelText* outPane )
             }, groupHidden} );
 
     QString enums = EditorWindow::self()->compilers().join(",")
-            +EditorWindow::self()->assemblers().join(",");
+            +","+EditorWindow::self()->assemblers().join(",");
 
     enums = "None,"+enums+";"+tr("None")+","+enums;
 
