@@ -23,10 +23,10 @@ class PointProp : public ComProperty
         }
         ~PointProp(){;}
 
-        virtual void setValStr( QString val ) override
+        void setValStr( QString val ) override
         { (m_comp->*m_setter)( getPointF( val ) ); }
 
-        virtual QString getValStr()  override
+        QString getValStr() override
         { return getStrPointF( (m_comp->*m_getter)() ); }
 
     private:

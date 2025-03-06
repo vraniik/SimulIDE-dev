@@ -241,12 +241,12 @@ BaseDebugger* EditorWindow::createDebugger( QString name, CodeEditor* ce, QStrin
         type = m_assemblers.value( name ).type;
         file = m_assemblers.value( name ).file;
     }
-    if     ( type == "arduino")  debugger = new InoDebugger( ce, &m_outPane );
+    if     ( type == "arduino")  debugger = new InoDebugger   ( ce, &m_outPane );
     else if( type == "avrgcc" )  debugger = new AvrGccDebugger( ce, &m_outPane );
-    else if( type == "xc8" )     debugger = new Xc8Debugger( ce, &m_outPane );
-    else if( type == "sdcc" )    debugger = new SdccDebugger( ce, &m_outPane );
-    else if( type == "gcbasic" ) debugger = new GcbDebugger( ce, &m_outPane );
-    else if( type == "ascript" ) debugger = new asDebugger( ce, &m_outPane );
+    else if( type == "xc8" )     debugger = new Xc8Debugger   ( ce, &m_outPane );
+    else if( type == "sdcc" )    debugger = new SdccDebugger  ( ce, &m_outPane );
+    else if( type == "gcbasic" ) debugger = new GcbDebugger   ( ce, &m_outPane );
+    else if( type == "ascript" ) debugger = new asDebugger    ( ce, &m_outPane );
     else{
         debugger = new BaseDebugger( ce, &m_outPane );
         if( name != "None" ) code = type.right( 2 );
@@ -260,7 +260,9 @@ BaseDebugger* EditorWindow::createDebugger( QString name, CodeEditor* ce, QStrin
 void EditorWindow::loadCompilers()
 {
     // User compilerdata
-    QString compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/compilers");
+    QString compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers");
+    loadCompilerSet( compilsPath, &m_compilers );
+    compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/compilers");
     loadCompilerSet( compilsPath, &m_compilers );
     compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/assemblers");
     loadCompilerSet( compilsPath, &m_assemblers );
