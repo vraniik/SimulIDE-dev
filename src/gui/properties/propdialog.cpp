@@ -25,13 +25,14 @@ PropDialog::PropDialog( QWidget* parent, QString help )
     setupUi( this );
 
     setWindowFlags( Qt::Window | Qt::WindowTitleHint | Qt::Tool
-                   | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint );
+                  | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint );
 
     m_component = nullptr;
 
     m_helpExpanded = false;
     mainLayout->removeWidget( helpText );
-    helpText->setText( help );
+    helpText->document()->setDocumentMargin( 10 );
+    helpText->setMarkdown( help.replace("<br>", "<br/>") );
     helpText->adjustSize();
     helpText->setVisible( false );
 }
