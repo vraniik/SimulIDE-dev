@@ -393,7 +393,7 @@ void AvrAdc11::startConversion()
 {
     if( !m_enabled ) return;
 
-    m_adcValue = -1;
+    m_adcValue = 0;
     int chP,chN;
     double gain = 1;
 
@@ -419,7 +419,7 @@ void AvrAdc11::startConversion()
     m_converting = true;
     updtVref();
 
-    if( m_adcValue == -1 )
+    if( m_adcValue == 0 )
     {
         double voltP = m_adcPin[chP]->getVoltage();
         double voltN = m_adcPin[chN]->getVoltage();
