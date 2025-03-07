@@ -157,8 +157,14 @@ class AvrAdc11 : public AvrAdc10
 
         virtual void setup() override;
 
+        virtual void setChannel( uint8_t newADMUX ) override;
+
+        virtual void startConversion() override;
+
     protected:
         virtual void updtVref() override;
+
+        regBits_t m_REFS2;
 };
 
 
