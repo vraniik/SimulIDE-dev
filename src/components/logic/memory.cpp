@@ -123,7 +123,7 @@ void Memory::updateStep()
 {
     if( m_changed )
     {
-        for( IoPin* pin : m_inpPin  ) pin->changeCallBack( this, m_asynchro && m_cs );
+        for( IoPin* pin : m_inpPin ) pin->changeCallBack( this, m_asynchro && m_cs );
         for( IoPin* pin : m_outPin ) pin->changeCallBack( this, m_asynchro && m_cs && m_we );
         m_changed = false;
     }

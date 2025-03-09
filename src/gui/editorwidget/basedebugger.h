@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <QHash>
+#include <QMap>
 
 #include "compiler.h"
 
@@ -72,10 +72,10 @@ class BaseDebugger : public Compiler    // Base Class for all debuggers
 
         QString m_appPath;
         
-        QHash<QString, QString> m_typesList;
-        QHash<QString, QString> m_varTypes;     // Variable name-Type got from source file
-        QHash<int, codeLine_t> m_flashToSource; // Map flash adress to Source code line
+        QMap<QString, QString> m_typesList;
+        QMap<QString, QString> m_varTypes;     // Variable name-Type got from source file
+        QMap<int, codeLine_t> m_flashToSource; // Map flash adress to Source code line
         //QHash<int, int> m_sourceToFlash;        // Map Source code line to flash adress
-        QHash<QString, int> m_functions;        // Function name list->start Address
+        QMap<QString, int> m_functions;        // Function name list->start Address
         QList<int>          m_funcAddr;         // Function start Address list
 };
