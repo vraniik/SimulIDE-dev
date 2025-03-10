@@ -237,7 +237,13 @@ bool AvrGccDebugger::mapFlashToSource()
             if( idx == -1 ) continue;
 
             QString filePath = QFileInfo( p_stdout.left( idx ) ).absoluteFilePath();// filePath();//  .fileName();
-            if( !m_fileList.contains( filePath ) ) m_fileList.append( filePath );
+            if( !QFile::exists( filePath ) ) continue;
+
+            if( !m_fileList.contains( filePath ) ) continue;
+            /*{
+                //qDebug() << "AvrGccDebugger::mapFlashToSource" << filePath;
+                m_fileList.append( filePath );
+            }*/
 
             bool ok = false;
             int line = p_stdout.mid( idx+1 ).toInt( &ok );
