@@ -148,18 +148,18 @@ bool AvrGccDebugger::getFunctions()
         if( words.at(3) != "FUNC" ) continue;
 
         QString funcName = words.last();
-        if( funcName.startsWith("_") ) continue;
+        //if( funcName.startsWith("_") ) continue;
 
         QString bind = words.at(4);
-        if( bind != "LOCAL") continue;
+        //if( bind != "LOCAL") continue;
 
-        QString addr   = words.at(1);
+        QString addr = words.at(1);
         bool ok = false;
         int address = addr.toInt( &ok, 16 )/2;
         if( !ok ) continue;
 
         m_functions[funcName] = address;
-        //qDebug() << "AvrGccDebugger::getFunctions "<< funcName <<address;
+        qDebug() << "AvrGccDebugger::getFunctions "<< funcName <<address;
     }
     m_outPane->appendLine( QString::number( m_functions.size() )+" functions found" );
     return true;
