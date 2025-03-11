@@ -64,12 +64,15 @@ void EditorWindow::updateStep()
     m_lastCycle = cycle;
     m_lastTime = time;
 
-    if( m_debugFile != debugFile  )
+    CodeEditor* ce = getCodeEditor();
+    if( m_debugFile != debugFile  )    // Debugger jumping to another file
     {
         m_debugFile = debugFile;
         loadFile( debugFile );
+        ce->setDebugLine( 0 );
+        ce = getCodeEditor();
     }
-    CodeEditor* ce = getCodeEditor();
+
     ce->setDebugLine( debugLine );
     ce->updateScreen();
 }
