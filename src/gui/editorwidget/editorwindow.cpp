@@ -64,7 +64,8 @@ void EditorWindow::updateStep()
     m_lastCycle = cycle;
     m_lastTime = time;
 
-    if( m_debugFile != debugFile ){
+    if( m_debugFile != debugFile  )
+    {
         m_debugFile = debugFile;
         loadFile( debugFile );
     }
@@ -131,6 +132,7 @@ void EditorWindow:: pause()
 void EditorWindow::reset()
 {
     m_lastCycle = 0;
+    m_lastTime = 0;
     m_state = DBG_PAUSED;
     CircuitWidget::self()->powerCircDebug();
 
@@ -259,7 +261,7 @@ BaseDebugger* EditorWindow::createDebugger( QString name, CodeEditor* ce, QStrin
 
 void EditorWindow::loadCompilers()
 {
-    // User compilerdata
+    // User compiler data
     QString compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers");
     loadCompilerSet( compilsPath, &m_compilers );
     compilsPath = MainWindow::self()->getUserFilePath("codeeditor/compilers/compilers");
