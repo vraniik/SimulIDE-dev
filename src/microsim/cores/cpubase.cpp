@@ -21,4 +21,5 @@ CpuBase::~CpuBase() {}
 void CpuBase::reset()
 {
     m_PC = 0;
+    m_RET_ADDR = 0;
 }
