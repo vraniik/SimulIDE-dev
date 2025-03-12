@@ -429,6 +429,8 @@ void McuCreator::createRegisters( QDomElement* e )
         mcu->m_regEnd = regEnd;
         mcu->m_regMask.resize( regEnd+1, 0xFF );
     }
+    for( int i=regStart; i<=regEnd; ++i ) mcu->m_addrMap.at(i) = i;
+
     getRegisters( e, offset );
 }
 
