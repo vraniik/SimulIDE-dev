@@ -94,51 +94,21 @@ Mcu::Mcu( QString type, QString id, QString device )
 
     addPropGroup( { tr("Main"), {},0} );
 
-    m_device = m_name;//.split("_").last(); // for example: "atmega328-1" to: "atmega328"
+    m_device = m_name;
     if( m_device.contains("@") ) m_device = m_device.split("@").last(); // MCU in Subcircuit
 
-    QString baseFile;
-    QString dataFile = ComponentList::self()->getDataFile( m_device );
-
-    //m_isTQFP = false;
-    if( dataFile.isEmpty() )
-    {
-        /*if( m_device.endsWith(" TQFP") ) // Compatibilty with 1.1.0
-        {
-            m_isTQFP = true;
-            m_device.remove(" TQFP");
-            if( m_device.startsWith("m") ) m_device.replace("m", "mega");
-        }
-        else*/
-        if( m_device.startsWith("p") ) // Compatibilty with 0.4.15
-        {
-            if( m_device.endsWith("a") ) m_device.remove( m_device.size()-1, 1 );
-            m_device.replace("f", "F");
-        }
-        dataFile = ComponentList::self()->getDataFile( m_device );
-    }
     setName( m_device );
 
-    if( dataFile.isEmpty() ) // Component is not in SimulIDE, search in Circuit folder
-    {
-        QDir mcuDir;
-        QString folder = ComponentList::self()->getFileDir( m_device );
+     // Search in Circuit folder
+    QDir mcuDir = QFileInfo( Circuit::self()->getFilePath() ).absoluteDir();
+    QString baseFile = mcuDir.absoluteFilePath( m_device+"/"+m_device );
+    QString mcuFile = baseFile+".mcu";
 
-        if( !folder.isEmpty() ) // Found in folder (no xml file)
-        {
-            mcuDir = QDir( folder );
-        }
-        else              // Try to find a "data" folder in Circuit folder
-        {
-            mcuDir = QFileInfo( Circuit::self()->getFilePath() ).absoluteDir();
-            folder = "data/"+m_device;
-        }
-        baseFile = mcuDir.absoluteFilePath( folder+"/"+m_device);
-        dataFile = baseFile;
-    }
-    else if( QFile::exists( dataFile ) ) // MCU defined in xml file
+    if( !QFile::exists( mcuFile ) ) // Not found in Circuit folder, check if Defined in xml file
     {
-        QString xmlFile = dataFile;
+        baseFile = "";
+        QString xmlFile = ComponentList::self()->getDataFile( m_device );
+
         QDomDocument domDoc = fileToDomDoc( xmlFile, "Mcu::Mcu" );
         if( domDoc.isNull() ) { m_error = 1; return; }
 
@@ -151,25 +121,16 @@ Mcu::Mcu( QString type, QString id, QString device )
             QDomElement itemSet = rNode.toElement();
             QDomNode    node    = itemSet.firstChild();
 
-            QString folder = "";
-            if( itemSet.hasAttribute("folder") ) folder = itemSet.attribute("folder");
-
             while( !node.isNull() )
             {
                 QDomElement element = node.toElement();
                 if( element.attribute("name") == m_device )
                 {
-                    if( element.hasAttribute("folder") ) folder = element.attribute("folder");
-
                     QFileInfo fi( xmlFile );
-                    if( !folder.isEmpty() )
-                    {
-                        baseFile = fi.absolutePath()+"/"+folder+"/"+m_device+"/"+m_device;
-                        dataFile = baseFile;
-                    }else{
-                        baseFile = fi.absolutePath()+"/"+ element.attribute("package");
-                        dataFile = fi.absolutePath()+"/"+ element.attribute("data");
-                    }
+
+                    baseFile = fi.absolutePath()+"/"+ element.attribute("package");
+                    mcuFile  = fi.absolutePath()+"/"+ element.attribute("data")+".mcu";
+
                     found = true;
                 }
                 if( found ) break;
@@ -182,7 +143,7 @@ Mcu::Mcu( QString type, QString id, QString device )
 
     if( !baseFile.isEmpty() )
     {
-        m_dataFile = dataFile+".mcu";
+        m_dataFile = mcuFile; //+".mcu";
         if( !QFileInfo::exists( m_dataFile ) )
         {
             qDebug() <<"Mcu::Mcu Files not found for:"<< m_device;
