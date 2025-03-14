@@ -55,33 +55,23 @@ ComponentList::~ComponentList(){}
 
 void ComponentList::createList()
 {
-    m_listFile  = MainWindow::self()->getConfigPath("compList.xml");
-    m_oldConfig = !QFile::exists( m_listFile ); // xml file doesn't exist: read old config
-
     m_customComp = false;
     LoadLibraryItems();
     //LoadCompSetAt( QDir(":/data") );
     m_customComp = true;
 
-    /*addCategory( tr("Ternary")    ,"Ternary", "Logic", ":/subc.png" );
-    addCategory( tr("Digipot")    ,"Digipot", "Logic", ":/ic2.png" );
-    addCategory( tr("IC 74")      ,"IC 74"  , "Logic", ":/ic2.png" );
-    addCategory( tr("IC CD")      ,"IC CD"  , "Logic", ":/ic2.png" );
-    addCategory( tr("USSR IC")    ,"USSR IC", "Logic", ":/ic2.png");
-    addCategory( tr("Other IC")   ,"Other IC","Logic", ":/ic2.png");
-    addCategory( tr("Keys")       ,"Keys"   , "Logic", ":/ic2.png" );
-    addCategory( tr("Led display"),"Led display", "Logic", ":/7segbcd.png" );
-    addCategory( tr("Tools")      ,"Tools"  , "Logic", ":/subc.png");*/
-
     QString userDir = MainWindow::self()->userPath();
     if( !userDir.isEmpty() && QDir( userDir ).exists() )
     {
         LoadCompSetAt( userDir );
+        LoadCompSetAt( userDir+"/components" );
         loadTest( userDir );
     }
     QDir compSetDir = MainWindow::self()->getFilePath("data");
     if( compSetDir.exists() ) LoadCompSetAt( compSetDir );
 
+    m_listFile  = MainWindow::self()->getConfigPath("compList.xml");
+    m_oldConfig = !QFile::exists( m_listFile ); // xml file doesn't exist: read old config
     if( !m_oldConfig ) readConfig(); // Read new xml config file
 
     for( TreeItem* it : m_categoryList ) // Remove empty categories
@@ -159,7 +149,7 @@ void ComponentList::LoadCompSetAt( QDir compSetDir )
 
     QStringList xmlList = compSetDir.entryList( QDir::Files );
 
-    if( xmlList.isEmpty() ) return;                  // No comp sets to load
+    if( xmlList.isEmpty() ) return;                  // No component sets to load
 
     qDebug() << "\n" << tr("    Loading Component sets at:")<< "\n" << compSetDir.absolutePath()<<"\n";
 
@@ -217,6 +207,7 @@ void ComponentList::loadXml( QString xmlFile )
                     catItem = addCategory( catTr, category, parent, icon );
                 }
             }
+            if( !catItem ) continue;
 
             QString type = reader.attributes().value("type").toString();
             QString folder = reader.attributes().value("folder").toString();
@@ -235,7 +226,16 @@ void ComponentList::loadXml( QString xmlFile )
                     }
                     else icon = getIcon( folder, name );
 
-                    if( catItem && !m_components.contains( name ) )
+                    if( m_components.contains( name ) ) // Component exists, move to new position
+                    {                                   // This allows to override embedded components
+                        TreeItem* item = m_components.value( name );
+                        TreeItem* parentItem = item->parentItem();
+                        parentItem->takeChild( parentItem->indexOfChild( item) );
+                        catItem->addChild( item );
+                        if( parentItem->childCount() == 0 )
+                            parentItem->parent()->removeChild( parentItem );
+                    }
+                    else
                     {
                         if( type == "Subcircuit" )
                         {

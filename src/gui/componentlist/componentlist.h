@@ -31,13 +31,11 @@ class ComponentList : public QTreeWidget
 
         void search( QString filter );
 
-        TreeItem* getCategory( QString category );
-        QStringList getCategories(){ return m_categories.keys(); }
+        //TreeItem* getCategory( QString category );
+        //QStringList getCategories(){ return m_categories.keys(); }
 
         void setShortcut( QString s, QString c ) { m_shortCuts[s] = c; }
         QString getComponent( QString shortcut ) { return m_shortCuts.value( shortcut ); }
-
-        void loadXml( QString xmlFile );
 
         void writeSettings();
 
@@ -51,8 +49,7 @@ class ComponentList : public QTreeWidget
         void dropEvent( QDropEvent* event ) override;
 
     private:
- static ComponentList* m_pSelf;
-
+        void loadXml( QString xmlFile );
         void addItem( QString caption, TreeItem* catItem, QString icon, QString type );
         void addItem( QString caption, TreeItem* catItem, QIcon &icon, QString type );
 
@@ -61,6 +58,7 @@ class ComponentList : public QTreeWidget
         void readConfig();
         void readNodCfg( QDomNode* node, TreeItem* parent );
 
+        TreeItem* getCategory( QString category );
         TreeItem* addCategory( QString nameTr, QString name, QString parent, QString icon );
 
         QString getIcon( QString folder, QString name );
@@ -85,4 +83,6 @@ class ComponentList : public QTreeWidget
         manCompDialog m_mcDialog;
 
         ItemLibrary m_itemLibrary;
+
+ static ComponentList* m_pSelf;
 };
