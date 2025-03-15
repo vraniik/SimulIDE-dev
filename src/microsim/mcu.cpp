@@ -103,6 +103,11 @@ Mcu::Mcu( QString type, QString id, QString device )
     QDir mcuDir = QFileInfo( Circuit::self()->getFilePath() ).absoluteDir();
     QString baseFile = mcuDir.absoluteFilePath( m_device+"/"+m_device );
     QString mcuFile = baseFile+".mcu";
+    if( !QFile::exists( mcuFile ) )
+    {
+        baseFile = mcuDir.absoluteFilePath( "data/"+m_device+"/"+m_device );
+        mcuFile = baseFile+".mcu";
+    }
 
     if( !QFile::exists( mcuFile ) ) // Not found in Circuit folder, check if Defined in xml file
     {
