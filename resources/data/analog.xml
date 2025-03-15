@@ -2,7 +2,7 @@
 
 <itemlib>
 
-  <itemset category="Active/Other Active" type="Subcircuit" folder="Analog" >
+  <itemset category="Active/Other Active" type="Subcircuit" folder="analog" >
     <item name="Optocoupler"  info="" />
   </itemset>
 

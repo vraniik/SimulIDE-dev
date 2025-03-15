@@ -40,6 +40,7 @@ void setMax_Current( double c )
     
     string propStr = ""+c+" A";
     component.setPropStr( LED, "MaxCurrent", propStr );
+    print( "setMax_Current "+c);
 }
 
 double getMax_Current()
