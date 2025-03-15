@@ -24,7 +24,7 @@ cDebugger::cDebugger( CodeEditor* parent, OutPanelText* outPane )
     m_typesList["long"]   = "int32";
     m_typesList["ulong"]  = "uint32";
     m_typesList["float"]  = "float32";
-    m_typesList["double"] = "float32";
+    m_typesList["double"] = "float64";
 }
 cDebugger::~cDebugger(){}
 
@@ -32,7 +32,7 @@ void cDebugger::preProcess()
 {
     QStringList lines = fileToStringList( m_file, "BaseDebugger::preProcess" );
 
-    QDirIterator it( m_fileDir, {"*.c", "*.cpp", "*.h"}, QDir::Files, QDirIterator::Subdirectories);
+    QDirIterator it( m_fileDir, {"*.c", "*.cpp", "*.h", "*.hpp"}, QDir::Files, QDirIterator::Subdirectories);
     while( it.hasNext() ) m_fileList.append( it.next() );
 
     m_varTypes.clear();
@@ -48,8 +48,9 @@ void cDebugger::preProcess()
         QString type = wordList.takeFirst();
         if( type == "unsigned" ) type = "u"+wordList.takeFirst();
 
-        if( m_typesList.contains( type ) )
-            for( QString word : wordList )
+        if( !m_typesList.contains( type ) ) continue;
+
+        for( QString word : wordList )
         {
             for( QString varName : word.split(",") )
             {
@@ -58,5 +59,8 @@ void cDebugger::preProcess()
                 if( !m_varTypes.contains( varName ) )
                     m_varTypes[ varName ] = m_typesList[ type ];
                 //qDebug() << "cDebugger::getData  variable "<<type<<varName<<m_typesList[ type ];
-}   }   }   }
+            }
+        }
+    }
+}
 

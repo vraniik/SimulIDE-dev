@@ -13,9 +13,9 @@ class eLed : public eResistor
         eLed( QString id );
         ~eLed();
 
-        virtual void stamp() override;
-        virtual void initialize() override;
-        virtual void voltChanged() override;
+        void stamp() override;
+        void initialize() override;
+        void voltChanged() override;
 
         double threshold() { return m_threshold; }
         void  setThreshold( double threshold ) { m_threshold = threshold; m_changed = true; }
@@ -23,8 +23,8 @@ class eLed : public eResistor
         double maxCurrent()             { return m_maxCurrent; }
         void  setMaxCurrent( double c ) { m_maxCurrent = c; m_changed = true; }
 
-        virtual void   setResistance( double resist ) override ;
-        virtual double resistance() override { return m_impedance; }
+        void   setResistance( double resist ) override ;
+        double resistance() override { return m_impedance; }
 
         double brightness() { return m_brightness; }
         double overCurrent() { return m_avgCurrent/m_maxCurrent; }
@@ -32,7 +32,7 @@ class eLed : public eResistor
         void updateBright();
 
     protected:
-        virtual void updateVI() override;
+        void updateVI() override;
 
         bool m_converged;
 
