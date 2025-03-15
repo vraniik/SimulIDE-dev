@@ -168,12 +168,12 @@ void WaveGen::runEvent()
     m_time = fmod( Simulator::self()->circTime() - m_phaseTime, m_psPerCycleDbl );
 
     switch( m_waveType ) {
-        case Sine:     genSine(); break;
-        case Saw:      genSaw(); break;
+        case Sine:     genSine();     break;
+        case Saw:      genSaw();      break;
         case Triangle: genTriangle(); break;
-        case Square:   genSquare(); break;
-        case Random:   genRandom(); break;
-        case Wav:      genWav(); break;
+        case Square:   genSquare();   break;
+        case Random:   genRandom();   break;
+        case Wav:      genWav();      break;
     }
 
     if( m_vOut != m_lastVout )
@@ -313,6 +313,12 @@ void WaveGen::setFloating( bool f )
     if( Simulator::self()->isRunning() ) CircuitWidget::self()->powerCircOff();
 
     updtProperties();
+}
+
+void WaveGen::setLinkedValue( double v, int i )
+{
+    if( i ) setDuty( v );
+    else    setFreq( v );
 }
 
 void WaveGen::setWaveType( QString type )

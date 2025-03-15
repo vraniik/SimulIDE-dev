@@ -29,7 +29,7 @@ class WaveGen : public ClockBase
 
         bool setPropStr( QString prop, QString val ) override;
 
- void updateStep() override{;}
+        void updateStep() override{;}
         void initialize() override;
         void stamp() override;
         void runEvent() override;
@@ -62,6 +62,8 @@ class WaveGen : public ClockBase
         void setFloating( bool f );
 
         void setFreq( double freq ) override;
+
+        void setLinkedValue( double v, int i=0 ) override;
         
         void slotLoad();
         void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;

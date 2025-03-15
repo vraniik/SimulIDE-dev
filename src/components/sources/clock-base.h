@@ -13,7 +13,7 @@ class ClockBase : public FixedVolt
         ClockBase( QString type, QString id );
         ~ClockBase();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool setPropStr( QString prop, QString val ) override;
 
         void stamp() override;
 
@@ -26,14 +26,14 @@ class ClockBase : public FixedVolt
         bool running() { return m_isRunning; }
         void setRunning( bool running );
 
-        virtual void setOut( bool ) override {;}
+        void setOut( bool ) override {;}
 
-        virtual void setLinkedValue( double v, int i=0 ) override;
+        void setLinkedValue( double v, int i=0 ) override;
 
-        virtual void setHidden( bool hid, bool hidArea=false, bool hidLabel=false ) override;
+        void setHidden( bool hid, bool hidArea=false, bool hidLabel=false ) override;
 
     public slots:
-        virtual void onbuttonclicked() override;
+        void onbuttonclicked() override;
 
     protected:
         uint64_t getRemainer()
