@@ -1,0 +1,9 @@
+<!DOCTYPE SimulIDE>
+
+<itemlib>
+
+  <itemset category="Logic/Digipot" type="Subcircuit" folder="digipot" >
+    <item name="I2C_Digipot"  info="" />
+  </itemset>
+
+</itemlib>
