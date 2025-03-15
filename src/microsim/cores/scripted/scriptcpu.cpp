@@ -256,7 +256,7 @@ int ScriptCpu::compileScript()
 
     for( ComProperty* p : m_scriptProps ) // Get properties getters and setters from script
     {
-        QString propName = p->name();
+        QString propName = p->name().replace(" ","_");
         QString type = p->type();
 
         QString getter = type+" get"+propName+"()";
@@ -445,7 +445,7 @@ ComProperty* ScriptCpu::addProperty( QString name, QString label, QString type, 
 
 QString ScriptCpu::getProp( ComProperty* p )
 {
-    QString name = p->name();
+    QString name = p->name().replace(" ","_");
     QString type = p->type();
 
     asIScriptFunction* asFunc = m_propGetters.value( name );
@@ -493,7 +493,7 @@ QString ScriptCpu::getProp( ComProperty* p )
 
 void ScriptCpu::setProp( ComProperty* p, QString val )
 {
-    QString name = p->name();
+    QString name = p->name().replace(" ","_");
     QString type = p->type();
 
     asIScriptFunction* asFunc = m_propSetters.value( name );
