@@ -541,6 +541,7 @@ QString SubPackage::pinStrEntry( Pin* pin )
     QString type;
     if     ( pin->inverted() ) type = "inv";
     else if( pin->unused()   ) type = "nc";
+    else if( pin->isBus()    ) type = "bus";
     else if( pin->pinType() == Pin::pinNull ) type = "nul";
     else if( pin->pinType() == Pin::pinRst  ) type = "rst";
 
