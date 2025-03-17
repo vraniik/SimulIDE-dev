@@ -154,6 +154,8 @@ void SpiModule::setMode( spiMode_t mode )
     else if( mode == SPI_MASTER )
     {
         if( !m_MOSI || !m_MISO || !m_clkPin ) { m_mode = SPI_OFF; return; }
+        if( m_SS ) m_SS->changeCallBack( this, false );
+        m_clkPin->changeCallBack( this, false );
         m_dataOutPin = m_MOSI;
         m_dataInPin  = m_MISO;
     }
@@ -162,7 +164,7 @@ void SpiModule::setMode( spiMode_t mode )
         if( !m_MOSI || !m_clkPin ) { m_mode = SPI_OFF; return; }
         m_dataOutPin = m_MISO;
         m_dataInPin  = m_MOSI;
-        //m_clkPin->changeCallBack( this, true );
+        m_clkPin->changeCallBack( this, true );
         if( m_useSS && m_SS )
         {
             m_SS->changeCallBack( this, true );

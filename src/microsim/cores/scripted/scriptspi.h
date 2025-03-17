@@ -20,12 +20,12 @@ class ScriptSpi : public McuSpi, public ScriptPerif
         void byteReceived( uint8_t data );
         void sendByte( uint8_t data );
 
-        virtual void reset() override;
+        void reset() override;
 
-        virtual void endTransaction() override;
+        void endTransaction() override;
 
-        virtual QStringList registerScript( ScriptCpu* cpu ) override;
-        virtual void startScript() override;
+        QStringList registerScript( ScriptCpu* cpu ) override;
+        void startScript() override;
 
     private:
 
