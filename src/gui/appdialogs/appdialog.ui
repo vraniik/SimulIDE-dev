@@ -70,7 +70,7 @@
         <locale language="C" country="AnyCountry"/>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <property name="usesScrollButtons">
         <bool>false</bool>
@@ -210,11 +210,6 @@
              </item>
              <item>
               <property name="text">
-               <string notr="true">简体中文</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
                <string notr="true">繁體中文</string>
               </property>
              </item>
@@ -226,11 +221,6 @@
              <item>
               <property name="text">
                <string notr="true">Deutsch</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Русский</string>
               </property>
              </item>
              <item>

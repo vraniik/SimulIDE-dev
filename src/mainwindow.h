@@ -20,19 +20,19 @@ class QSettings;
 
 enum Langs {
     English = 0,
-    Chinese,
+//    Chinese,
     Traditional_Chinese,
     Czech,
-    Dutch,
-    French,
+//    Dutch,
+//    French,
     German,
-    Italian,
-    Russian,
+//    Italian,
+//    Russian,
     Spanish,
-    Portuguese,
+//    Portuguese,
     Pt_Brasil,
-    Slovak,
-    Turkish
+//    Slovak,
+//    Turkish
 };
 
 class MainWindow : public QMainWindow
@@ -42,8 +42,6 @@ class MainWindow : public QMainWindow
     public:
         MainWindow();
         ~MainWindow();
-
- static MainWindow* self() { return m_pSelf; }
 
         QSettings* settings();
         QSettings* compSettings();
@@ -83,6 +81,8 @@ class MainWindow : public QMainWindow
         
         QTabWidget* m_sidepanel;
 
+ static MainWindow* self() { return m_pSelf; }
+
     protected:
         void closeEvent( QCloseEvent* event );
         void keyPressEvent( QKeyEvent* event );
@@ -92,8 +92,6 @@ class MainWindow : public QMainWindow
         void clearSearch();
 
     private:
- static MainWindow* m_pSelf;
-
         Langs m_lang;
 
         bool m_blocked;
@@ -129,4 +127,6 @@ class MainWindow : public QMainWindow
         EditorWindow*  m_editor;
         
         QSplitter*  m_mainSplitter;
+
+ static MainWindow* m_pSelf;
 };

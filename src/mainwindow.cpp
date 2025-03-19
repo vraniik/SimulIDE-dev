@@ -25,6 +25,8 @@
 #include "filewidget.h"
 #include "utils.h"
 
+//#include "resgen.h"
+
 MainWindow* MainWindow::m_pSelf = nullptr;
 
 MainWindow::MainWindow()
@@ -40,12 +42,12 @@ MainWindow::MainWindow()
 
     this->setWindowTitle( m_version );
 
-    QString appImg = QProcessEnvironment::systemEnvironment().value( QStringLiteral("APPIMAGE") );
-    if( !appImg.isEmpty() ) m_filesDir.setPath( appImg.left( appImg.lastIndexOf("/") ) );
-    else                    m_filesDir.setPath( QApplication::applicationDirPath() );
+    //QString appImg = QProcessEnvironment::systemEnvironment().value( QStringLiteral("APPIMAGE") );
+    //if( !appImg.isEmpty() ) m_filesDir.setPath( appImg.left( appImg.lastIndexOf("/") ) );
+    //else                    m_filesDir.setPath( QApplication::applicationDirPath() );
+    //if( m_filesDir.exists("../share/simulide") ) m_filesDir.cd("../share/simulide");
 
-    if( m_filesDir.exists("../share/simulide") ) m_filesDir.cd("../share/simulide");
-
+    m_filesDir.setPath(":/");
     m_configDir.setPath( QStandardPaths::writableLocation( QStandardPaths::DataLocation ) );
 
     m_settings     = new QSettings( getConfigPath("simulide.ini"), QSettings::IniFormat, this );
@@ -103,6 +105,9 @@ MainWindow::MainWindow()
         if( msgBox.exec() == QMessageBox::Open ) CircuitWidget::self()->loadCirc( backPath );
         else                                     QFile::remove( backPath ); // Remove backup file
     }
+
+    //QString folder = "/media/user/soft/simulide/simulide_lauchpad/1.2.0/resources/data";
+    //ResGen::generate( "../resources/data", folder );
 }
 MainWindow::~MainWindow(){ }
 
@@ -151,13 +156,13 @@ void MainWindow::writeSettings()
 
 QString MainWindow::loc()
 {
-    if( m_lang == Chinese )    return "zh_CN";
+    //if( m_lang == Chinese )    return "zh_CN";
     if( m_lang == Czech )      return "cz";
     //if( m_lang == Dutch )      return "nl";
     //if( m_lang == French )     return "fr";
     if( m_lang == German )     return "de";
     //if( m_lang == Italian )    return "it";
-    if( m_lang == Russian )    return "ru";
+    //if( m_lang == Russian )    return "ru";
     if( m_lang == Spanish )    return "es";
     //if( m_lang == Portuguese ) return "pt_PT";
     if( m_lang == Pt_Brasil )  return "pt_BR";
@@ -171,14 +176,15 @@ QString MainWindow::loc()
 void MainWindow::setLoc( QString loc )
 {
     Langs lang = English;
-    if     ( loc == "zh_CN" ) lang = Chinese;
-    else if( loc == "zh_TW" ) lang = Traditional_Chinese;
+    //if     ( loc == "zh_CN" ) lang = Chinese;
+    //else
+        if( loc == "zh_TW" ) lang = Traditional_Chinese;
     else if( loc == "cz" )    lang = Czech;
     //else if( loc == "nl" )    lang = Dutch;
     //else if( loc == "fr" )    lang = French;
     else if( loc == "de" )    lang = German;
     //else if( loc == "it" )    lang = Italian;
-    else if( loc == "ru" )    lang = Russian;
+    //else if( loc == "ru" )    lang = Russian;
     else if( loc == "es" )    lang = Spanish;
     //else if( loc == "pt_PT" ) lang = Portuguese;
     else if( loc == "pt_BR" ) lang = Pt_Brasil;
@@ -347,19 +353,19 @@ void MainWindow::setUserPath( QString path )
     m_userDir = path;
 }
 
-QString MainWindow::getUserFilePath( QString f )
-{
-    if( m_userDir.isEmpty() ) return "";
-    return QDir( m_userDir ).absoluteFilePath( f );
-}
 QString MainWindow::getFilePath( QString file )   { return m_filesDir.absoluteFilePath( file ); }
 QString MainWindow::getConfigPath( QString file ) { return m_configDir.absoluteFilePath( file ); }
+QString MainWindow::getUserFilePath( QString file )
+{
+    if( m_userDir.isEmpty() ) return "";
+    return QDir( m_userDir ).absoluteFilePath( file );
+}
 QString MainWindow::getDataFilePath( QString file )
 {
     QString path = getUserFilePath( file ); // File in user data folder
 
     if( path.isEmpty() || !QFileInfo::exists( path ) )
-        path = getFilePath("data/"+file );         // File in SimulIDE data folder
+        path = ":/data/"+file;              // File in SimulIDE data folder
 
     if( path.isEmpty() || !QFileInfo::exists( path ) ) return "";
 
