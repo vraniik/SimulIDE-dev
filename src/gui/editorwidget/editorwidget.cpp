@@ -531,7 +531,7 @@ void EditorWidget::updateRecentFileActions()
 
     for( int i=0; i<numRecentFiles; i++ )
     {
-        QString text = tr("&%1 %2").arg(i + 1).arg( getFileName( files[i] ) );
+        QString text = QString::number(i + 1)+" "+getFileName( files[i] );
         recentFileActs[i]->setText(text);
         recentFileActs[i]->setData( files[i] );
         recentFileActs[i]->setVisible( true );

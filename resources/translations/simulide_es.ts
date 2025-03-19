@@ -289,7 +289,7 @@
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="808"/>
         <source>Undo Steps</source>
-        <translation type="unfinished">Pasos deshacer</translation>
+        <translation>Pasos deshacer</translation>
     </message>
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="1193"/>
@@ -334,12 +334,12 @@
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="161"/>
         <source>Restart required to apply new settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Reiniciar para aplicar cambios.</translation>
     </message>
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="514"/>
         <source>Canvas Width</source>
-        <translation type="unfinished">Ancho</translation>
+        <translation>Ancho</translation>
     </message>
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="567"/>
@@ -350,7 +350,7 @@
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="578"/>
         <source>Canvas Height</source>
-        <translation type="unfinished">Alto</translation>
+        <translation>Alto</translation>
     </message>
 </context>
 <context>
@@ -4520,7 +4520,7 @@ No se pudo encontrar el archivo:
     <message>
         <location filename="../../src/microsim/cores/z80/z80core.cpp" line="124"/>
         <source>Single cycle I/O</source>
-        <translation type="unfinished">I/O de ciclo sencillo</translation>
+        <translation>I/O de ciclo sencillo</translation>
     </message>
     <message>
         <location filename="../../src/microsim/cores/z80/z80core.cpp" line="127"/>
@@ -4550,12 +4550,12 @@ No se pudo encontrar el archivo:
     <message>
         <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="195"/>
         <source>Other Active</source>
-        <translation type="unfinished">Otros Activos</translation>
+        <translation>Otros Activos</translation>
     </message>
     <message>
         <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="221"/>
         <source>Other Outputs</source>
-        <translation type="unfinished">Otras Salidas</translation>
+        <translation>Otras Salidas</translation>
     </message>
     <message>
         <location filename="../../src/components/other/packagepin.cpp" line="58"/>
@@ -4581,7 +4581,7 @@ No se pudo encontrar el archivo:
     <message>
         <location filename="../../src/microsim/cores/z80/ula_zx48k.cpp" line="102"/>
         <source>Screen</source>
-        <translation type="unfinished">Pantalla</translation>
+        <translation>Pantalla</translation>
     </message>
 </context>
 <context>

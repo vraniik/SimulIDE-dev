@@ -31,7 +31,7 @@ Component* KY023::construct( QString type, QString id )
 LibraryItem* KY023::libraryItem()
 {
     return new LibraryItem(
-        tr( "KY-023" ),
+        tr("Joystick Dual Axis"),
         "Peripherals",
         "ky-023.png",
         "KY023",
