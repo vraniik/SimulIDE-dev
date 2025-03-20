@@ -6,7 +6,6 @@
     <file alias="/i51.xml">../resources/data/i51.xml</file>
     <file alias="/mcs65.xml">../resources/data/mcs65.xml</file>
     <file alias="/pics.xml">../resources/data/pics.xml</file>
-    <file alias="/shields.xml">../resources/data/shields.xml</file>
     <file alias="/tools.xml">../resources/data/tools.xml</file>
     <file alias="/z80.xml">../resources/data/z80.xml</file>
     <file alias="/analog.xml">../resources/data/analog.xml</file>
@@ -682,10 +681,6 @@
     <file alias="/PIC/pic/pic14_regs.xml">../resources/data/PIC/pic/pic14_regs.xml</file>
     <file alias="/PIC/pic/pic14e_regs.xml">../resources/data/PIC/pic/pic14e_regs.xml</file>
     <file alias="/PIC/pic/types.txt">../resources/data/PIC/pic/types.txt</file>
-    <file alias="/shields/DigitShield/DigitShield.sim1">../resources/data/shields/DigitShield/DigitShield.sim1</file>
-    <file alias="/shields/DigitShield/DigitShield_icon.png">../resources/data/shields/DigitShield/DigitShield_icon.png</file>
-    <file alias="/shields/LcdShield/LcdShield.sim1">../resources/data/shields/LcdShield/LcdShield.sim1</file>
-    <file alias="/shields/LcdShield/LcdShield_icon.png">../resources/data/shields/LcdShield/LcdShield_icon.png</file>
     <file alias="/tools/Encoder/Encoder.sim1">../resources/data/tools/Encoder/Encoder.sim1</file>
     <file alias="/tools/Encoder/Encoder.txt">../resources/data/tools/Encoder/Encoder.txt</file>
     <file alias="/tools/Encoder/Encoder_icon.png">../resources/data/tools/Encoder/Encoder_icon.png</file>
