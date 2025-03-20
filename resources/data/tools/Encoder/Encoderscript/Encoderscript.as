@@ -1,17 +1,34 @@
 
 // PinModes: undef_mode=0, input, openCo, output, source
 
-IoPort@  outputPort = component.getPort("PORTA");
+IoPort@ outputPort = component.getPort("PORTA");
+
+enum links{
+    Dial=0,
+    Label
+}
+
+enum code_t{
+    HEX=0,
+    BCD,
+    GRAY
+}
+
+array<uint> m_grayCode(11);
 
 uint m_value;
-bool m_isHex;
+uint m_code;
+string m_codeStr;
+//bool m_isHex;
 bool m_changed;
 
 void setup()
 {
     //print("ENCODER_script init");
+    m_grayCode = {0,1,3,2,6,7,5,4,12,13,15};
     m_value = 0;
-    m_isHex = true;
+    m_code = HEX;
+    m_codeStr = "HEX";
 }
 
 void reset()
@@ -27,7 +44,12 @@ void updateStep()
     if( !m_changed ) return;
     m_changed = false;
     
-    outputPort.setOutState( m_value );
+    if( m_code == GRAY )
+    {
+        if( m_value > 11 ) m_value = 11;
+        outputPort.setOutState( m_grayCode[m_value] );
+    }
+    else outputPort.setOutState( m_value );
 }
 
 void setLinkedValue( double val, int i )
@@ -38,26 +60,42 @@ void setLinkedValue( double val, int i )
     //print("ENCODER_script setLinkedValue "+val);
 }
 
-void setHEX( bool s )
+void setCode( string c )
 {
-    if( m_isHex == s ) return;
-    m_isHex = s;
+    print( "setCode "+c );
+    if( m_codeStr == c ) return;
+    m_codeStr = c;
     
-    uint bits = m_isHex ? 16 : 10;
+    uint bits = 16;
+    
+    if( c == "BCD" )
+    {
+        bits = 10;
+        m_code = BCD;
+        component.setLinkedString( 1, "09", 0 );
+    }
+    else if( c == "GRAY" )
+    {
+        bits = 11;
+        m_code = GRAY;
+        component.setLinkedString( 1, "10", 0 );
+    }
+    else     // HEX
+    {
+        m_code = HEX;
+        component.setLinkedString( 1, "15", 0 );
+    }
     
     string stepsStr = formatUInt( bits );
     component.setPropStr( 0, "Steps", stepsStr );
     
     string maxValStr = formatUInt( bits-1 );
     component.setPropStr( 0, "Max_Val", maxValStr );
-
-    if( s ) component.setLinkedString( 1, "15", 0 );
-    else    component.setLinkedString( 1, "09", 0 );
 }
 
-bool getHEX()
+string getCode()
 {
-    return m_isHex;
+    return m_codeStr;
 }
 
 void setValue( uint v )
@@ -65,7 +103,7 @@ void setValue( uint v )
     m_value = v;
     
     string valueStr = formatUInt( m_value );
-    component.setPropStr( 0, "Value", valueStr );
+    component.setPropStr( Dial, "Value", valueStr );
     
     m_changed = true;
     //print("ENCODER_script setValue "+v);
