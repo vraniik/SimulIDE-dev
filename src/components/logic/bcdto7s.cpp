@@ -7,6 +7,7 @@
 #include "itemlibrary.h"
 #include "simulator.h"
 #include "iopin.h"
+#include "propdialog.h"
 
 #include "boolprop.h"
 #include "stringprop.h"
@@ -124,10 +125,27 @@ void BcdTo7S::setPinReset( bool r )
     m_useReset = r;
     m_resetPin->setVisible( r );
     if( !r ) m_resetPin->removeConnector();
+
+    updtProperties();
 }
 
 void BcdTo7S::setResetInv( bool inv )
 {
     m_resetInv = inv;
     m_resetPin->setInverted( inv );
+}
+
+void BcdTo7S::updtProperties()
+{
+    if( !m_propDialog ) return;
+
+    m_propDialog->showProp("Reset_Inverted", m_useReset );
+
+    m_propDialog->adjustWidgets();
+}
+
+void BcdTo7S::slotProperties()
+{
+    Component::slotProperties();
+    updtProperties();
 }
