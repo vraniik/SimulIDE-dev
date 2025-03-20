@@ -110,13 +110,13 @@ void LedBase::setColorStr( QString color )
     m_ledColorStr = color;
     double thr = 2.4;
 
-    if     ( color == "Yellow") { thr = 2.4; m_ledColor = yellow; }
-    else if( color == "Red"   ) { thr = 1.8; m_ledColor = red; }
+    if     ( color == "Red"   ) { thr = 1.8; m_ledColor = red; }
     else if( color == "Green" ) { thr = 3.5; m_ledColor = green; }
     else if( color == "Blue"  ) { thr = 3.6; m_ledColor = blue;}
     else if( color == "Orange") { thr = 2.0; m_ledColor = orange; }
     else if( color == "Purple") { thr = 3.5; m_ledColor = purple; }
     else if( color == "White" ) { thr = 4.0; m_ledColor = white; }
+    else                        { thr = 2.4; m_ledColor = yellow; }  // Yellow and undefined
 
     eLed::setThreshold( thr );
 
