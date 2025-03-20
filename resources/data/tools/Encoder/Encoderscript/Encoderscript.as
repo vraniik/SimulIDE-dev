@@ -14,18 +14,17 @@ enum code_t{
     GRAY
 }
 
-array<uint> m_grayCode(11);
+array<uint> m_grayCode(15);
 
 uint m_value;
 uint m_code;
 string m_codeStr;
-//bool m_isHex;
 bool m_changed;
 
 void setup()
 {
     //print("ENCODER_script init");
-    m_grayCode = {0,1,3,2,6,7,5,4,12,13,15};
+    m_grayCode = {0,1,3,2,6,7,5,4,12,13,15,14,10,11,9,8};
     m_value = 0;
     m_code = HEX;
     m_codeStr = "HEX";
@@ -44,12 +43,8 @@ void updateStep()
     if( !m_changed ) return;
     m_changed = false;
     
-    if( m_code == GRAY )
-    {
-        if( m_value > 11 ) m_value = 11;
-        outputPort.setOutState( m_grayCode[m_value] );
-    }
-    else outputPort.setOutState( m_value );
+    if( m_code == GRAY ) outputPort.setOutState( m_grayCode[m_value] );
+    else                 outputPort.setOutState( m_value );
 }
 
 void setLinkedValue( double val, int i )
@@ -62,23 +57,23 @@ void setLinkedValue( double val, int i )
 
 void setCode( string c )
 {
-    print( "setCode "+c );
+    //print( "setCode "+c );
+    
     if( m_codeStr == c ) return;
     m_codeStr = c;
     
-    uint bits = 16;
+    uint steps = 16;
     
     if( c == "BCD" )
     {
-        bits = 10;
+        steps = 10;
         m_code = BCD;
         component.setLinkedString( 1, "09", 0 );
     }
     else if( c == "GRAY" )
     {
-        bits = 11;
         m_code = GRAY;
-        component.setLinkedString( 1, "10", 0 );
+        component.setLinkedString( 1, "15", 0 );
     }
     else     // HEX
     {
@@ -86,10 +81,10 @@ void setCode( string c )
         component.setLinkedString( 1, "15", 0 );
     }
     
-    string stepsStr = formatUInt( bits );
+    string stepsStr = formatUInt( steps );
     component.setPropStr( 0, "Steps", stepsStr );
     
-    string maxValStr = formatUInt( bits-1 );
+    string maxValStr = formatUInt( steps-1 );
     component.setPropStr( 0, "Max_Val", maxValStr );
 }
 
