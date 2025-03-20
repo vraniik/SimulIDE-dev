@@ -156,20 +156,12 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
 
  static bool m_boardMode;
 
-    public slots:
+
         virtual void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu );
         void rotateCW();
         void rotateCCW();
         void slotH_flip();
         void slotV_flip();
-
-    protected slots:
-        virtual void slotProperties();
-        void rotateHalf();
-        void slotRemove();
-        void slotGroup();
-        void slotCopy();
-        void slotCut();
 
     protected:
         void mousePressEvent( QGraphicsSceneMouseEvent* event ) override;
@@ -177,6 +169,13 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
         void mouseReleaseEvent( QGraphicsSceneMouseEvent* event ) override;
         void contextMenuEvent( QGraphicsSceneContextMenuEvent* event ) override;
         void mouseDoubleClickEvent( QGraphicsSceneMouseEvent* event ) override;
+
+        virtual void slotProperties();
+        void rotateHalf();
+        void slotRemove();
+        void slotGroup();
+        void slotCopy();
+        void slotCut();
 
         void paintSelected( QPainter* );
 

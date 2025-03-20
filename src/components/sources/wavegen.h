@@ -66,10 +66,11 @@ class WaveGen : public ClockBase
         void setLinkedValue( double v, int i=0 ) override;
         
         void slotLoad();
+
+        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )override;
         void contextMenu( QGraphicsSceneContextMenuEvent* event, QMenu* menu ) override;
 
     protected:
-        void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w )override;
         void slotProperties() override;
 
     private:
