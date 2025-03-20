@@ -258,6 +258,7 @@ int ScriptCpu::compileScript()
     {
         QString propName = p->name().replace(" ","_");
         QString type = p->type();
+        if( type == "enum" ) type = "string";
 
         QString getter = type+" get"+propName+"()";
         asIScriptFunction* asFunc = module->GetFunctionByDecl( getter.toLocal8Bit().constData() );
