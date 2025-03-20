@@ -9,23 +9,7 @@
 BcdBase::BcdBase( QString type, QString id )
        : LogicComponent( type, id )
 {
-    m_segments[0]  = 0b00111111;
-    m_segments[1]  = 0b00000110;
-    m_segments[2]  = 0b01011011;
-    m_segments[3]  = 0b01001111;
-    m_segments[4]  = 0b01100110;
-    m_segments[5]  = 0b01101101;
-    m_segments[6]  = 0b01111101;
-    m_segments[7]  = 0b00000111;
-    m_segments[8]  = 0b01111111;
-    m_segments[9]  = 0b01101111;
-    m_segments[10] = 0b01110111;
-    m_segments[11] = 0b01111100;
-    m_segments[12] = 0b00111001;
-    m_segments[13] = 0b01011110;
-    m_segments[14] = 0b01111001;
-    m_segments[15] = 0b01110001;
-    m_segments[16] = 0b00000000;
+    setCustomChars( "" ); // Load default chars
 
     m_digit = m_segments[0];
 }
@@ -61,11 +45,35 @@ void BcdBase::voltChanged()
 void BcdBase::setCustomChars( QString chars )
 {
     m_customChars = chars;
-    QStringList charList = chars.split(",");
-    for( int i=0; i<16; ++i )
+    if( chars.isEmpty() )
     {
-        if( i >= chars.size() ) m_segments[i] = 0;
-        else                    m_segments[i] = charList[i].toInt();
+        m_segments[0]  = 0b00111111;
+        m_segments[1]  = 0b00000110;
+        m_segments[2]  = 0b01011011;
+        m_segments[3]  = 0b01001111;
+        m_segments[4]  = 0b01100110;
+        m_segments[5]  = 0b01101101;
+        m_segments[6]  = 0b01111101;
+        m_segments[7]  = 0b00000111;
+        m_segments[8]  = 0b01111111;
+        m_segments[9]  = 0b01101111;
+        m_segments[10] = 0b01110111;
+        m_segments[11] = 0b01111100;
+        m_segments[12] = 0b00111001;
+        m_segments[13] = 0b01011110;
+        m_segments[14] = 0b01111001;
+        m_segments[15] = 0b01110001;
+        m_segments[16] = 0b00000000;
+    }
+    else
+    {
+        QStringList charList = chars.split(",");
+        int size = charList.size();
+        for( int i=0; i<16; ++i )
+        {
+            if( i >= size ) m_segments[i] = 0;
+            else            m_segments[i] = charList[i].toInt();
+        }
     }
     m_changed = true;
 }
