@@ -126,6 +126,9 @@ Mcu::Mcu( QString type, QString id, QString device )
             QDomElement itemSet = rNode.toElement();
             QDomNode    node    = itemSet.firstChild();
 
+            QString folder = "";
+            if( itemSet.hasAttribute("folder") ) folder = itemSet.attribute("folder")+"/";
+
             while( !node.isNull() )
             {
                 QDomElement element = node.toElement();
@@ -133,8 +136,14 @@ Mcu::Mcu( QString type, QString id, QString device )
                 {
                     QFileInfo fi( xmlFile );
 
-                    baseFile = fi.absolutePath()+"/"+ element.attribute("package");
-                    mcuFile  = fi.absolutePath()+"/"+ element.attribute("data")+".mcu";
+                    QString pkg = m_device+"/"+m_device;
+                    QString dat = pkg;
+
+                    if( element.hasAttribute("package") ) pkg = element.attribute("package");
+                    if( element.hasAttribute("data")    ) dat = element.attribute("data");
+
+                    baseFile = fi.absolutePath()+"/"+ folder + pkg;
+                    mcuFile  = fi.absolutePath()+"/"+ folder + dat+".mcu";
 
                     found = true;
                 }
