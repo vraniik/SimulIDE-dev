@@ -124,7 +124,8 @@ void Simulator::timerEvent( QTimerEvent* e )  //update at m_timerTick_ms rate (5
     {
         simState_t state = m_state;
         m_state = SIM_WAITING;
-        m_CircuitFuture.waitForFinished();
+        //m_CircuitFuture.waitForFinished();
+        while( m_state == SIM_WAITING ){;}
         m_state = state;
     }
     if( m_debug && m_state == SIM_PAUSED ) CircuitWidget::self()->debugPaused();
@@ -201,8 +202,10 @@ void Simulator::runCircuit()
         solveCircuit();
         if( m_state < SIM_RUNNING ) break;
     }
-    if( m_state > SIM_WAITING ) m_circTime = endRun;
     m_loopTime = m_RefTimer.nsecsElapsed();
+
+    if     ( m_state >  SIM_WAITING ) m_circTime = endRun;
+    else if( m_state == SIM_WAITING ) m_state = SIM_PAUSED;
 }
 
 void Simulator::solveCircuit()

@@ -142,7 +142,7 @@ class Simulator : public QObject
         QList<Updatable*> m_updateList;
         QList<Socket*> m_socketList;
 
-        simState_t m_state;
+        volatile simState_t m_state;
         simState_t m_oldState;
 
         bool m_debug;
