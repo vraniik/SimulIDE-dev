@@ -2,7 +2,7 @@
 
 <itemlib>
 
-  <itemset category="Logic/Digipot" type="Subcircuit" folder="digipot" >
+  <itemset category="Micro/Peripherals" type="Subcircuit" folder="digipot" >
     <item name="I2C Digipot"  info="" />
     <item name="SPI Digipot"  info="" />
     <item name="Parallel Digipot"  info="" />

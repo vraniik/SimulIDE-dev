@@ -89,7 +89,7 @@ SevenSegment::SevenSegment( QString type, QString id )
         new DoubProp<SevenSegment>("Threshold" , tr("Forward Voltage"),"V"
                                   , this, &SevenSegment::threshold, &SevenSegment::setThreshold ),
 
-        new DoubProp<SevenSegment>("MaxCurrent", tr("Max Current"),"mA"
+        new DoubProp<SevenSegment>("MaxCurrent", tr("Max Current"),"A"
                                   , this, &SevenSegment::maxCurrent, &SevenSegment::setMaxCurrent ),
 
         new DoubProp<SevenSegment>("Resistance", tr("Resistance"),"Ω"
@@ -234,7 +234,7 @@ void SevenSegment::deleteDisplay(int n )
     for( int i=0; i<8; ++i ) delete m_segment[n*8+i];
 }
 
-void SevenSegment::createDisplay(int n )
+void SevenSegment::createDisplay( int n )
 {
     int x = 32*n;
 
