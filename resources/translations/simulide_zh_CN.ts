@@ -9,27 +9,27 @@
         <translation>模/数转换器</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="43"/>
+        <location filename="../../src/components/logic/adc.cpp" line="44"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="44"/>
+        <location filename="../../src/components/logic/adc.cpp" line="45"/>
         <source>Size</source>
         <translation>位数</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="47"/>
+        <location filename="../../src/components/logic/adc.cpp" line="48"/>
         <source>Reference Voltage</source>
         <translation>参考电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="51"/>
+        <location filename="../../src/components/logic/adc.cpp" line="52"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="52"/>
+        <location filename="../../src/components/logic/adc.cpp" line="53"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -72,37 +72,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="593"/>
+        <location filename="../../src/gui/appdialogs/about.ui" line="667"/>
         <source>T_Chinese:       </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="664"/>
+        <location filename="../../src/gui/appdialogs/about.ui" line="683"/>
         <source>Pt. Brasil:       </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="709"/>
+        <location filename="../../src/gui/appdialogs/about.ui" line="612"/>
         <source>Spanish:       </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="725"/>
-        <source>Chinese:       </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="741"/>
+        <location filename="../../src/gui/appdialogs/about.ui" line="567"/>
         <source>Czech:       </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="693"/>
-        <source>Russian:       </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/gui/appdialogs/about.ui" line="648"/>
+        <location filename="../../src/gui/appdialogs/about.ui" line="583"/>
         <source>German:       </source>
         <translation type="unfinished"></translation>
     </message>
@@ -200,8 +190,8 @@
     </message>
     <message>
         <location filename="../../src/gui/appdialogs/appdialog.ui" line="131"/>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="479"/>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1090"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="469"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1080"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
@@ -211,122 +201,131 @@
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="297"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="287"/>
         <source>Font Scale</source>
         <translation>字体缩放</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="416"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="406"/>
         <source>Circuit</source>
         <translation>电路</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="463"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="453"/>
         <source>Circuit Canvas</source>
         <translation>电路画布</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="491"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="481"/>
         <source>Draw Grid</source>
         <translation>绘制网格</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="498"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="488"/>
         <source>Show ScrollBars</source>
         <translation>显示滚动条</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="505"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="495"/>
         <source>Animate</source>
         <translation>动画</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="642"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="632"/>
         <source>Canvas Refresh</source>
         <translation>画布刷新率</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="695"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="685"/>
         <source>FPS</source>
         <translation>FPS</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="735"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="725"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="747"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="737"/>
         <source>Auto Backup</source>
         <translation>自动备份</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="797"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="787"/>
         <source>Seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="808"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="798"/>
         <source>Undo Steps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="881"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="871"/>
         <source>Simulation</source>
         <translation>模拟</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1444"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1331"/>
+        <source>Target Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1417"/>
+        <source>Real Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1526"/>
         <source>NonLinear</source>
         <translation>非线性</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1542"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1624"/>
         <source>Logic Outputs Edges</source>
         <translation>逻辑输出波形</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1554"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1636"/>
         <source>Slope Steps</source>
         <translation>斜率步数</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1193"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1183"/>
         <source>Steps per Second    </source>
         <translation>单位时间步数    </translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1465"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1547"/>
         <source>Max. Iterations</source>
         <translation>最大迭代次数</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1317"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1307"/>
         <source>Reactive</source>
         <translation>电抗性</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="1341"/>
         <source>Reactive Step</source>
-        <translation>电抗性步数</translation>
+        <translation type="vanished">电抗性步数</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="350"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="340"/>
         <source>User data folder:</source>
         <translation>用户数据文件夹:</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="378"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="368"/>
         <source>Select tool path</source>
         <translation>选择工具路径</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="928"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="918"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="255"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="245"/>
         <source>Font</source>
         <translation type="unfinished">字体</translation>
     </message>
@@ -336,18 +335,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="514"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="504"/>
         <source>Canvas Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="567"/>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="631"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="557"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="621"/>
         <source>pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/appdialogs/appdialog.ui" line="578"/>
+        <location filename="../../src/gui/appdialogs/appdialog.ui" line="568"/>
         <source>Canvas Height</source>
         <translation type="unfinished"></translation>
     </message>
@@ -360,22 +359,22 @@
         <translation>音频输出</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/audio_out.cpp" line="100"/>
+        <location filename="../../src/components/outputs/audio_out.cpp" line="97"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/audio_out.cpp" line="101"/>
+        <location filename="../../src/components/outputs/audio_out.cpp" line="98"/>
         <source>Buzzer</source>
         <translation>蜂鸣器</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/audio_out.cpp" line="104"/>
+        <location filename="../../src/components/outputs/audio_out.cpp" line="101"/>
         <source>Impedance</source>
         <translation>阻抗</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/audio_out.cpp" line="107"/>
+        <location filename="../../src/components/outputs/audio_out.cpp" line="104"/>
         <source>Frequency</source>
         <translation type="unfinished">频率</translation>
     </message>
@@ -462,22 +461,47 @@
 <context>
     <name>BcdTo7S</name>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="20"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="23"/>
         <source>Bcd To 7S.</source>
         <translation>7段显示译码器</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="50"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
+        <source>Main</source>
+        <translation type="unfinished">主要特性</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <source>Custom Characters CSV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="69"/>
+        <source>Reset Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="72"/>
+        <source>Reset Inverted</source>
+        <translation type="unfinished">对Reset引脚取反</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="52"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
         <source>Invert Inputs</source>
         <translation>对输入取反</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="57"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="84"/>
+        <source>Tristate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -523,42 +547,74 @@
 <context>
     <name>BinCounter</name>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="51"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="72"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="52"/>
         <source>Use Set Pin</source>
-        <translation>使用Set引脚</translation>
+        <translation type="vanished">使用Set引脚</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="55"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="89"/>
         <source>Clock Inverted</source>
         <translation>对Clock引脚取反</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="58"/>
         <source>Set/Reset Inverted</source>
-        <translation>对Set/Reset引脚取反</translation>
+        <translation type="vanished">对Set/Reset引脚取反</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="61"/>
         <source>Count to</source>
-        <translation>计数到</translation>
+        <translation type="vanished">计数到</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="65"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="96"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="22"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="24"/>
         <source>Binary Counter</source>
         <translation>二进制计数器</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="66"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="74"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="77"/>
+        <source>Top Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="80"/>
+        <source>Parallel Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="83"/>
+        <source>Use RCO &amp; RBO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="86"/>
+        <source>Bidirectional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="92"/>
+        <source>Reset Inverted</source>
+        <translation type="unfinished">对Reset引脚取反</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="99"/>
+        <source>Invert Inputs</source>
+        <translation type="unfinished">对输入取反</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="105"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -566,32 +622,37 @@
 <context>
     <name>Buffer</name>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="20"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="21"/>
         <source>Buffer</source>
         <translation>缓冲器</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="36"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="38"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="48"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="39"/>
+        <source>Small size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/buffer.cpp" line="51"/>
         <source>Tristate</source>
         <translation>三态型</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="39"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="42"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="42"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="45"/>
         <source>Invert Inputs</source>
         <translation>对输入取反</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="53"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="56"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -650,9 +711,8 @@
         <translation>起始电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/capacitorbase.cpp" line="34"/>
         <source>Reactive Step</source>
-        <translation type="unfinished">电抗性步数</translation>
+        <translation type="obsolete">电抗性步数</translation>
     </message>
 </context>
 <context>
@@ -702,7 +762,7 @@
         <translation>将电路保存为图片</translation>
     </message>
     <message>
-        <location filename="../../src/gui/circuitwidget/circuitview.cpp" line="301"/>
+        <location filename="../../src/gui/circuitwidget/circuitview.cpp" line="305"/>
         <source>Save as Image</source>
         <translation>以图片形式保存</translation>
     </message>
@@ -753,7 +813,7 @@
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="151"/>
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="152"/>
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="387"/>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="442"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="450"/>
         <source>Pause Simulation</source>
         <translation>暂停模拟</translation>
     </message>
@@ -824,7 +884,7 @@ Do you want to save your changes?
     </message>
     <message>
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="373"/>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="440"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="448"/>
         <source>Running</source>
         <translation>正在运行</translation>
     </message>
@@ -834,7 +894,7 @@ Do you want to save your changes?
         <translation>已停止</translation>
     </message>
     <message>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="430"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="438"/>
         <source>Paused</source>
         <translation>已暂停</translation>
     </message>
@@ -885,13 +945,13 @@ Can&apos;t find file:
     </message>
     <message>
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="404"/>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="414"/>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="421"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="422"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="428"/>
         <source>Debug</source>
         <translation>调试</translation>
     </message>
     <message>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="506"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="519"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -908,7 +968,7 @@ Can&apos;t find file:
         <translation>停止模拟</translation>
     </message>
     <message>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="432"/>
+        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="440"/>
         <source>Resume Simulation</source>
         <translation>继续模拟</translation>
     </message>
@@ -1046,6 +1106,14 @@ Can&apos;t find file:
     </message>
 </context>
 <context>
+    <name>ColorVal</name>
+    <message>
+        <location filename="../../src/gui/properties/colorval.cpp" line="57"/>
+        <source>Select Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Comparator</name>
     <message>
         <location filename="../../src/components/active/comparator.cpp" line="29"/>
@@ -1152,48 +1220,48 @@ Can&apos;t find file:
 <context>
     <name>Component</name>
     <message>
-        <location filename="../../src/components/component.cpp" line="327"/>
+        <location filename="../../src/components/component.cpp" line="323"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="333"/>
+        <location filename="../../src/components/component.cpp" line="329"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="320"/>
-        <location filename="../../src/components/component.cpp" line="339"/>
+        <location filename="../../src/components/component.cpp" line="316"/>
+        <location filename="../../src/components/component.cpp" line="335"/>
         <source>Properties</source>
         <translation>属性</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="343"/>
+        <location filename="../../src/components/component.cpp" line="339"/>
         <source>Rotate CW</source>
         <translation>顺时针转90°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="346"/>
+        <location filename="../../src/components/component.cpp" line="342"/>
         <source>Rotate CCW</source>
         <translation>逆时针转90°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="349"/>
+        <location filename="../../src/components/component.cpp" line="345"/>
         <source>Rotate 180</source>
         <translation>旋转180°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="352"/>
+        <location filename="../../src/components/component.cpp" line="348"/>
         <source>Horizontal Flip</source>
         <translation>水平翻转</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="355"/>
+        <location filename="../../src/components/component.cpp" line="351"/>
         <source>Vertical Flip</source>
         <translation>垂直翻转</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="330"/>
+        <location filename="../../src/components/component.cpp" line="326"/>
         <source>Cut</source>
         <translation>剪切</translation>
     </message>
@@ -1201,63 +1269,50 @@ Can&apos;t find file:
 <context>
     <name>ComponentList</name>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="65"/>
         <source>Ternary</source>
-        <translation type="unfinished">三值逻辑</translation>
+        <translation type="obsolete">三值逻辑</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="66"/>
-        <source>Digipot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="67"/>
         <source>IC 74</source>
-        <translation type="unfinished">IC 74</translation>
+        <translation type="obsolete">IC 74</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="68"/>
         <source>IC CD</source>
-        <translation type="unfinished">IC CD</translation>
+        <translation type="obsolete">IC CD</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="69"/>
         <source>USSR IC</source>
-        <translation type="unfinished">USSR IC</translation>
+        <translation type="obsolete">USSR IC</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="70"/>
         <source>Other IC</source>
-        <translation type="unfinished">其他集成电路</translation>
+        <translation type="obsolete">其他集成电路</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="71"/>
         <source>Keys</source>
-        <translation type="unfinished">Keys</translation>
+        <translation type="obsolete">Keys</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="72"/>
         <source>Led display</source>
-        <translation type="unfinished">LED显示器</translation>
+        <translation type="obsolete">LED显示器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="73"/>
         <source>Tools</source>
-        <translation type="unfinished">工具</translation>
+        <translation type="obsolete">工具</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="102"/>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="163"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="93"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="154"/>
         <source>    Loading Component sets at:</source>
         <translation type="unfinished">    正在载入组件集:</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="254"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="256"/>
         <source>        Loaded Component set:           </source>
         <translation type="unfinished">        已加载组件集:           </translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="390"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="392"/>
         <source>Manage Components</source>
         <translation type="unfinished">管理组件</translation>
     </message>
@@ -1281,6 +1336,49 @@ Can&apos;t find file:
         <location filename="../../src/gui/circuitwidget/connectorline.cpp" line="308"/>
         <source>Remove</source>
         <translation>删除</translation>
+    </message>
+</context>
+<context>
+    <name>Counter</name>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="21"/>
+        <source>Simple Counter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="50"/>
+        <source>Main</source>
+        <translation type="unfinished">主要特性</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="51"/>
+        <source>Use Set Pin</source>
+        <translation type="unfinished">使用Set引脚</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="54"/>
+        <source>Clock Inverted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="57"/>
+        <source>Set/Reset Inverted</source>
+        <translation type="unfinished">对Set/Reset引脚取反</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="60"/>
+        <source>Count to</source>
+        <translation type="unfinished">计数到</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="64"/>
+        <source>Electric</source>
+        <translation type="unfinished">电气特性</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="65"/>
+        <source>Timing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1808,67 +1906,67 @@ Can&apos;t find file:
 <context>
     <name>EditDialog</name>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="713"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="729"/>
         <source>Pin Name:</source>
         <translation>引脚名:</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="749"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="765"/>
         <source>Invert Pin</source>
         <translation>引脚取反</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="751"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="767"/>
         <source>Unused Pin</source>
         <translation>引脚未使用</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="754"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="770"/>
         <source>Point Pin</source>
         <translation>点状引脚</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="784"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="800"/>
         <source>Edit Pin </source>
         <translation>编辑引脚 </translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="721"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="737"/>
         <source>Pin Id:   </source>
         <translation>引脚Id:   </translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="741"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="757"/>
         <source>Pin Angle:</source>
         <translation>引脚方位:</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="743"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="759"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="743"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="759"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="743"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="759"/>
         <source>Top</source>
         <translation>上</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="743"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="759"/>
         <source>Bottom</source>
         <translation>下</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="729"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="745"/>
         <source>Space to Label:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="757"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="773"/>
         <source>Bus Pin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2142,9 +2240,8 @@ Can&apos;t find file:
 </translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwidget.cpp" line="534"/>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="vanished">&amp;%1 %2</translation>
     </message>
     <message>
         <location filename="../../src/gui/editorwidget/editorwidget.cpp" line="46"/>
@@ -2210,17 +2307,17 @@ Can&apos;t find file:
 <context>
     <name>EditorWindow</name>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="95"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="99"/>
         <source>Starting Debbuger...</source>
         <translation>调试器启动中...</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="169"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="174"/>
         <source>Debugger Started</source>
         <translation>调试器已启动</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="182"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="187"/>
         <source>Error Starting Debugger</source>
         <translation>调试起启动出错</translation>
     </message>
@@ -2230,22 +2327,22 @@ Can&apos;t find file:
         <translation>时钟循环: </translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="144"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="149"/>
         <source>Debugger Stopped </source>
         <translation>调试器已停止 </translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="284"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="293"/>
         <source>    Loading Compilers at:</source>
         <translation>    加载编译器:</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="307"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="316"/>
         <source>        Found Compiler: </source>
         <translation>        已找到编译器: </translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="309"/>
+        <location filename="../../src/gui/editorwidget/editorwindow.cpp" line="318"/>
         <source>Error Loading Compiler at:</source>
         <translation>载入编译器出错:</translation>
     </message>
@@ -2281,7 +2378,7 @@ Can&apos;t find file:
         <translation>显示调试信息</translation>
     </message>
     <message>
-        <location filename="../../src/components/micro/esp01.cpp" line="439"/>
+        <location filename="../../src/components/micro/esp01.cpp" line="441"/>
         <source>Open Serial Monitor.</source>
         <translation>打开串口监视器.</translation>
     </message>
@@ -2294,17 +2391,17 @@ Can&apos;t find file:
 <context>
     <name>FileBrowser</name>
     <message>
-        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="133"/>
+        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="132"/>
         <source>Add Bookmark</source>
         <translation>添加书签</translation>
     </message>
     <message>
-        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="139"/>
+        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="138"/>
         <source>Open in editor</source>
         <translation>在编辑器中打开</translation>
     </message>
     <message>
-        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="145"/>
+        <location filename="../../src/gui/filebrowser/filebrowser.cpp" line="144"/>
         <source>Show Hidden</source>
         <translation>显示隐藏项</translation>
     </message>
@@ -2390,14 +2487,14 @@ Can&apos;t find file:
         <translation>查找与替换</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../src/gui/editorwidget/dialogs/findreplace.cpp" line="47"/>
+        <location filename="../../src/gui/editorwidget/dialogs/findreplace.cpp" line="50"/>
         <source>Found %n occurrence(s)</source>
         <translation>
             <numerusform>找到%n处</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../src/gui/editorwidget/dialogs/findreplace.cpp" line="87"/>
+        <location filename="../../src/gui/editorwidget/dialogs/findreplace.cpp" line="90"/>
         <source>Replaced %n occurrence(s)</source>
         <translation>
             <numerusform>已替换%n处</numerusform>
@@ -2407,22 +2504,22 @@ Can&apos;t find file:
 <context>
     <name>FixedVolt</name>
     <message>
-        <location filename="../../src/components/sources/fixedvolt.cpp" line="60"/>
+        <location filename="../../src/components/sources/fixedvolt.cpp" line="61"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/fixedvolt.cpp" line="61"/>
+        <location filename="../../src/components/sources/fixedvolt.cpp" line="62"/>
         <source>Voltage</source>
         <translation>电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/fixedvolt.cpp" line="26"/>
+        <location filename="../../src/components/sources/fixedvolt.cpp" line="27"/>
         <source>Fixed Voltage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/fixedvolt.cpp" line="64"/>
+        <location filename="../../src/components/sources/fixedvolt.cpp" line="65"/>
         <source>Small size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2806,9 +2903,8 @@ Can&apos;t find file:
         <translation>起始电流</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/inductor.cpp" line="50"/>
         <source>Reactive Step</source>
-        <translation type="unfinished">电抗性步数</translation>
+        <translation type="obsolete">电抗性步数</translation>
     </message>
 </context>
 <context>
@@ -2827,30 +2923,30 @@ Can&apos;t find file:
 <context>
     <name>InoDebugger</name>
     <message>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="121"/>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="127"/>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="131"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="122"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="128"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="132"/>
         <source>Compiler Settings</source>
         <translation>编译器设置</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="128"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="129"/>
         <source>Board</source>
         <translation>板(Board)</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="132"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="133"/>
         <source>Custom Board</source>
         <translation>自定义板</translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="122"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="123"/>
         <source>Custom Library Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="128"/>
-        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="383"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="129"/>
+        <location filename="../../src/gui/editorwidget/debuggers/inodebugger.cpp" line="402"/>
         <source>Custom</source>
         <translation type="unfinished">自定义</translation>
     </message>
@@ -2858,82 +2954,97 @@ Can&apos;t find file:
 <context>
     <name>IoComponent</name>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="42"/>
+        <location filename="../../src/components/iocomponent.cpp" line="46"/>
         <source>Inputs:</source>
         <translation>输入:</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="44"/>
+        <location filename="../../src/components/iocomponent.cpp" line="48"/>
         <source>Low to High Threshold</source>
         <translation>低电平到高电平阈值</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="47"/>
+        <location filename="../../src/components/iocomponent.cpp" line="51"/>
         <source>High to Low Threshold</source>
         <translation>高电平到低电平阈值</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="50"/>
+        <location filename="../../src/components/iocomponent.cpp" line="54"/>
         <source>Input Impedance</source>
         <translation>输入阻抗</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="60"/>
+        <location filename="../../src/components/iocomponent.cpp" line="57"/>
+        <source>Input pullups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="67"/>
         <source>Outputs:</source>
         <translation>输出:</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="62"/>
+        <location filename="../../src/components/iocomponent.cpp" line="69"/>
         <source>Output High Voltage</source>
         <translation>输出高电平电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="65"/>
+        <location filename="../../src/components/iocomponent.cpp" line="72"/>
         <source>Output Low Voltage</source>
         <translation>输出低电平电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="68"/>
+        <location filename="../../src/components/iocomponent.cpp" line="75"/>
         <source>Output Impedance</source>
         <translation>输出阻抗</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="93"/>
-        <source>Rise Time</source>
-        <translation>上升时间</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/iocomponent.cpp" line="96"/>
-        <source>Fall Time</source>
-        <translation>下降时间</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/iocomponent.cpp" line="77"/>
-        <source>Invert Outputs</source>
-        <translation>对输出取反</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/iocomponent.cpp" line="80"/>
-        <source>Open Drain</source>
-        <translation>漏极开路</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/iocomponent.cpp" line="35"/>
-        <source>Logic Family</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/iocomponent.cpp" line="38"/>
-        <source>Supply Voltage</source>
+        <location filename="../../src/components/iocomponent.cpp" line="78"/>
+        <source>Output Z Impedance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/components/iocomponent.cpp" line="87"/>
+        <source>Ouput pullups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="106"/>
+        <source>Rise Time</source>
+        <translation>上升时间</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="109"/>
+        <source>Fall Time</source>
+        <translation>下降时间</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="90"/>
+        <source>Invert Outputs</source>
+        <translation>对输出取反</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="93"/>
+        <source>Open Drain</source>
+        <translation>漏极开路</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="40"/>
+        <source>Logic Family</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="43"/>
+        <source>Supply Voltage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/iocomponent.cpp" line="100"/>
         <source>Delay Multiplier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="90"/>
+        <location filename="../../src/components/iocomponent.cpp" line="103"/>
         <source>Family Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2941,9 +3052,13 @@ Can&apos;t find file:
 <context>
     <name>KY023</name>
     <message>
-        <location filename="../../src/components/micro/ky023.cpp" line="34"/>
         <source>KY-023</source>
-        <translation>KY-023</translation>
+        <translation type="vanished">KY-023</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/micro/ky023.cpp" line="34"/>
+        <source>Joystick Dual Axis</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3092,12 +3207,12 @@ Can&apos;t find file:
     </message>
     <message>
         <location filename="../../src/gui/dataplotwidget/lawidget.ui" line="194"/>
-        <location filename="../../src/gui/dataplotwidget/lawidget.cpp" line="163"/>
+        <location filename="../../src/gui/dataplotwidget/lawidget.cpp" line="166"/>
         <source>Export Data</source>
         <translation>导出数据</translation>
     </message>
     <message>
-        <location filename="../../src/gui/dataplotwidget/lawidget.cpp" line="164"/>
+        <location filename="../../src/gui/dataplotwidget/lawidget.cpp" line="167"/>
         <source>VCD files (*.vcd);;All files (*.*)</source>
         <translation>VCD文件 (*.vcd);;全部文件 (*.*)</translation>
     </message>
@@ -3272,42 +3387,42 @@ Can&apos;t find file:
         <translation>Led灯组</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="46"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="49"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="50"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="53"/>
         <source>Size</source>
         <translation>数量</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="47"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="50"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="53"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="56"/>
         <source>Grounded</source>
         <translation>接地</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="57"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="60"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="58"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="61"/>
         <source>Forward Voltage</source>
         <translation>正向电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="61"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="64"/>
         <source>Max Current</source>
         <translation>最大电流</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="64"/>
+        <location filename="../../src/components/outputs/leds/ledbar.cpp" line="67"/>
         <source>Resistance</source>
         <translation>电阻</translation>
     </message>
@@ -3393,47 +3508,47 @@ Can&apos;t find file:
         <translation>LED矩阵</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="50"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="51"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="54"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="55"/>
         <source>Rows</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="57"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="58"/>
         <source>Columns</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="51"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="52"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="60"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="61"/>
         <source>Vertical Pins</source>
         <translation>垂直布置引脚</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="64"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="65"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="65"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="66"/>
         <source>Forward Voltage</source>
         <translation>正向电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="68"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="69"/>
         <source>Max Current</source>
         <translation>最大电流</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="71"/>
+        <location filename="../../src/components/outputs/leds/ledmatrix.cpp" line="72"/>
         <source>Resistance</source>
         <translation>电阻</translation>
     </message>
@@ -3615,9 +3730,9 @@ Can&apos;t find file:
 <context>
     <name>MCUMonitor</name>
     <message>
-        <location filename="../../src/gui/memory/mcumonitor.cpp" line="45"/>
-        <location filename="../../src/gui/memory/mcumonitor.cpp" line="47"/>
-        <location filename="../../src/gui/memory/mcumonitor.cpp" line="57"/>
+        <location filename="../../src/gui/memory/mcumonitor.cpp" line="49"/>
+        <location filename="../../src/gui/memory/mcumonitor.cpp" line="51"/>
+        <location filename="../../src/gui/memory/mcumonitor.cpp" line="61"/>
         <source>Watch</source>
         <translation>监视</translation>
     </message>
@@ -3653,59 +3768,59 @@ Can&apos;t find file:
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="95"/>
+        <location filename="../../src/mainwindow.cpp" line="97"/>
         <source>Looks like SimulIDE crashed...</source>
         <translation>SimulIDE好像崩溃了...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="96"/>
+        <location filename="../../src/mainwindow.cpp" line="98"/>
         <source>There is an auto-saved copy of the Circuit
 </source>
         <translation>有一份自动保存的电路
 </translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="97"/>
+        <location filename="../../src/mainwindow.cpp" line="99"/>
         <source>You must save it with any other name if you want to keep it</source>
         <translation>如果您要保留它，必须用其他的名字保存</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="98"/>
+        <location filename="../../src/mainwindow.cpp" line="100"/>
         <source>This file will be auto-deleted!!</source>
         <translation>这个文件会被自动删除!!</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="99"/>
+        <location filename="../../src/mainwindow.cpp" line="101"/>
         <source>Do you want to open the auto-saved copy of the Circuit?</source>
         <translation>您要打开自动保存的电路副本吗?</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="249"/>
+        <location filename="../../src/mainwindow.cpp" line="255"/>
         <source>Search Components</source>
         <translation>搜索组件</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="271"/>
+        <location filename="../../src/mainwindow.cpp" line="277"/>
         <source>Components</source>
         <translation>组件</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="272"/>
+        <location filename="../../src/mainwindow.cpp" line="278"/>
         <source>File explorer</source>
         <translation>文件浏览器</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="303"/>
+        <location filename="../../src/mainwindow.cpp" line="309"/>
         <source>No help available</source>
         <translation>无可用帮助</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="338"/>
+        <location filename="../../src/mainwindow.cpp" line="344"/>
         <source>Select User data directory</source>
         <translation>选择用户数据文件夹</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="257"/>
+        <location filename="../../src/mainwindow.cpp" line="263"/>
         <source>Clear search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3713,22 +3828,22 @@ Can&apos;t find file:
 <context>
     <name>Max72xx_matrix</name>
     <message>
-        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="72"/>
+        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="75"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="75"/>
+        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="78"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="73"/>
+        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="76"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="25"/>
+        <location filename="../../src/components/outputs/leds/max72xx_matrix.cpp" line="26"/>
         <source>Max72xx matrix</source>
         <translation>Max72xx矩阵</translation>
     </message>
@@ -3736,135 +3851,139 @@ Can&apos;t find file:
 <context>
     <name>Mcu</name>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="94"/>
+        <location filename="../../src/microsim/mcu.cpp" line="95"/>
+        <location filename="../../src/microsim/mcu.cpp" line="213"/>
+        <location filename="../../src/microsim/mcu.cpp" line="218"/>
+        <location filename="../../src/microsim/mcu.cpp" line="220"/>
+        <location filename="../../src/microsim/mcu.cpp" line="226"/>
+        <location filename="../../src/microsim/mcu.cpp" line="229"/>
+        <location filename="../../src/microsim/mcu.cpp" line="232"/>
         <location filename="../../src/microsim/mcu.cpp" line="236"/>
-        <location filename="../../src/microsim/mcu.cpp" line="241"/>
-        <location filename="../../src/microsim/mcu.cpp" line="243"/>
-        <location filename="../../src/microsim/mcu.cpp" line="249"/>
-        <location filename="../../src/microsim/mcu.cpp" line="252"/>
-        <location filename="../../src/microsim/mcu.cpp" line="255"/>
-        <location filename="../../src/microsim/mcu.cpp" line="259"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="241"/>
+        <location filename="../../src/microsim/mcu.cpp" line="218"/>
         <source>Frequency</source>
         <translation>频率</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="252"/>
+        <location filename="../../src/microsim/mcu.cpp" line="226"/>
+        <source>PGM persistent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/microsim/mcu.cpp" line="229"/>
         <source>Firmware</source>
         <translation>固件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="255"/>
+        <location filename="../../src/microsim/mcu.cpp" line="232"/>
         <source>Reload hex at Simulation Start</source>
         <translation>在模拟开始时重新载入hex文件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="264"/>
+        <location filename="../../src/microsim/mcu.cpp" line="236"/>
+        <source>EEPROM persistent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/microsim/mcu.cpp" line="241"/>
         <source>Config</source>
         <translation>配置</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="268"/>
+        <location filename="../../src/microsim/mcu.cpp" line="245"/>
         <source>Enable Reset Pin</source>
         <translation>启用Reset引脚</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="272"/>
+        <location filename="../../src/microsim/mcu.cpp" line="249"/>
         <source>External Oscillator</source>
         <translation>外部晶振</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="276"/>
+        <location filename="../../src/microsim/mcu.cpp" line="253"/>
         <source>Enable WatchDog</source>
         <translation>启用WatchDog</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="492"/>
+        <location filename="../../src/microsim/mcu.cpp" line="469"/>
         <source>Load Firmware</source>
         <translation>载入固件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="503"/>
+        <location filename="../../src/microsim/mcu.cpp" line="480"/>
         <source>No File to reload </source>
         <translation>无文件载入 </translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="546"/>
+        <location filename="../../src/microsim/mcu.cpp" line="523"/>
         <source>Main Mcu</source>
         <translation>主MCU</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="557"/>
+        <location filename="../../src/microsim/mcu.cpp" line="534"/>
         <source>Load firmware</source>
         <translation>载入固件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="560"/>
+        <location filename="../../src/microsim/mcu.cpp" line="537"/>
         <source>Reload firmware</source>
         <translation>重新载入固件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="568"/>
+        <location filename="../../src/microsim/mcu.cpp" line="545"/>
         <source>Load EEPROM data from file</source>
         <translation>从文件载入EEPROM数据</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="571"/>
+        <location filename="../../src/microsim/mcu.cpp" line="548"/>
         <source>Save EEPROM data to file</source>
         <translation>保存EEPROM数据到文件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="576"/>
+        <location filename="../../src/microsim/mcu.cpp" line="553"/>
         <source>Open Mcu Monitor.</source>
         <translation>打开MCU监视器.</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="581"/>
+        <location filename="../../src/microsim/mcu.cpp" line="558"/>
         <source>Open Serial Monitor.</source>
         <translation>打开串口监视器.</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="259"/>
         <source>EEPROM persitent</source>
-        <translation>持久EEPROM内容</translation>
+        <translation type="vanished">持久EEPROM内容</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="265"/>
+        <location filename="../../src/microsim/mcu.cpp" line="242"/>
         <source>Changes applied after Simulation Restart</source>
         <translation>重新启动模拟后修改生效</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="280"/>
+        <location filename="../../src/microsim/mcu.cpp" line="257"/>
         <source>Clock Out</source>
         <translation>输出CLKOUT信号</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="493"/>
+        <location filename="../../src/microsim/mcu.cpp" line="470"/>
         <source>All files (*.*);;Hex Files (*.hex)</source>
         <translation>全部文件 (*.*);;Hex文件 (*.hex)</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="551"/>
+        <location filename="../../src/microsim/mcu.cpp" line="528"/>
         <source>Link to Component</source>
         <translation>连接到组件</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="236"/>
+        <location filename="../../src/microsim/mcu.cpp" line="213"/>
         <source>Package</source>
         <translation type="unfinished">包(Package)</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="243"/>
+        <location filename="../../src/microsim/mcu.cpp" line="220"/>
         <source>Force this frequency</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/microsim/mcu.cpp" line="249"/>
-        <source>PGM persitent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4120,7 +4239,7 @@ Can&apos;t find file:
         <translation>或门</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="38"/>
+        <location filename="../../src/components/logic/gate_or.cpp" line="35"/>
         <source>Input Size</source>
         <translation>输入端数量</translation>
     </message>
@@ -4130,7 +4249,7 @@ Can&apos;t find file:
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="35"/>
+        <location filename="../../src/components/logic/gate_or.cpp" line="38"/>
         <source>Invert Inputs</source>
         <translation>对输入取反</translation>
     </message>
@@ -4200,9 +4319,14 @@ Can&apos;t find file:
     <name>PathVal</name>
     <message>
         <location filename="../../src/gui/properties/pathval.ui" line="70"/>
-        <location filename="../../src/gui/properties/pathval.cpp" line="43"/>
+        <location filename="../../src/gui/properties/pathval.cpp" line="45"/>
         <source>Select directory</source>
         <translation>选择目录</translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/properties/pathval.cpp" line="44"/>
+        <source>Select file</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4284,28 +4408,33 @@ Can&apos;t find file:
 <context>
     <name>Probe</name>
     <message>
-        <location filename="../../src/components/meters/probe.cpp" line="29"/>
+        <location filename="../../src/components/meters/probe.cpp" line="31"/>
         <source>Probe</source>
         <translation>探针</translation>
     </message>
     <message>
-        <location filename="../../src/components/meters/probe.cpp" line="63"/>
+        <location filename="../../src/components/meters/probe.cpp" line="66"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/meters/probe.cpp" line="64"/>
+        <location filename="../../src/components/meters/probe.cpp" line="67"/>
         <source>Show Voltage</source>
         <translation>显示电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/meters/probe.cpp" line="67"/>
+        <location filename="../../src/components/meters/probe.cpp" line="70"/>
         <source>Threshold</source>
         <translation>阈值</translation>
     </message>
     <message>
-        <location filename="../../src/components/meters/probe.cpp" line="70"/>
+        <location filename="../../src/components/meters/probe.cpp" line="73"/>
         <source>Small size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/meters/probe.cpp" line="174"/>
+        <source>Pause at state change</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4368,112 +4497,112 @@ Can&apos;t find file:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="150"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="151"/>
         <source>Sources</source>
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="248"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="249"/>
         <source>Logic</source>
         <translation>逻辑电路</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="233"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="234"/>
         <source>Sensors</source>
         <translation>传感器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="239"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="240"/>
         <source>Peripherals</source>
         <translation>外设</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="142"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="143"/>
         <source>Meters</source>
         <translation>仪表</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="290"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="292"/>
         <source>Graphical</source>
         <translation>图形元素</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="201"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="202"/>
         <source>Outputs</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="210"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="211"/>
         <source>Displays</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="202"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="203"/>
         <source>Leds</source>
         <translation>LED元件</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="217"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="218"/>
         <source>Motors</source>
         <translation>电机</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="179"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="180"/>
         <source>Reactive</source>
         <translation>电抗性</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="174"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="175"/>
         <source>Resistive Sensors</source>
         <translation>电阻传感器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="169"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="170"/>
         <source>Resistors</source>
         <translation>电阻</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="168"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="169"/>
         <source>Passive</source>
         <translation>无源器件</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="225"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="226"/>
         <source>Micro</source>
         <translation>Micro</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="231"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="232"/>
         <source>Arduino</source>
         <translation>Arduino</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="232"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="233"/>
         <source>Shields</source>
         <translation>Shields</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="249"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="250"/>
         <source>Gates</source>
         <translation>门电路</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="254"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="255"/>
         <source>Arithmetic</source>
         <translation>运算器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="260"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="262"/>
         <source>Memory</source>
         <translation>存储器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="269"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="271"/>
         <source>Converters</source>
         <translation>转换器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="276"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="278"/>
         <source>Other Logic</source>
         <translation>其他逻辑电路</translation>
     </message>
@@ -4483,42 +4612,42 @@ Can&apos;t find file:
         <translation>警告: ELF文件不存在:</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="186"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="187"/>
         <source>Rectifiers</source>
         <translation>整流器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="185"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="186"/>
         <source>Active</source>
         <translation>有源器件</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="161"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="162"/>
         <source>Switches</source>
         <translation>开关</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="284"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="286"/>
         <source>Connectors</source>
         <translation>连接器</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="297"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="299"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="192"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="193"/>
         <source>Transistors</source>
         <translation>晶体管</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="195"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="196"/>
         <source>Other Active</source>
         <translation>其他有源器件</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="221"/>
+        <location filename="../../src/gui/componentlist/itemlibrary.cpp" line="222"/>
         <source>Other Outputs</source>
         <translation>其他输出</translation>
     </message>
@@ -4744,9 +4873,8 @@ Can&apos;t find file:
         <translation>电阻</translation>
     </message>
     <message>
-        <location filename="../../src/components/switches/relay.cpp" line="88"/>
         <source>Reactive Step</source>
-        <translation type="unfinished">电抗性步数</translation>
+        <translation type="obsolete">电抗性步数</translation>
     </message>
 </context>
 <context>
@@ -5051,47 +5179,47 @@ Can&apos;t find file:
         <translation>7段数码管</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="72"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="74"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="76"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="78"/>
         <source>Size</source>
         <translation>数量</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="73"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="75"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="79"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="81"/>
         <source>Vertical Pins</source>
         <translation>垂直排列引脚</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="83"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="85"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="84"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="86"/>
         <source>Common Cathode</source>
         <translation>共阴极</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="87"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="89"/>
         <source>Forward Voltage</source>
         <translation>正向电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="90"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="92"/>
         <source>Max Current</source>
         <translation>最大电流</translation>
     </message>
     <message>
-        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="93"/>
+        <location filename="../../src/components/outputs/leds/sevensegment.cpp" line="95"/>
         <source>Resistance</source>
         <translation>电阻</translation>
     </message>
@@ -5232,12 +5360,12 @@ Can&apos;t find file:
 <context>
     <name>Simulator</name>
     <message>
-        <location filename="../../src/simulator/simulator.cpp" line="96"/>
+        <location filename="../../src/simulator/simulator.cpp" line="121"/>
         <source>Running</source>
         <translation>正在运行</translation>
     </message>
     <message>
-        <location filename="../../src/simulator/simulator.cpp" line="51"/>
+        <location filename="../../src/simulator/simulator.cpp" line="52"/>
         <source>Stopped</source>
         <translation>已停止</translation>
     </message>
@@ -5369,22 +5497,22 @@ Can&apos;t find file:
         <translation>刻度盘精度</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="57"/>
+        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="58"/>
         <source>Parameters</source>
         <translation>参数</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="58"/>
+        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="59"/>
         <source>Ref. Temperature</source>
         <translation>参考温度</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="61"/>
+        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="62"/>
         <source>Temperature</source>
         <translation>温度</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="64"/>
+        <location filename="../../src/components/passive/resist_sensors/strain.cpp" line="65"/>
         <source>Dial</source>
         <translation>刻度盘</translation>
     </message>
@@ -5392,18 +5520,18 @@ Can&apos;t find file:
 <context>
     <name>SubCircuit</name>
     <message>
-        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="157"/>
+        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="151"/>
         <source>Subcircuit</source>
         <translation>子电路</translation>
     </message>
     <message>
-        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="137"/>
-        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="170"/>
+        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="124"/>
+        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="164"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="138"/>
+        <location filename="../../src/components/subcircuits/subcircuit.cpp" line="125"/>
         <source>Package</source>
         <translation type="unfinished">包(Package)</translation>
     </message>
@@ -5411,111 +5539,130 @@ Can&apos;t find file:
 <context>
     <name>SubPackage</name>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="45"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="46"/>
         <source>Package</source>
         <translation>包(Package)</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="72"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="69"/>
         <source>Board Mode</source>
         <translation>板型号</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="85"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="82"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="86"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
         <source>Type</source>
         <translation>类型</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="89"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="86"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="92"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="89"/>
         <source>Height</source>
         <translation>高度</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="95"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="92"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="98"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="95"/>
         <source>Package File</source>
         <translation>包文件</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="104"/>
         <source>Background</source>
-        <translation>背景</translation>
+        <translation type="vanished">背景</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="101"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="98"/>
         <source>Logic Symbol</source>
         <translation>逻辑符号</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="254"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="101"/>
+        <source>Custom Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/subpackage.cpp" line="104"/>
+        <source>Background Color</source>
+        <translation type="unfinished">背景色</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/subpackage.cpp" line="107"/>
+        <source>Background image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/subpackage.cpp" line="110"/>
+        <source>Border</source>
+        <translation type="unfinished">边框</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/subpackage.cpp" line="260"/>
         <source>Load Package</source>
         <translation>载入包</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="257"/>
-        <location filename="../../src/components/other/subpackage.cpp" line="575"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="263"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="567"/>
         <source>Save Package</source>
         <translation>保存包</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="576"/>
-        <location filename="../../src/components/other/subpackage.cpp" line="595"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="568"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="587"/>
         <source>Packages (*.package);;All files (*.*)</source>
         <translation>包文件 (*.package);;全部文件 (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="594"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="586"/>
         <source>Load Package File</source>
         <translation>载入包文件</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="616"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="608"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>无法写入文件%1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="267"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="273"/>
         <source>Select Exposed Components</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="80"/>
         <source>None</source>
         <translation type="unfinished">无</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="80"/>
         <source>Logic</source>
         <translation type="unfinished">逻辑电路</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="80"/>
         <source>Board</source>
         <translation type="unfinished">板(Board)</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="80"/>
         <source>Shield</source>
         <translation type="unfinished">Shield</translation>
     </message>
     <message>
-        <location filename="../../src/components/other/subpackage.cpp" line="83"/>
+        <location filename="../../src/components/other/subpackage.cpp" line="80"/>
         <source>Module</source>
         <translation type="unfinished">模块(Module)</translation>
     </message>
@@ -5611,6 +5758,11 @@ Can&apos;t find file:
     <message>
         <location filename="../../src/components/other/testunit.cpp" line="63"/>
         <source>Period</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/testunit.cpp" line="228"/>
+        <source>Show Table</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5771,32 +5923,32 @@ Can&apos;t find file:
 <context>
     <name>Transformer</name>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="27"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="28"/>
         <source>Transformer</source>
         <translation>变压器</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="50"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="51"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="51"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="52"/>
         <source>Coupling Coefficient</source>
         <translation>耦合系数</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="54"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="55"/>
         <source>Base Inductance</source>
         <translation>基础电感</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="57"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="58"/>
         <source>Primary</source>
         <translation>初级</translation>
     </message>
     <message>
-        <location filename="../../src/components/passive/reactive/transformer.cpp" line="60"/>
+        <location filename="../../src/components/passive/reactive/transformer.cpp" line="61"/>
         <source>Secondary</source>
         <translation>次级</translation>
     </message>
@@ -5844,6 +5996,11 @@ Can&apos;t find file:
     <message>
         <location filename="../../src/components/other/truthtable/truthtable.ui" line="95"/>
         <source>Save as correct</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/other/truthtable/truthtable.ui" line="102"/>
+        <source>Clear test</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6056,113 +6213,117 @@ Can&apos;t find file:
 <context>
     <name>WaveGen</name>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="66"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
         <source>Sine</source>
         <translation>正弦波</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="66"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
         <source>Saw</source>
         <translation>锯齿波</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="66"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
         <source>Triangle</source>
         <translation>三角波</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="66"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
         <source>Square</source>
         <translation>方型波</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="66"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
         <source>Random</source>
         <translation>随机型</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="63"/>
-        <location filename="../../src/components/sources/wavegen.cpp" line="68"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="65"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="70"/>
         <source>Main</source>
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="69"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="71"/>
         <source>Wave Type</source>
         <translation>波型</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="72"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="74"/>
         <source>Frequency</source>
         <translation>频率</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="78"/>
         <source>Quality</source>
-        <translation>质量</translation>
+        <translation type="vanished">质量</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="81"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="83"/>
         <source>Duty</source>
         <translation>占空比</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="87"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="89"/>
         <source>Always On</source>
         <translation>始终打开</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="91"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="93"/>
         <source>Electric</source>
         <translation>电气特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="98"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="100"/>
         <source>Semi Amplitude</source>
         <translation>半振幅</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="101"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="103"/>
         <source>Middle Voltage</source>
         <translation>中间电压</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="84"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="86"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="92"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="80"/>
+        <source>Minimum Steps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/sources/wavegen.cpp" line="94"/>
         <source>Bipolar</source>
         <translation>双极性</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="95"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="97"/>
         <source>Floating</source>
         <translation>Floating</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="339"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="376"/>
         <source>Load Wav File</source>
         <translation>载入波形文件</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="354"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="391"/>
         <source>Load Image</source>
         <translation>载入图片</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="355"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="392"/>
         <source>Wav files (*.wav);;All files (*.*)</source>
         <translation>波形files (*.wav);;全部文件 (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="75"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="77"/>
         <source>Phase shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/sources/wavegen.cpp" line="35"/>
+        <location filename="../../src/components/sources/wavegen.cpp" line="36"/>
         <source>Wave Generator</source>
         <translation type="unfinished"></translation>
     </message>
