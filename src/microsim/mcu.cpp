@@ -97,6 +97,12 @@ Mcu::Mcu( QString type, QString id, QString device )
     m_device = m_name;
     if( m_device.contains("@") ) m_device = m_device.split("@").last(); // MCU in Subcircuit
 
+    if( m_device.startsWith("p") ) // PICs TODELETE
+    {
+        if( m_device.endsWith("a") ) m_device.remove( m_device.size()-1, 1 );
+        m_device.replace("f", "F");
+    }
+
     setName( m_device );
 
      // Search in Circuit folder
