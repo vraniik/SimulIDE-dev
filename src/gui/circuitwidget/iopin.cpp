@@ -151,11 +151,11 @@ void IoPin::setPinMode( pinMode_t mode )
             m_gndAdmit = 1/m_inputImp;
             break;
         case output:
-            m_admit = 1/m_outputImp;
+            m_vddAdmit = m_admit = 1/m_outputImp;
             ePin::stampAdmitance( m_admit );
             break;
         case openCo:
-            m_vddAdmit = 0; //cero_doub;
+            m_vddAdmit = 0;
             break;
         case source:
             m_vddAdmit = 1/cero_doub;
