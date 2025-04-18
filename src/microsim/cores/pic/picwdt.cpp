@@ -19,6 +19,8 @@ void PicWdt::setup()
 {
     m_clkPeriod = 18*1e9; // 18 ms
 
+    m_sleepMode = 0xFF;
+
     m_PS  = getRegBits("PS0, PS1, PS2", m_mcu );
     m_PSA = getRegBits("PSA", m_mcu );
 }
@@ -48,7 +50,7 @@ void PicWdt::configureA( uint8_t newOPTION ) // OPTION Written
     if( getRegBitsVal( newOPTION, m_PSA ) )
          m_prescaler = getRegBitsVal( newOPTION, m_PS );  // Prescaler asigned to Watchdog
     else m_prescaler = 0;                                 // Prescaler asigned to TIMER0
-    m_ovfPeriod = m_clkPeriod/m_prescList[ m_prescaler ];
+    m_ovfPeriod = m_clkPeriod*m_prescList[ m_prescaler ];
 }
 
 void PicWdt::reset()
