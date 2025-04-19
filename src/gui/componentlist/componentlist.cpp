@@ -87,6 +87,8 @@ void ComponentList::loadTest( QString userDir )
     QDir compSetDir( userDir );
     if( !compSetDir.cd("test") ) return;
 
+    m_compSetDir = userDir;
+
     QStringList dirList = compSetDir.entryList( {"*"}, QDir::Dirs );
     if( dirList.isEmpty() ) return;
 
