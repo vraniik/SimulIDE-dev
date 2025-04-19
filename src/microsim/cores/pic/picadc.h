@@ -52,9 +52,23 @@ class PicAdc00 : public PicAdc
         ~PicAdc00();
 
         virtual void setup() override;
-        //virtual void initialize() override;
 
-        //virtual void configureA( uint8_t newADCSRA ) override;
+        virtual void configureB( uint8_t newADCSRB ) override;
+
+    protected:
+        virtual void updtVref() override;
+
+        regBits_t m_PCFG;
+};
+
+class PicAdc01 : public PicAdc
+{
+    public:
+        PicAdc01( eMcu* mcu, QString name );
+        ~PicAdc01();
+
+        virtual void setup() override;
+
         virtual void configureB( uint8_t newADCSRB ) override;
 
     protected:
