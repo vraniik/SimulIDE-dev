@@ -37,7 +37,7 @@ MainWindow::MainWindow()
     m_circuitW = nullptr;
     m_autoBck = 15;
     m_state = "■";
-    m_revision = 2300; /// FIXME
+    m_revision = QString( REVNO ).remove("R").toInt();
     m_version = "SimulIDE_"+QString( APP_VERSION )+"-"+QString( REVNO );
 
     this->setWindowTitle( m_version );
@@ -53,7 +53,10 @@ MainWindow::MainWindow()
     m_settings     = new QSettings( getConfigPath("simulide.ini"), QSettings::IniFormat, this );
     m_compSettings = new QSettings( getConfigPath("compList.ini"), QSettings::IniFormat, this );
 
-    m_userDir = m_settings->value("userPath").toString();
+    if( m_settings->contains( "120userPath" ) )
+        m_userDir = m_settings->value("120userPath").toString();
+    else m_userDir = m_settings->value("userPath").toString();
+
     if( m_userDir.isEmpty() || !QDir( m_userDir ).exists() )
         m_userDir = QDir::homePath();
 
@@ -349,7 +352,7 @@ void MainWindow::getUserPath()
 void MainWindow::setUserPath( QString path )
 {
     if( !QFileInfo::exists( path ) ) return;
-    m_settings->setValue("userPath", path);
+    m_settings->setValue("120userPath", path);
     m_userDir = path;
 }
 
