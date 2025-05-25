@@ -120,45 +120,64 @@ Mcu::Mcu( QString type, QString id, QString device )
         baseFile = "";
         QString xmlFile = ComponentList::self()->getDataFile( m_device );
 
-        QDomDocument domDoc = fileToDomDoc( xmlFile, "Mcu::Mcu" );
-        if( domDoc.isNull() ) { m_error = 1; return; }
-
-        QDomElement root  = domDoc.documentElement();
-        QDomNode    rNode = root.firstChild();
-
-        bool found = false;
-        while( !rNode.isNull() )
+        if( QFile::exists( xmlFile ) )
         {
-            QDomElement itemSet = rNode.toElement();
-            QDomNode    node    = itemSet.firstChild();
+            QDomDocument domDoc = fileToDomDoc( xmlFile, "Mcu::Mcu" );
+            if( domDoc.isNull() ) { m_error = 1; return; }
 
-            QString folder = "";
-            if( itemSet.hasAttribute("folder") ) folder = itemSet.attribute("folder")+"/";
+            QDomElement root  = domDoc.documentElement();
+            QDomNode    rNode = root.firstChild();
 
-            while( !node.isNull() )
+            bool found = false;
+            while( !rNode.isNull() )
             {
-                QDomElement element = node.toElement();
-                if( element.attribute("name") == m_device )
+                QDomElement itemSet = rNode.toElement();
+                QDomNode    node    = itemSet.firstChild();
+
+                QString folder = "";
+                if( itemSet.hasAttribute("folder") ) folder = itemSet.attribute("folder")+"/";
+
+                while( !node.isNull() )
                 {
-                    QFileInfo fi( xmlFile );
+                    QDomElement element = node.toElement();
+                    if( element.attribute("name") == m_device )
+                    {
+                        QFileInfo fi( xmlFile );
 
-                    QString pkg = m_device+"/"+m_device;
-                    QString dat = pkg;
+                        QString pkg = m_device+"/"+m_device;
+                        QString dat = pkg;
 
-                    if( element.hasAttribute("package") ) pkg = element.attribute("package");
-                    if( element.hasAttribute("data")    ) dat = element.attribute("data");
+                        if( element.hasAttribute("package") ) pkg = element.attribute("package");
+                        if( element.hasAttribute("data")    ) dat = element.attribute("data");
 
-                    baseFile = fi.absolutePath()+"/"+ folder + pkg;
-                    mcuFile  = fi.absolutePath()+"/"+ folder + dat+".mcu";
+                        baseFile = fi.absolutePath()+"/"+ folder + pkg;
+                        mcuFile  = fi.absolutePath()+"/"+ folder + dat+".mcu";
 
-                    found = true;
+                        found = true;
+                    }
+                    if( found ) break;
+                    node = node.nextSibling();
                 }
                 if( found ) break;
-                node = node.nextSibling();
+                rNode = rNode.nextSibling();
             }
-            if( found ) break;
-            rNode = rNode.nextSibling();
         }
+    }
+    if( !QFile::exists( mcuFile ) ){
+        QDir mcuDir;
+        QString folder = ComponentList::self()->getFileDir( m_device );
+
+        if( !folder.isEmpty() ) // Found in folder (no xml file)
+        {
+            mcuDir = QDir( folder );
+        }
+        else              // Try to find a "data" folder in Circuit folder
+        {
+            mcuDir = QFileInfo( Circuit::self()->getFilePath() ).absoluteDir();
+            folder = "data/"+m_device;
+        }
+        mcuFile = mcuDir.absoluteFilePath( folder+"/"+m_device+".mcu" );
+        baseFile = mcuDir.absoluteFilePath( folder+"/"+m_device );
     }
 
     if( !baseFile.isEmpty() )
