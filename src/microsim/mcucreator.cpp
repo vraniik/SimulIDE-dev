@@ -754,8 +754,12 @@ void McuCreator::createTimer( QDomElement* t )
         QString enable = t->attribute("enable");
         watchBitNames( enable, R_WRITE, timer, &McuTimer::enable, mcu );
     }
+
     if( t->hasAttribute("clockpin") )
-        timer->m_clockPin = mcu->getMcuPin( t->attribute("clockpin") );
+    {
+        QStringList pinList = t->attribute("clockpin").split(",");
+        timer->setClockPins( pinList );
+    }
 
     QString topReg0 = "";
     if( t->hasAttribute("topreg0") ) /// Still done in AvrTimer16bit

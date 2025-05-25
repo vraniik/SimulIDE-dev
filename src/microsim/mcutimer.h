@@ -47,6 +47,7 @@ class McuTimer : public McuPrescaled, public eElement
 
         virtual void topReg0Changed( uint8_t val ){;}
 
+        void setClockPins( QStringList pinList );
         void enableExtClock( bool en );
         bool extClocked() { return m_extClock; }
 
@@ -97,7 +98,8 @@ class McuTimer : public McuPrescaled, public eElement
         //clkSource_t m_clkSrc;  // Source of Timer clock
         uint8_t m_clkEdge;     // Clock edge in ext pin clock
         bool    m_clkState;    // Lask Clock state
-        McuPin* m_clockPin;    // External Clock pin
+        McuPin* m_clockPin;    // External Clock pin Input
+        McuPin* m_outputClk;   // External Clock pin Output
 
         McuIcUnit* m_ICunit;              // Input Capture unit;
         std::vector<McuOcUnit*> m_ocUnit; // Output Compare Units

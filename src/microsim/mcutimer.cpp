@@ -18,6 +18,7 @@ McuTimer::McuTimer( eMcu* mcu, QString name )
     m_number = name.right(1).toInt();
 
     m_clockPin = nullptr;
+    m_outputClk = nullptr;
     m_countL = nullptr;
     m_countH = nullptr;
     m_ICunit = nullptr;
@@ -227,3 +228,15 @@ void McuTimer::enableExtClock( bool en )
         m_clkState = m_clockPin->getInpState();
     }
 }
+
+void McuTimer::setClockPins( QStringList pinList )
+{
+    if( pinList.size() < 1 ) return;
+    QString inputClk = pinList.at(0);
+    m_clockPin = m_mcu->getMcuPin( inputClk );
+
+    if( pinList.size() < 2 ) return;
+    QString outputClk = pinList.at(1);
+    m_outputClk = m_mcu->getMcuPin( outputClk );
+}
+

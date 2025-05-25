@@ -40,8 +40,9 @@
     <icunit name="IC1"  pin="PORTD6" icreg="ICR1L,ICR1H"   bits="ICES1,ICNC1"   interrupt="T1CAP" />
   </timer>
 
-  <timer name="TIMER2" type="821" configregsA="TCCR2"
-                       counter="TCNT2" 
+  <timer name="TIMER2" type="822" configregsA="TCCR2" configregsB="ASSR"
+                       counter="TCNT2"
+                       clockpin="PORTC6,PORTC7" 
                        interrupt="T2_OVF"
                        prescalers="0,1,8,32,64,128,256,1024" prselect="CS20,CS21,CS22">
     

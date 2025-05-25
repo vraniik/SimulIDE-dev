@@ -19,6 +19,7 @@ McuTimer* AvrTimer::createTimer( eMcu* mcu, QString name, int type ) // Static
     else if( type == 810 ) return new AvrTimer810( mcu, name );
     else if( type == 820 ) return new AvrTimer820( mcu, name );
     else if( type == 821 ) return new AvrTimer821( mcu, name );
+    else if( type == 822 ) return new AvrTimer822( mcu, name );
     else if( type == 160 ) return new AvrTimer16bit( mcu, name );
 
     return nullptr;
@@ -428,7 +429,7 @@ void AvrTimer820::configureB( uint8_t newTCCRXB ) // TCCRXB
 }
 
 //--------------------------------------------------
-// TIMER 2 -----------------------------------------
+// TIMER 0 -----------------------------------------
 
 AvrTimer821::AvrTimer821( eMcu* mcu, QString name)
            : AvrTimer8bit( mcu, name )
@@ -459,6 +460,43 @@ void AvrTimer821::configureA( uint8_t newTCCRx )
     {
         m_OCA->comMatch();
         m_mcu->m_regOverride = newTCCRx & ~m_FOCA.mask;
+    }
+}
+
+//--------------------------------------------------
+// TIMER 2 -----------------------------------------
+
+AvrTimer822::AvrTimer822( eMcu* mcu, QString name) // mega32 Timer2
+           : AvrTimer821( mcu, name )
+{
+    m_AS2 = getRegBits("AS2", mcu );
+}
+AvrTimer822::~AvrTimer822(){}
+
+void AvrTimer822::voltChanged()  // External Clock Pin changed voltage
+{
+    if( m_sleeping ) return;
+    McuTimer::voltChanged();
+    if( m_outputClk ) m_outputClk->setOutState( !m_clkState ); // Opposite state than inputClk
+}
+
+void AvrTimer822::configureB( uint8_t newASSR )
+{
+    bool async = getRegBitsBool( newASSR, m_AS2 );
+    if( m_async == async ) return;
+    m_async = async;
+
+    if( m_clockPin )
+    {
+        m_clockPin->setPinMode( input );
+        m_clockPin->controlPin( async, async );
+        enableExtClock( async );
+    }
+    if( m_outputClk )
+    {
+        m_outputClk->setPinMode( output );
+        m_outputClk->setOutState( !m_clkState ); // Opposite state than inputClk
+        m_outputClk->controlPin( async, async );
     }
 }
 
