@@ -12,6 +12,7 @@
 #pragma once
 
 #include "mcucpu.h"
+#include "mcutypes.h"
 
 class AvrCore : public McuCpu
 {
@@ -23,6 +24,19 @@ class AvrCore : public McuCpu
         virtual void runStep() override;
 
     private:
+        void writeFlash();
+
+        uint16_t m_bootStart;
+
+        int m_pageSize;
+        std::vector<uint8_t>  m_tmpUsed;
+        std::vector<uint16_t> m_tmpPage;
+
+        regBits_t m_SELFPRGEN;
+        regBits_t m_PGERS;
+        regBits_t m_PGWRT;
+
+
         uint16_t m_rampzAddr;
         uint8_t* RAMPZ;   // optional, only for ELPM/SPM on >64Kb cores
         uint8_t* EIND;    // optional, only for EIJMP/EICALL on >64Kb cores

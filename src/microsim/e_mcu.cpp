@@ -40,6 +40,7 @@ eMcu::eMcu( Mcu* comp, QString id )
 
     m_wordSize  = 2;
     m_flashSize = 0;
+    m_pgmPage  = 0;
     m_romSize   = 0;
     m_ramSize   = 0;
 

@@ -69,6 +69,7 @@ class eMcu : public DataSpace, public eIou
         void     setFlashValue( int address, uint16_t value ) { m_progMem[address] = value; }
         uint32_t flashSize(){ return m_flashSize; }
         uint32_t wordSize() { return m_wordSize; }
+        uint8_t  pgmPage() { return m_pgmPage; }
 
         virtual QVector<int>* eeprom() { return &m_eeprom; }
         virtual void setEeprom( QVector<int>* eep );
@@ -127,6 +128,7 @@ class eMcu : public DataSpace, public eIou
         std::vector<uint16_t> m_progMem;  // Program memory
         uint32_t m_flashSize;
         uint8_t  m_wordSize; // Size of Program memory word in bytes
+        uint8_t  m_pgmPage;
 
         //QHash<QString, int> m_regsTable;   // int max 32 bits
 

@@ -13,12 +13,14 @@
 #include "avr_defines.h"
 #include "avrsleep.h"
 #include "simulator.h"
+#include "datautils.h"
 
 AvrCore::AvrCore( eMcu* mcu )
        : McuCpu( mcu )
 {
     if( mcu->regExist("EIND") ) EIND = m_mcu->getReg( "EIND" );
     else EIND = nullptr;
+
     if( mcu->regExist("RAMPZ") )
     {
         RAMPZ = m_mcu->getReg( "RAMPZ" );
@@ -27,6 +29,17 @@ AvrCore::AvrCore( eMcu* mcu )
     else RAMPZ = nullptr;
 
     m_retCycles = 4; // In AVR only used for Jump to ISR
+
+    m_bootStart = 0; // Bootloader start address
+    m_pageSize = mcu->pgmPage();
+    m_tmpUsed.resize( m_pageSize, 0 );
+    m_tmpPage.resize( m_pageSize, 0 );
+
+    // SPMCSR
+    m_SELFPRGEN = getRegBits("SELFPRGEN", mcu );
+    m_PGERS = getRegBits("PGERS", mcu );
+    m_PGWRT = getRegBits("PGWRT", mcu );
+
 }
 AvrCore::~AvrCore() {}
 
@@ -149,6 +162,63 @@ inline int AvrCore::is_instr_32b( uint32_t pc )
             o == 0x940d || // JMP Long Jump
             o == 0x940e || // CALL Long Call to sub
             o == 0x940f;   // CALL Long Call to sub
+}
+
+void AvrCore::writeFlash()
+{
+    if( !m_pageSize ) return;
+    if( !getRegBitsBool( m_SELFPRGEN ) ) return;
+
+    uint16_t z = m_dataMem[R_ZL] | (m_dataMem[R_ZH] << 8);
+    if( RAMPZ ) z |= *RAMPZ << 16;
+
+    //avr_cycle_timer_cancel(avr, avr_progen_clear, p);
+
+    if( getRegBitsBool( m_PGERS ) )
+    {
+        //z &= ~1;
+        z >>= 1;
+        qDebug() <<"FLASH: Erasing page"<< z/m_pageSize << "at address" << z << "words:"<< m_pageSize;
+        for( int i=0; i<m_pageSize; i++ )
+            m_progMem[z++] = 0xff;
+    }
+    else if( getRegBitsBool( m_PGWRT ) )
+    {
+        z &= ~(m_pageSize - 1);
+        z >>= 1;
+        qDebug() << "FLASH: Writing page "<< z/m_pageSize << "at address" << z ;
+
+        for( int i=0; i<m_pageSize; i++)
+        {
+            m_progMem[z++] = m_tmpPage[i];
+            m_tmpPage[i] = 0;
+            m_tmpUsed[i] = 0;
+        }
+    }
+    /*else if( avr_regbit_get(avr, p->blbset) )
+    {
+        qDebug() <<"FLASH: Setting lock bits (ignored)";
+    }*/
+    /*else if( p->flags & AVR_SELFPROG_HAVE_RWW && avr_regbit_get(avr, p->rwwsre))
+    {
+        for( int i=0; i<m_pageSize; i++){
+            m_tmpUsed[i] = 0;
+            m_tmpPage[i] = 0;
+        }
+    }*/
+    else {
+        uint16_t r01 = m_dataMem[0] | (m_dataMem[1] << 8);
+        z >>= 1;
+        uint16_t addr = z % m_pageSize;
+        qDebug() <<"FLASH: Writing temppage at address"<< addr << "value"<< r01;
+
+        if( !m_tmpUsed[addr] )
+        {
+            m_tmpUsed[addr] = 1;
+            m_tmpPage[addr] = r01;
+        }
+    }
+    clearRegBits( m_SELFPRGEN );
 }
 
 void AvrCore::runStep()
@@ -394,7 +464,12 @@ void AvrCore::runStep()
                     m_mcu->wdr();
                 }    break;
                 case 0x95e8: { // SPM -- Store Program Memory -- 1001 0101 1110 1000
-                    qDebug() <<"ERROR: AVR SPM instruction not implemented"; ////avr_ioctl(avr, AVR_IOCTL_FLASH_SPM, 0);
+                    //qDebug() <<"ERROR: AVR SPM instruction not implemented";
+                    if( m_PC >= m_bootStart ) writeFlash();
+                    else{
+                        qDebug() <<"ERROR: AVR SPM instruction from PGM address"<< m_PC;
+                        qDebug() <<"Boot start:" << m_bootStart;
+                    }
                 }    break;
                 case 0x9409:   // IJMP   -- Indirect jump -- 1001 0100 0000 1001
                 case 0x9419:   // EIJMP  -- Indirect jump -- 1001 0100 0001 1001   bit 4 is "Extended"
