@@ -51,6 +51,19 @@ void CompBase::addPropGroup( propGroup pg, bool list )
         for( ComProperty* p : pg.propList ) m_propMap[p->name()] = p;
 }
 
+void CompBase::appendPropGroup( QString group, QList<ComProperty*> props, bool list )
+{
+    propGroup* pg = getPropGroup( group );
+    if( !pg ) return;
+
+    for( int i=0; i<props.size(); ++i )
+    {
+        ComProperty* p = props.at(i);
+        pg->propList.append( p );
+        if( list ) m_propMap[p->name()] = p;
+    }
+}
+
 propGroup* CompBase::getPropGroup( QString name )
 {
     for( int i=0; i<m_propGroups.size(); ++i )

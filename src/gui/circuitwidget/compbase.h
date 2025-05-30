@@ -37,6 +37,7 @@ class CompBase
 
         propGroup* getPropGroup( QString name );
         void addPropGroup( propGroup pg, bool list=true );
+        void appendPropGroup( QString group, QList<ComProperty*> props, bool list=true );
         void remPropGroup( QString name );
         void addProperty( QString group, ComProperty* p, bool list=true );
         void remProperty( QString prop );
