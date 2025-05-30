@@ -48,7 +48,9 @@ DAC::DAC( QString type, QString id )
                          , this, &DAC::maxVolt, &DAC::setMaxVolt )
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"),
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
         new BoolProp<IoComponent>("Invert_Inputs", tr("Invert Inputs"),""

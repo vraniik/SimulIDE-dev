@@ -42,19 +42,24 @@ BcdToDec::BcdToDec( QString type, QString id )
 
     addPropGroup( { tr("Main"), {
         new BoolProp<BcdToDec>("_16_Bits", tr("16 Bits"),""
-                              , this, &BcdToDec::is16Bits, &BcdToDec::set_16bits, propNoCopy )
+                              , this, &BcdToDec::is16Bits, &BcdToDec::set_16bits, propNoCopy ),
     },groupNoCopy} );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()
-        +QList<ComProperty*>({
-        new BoolProp<BcdToDec>("Invert_Inputs", tr("Invert Inputs"),""
-                              , this, &BcdToDec::invertInps, &BcdToDec::setInvertInps, propNoCopy )})
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
 
-        +IoComponent::outputProps()
-        +IoComponent::outputType()
-        +QList<ComProperty*>({
+    addPropGroup( { tr("Inputs")
+        , IoComponent::inputProps()
+        + QList<ComProperty*>({
+            new BoolProp<BcdToDec>("Invert_Inputs", tr("Invert Inputs"),""
+                                  , this, &BcdToDec::invertInps, &BcdToDec::setInvertInps, propNoCopy )})
+    ,0 } );
+
+    addPropGroup( { tr("Outputs")
+    , IoComponent::outputProps()
+        + IoComponent::outputType()
+        + QList<ComProperty*>({
             new BoolProp<BcdToDec>("Tristate", tr("Tristate"),""
-                                , this, &BcdToDec::tristate, &BcdToDec::setTristate ),
+                                  , this, &BcdToDec::tristate, &BcdToDec::setTristate ),
         })
     ,0 } );
 

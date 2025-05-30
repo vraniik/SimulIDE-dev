@@ -93,16 +93,21 @@ BinCounter::BinCounter( QString type, QString id)
                                 , this, &BinCounter::srInv, &BinCounter::setSrInv ),
     },groupNoCopy} );
 
-    addPropGroup( { tr("Electric"),
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
           IoComponent::inputProps()
         + QList<ComProperty*>({
           new BoolProp<BinCounter>("Invert_Inputs", tr("Invert Inputs"),""
-                               , this, &BinCounter::invertInps, &BinCounter::setInvertInps,propNoCopy )
+                                  , this, &BinCounter::invertInps, &BinCounter::setInvertInps,propNoCopy )
           })
-        + IoComponent::outputProps()
+    ,0 } );
+
+    addPropGroup( { tr("Outputs"),
+          IoComponent::outputProps()
         + IoComponent::outputType(),0 } );
 
-    addPropGroup( { tr("Timing")  , IoComponent::edgeProps(),0 } );
+    addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 BinCounter::~BinCounter(){}
 

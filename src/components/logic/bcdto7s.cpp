@@ -73,16 +73,21 @@ BcdTo7S::BcdTo7S( QString type, QString id )
                               , this, &BcdTo7S::resetInv, &BcdTo7S::setResetInv ),
     },0} );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()
-        +QList<ComProperty*>({
-        new BoolProp<BcdTo7S>("Invert_Inputs", tr("Invert Inputs"),""
-                             , this, &BcdTo7S::invertInps, &BcdTo7S::setInvertInps, propNoCopy )})
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
 
-        +IoComponent::outputProps()
-        +IoComponent::outputType()
-        +QList<ComProperty*>({
+    addPropGroup( { tr("Inputs")
+        , IoComponent::inputProps()
+        + QList<ComProperty*>({
+            new BoolProp<BcdTo7S>("Invert_Inputs", tr("Invert Inputs"),""
+                                 , this, &BcdTo7S::invertInps, &BcdTo7S::setInvertInps, propNoCopy )})
+    ,0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
+        + IoComponent::outputType()
+        + QList<ComProperty*>({
             new BoolProp<BcdTo7S>("Tristate", tr("Tristate"),""
-                               , this, &BcdTo7S::tristate, &BcdTo7S::setTristate ),
+                                  , this, &BcdTo7S::tristate, &BcdTo7S::setTristate ),
         })
     ,0 } );
 

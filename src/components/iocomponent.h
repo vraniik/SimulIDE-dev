@@ -19,6 +19,7 @@ class IoComponent : public Component, public LogicFamily
         IoComponent( QString type, QString id );
         ~IoComponent();
 
+        QList<ComProperty*> familyProps();
         QList<ComProperty*> inputProps();
         QList<ComProperty*> outputProps();
         QList<ComProperty*> outputType();

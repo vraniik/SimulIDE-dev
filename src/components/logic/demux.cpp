@@ -59,9 +59,14 @@ Demux::Demux( QString type, QString id )
                           , this , &Demux::addrBits, &Demux::setAddrBits, propNoCopy,"uint" )
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"),
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
-        + IoComponent::outputProps()
+    ,0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
         + IoComponent::outputType()
         + QList<ComProperty*>({
             new BoolProp<Demux>("Tristate", tr("Tristate"),""

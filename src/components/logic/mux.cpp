@@ -62,15 +62,20 @@ Mux::Mux( QString type, QString id )
                         , this, &Mux::addrBits, &Mux::setAddrBits, propNoCopy )
             }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps()
         +QList<ComProperty*>({
             new BoolProp<Mux>("Invert_Inputs", tr("Invert Inputs"),""
                              , this, &Mux::invertInps, &Mux::setInvertInps, propNoCopy )
         })
-        + IoComponent::outputProps()
+    ,0 } );
+
+    addPropGroup( { tr("Outputs"),
+        IoComponent::outputProps()
         +QList<ComProperty*>({
             new BoolProp<Mux>("Tristate", tr("Tristate"),""
-                             , this, &Mux::tristate, &Mux::setTristate ),
+                              , this, &Mux::tristate, &Mux::setTristate ),
         })
     ,0 } );
 

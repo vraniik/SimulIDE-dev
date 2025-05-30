@@ -83,9 +83,12 @@ ShiftReg::ShiftReg( QString type, QString id )
                               , this, &ShiftReg::resetInv, &ShiftReg::setResetInv ),
     }, groupNoCopy} );
 
-    addPropGroup( { tr("Electric"),
-          IoComponent::inputProps()
-        + IoComponent::outputProps()
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
         + IoComponent::outputType()
         + QList<ComProperty*>({
             new BoolProp<ShiftReg>("Tristate", tr("Tristate"),""

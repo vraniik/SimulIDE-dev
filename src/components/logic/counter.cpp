@@ -61,8 +61,11 @@ Counter::Counter( QString type, QString id)
                                 , this, &Counter::maxVal, &Counter::setMaxVal,0,"uint" ),
     },groupNoCopy} );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()+IoComponent::outputProps(),0 } );
-    addPropGroup( { tr("Timing")  , IoComponent::edgeProps(),0 } );
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+    addPropGroup( { tr("Outputs"), IoComponent::outputProps(),0 } );
+    addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 Counter::~Counter(){}
 

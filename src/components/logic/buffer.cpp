@@ -37,20 +37,26 @@ Buffer::Buffer( QString type, QString id )
 
     addPropGroup( { tr("Main"), {
         new BoolProp<Buffer>("Small", tr("Small size"),""
-                            , this, &Buffer::isSmall, &Buffer::setSmall, propNoCopy )
+                            , this, &Buffer::isSmall, &Buffer::setSmall, propNoCopy ),
     },0} );
-    addPropGroup( { tr("Electric"),
+
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
         new BoolProp<Buffer>("Invert_Inputs", tr("Invert Inputs"),""
                             , this, &Buffer::invertInps, &Buffer::setInvertInps, propNoCopy )
-                            })
-        +Gate::outputProps()
+        })
+    ,0} );
+
+    addPropGroup( { tr("Outputs"),
+         Gate::outputProps()
         +IoComponent::outputType()
         +QList<ComProperty*>({
-        new BoolProp<Buffer>("Tristate", tr("Tristate"),""
-                            , this, &Buffer::tristate, &Buffer::setTristate, propNoCopy )
-                            })
+            new BoolProp<Buffer>("Tristate", tr("Tristate"),""
+                                 , this, &Buffer::tristate, &Buffer::setTristate, propNoCopy )
+        })
     ,0} );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );

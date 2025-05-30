@@ -49,8 +49,13 @@ ADC::ADC( QString type, QString id )
                          , this, &ADC::maxVolt, &ADC::setMaxVolt ),
     },groupNoCopy} );
 
-    addPropGroup( { tr("Electric"), IoComponent::outputProps()+IoComponent::outputType(),0 } );
-    addPropGroup( { tr("Timing")  , IoComponent::edgeProps()                            ,0 } );
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Outputs")
+                  , IoComponent::outputProps()
+                  + IoComponent::outputType(),0 } );
+
+    addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 ADC::~ADC(){}
 

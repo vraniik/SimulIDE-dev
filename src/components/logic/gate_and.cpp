@@ -29,17 +29,23 @@ AndGate::AndGate( QString type, QString id )
 {
     AndGate::updatePath();
 
-    addPropGroup( { tr("Electric"),
+    addPropGroup( { tr("Main"), IoComponent::familyProps(), 0 } );
+
+    addPropGroup( { tr("Input"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
-        new IntProp <AndGate>("Num_Inputs", tr("Input Size"),""
-                             , this, &AndGate::numInps, &AndGate::setNumInputs, propNoCopy,"uint" ),
+            new IntProp <AndGate>("Num_Inputs", tr("Input Size"),""
+                                 , this, &AndGate::numInps, &AndGate::setNumInputs, propNoCopy,"uint" ),
 
-        new BoolProp<AndGate>("Invert_Inputs", tr("Invert Inputs"),""
-                             , this, &AndGate::invertInps, &AndGate::setInvertInps, propNoCopy )
-                        })
-        + Gate::outputProps()
-        + IoComponent::outputType() ,0 } );
+            new BoolProp<AndGate>("Invert_Inputs", tr("Invert Inputs"),""
+                                 , this, &AndGate::invertInps, &AndGate::setInvertInps, propNoCopy )
+        })
+    ,0 } );
+
+    addPropGroup( { tr("Outputs"),
+        Gate::outputProps()
+       + IoComponent::outputType()
+    ,0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }

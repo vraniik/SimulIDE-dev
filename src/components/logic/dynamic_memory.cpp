@@ -93,10 +93,15 @@ DynamicMemory::DynamicMemory( QString type, QString id )
                 , &DynamicMemory::refreshPeriod, &DynamicMemory::setRefreshPeriod )
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric")
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs")
        ,IoComponent::inputProps()
-       +IoComponent::outputProps()
-       +IoComponent::outputType()
+    ,0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
+        + IoComponent::outputType()
     ,0 } );
 
     addPropGroup( { tr("Timing")

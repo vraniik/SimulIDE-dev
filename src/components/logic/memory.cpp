@@ -83,19 +83,21 @@ Memory::Memory( QString type, QString id )
                             , this, &Memory::asynchro, &Memory::setAsynchro )
     }, groupNoCopy} );
 
-    addPropGroup( { tr("Electric")
-        , IoComponent::inputProps()
-        + IoComponent::outputProps()
-        + IoComponent::outputType()
-    ,0 } );
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
+        + IoComponent::outputType(),0 } );
 
     addPropGroup( { tr("Timing")
         , IoComponent::edgeProps()
     ,0 } );
 
     addPropGroup( { "Hidden", {
-new StrProp<Memory>("Mem","",""
-                   , this, &Memory::getMem, &Memory::setMem)
+        new StrProp<Memory>("Mem","",""
+                           , this, &Memory::getMem, &Memory::setMem)
     }, groupHidden} );
 }
 Memory::~Memory(){}

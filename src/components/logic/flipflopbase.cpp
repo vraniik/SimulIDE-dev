@@ -34,8 +34,11 @@ FlipFlopBase::FlipFlopBase( QString type, QString id )
                                   , this, &FlipFlopBase::triggerStr,&FlipFlopBase::setTriggerStr, propNoCopy,"enum" ),
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()+IoComponent::outputProps(),0 } );
-    addPropGroup( { tr("Timing")  , IoComponent::edgeProps(),0 } );
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+    addPropGroup( { tr("Outputs"), IoComponent::outputProps(),0 } );
+    addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 FlipFlopBase::~FlipFlopBase(){}
 

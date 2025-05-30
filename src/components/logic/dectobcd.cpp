@@ -54,16 +54,22 @@ DecToBcd::DecToBcd( QString type, QString id )
                               , this, &DecToBcd::is16Bits, &DecToBcd::set16bits, propNoCopy ),
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"), IoComponent::inputProps()
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs")
+        , IoComponent::inputProps()
         +QList<ComProperty*>({
         new BoolProp<DecToBcd>("Invert_Inputs", tr("Invert Inputs"),""
                               , this, &DecToBcd::invertInps, &DecToBcd::setInvertInps, propNoCopy )
         })
-        +IoComponent::outputProps()
-        +IoComponent::outputType()
-        +QList<ComProperty*>({
+    ,0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
+        + IoComponent::outputType()
+        + QList<ComProperty*>({
             new BoolProp<DecToBcd>("Tristate", tr("Tristate"),""
-                                , this, &DecToBcd::tristate, &DecToBcd::setTristate ),
+                                   , this, &DecToBcd::tristate, &DecToBcd::setTristate ),
         })
     ,0 } );
 

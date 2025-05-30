@@ -33,18 +33,23 @@ IoComponent::IoComponent( QString type, QString id)
 }
 IoComponent::~IoComponent(){}
 
-QList<ComProperty*> IoComponent::inputProps()
+QList<ComProperty*> IoComponent::familyProps()
 {
     QList<ComProperty*> props =
     {
         new StrProp<IoComponent>("Family", tr("Logic Family"), m_families.keys().join(",")
-                                , this, &IoComponent::family, &IoComponent::setFamily, 0,"enum" ),
+                                 , this, &IoComponent::family, &IoComponent::setFamily, 0,"enum" ),
 
         new DoubProp<IoComponent>("SupplyV", tr("Supply Voltage"), "V"
-                                 , this, &IoComponent::supplyV, &IoComponent::setSupplyV ),
+                                  , this, &IoComponent::supplyV, &IoComponent::setSupplyV ),
+    };
+    return props;
+}
 
-        new ComProperty( "", tr("Inputs:"),"","",0),
-
+QList<ComProperty*> IoComponent::inputProps()
+{
+    QList<ComProperty*> props =
+    {
         new DoubProp<IoComponent>("Input_High_V", tr("Low to High Threshold"), "V"
                                  , this, &IoComponent::inpHighV, &IoComponent::setInpHighV ),
 
@@ -64,7 +69,7 @@ QList<ComProperty*> IoComponent::outputProps()
 {
     QList<ComProperty*> props =
     {
-        new ComProperty("", tr("Outputs:"),"","",0),
+        //new ComProperty("", tr("Outputs:"),"","",0),
 
         new DoubProp<IoComponent>("Out_High_V", tr("Output High Voltage"), "V"
                                  , this, &IoComponent::outHighV, &IoComponent::setOutHighV ),

@@ -81,7 +81,9 @@ Function::Function( QString type, QString id )
                              , this, &Function::functions, &Function::setFunctions ),
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"),
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
 
         +QList<ComProperty*>({
@@ -90,14 +92,17 @@ Function::Function( QString type, QString id )
 
         new BoolProp<Function>( "Invert_Inputs", tr("Invert Inputs"),""
                               , this, &Function::invertInps, &Function::setInvertInps, propNoCopy )})
+    ,0 } );
 
-        + IoComponent::outputProps()
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
 
-        +QList<ComProperty*>({
-        new IntProp<Function>("Num_Outputs", tr("Output Size"),"_Pins"
-                             , this, &Function::numOuts, &Function::setNumOutputs, propNoCopy ,"uint" ),})
+        + QList<ComProperty*>({
+            new IntProp<Function>("Num_Outputs", tr("Output Size"),"_Pins"
+                                 , this, &Function::numOuts, &Function::setNumOutputs, propNoCopy ,"uint" ) })
 
-        + IoComponent::outputType(),0 } );
+        + IoComponent::outputType()
+    ,0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }

@@ -63,17 +63,22 @@ LatchD::LatchD( QString type, QString id )
                             , this, &LatchD::pinReset, &LatchD::setPinReset, propNoCopy ),
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric"),
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
             new BoolProp<LatchD>("Invert_Inputs", tr("Invert Inputs"),""
                                 , this, &LatchD::invertInps, &LatchD::setInvertInps,propNoCopy )
         })
-        + IoComponent::outputProps()
+    ,0 } );
+
+    addPropGroup( { tr("Outputs"),
+          IoComponent::outputProps()
         + IoComponent::outputType()
         +QList<ComProperty*>({
             new BoolProp<LatchD>("Tristate", tr("Tristate"),""
-                                , this, &LatchD::tristate, &LatchD::setTristate ),
+                                 , this, &LatchD::tristate, &LatchD::setTristate ),
         })
     ,0 } );
 

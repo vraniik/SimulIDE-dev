@@ -48,10 +48,13 @@ MagnitudeComp::MagnitudeComp( QString type, QString id )
                             , this, &MagnitudeComp::bits, &MagnitudeComp::setBits, propNoCopy,"uint" ),
     }, groupNoCopy } );
 
-    addPropGroup( { tr("Electric")
-                    , IoComponent::inputProps()
-                    + IoComponent::outputProps()
-                    + IoComponent::outputType(),0 } );
+    appendPropGroup( tr("Main"), IoComponent::familyProps() );
+
+    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+
+    addPropGroup( { tr("Outputs")
+        , IoComponent::outputProps()
+        + IoComponent::outputType(),0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
