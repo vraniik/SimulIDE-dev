@@ -38,6 +38,7 @@ class ShiftReg : public LogicComponent
         void updatePins();
 
         int m_bits;
+        uint m_bitMask;
 
         bool m_resetInv;
         bool m_parallelIn;

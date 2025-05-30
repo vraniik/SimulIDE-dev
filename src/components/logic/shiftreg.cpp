@@ -3,6 +3,8 @@
  *                                                                         *
  ***( see copyright.txt file at root folder )*******************************/
 
+#include<cmath>
+
 #include "shiftreg.h"
 #include "itemlibrary.h"
 #include "simulator.h"
@@ -151,6 +153,7 @@ void ShiftReg::voltChanged()
             bool data = m_dinPin->getInpState();
             if( data ) m_nextOutVal |= 1;
         }
+        m_nextOutVal &= m_bitMask;
     }
     scheduleOutPuts( this );
 }
@@ -159,6 +162,7 @@ void ShiftReg::setBits( int b )
 {
     if( b < 1 ) b = 1;
     m_bits = b;
+    m_bitMask = pow( 2, m_bits )-1;
     updatePins();
 }
 
