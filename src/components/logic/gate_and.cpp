@@ -31,7 +31,7 @@ AndGate::AndGate( QString type, QString id )
 
     addPropGroup( { tr("Main"), IoComponent::familyProps(), 0 } );
 
-    addPropGroup( { tr("Input"),
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
             new IntProp <AndGate>("Num_Inputs", tr("Input Size"),""

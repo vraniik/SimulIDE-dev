@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>350</width>
-    <height>650</height>
+    <width>250</width>
+    <height>350</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -514,7 +514,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string notr="true">       Tim Fischer.</string>
+            <string notr="true">Tim Fischer.</string>
            </property>
           </widget>
          </item>

@@ -32,7 +32,7 @@ XorGate::XorGate( QString type, QString id )
 
     addPropGroup( { tr("Main"), IoComponent::familyProps(), 0 } );
 
-    addPropGroup( { tr("Input"),
+    addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
             new BoolProp<XorGate>("Invert_Inputs", tr("Invert Inputs"),""
