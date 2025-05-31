@@ -10,6 +10,7 @@
     </message>
     <message>
         <location filename="../../src/components/logic/adc.cpp" line="44"/>
+        <location filename="../../src/components/logic/adc.cpp" line="52"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -24,12 +25,16 @@
         <translation>Referenčné napätie</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="52"/>
-        <source>Electric</source>
-        <translation>Elektrické</translation>
+        <location filename="../../src/components/logic/adc.cpp" line="54"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/adc.cpp" line="53"/>
+        <source>Electric</source>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/adc.cpp" line="58"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -151,22 +156,36 @@
         <translation>Hradlo AND</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_and.cpp" line="35"/>
+        <location filename="../../src/components/logic/gate_and.cpp" line="32"/>
+        <source>Main</source>
+        <translation type="unfinished">Základné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_and.cpp" line="37"/>
         <source>Input Size</source>
         <translation>Počet vstupov</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_and.cpp" line="32"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_and.cpp" line="38"/>
+        <location filename="../../src/components/logic/gate_and.cpp" line="34"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_and.cpp" line="40"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_and.cpp" line="44"/>
+        <location filename="../../src/components/logic/gate_and.cpp" line="45"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_and.cpp" line="50"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -467,6 +486,7 @@
     </message>
     <message>
         <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
@@ -486,22 +506,31 @@
         <translation type="unfinished">Invertovať reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
-        <source>Electric</source>
-        <translation>Elektrické</translation>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <source>Electric</source>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="81"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="84"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="85"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="94"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -510,6 +539,7 @@
     <name>BcdToDec</name>
     <message>
         <location filename="../../src/components/logic/bcdtodec.cpp" line="43"/>
+        <location filename="../../src/components/logic/bcdtodec.cpp" line="48"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -519,9 +549,8 @@
         <translation>16 Bitov</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdtodec.cpp" line="48"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/bcdtodec.cpp" line="23"/>
@@ -530,16 +559,26 @@
     </message>
     <message>
         <location filename="../../src/components/logic/bcdtodec.cpp" line="50"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdtodec.cpp" line="53"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdtodec.cpp" line="61"/>
+        <location filename="../../src/components/logic/bcdtodec.cpp" line="57"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bcdtodec.cpp" line="66"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdtodec.cpp" line="56"/>
+        <location filename="../../src/components/logic/bcdtodec.cpp" line="61"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
@@ -548,6 +587,7 @@
     <name>BinCounter</name>
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="72"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="96"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -569,9 +609,8 @@
         <translation type="vanished">Počítať do</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="96"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="24"/>
@@ -609,12 +648,22 @@
         <translation type="unfinished">Invertovať reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="99"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="98"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="101"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="105"/>
+        <location filename="../../src/components/logic/bincounter.cpp" line="106"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/bincounter.cpp" line="110"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -628,6 +677,7 @@
     </message>
     <message>
         <location filename="../../src/components/logic/buffer.cpp" line="38"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="43"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -637,22 +687,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="51"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="45"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/buffer.cpp" line="53"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/buffer.cpp" line="57"/>
         <source>Tristate</source>
         <translation>Trojstavový</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="42"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="45"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="48"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/buffer.cpp" line="56"/>
+        <location filename="../../src/components/logic/buffer.cpp" line="62"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -952,11 +1011,6 @@ Nemožno nájsť súbor:
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="428"/>
         <source>Debug</source>
         <translation type="unfinished">Ladiť</translation>
-    </message>
-    <message>
-        <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="519"/>
-        <source>&amp;%1 %2</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/gui/circuitwidget/circuitwidget.cpp" line="145"/>
@@ -1304,18 +1358,18 @@ Nemožno nájsť súbor:
         <translation type="obsolete">Nástroje</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="93"/>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="154"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="95"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="156"/>
         <source>    Loading Component sets at:</source>
         <translation type="unfinished">    Načítavam skupinu komponentov z:</translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="256"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="258"/>
         <source>        Loaded Component set:           </source>
         <translation type="unfinished">        Načítaná skupina komponentov:           </translation>
     </message>
     <message>
-        <location filename="../../src/gui/componentlist/componentlist.cpp" line="392"/>
+        <location filename="../../src/gui/componentlist/componentlist.cpp" line="394"/>
         <source>Manage Components</source>
         <translation type="unfinished">Spravovať komponenty</translation>
     </message>
@@ -1350,6 +1404,7 @@ Nemožno nájsť súbor:
     </message>
     <message>
         <location filename="../../src/components/logic/counter.cpp" line="50"/>
+        <location filename="../../src/components/logic/counter.cpp" line="64"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
@@ -1374,12 +1429,21 @@ Nemožno nájsť súbor:
         <translation type="unfinished">Počítať do</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="64"/>
-        <source>Electric</source>
-        <translation type="unfinished">Elektrické</translation>
+        <location filename="../../src/components/logic/counter.cpp" line="66"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="65"/>
+        <location filename="../../src/components/logic/counter.cpp" line="67"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <source>Electric</source>
+        <translation type="obsolete">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/counter.cpp" line="68"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1464,6 +1528,7 @@ Nemožno nájsť súbor:
     </message>
     <message>
         <location filename="../../src/components/logic/dac.cpp" line="43"/>
+        <location filename="../../src/components/logic/dac.cpp" line="51"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -1478,17 +1543,21 @@ Nemožno nájsť súbor:
         <translation>Referenčné napätie</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dac.cpp" line="51"/>
-        <source>Electric</source>
-        <translation>Elektrické</translation>
+        <location filename="../../src/components/logic/dac.cpp" line="53"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dac.cpp" line="54"/>
+        <source>Electric</source>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dac.cpp" line="56"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dac.cpp" line="58"/>
+        <location filename="../../src/components/logic/dac.cpp" line="60"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1577,6 +1646,7 @@ Nemožno nájsť súbor:
     <name>DecToBcd</name>
     <message>
         <location filename="../../src/components/logic/dectobcd.cpp" line="52"/>
+        <location filename="../../src/components/logic/dectobcd.cpp" line="57"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -1587,13 +1657,17 @@ Nemožno nájsť súbor:
     </message>
     <message>
         <location filename="../../src/components/logic/dectobcd.cpp" line="59"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dectobcd.cpp" line="62"/>
         <source>Invert Inputs</source>
         <translation>Invertovať vstup</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dectobcd.cpp" line="57"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/dectobcd.cpp" line="21"/>
@@ -1601,12 +1675,17 @@ Nemožno nájsť súbor:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dectobcd.cpp" line="70"/>
+        <location filename="../../src/components/logic/dectobcd.cpp" line="67"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dectobcd.cpp" line="76"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dectobcd.cpp" line="65"/>
+        <location filename="../../src/components/logic/dectobcd.cpp" line="71"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
@@ -1620,6 +1699,7 @@ Nemožno nájsť súbor:
     </message>
     <message>
         <location filename="../../src/components/logic/demux.cpp" line="57"/>
+        <location filename="../../src/components/logic/demux.cpp" line="62"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -1629,17 +1709,26 @@ Nemožno nájsť súbor:
         <translation>Šírka adresy</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/demux.cpp" line="62"/>
-        <source>Electric</source>
-        <translation>Elektrické</translation>
+        <location filename="../../src/components/logic/demux.cpp" line="64"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/demux.cpp" line="72"/>
+        <location filename="../../src/components/logic/demux.cpp" line="68"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <source>Electric</source>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/demux.cpp" line="77"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/demux.cpp" line="67"/>
+        <location filename="../../src/components/logic/demux.cpp" line="72"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
@@ -1857,6 +1946,7 @@ Nemožno nájsť súbor:
     </message>
     <message>
         <location filename="../../src/components/logic/dynamic_memory.cpp" line="82"/>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="96"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
@@ -1881,27 +1971,36 @@ Nemožno nájsť súbor:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/dynamic_memory.cpp" line="96"/>
-        <source>Electric</source>
-        <translation type="unfinished">Elektrické</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/dynamic_memory.cpp" line="352"/>
-        <source>Load data</source>
-        <translation type="unfinished">Načítať dáta</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/dynamic_memory.cpp" line="355"/>
-        <source>Save data</source>
-        <translation type="unfinished">Uložiť dáta</translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/dynamic_memory.cpp" line="358"/>
-        <source>Show Memory Table</source>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="98"/>
+        <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/components/logic/dynamic_memory.cpp" line="102"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <source>Electric</source>
+        <translation type="obsolete">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="357"/>
+        <source>Load data</source>
+        <translation type="unfinished">Načítať dáta</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="360"/>
+        <source>Save data</source>
+        <translation type="unfinished">Uložiť dáta</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="363"/>
+        <source>Show Memory Table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/dynamic_memory.cpp" line="107"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2532,6 +2631,7 @@ Súbor nemožno nájsť:
     <name>FlipFlopBase</name>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="23"/>
+        <location filename="../../src/components/logic/flipflopbase.cpp" line="37"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -2546,9 +2646,8 @@ Súbor nemožno nájsť:
         <translation>Typ spúšťača</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="37"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="24"/>
@@ -2561,7 +2660,17 @@ Súbor nemožno nájsť:
         <translation>Invertovať piny Set/Reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="38"/>
+        <location filename="../../src/components/logic/flipflopbase.cpp" line="39"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/flipflopbase.cpp" line="40"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/flipflopbase.cpp" line="41"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2624,17 +2733,17 @@ Súbor nemožno nájsť:
         <translation>Úplná sčítačka</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/fulladder.cpp" line="49"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/fulladder.cpp" line="52"/>
+        <location filename="../../src/components/logic/fulladder.cpp" line="54"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/components/logic/fulladder.cpp" line="44"/>
+        <location filename="../../src/components/logic/fulladder.cpp" line="49"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
@@ -2642,6 +2751,16 @@ Súbor nemožno nájsť:
         <location filename="../../src/components/logic/fulladder.cpp" line="45"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/fulladder.cpp" line="51"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/fulladder.cpp" line="52"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
     </message>
 </context>
 <context>
@@ -2653,41 +2772,51 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/function.cpp" line="79"/>
+        <location filename="../../src/components/logic/function.cpp" line="84"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="88"/>
+        <location filename="../../src/components/logic/function.cpp" line="86"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/function.cpp" line="90"/>
         <source>Input Size</source>
         <translation>Počet vstupov</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/function.cpp" line="97"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/function.cpp" line="101"/>
         <source>Output Size</source>
         <translation>Počet výstupov</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="84"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="234"/>
+        <location filename="../../src/components/logic/function.cpp" line="239"/>
         <source>Load Functions</source>
         <translation>Načítať funkcie</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="237"/>
+        <location filename="../../src/components/logic/function.cpp" line="242"/>
         <source>Save Functions</source>
         <translation>Uložiť funkcie</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="386"/>
+        <location filename="../../src/components/logic/function.cpp" line="391"/>
         <source>Set Function</source>
         <translation>Nastaviť funkciu</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="272"/>
+        <location filename="../../src/components/logic/function.cpp" line="277"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Nie je možné zapísať súbor %1&quot;
@@ -2699,17 +2828,17 @@ Súbor nemožno nájsť:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="91"/>
+        <location filename="../../src/components/logic/function.cpp" line="93"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="387"/>
+        <location filename="../../src/components/logic/function.cpp" line="392"/>
         <source> Function:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/function.cpp" line="102"/>
+        <location filename="../../src/components/logic/function.cpp" line="107"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2958,77 +3087,75 @@ Súbor nemožno nájsť:
 <context>
     <name>IoComponent</name>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="46"/>
         <source>Inputs:</source>
-        <translation>Vstupy:</translation>
+        <translation type="vanished">Vstupy:</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="48"/>
+        <location filename="../../src/components/iocomponent.cpp" line="53"/>
         <source>Low to High Threshold</source>
         <translation>Prah z log. 0 do 1</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="51"/>
+        <location filename="../../src/components/iocomponent.cpp" line="56"/>
         <source>High to Low Threshold</source>
         <translation>Prah z log. 1 do 0</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="54"/>
+        <location filename="../../src/components/iocomponent.cpp" line="59"/>
         <source>Input Impedance</source>
         <translation>Vstupná impedancia</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="57"/>
+        <location filename="../../src/components/iocomponent.cpp" line="62"/>
         <source>Input pullups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="67"/>
         <source>Outputs:</source>
-        <translation>Výstupy:</translation>
+        <translation type="vanished">Výstupy:</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="69"/>
+        <location filename="../../src/components/iocomponent.cpp" line="74"/>
         <source>Output High Voltage</source>
         <translation>Výstupné napätie log. 1</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="72"/>
+        <location filename="../../src/components/iocomponent.cpp" line="77"/>
         <source>Output Low Voltage</source>
         <translation>Výstupné napätie log. 0</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="75"/>
+        <location filename="../../src/components/iocomponent.cpp" line="80"/>
         <source>Output Impedance</source>
         <translation>Výstupná impedancia</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="78"/>
+        <location filename="../../src/components/iocomponent.cpp" line="83"/>
         <source>Output Z Impedance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="87"/>
+        <location filename="../../src/components/iocomponent.cpp" line="92"/>
         <source>Ouput pullups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="106"/>
+        <location filename="../../src/components/iocomponent.cpp" line="111"/>
         <source>Rise Time</source>
         <translation>Čas nábehu</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="109"/>
+        <location filename="../../src/components/iocomponent.cpp" line="114"/>
         <source>Fall Time</source>
         <translation>Čas dobehu</translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="90"/>
+        <location filename="../../src/components/iocomponent.cpp" line="95"/>
         <source>Invert Outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="93"/>
+        <location filename="../../src/components/iocomponent.cpp" line="98"/>
         <source>Open Drain</source>
         <translation type="unfinished">Otvorený kolektor</translation>
     </message>
@@ -3043,12 +3170,12 @@ Súbor nemožno nájsť:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="100"/>
+        <location filename="../../src/components/iocomponent.cpp" line="105"/>
         <source>Delay Multiplier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/iocomponent.cpp" line="103"/>
+        <location filename="../../src/components/iocomponent.cpp" line="108"/>
         <source>Family Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3274,6 +3401,7 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/latchd.cpp" line="55"/>
+        <location filename="../../src/components/logic/latchd.cpp" line="66"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -3288,22 +3416,31 @@ Súbor nemožno nájsť:
         <translation>Typ spúšťača</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/latchd.cpp" line="75"/>
+        <location filename="../../src/components/logic/latchd.cpp" line="68"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/latchd.cpp" line="76"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/latchd.cpp" line="80"/>
         <source>Tristate</source>
         <translation>Trojstavový</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/latchd.cpp" line="66"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/latchd.cpp" line="69"/>
+        <location filename="../../src/components/logic/latchd.cpp" line="71"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/latchd.cpp" line="80"/>
+        <location filename="../../src/components/logic/latchd.cpp" line="85"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3746,6 +3883,7 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/magnitudecomp.cpp" line="46"/>
+        <location filename="../../src/components/logic/magnitudecomp.cpp" line="51"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
@@ -3755,12 +3893,21 @@ Súbor nemožno nájsť:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/magnitudecomp.cpp" line="51"/>
-        <source>Electric</source>
-        <translation type="unfinished">Elektrické</translation>
+        <location filename="../../src/components/logic/magnitudecomp.cpp" line="53"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/magnitudecomp.cpp" line="56"/>
+        <location filename="../../src/components/logic/magnitudecomp.cpp" line="55"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <source>Electric</source>
+        <translation type="obsolete">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/magnitudecomp.cpp" line="59"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3768,59 +3915,59 @@ Súbor nemožno nájsť:
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="97"/>
+        <location filename="../../src/mainwindow.cpp" line="100"/>
         <source>Looks like SimulIDE crashed...</source>
         <translation>Vyzerá to tak, že SimulIDE havarovalo...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="98"/>
+        <location filename="../../src/mainwindow.cpp" line="101"/>
         <source>There is an auto-saved copy of the Circuit
 </source>
         <translation>Bola nájdená automatická záloha obvodu
 </translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="99"/>
+        <location filename="../../src/mainwindow.cpp" line="102"/>
         <source>You must save it with any other name if you want to keep it</source>
         <translation>Ak chcete obvod zachovať, musíte ho uložiť pod iným menom.</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="100"/>
+        <location filename="../../src/mainwindow.cpp" line="103"/>
         <source>This file will be auto-deleted!!</source>
         <translation>Tento súbor bude automaticky zmazaný!</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="101"/>
+        <location filename="../../src/mainwindow.cpp" line="104"/>
         <source>Do you want to open the auto-saved copy of the Circuit?</source>
         <translation>Chcete otvoriť automaticky uloženú zálohu obvodu?</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="255"/>
+        <location filename="../../src/mainwindow.cpp" line="258"/>
         <source>Search Components</source>
         <translation>Vyhľadávanie komponentov</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="277"/>
+        <location filename="../../src/mainwindow.cpp" line="280"/>
         <source>Components</source>
         <translation>Komponenty</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="278"/>
+        <location filename="../../src/mainwindow.cpp" line="281"/>
         <source>File explorer</source>
         <translation>Správca súborov</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="309"/>
+        <location filename="../../src/mainwindow.cpp" line="312"/>
         <source>No help available</source>
         <translation>Nápoveda nie je dostupná</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="344"/>
+        <location filename="../../src/mainwindow.cpp" line="347"/>
         <source>Select User data directory</source>
         <translation>Vyberte priečinok používateľa</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="263"/>
+        <location filename="../../src/mainwindow.cpp" line="266"/>
         <source>Clear search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3852,133 +3999,133 @@ Súbor nemožno nájsť:
     <name>Mcu</name>
     <message>
         <location filename="../../src/microsim/mcu.cpp" line="95"/>
-        <location filename="../../src/microsim/mcu.cpp" line="213"/>
-        <location filename="../../src/microsim/mcu.cpp" line="218"/>
-        <location filename="../../src/microsim/mcu.cpp" line="220"/>
-        <location filename="../../src/microsim/mcu.cpp" line="226"/>
-        <location filename="../../src/microsim/mcu.cpp" line="229"/>
-        <location filename="../../src/microsim/mcu.cpp" line="232"/>
-        <location filename="../../src/microsim/mcu.cpp" line="236"/>
+        <location filename="../../src/microsim/mcu.cpp" line="238"/>
+        <location filename="../../src/microsim/mcu.cpp" line="243"/>
+        <location filename="../../src/microsim/mcu.cpp" line="245"/>
+        <location filename="../../src/microsim/mcu.cpp" line="251"/>
+        <location filename="../../src/microsim/mcu.cpp" line="254"/>
+        <location filename="../../src/microsim/mcu.cpp" line="257"/>
+        <location filename="../../src/microsim/mcu.cpp" line="261"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="218"/>
+        <location filename="../../src/microsim/mcu.cpp" line="243"/>
         <source>Frequency</source>
         <translation>Frekvencia</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="226"/>
+        <location filename="../../src/microsim/mcu.cpp" line="251"/>
         <source>PGM persistent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="229"/>
+        <location filename="../../src/microsim/mcu.cpp" line="254"/>
         <source>Firmware</source>
         <translation>Firmvér</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="232"/>
+        <location filename="../../src/microsim/mcu.cpp" line="257"/>
         <source>Reload hex at Simulation Start</source>
         <translation>Obnoviť HEX súbor pri spustení simulácie</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="236"/>
+        <location filename="../../src/microsim/mcu.cpp" line="261"/>
         <source>EEPROM persistent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="241"/>
+        <location filename="../../src/microsim/mcu.cpp" line="266"/>
         <source>Config</source>
         <translation>Konfigurácia</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="245"/>
+        <location filename="../../src/microsim/mcu.cpp" line="270"/>
         <source>Enable Reset Pin</source>
         <translation>Povoliť Reset pin</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="249"/>
+        <location filename="../../src/microsim/mcu.cpp" line="274"/>
         <source>External Oscillator</source>
         <translation>Externý oscilátor</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="253"/>
+        <location filename="../../src/microsim/mcu.cpp" line="278"/>
         <source>Enable WatchDog</source>
         <translation>Povoliť WatchDog</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="469"/>
+        <location filename="../../src/microsim/mcu.cpp" line="494"/>
         <source>Load Firmware</source>
         <translation>Načítať firmvér</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="480"/>
+        <location filename="../../src/microsim/mcu.cpp" line="505"/>
         <source>No File to reload </source>
         <translation>Žiadny súbor na obnovenie </translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="523"/>
+        <location filename="../../src/microsim/mcu.cpp" line="548"/>
         <source>Main Mcu</source>
         <translation>Hlavný mikrokontrolér</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="534"/>
+        <location filename="../../src/microsim/mcu.cpp" line="559"/>
         <source>Load firmware</source>
         <translation>Načítať firmvér</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="537"/>
+        <location filename="../../src/microsim/mcu.cpp" line="562"/>
         <source>Reload firmware</source>
         <translation>Obnoviť firmvér</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="545"/>
+        <location filename="../../src/microsim/mcu.cpp" line="570"/>
         <source>Load EEPROM data from file</source>
         <translation>Načítať dáta do EEPROM zo súboru</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="548"/>
+        <location filename="../../src/microsim/mcu.cpp" line="573"/>
         <source>Save EEPROM data to file</source>
         <translation>Uložiť dáta z EEPROM do súboru</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="553"/>
+        <location filename="../../src/microsim/mcu.cpp" line="578"/>
         <source>Open Mcu Monitor.</source>
         <translation>Otvoriť MCU monitor</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="558"/>
+        <location filename="../../src/microsim/mcu.cpp" line="583"/>
         <source>Open Serial Monitor.</source>
         <translation>Otvoriť sériový monitor</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="242"/>
+        <location filename="../../src/microsim/mcu.cpp" line="267"/>
         <source>Changes applied after Simulation Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="257"/>
+        <location filename="../../src/microsim/mcu.cpp" line="282"/>
         <source>Clock Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="470"/>
+        <location filename="../../src/microsim/mcu.cpp" line="495"/>
         <source>All files (*.*);;Hex Files (*.hex)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="528"/>
+        <location filename="../../src/microsim/mcu.cpp" line="553"/>
         <source>Link to Component</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="213"/>
+        <location filename="../../src/microsim/mcu.cpp" line="238"/>
         <source>Package</source>
         <translation type="unfinished">Puzdro</translation>
     </message>
     <message>
-        <location filename="../../src/microsim/mcu.cpp" line="220"/>
+        <location filename="../../src/microsim/mcu.cpp" line="245"/>
         <source>Force this frequency</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4018,6 +4165,7 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/memory.cpp" line="72"/>
+        <location filename="../../src/components/logic/memory.cpp" line="86"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -4037,22 +4185,21 @@ Súbor nemožno nájsť:
         <translation>Trvalá pamäť</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/memory.cpp" line="86"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/memory.cpp" line="304"/>
+        <location filename="../../src/components/logic/memory.cpp" line="306"/>
         <source>Load data</source>
         <translation>Načítať dáta</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/memory.cpp" line="307"/>
+        <location filename="../../src/components/logic/memory.cpp" line="309"/>
         <source>Save data</source>
         <translation>Uložiť dáta</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/memory.cpp" line="310"/>
+        <location filename="../../src/components/logic/memory.cpp" line="312"/>
         <source>Show Memory Table</source>
         <translation>Zobraziť tabuľku pamäte</translation>
     </message>
@@ -4062,7 +4209,17 @@ Súbor nemožno nájsť:
         <translation>Asynchrónne</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/memory.cpp" line="92"/>
+        <location filename="../../src/components/logic/memory.cpp" line="88"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/memory.cpp" line="90"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/memory.cpp" line="94"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4127,6 +4284,7 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/mux.cpp" line="60"/>
+        <location filename="../../src/components/logic/mux.cpp" line="65"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
@@ -4137,21 +4295,30 @@ Súbor nemožno nájsť:
     </message>
     <message>
         <location filename="../../src/components/logic/mux.cpp" line="67"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/mux.cpp" line="69"/>
         <source>Invert Inputs</source>
         <translation>Invertované výstupy</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/mux.cpp" line="65"/>
-        <source>Electric</source>
-        <translation>Elektrické</translation>
+        <location filename="../../src/components/logic/mux.cpp" line="74"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/mux.cpp" line="77"/>
+        <source>Electric</source>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/mux.cpp" line="82"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/mux.cpp" line="72"/>
+        <location filename="../../src/components/logic/mux.cpp" line="77"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
@@ -4235,22 +4402,36 @@ Súbor nemožno nájsť:
         <translation>Hradlo OR</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="35"/>
+        <location filename="../../src/components/logic/gate_or.cpp" line="32"/>
+        <source>Main</source>
+        <translation type="unfinished">Základné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_or.cpp" line="37"/>
         <source>Input Size</source>
         <translation>Počet vstupov</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="32"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="38"/>
+        <location filename="../../src/components/logic/gate_or.cpp" line="34"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_or.cpp" line="40"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_or.cpp" line="44"/>
+        <location filename="../../src/components/logic/gate_or.cpp" line="45"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_or.cpp" line="50"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4793,11 +4974,6 @@ Súbor nemožno nájsť:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../src/gui/memory/ramtable.ui" line="20"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/gui/memory/ramtable.cpp" line="85"/>
         <source>Address</source>
         <translation type="unfinished"></translation>
@@ -5303,52 +5479,62 @@ Súbor nemožno nájsť:
 <context>
     <name>ShiftReg</name>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="69"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="71"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="88"/>
         <source>Main</source>
         <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="79"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="81"/>
         <source>Clock Inverted</source>
         <translation>Invertovať hodiny</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="82"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="84"/>
         <source>Reset Inverted</source>
         <translation>Invertovať reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="86"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="22"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="24"/>
         <source>Shift Register</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="96"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="101"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="70"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="72"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="73"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="75"/>
         <source>Parallel Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="76"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="78"/>
         <source>Bidirectional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="91"/>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="90"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="92"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/shiftreg.cpp" line="96"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
@@ -6332,17 +6518,31 @@ Súbor nemožno nájsť:
         <translation>Hradlo XOR</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_xor.cpp" line="33"/>
         <source>Electric</source>
-        <translation>Elektrické</translation>
+        <translation type="vanished">Elektrické</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_xor.cpp" line="33"/>
+        <source>Main</source>
+        <translation type="unfinished">Základné</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/gate_xor.cpp" line="35"/>
+        <source>Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_xor.cpp" line="38"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/gate_xor.cpp" line="41"/>
+        <location filename="../../src/components/logic/gate_xor.cpp" line="43"/>
+        <source>Outputs</source>
+        <translation type="unfinished">Výstupné</translation>
+    </message>
+    <message>
+        <location filename="../../src/components/logic/gate_xor.cpp" line="48"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
