@@ -27,7 +27,7 @@ class WaveGen : public ClockBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         void updateStep() override{;}
         void initialize() override;

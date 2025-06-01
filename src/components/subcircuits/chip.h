@@ -14,7 +14,7 @@ class Chip : public Component, public eElement
         Chip( QString type, QString id, QString device=""  );
         ~Chip();
 
-        bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         bool isBoard() { return m_isBoard; }
 

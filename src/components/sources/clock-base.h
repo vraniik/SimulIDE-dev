@@ -13,7 +13,7 @@ class ClockBase : public FixedVolt
         ClockBase( QString type, QString id );
         ~ClockBase();
 
-        bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         void stamp() override;
 

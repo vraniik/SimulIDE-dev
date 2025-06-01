@@ -31,10 +31,10 @@ ClockBase::ClockBase( QString type, QString id )
 }
 ClockBase::~ClockBase(){}
 
-bool ClockBase::setPropStr( QString prop, QString val )
+bool ClockBase::propNotFound( QString prop, QString val )
 {
     if( prop =="Out" ) setRunning( val == "true" );   // Old: TODELETE
-    else return Component::setPropStr( prop, val );
+    else return Component::propNotFound( prop, val );
     return true;
 }
 

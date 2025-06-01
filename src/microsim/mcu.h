@@ -35,7 +35,7 @@ class Mcu : public Chip, public Linker
 
         void setupMcu();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        virtual bool propNotFound( QString prop, QString val ) override;
 
         bool mainMcu() { return m_pSelf == this; }
         void setMainMcu( bool m ) { if( m ) slotmain(); }

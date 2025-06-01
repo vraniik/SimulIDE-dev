@@ -19,7 +19,7 @@ class PlotBase : public Component, public ScriptBase
         PlotBase( QString type, QString id );
         ~PlotBase();
 
-        virtual bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         virtual void initialize() override;
         virtual void runEvent() override;

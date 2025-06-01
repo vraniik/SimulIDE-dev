@@ -124,16 +124,16 @@ new IntProp  <Component>("boardVflip","","",this, &Component::boardVflip, &Compo
 }
 Component::~Component(){}
 
-bool Component::setPropStr( QString prop, QString val )
+bool Component::propNotFound( QString prop, QString val )
 {
-    bool ok = CompBase::setPropStr( prop, val );
     if( prop == m_showProperty )
     {
         QString text = "";
         if( !m_showProperty.isEmpty() ) text = getPropStr( m_showProperty );
         setValLabelText( text );
+        return true;
     }
-    return ok;
+    return false;
 }
 
 void Component::setup()

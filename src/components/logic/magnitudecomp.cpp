@@ -65,8 +65,8 @@ void MagnitudeComp::stamp()
 {
     IoComponent::initState();
     // Logic for 7485
-    //m_outPin[0]->setOutState( true );
-    //m_outPin[2]->setOutState( true );
+    m_outPin[0]->setOutState( true );
+    m_outPin[2]->setOutState( true );
 
     for( IoPin* pin : m_inpPin ) pin->changeCallBack( this );
 }
@@ -87,9 +87,9 @@ void MagnitudeComp::voltChanged() // Called when any pin node change volt
     if     ( A > B ) m_nextOutVal = 0b001;
     else if( A < B ) m_nextOutVal = 0b100;
     else{
-        /*if     ( iA  & 0b010 ) iA = 0b010; // Logic for 7485
+        if     ( iA  & 0b010 ) iA = 0b010; // Logic for 7485
         else if( iA == 0b101 ) iA = 0b000;
-        else if( iA == 0b000 ) iA = 0b101;*/
+        else if( iA == 0b000 ) iA = 0b101;
         m_nextOutVal = iA;
     }
     scheduleOutPuts( this );

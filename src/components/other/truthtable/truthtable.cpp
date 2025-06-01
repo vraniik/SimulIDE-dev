@@ -60,7 +60,8 @@ void TruthTable::setup( QString inputs, QString outputs, std::vector<uint> truth
 
     for( int row=0; row<rows; ++row )
     {
-        uint truRow = truthT.at( row );
+        uint truRow = 0;
+        if( row < (int)truthT.size() ) truRow = truthT.at( row );
 
         int bit = m_numOutputs-1;
         for( int col=0; col<columns; ++col )

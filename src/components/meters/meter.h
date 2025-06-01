@@ -16,7 +16,7 @@ class Meter : public Component, public eResistor
         Meter( QString type, QString id );
         ~Meter();
 
-        bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         bool swithchPins() { return m_switchPins; }
         void setSwitchPins( bool s );

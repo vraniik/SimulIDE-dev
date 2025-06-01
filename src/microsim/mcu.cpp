@@ -312,11 +312,11 @@ void Mcu::setupMcu()
     setUiFreq( m_uiFreq );
 }
 
-bool Mcu::setPropStr( QString prop, QString val )
+bool Mcu::propNotFound( QString prop, QString val )
 {
     if( prop =="program" ) setProgram( val ); //  Old: TODELETE
     else if( prop =="Mhz" ) setUiFreq( val.toDouble()*1e6 );
-    else return Chip::setPropStr( prop, val );
+    else return Chip::propNotFound( prop, val );
     return true;
 }
 

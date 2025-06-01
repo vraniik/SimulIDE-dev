@@ -21,7 +21,7 @@ class Diode : public LinkerComponent, public eDiode
 
         void voltChanged() override;
 
-        bool setPropStr( QString prop, QString val ) override;
+        bool propNotFound( QString prop, QString val ) override;
 
         void initialize() override;
         void stamp() override;

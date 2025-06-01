@@ -93,7 +93,7 @@ Diode::~Diode()
     delete m_resistor;
 }
 
-bool Diode::setPropStr( QString prop, QString val )
+bool Diode::propNotFound( QString prop, QString val )
 {
     if( prop =="Zener_Volt" ) //  Old: TODELETE
     {
@@ -101,7 +101,7 @@ bool Diode::setPropStr( QString prop, QString val )
         m_isZener = zenerV > 0;
         eDiode::setBrkDownV( zenerV );
     }
-    else return Component::setPropStr( prop, val );
+    else return Component::propNotFound( prop, val );
     return true;
 }
 

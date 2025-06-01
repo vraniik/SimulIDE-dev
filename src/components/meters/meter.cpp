@@ -48,13 +48,13 @@ Meter::Meter( QString type, QString id )
 }
 Meter::~Meter(){}
 
-bool Meter::setPropStr( QString prop, QString val )
+bool Meter::propNotFound( QString prop, QString val )
 {
     if( prop =="SwitchPins" )       // Old: TODELETE
     {
         if( val == "true" ) { m_Hflip = -1; setflip(); }
     }
-    else return Component::setPropStr( prop, val );
+    else return Component::propNotFound( prop, val );
     return true;
 }
 

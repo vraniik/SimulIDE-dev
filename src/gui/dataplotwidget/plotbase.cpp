@@ -123,12 +123,12 @@ PlotBase::~PlotBase()
     for( int i=0; i<m_numChannels; i++ ) delete m_channel[i];
 }
 
-bool PlotBase::setPropStr( QString prop, QString val )
+bool PlotBase::propNotFound( QString prop, QString val )
 {
     if     ( prop =="hTick"  ) setTimeDiv( val.toLongLong()*1e3 ); // Old: TODELETE
     else if( prop =="vTick"  ) setVolDiv( val );
     else if( prop =="TimePos") setTimPos( val+"000" );
-    else return Component::setPropStr( prop, val );
+    else return Component::propNotFound( prop, val );
     return true;
 }
 

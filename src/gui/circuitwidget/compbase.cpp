@@ -100,7 +100,7 @@ void CompBase::remProperty( QString prop )
 bool CompBase::setPropStr( QString prop, QString val )
 {
     ComProperty* p = m_propMap.value( prop );
-    if( !p ) return false;
+    if( !p ) return propNotFound( prop, val );
 
     p->setValStr( val );
     if( m_propDialog ) m_propDialog->updtValues();

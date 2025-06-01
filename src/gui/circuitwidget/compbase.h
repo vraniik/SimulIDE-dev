@@ -47,6 +47,7 @@ class CompBase
 
         virtual bool    setPropStr( QString prop, QString val );
         virtual QString getPropStr( QString prop );
+        virtual bool propNotFound( QString prop, QString val ){ return false; }
 
         virtual QString toString();
 

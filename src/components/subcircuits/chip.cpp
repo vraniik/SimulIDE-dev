@@ -76,7 +76,7 @@ Chip::~Chip()
     if( m_backPixmap ) delete m_backPixmap;
 }
 
-bool Chip::setPropStr( QString prop, QString val )
+bool Chip::propNotFound( QString prop, QString val )
 {
     if( prop =="Logic_Symbol" )
     {
@@ -97,7 +97,7 @@ bool Chip::setPropStr( QString prop, QString val )
         }
         return true;
     }
-    return Component::setPropStr( prop, val );
+    return Component::propNotFound( prop, val );
 }
 
 QMap<QString, QString> Chip::getPackages( QString compFile ) // Static
