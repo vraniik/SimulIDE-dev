@@ -375,7 +375,15 @@ void Circuit::loadStrDoc( QString &doc )
                 else if( prop.name == "animate" ) m_animate = prop.value.toInt();
                 else if( prop.name == "width"   ) m_sceneWidth  = prop.value.toInt();
                 else if( prop.name == "height"  ) m_sceneHeight = prop.value.toInt();
-                else if( prop.name == "rev"     ) m_circRev  = prop.value.toInt();
+                else if( prop.name == "rev"     )
+                {
+                    m_circRev  = prop.value.toInt();
+                    if( m_circRev < 240000 )
+                    {
+                        qDebug() << "Warning: this file was created with an older version";
+                        qDebug() << "A copy of the original will be created if you save this Circuit"<<endl;
+                    }
+                }
             }
         }
         else if( line.startsWith("</circuit") ) break;
@@ -476,6 +484,18 @@ bool Circuit::saveCircuit( QString filePath )
 
     QString oldFilePath = m_filePath;
     m_filePath = filePath;
+
+    if( m_circRev < 250602 ) // Older circuit: Save backup copy
+    {
+        QString circCopy = oldFilePath;
+        circCopy = circCopy.replace(".sim1", "_copy.sim1");
+        qDebug() << "Saving Circuit copy" << circCopy;
+
+        if( !QFile::rename( oldFilePath, circCopy ) )
+        {
+            qDebug() << "Copy Error" << oldFilePath << circCopy;
+        }
+    }
 
     bool saved = saveString( filePath, circuitToString() );
 
