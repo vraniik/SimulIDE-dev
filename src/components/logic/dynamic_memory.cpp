@@ -312,6 +312,7 @@ void DynamicMemory::createAddrBits( int bits )
         m_inpPin[i] = new IoPin( 180, QPoint(-24,origY+8+i*8 ), m_id+"-in"+number, i, this, input );
         m_inpPin[i]->setLabelText( "A"+number );
         m_inpPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
+        m_inpPin[i]->setInverted( m_invInputs );
         initPin( m_inpPin[i] );
 }   }
 
@@ -351,6 +352,7 @@ void DynamicMemory::createDataBits( int bits )
         m_outPin[i] = new IoPin( 0, QPoint(24,origY+8+i*8 ), m_id+"-out"+number, i, this, output );
         m_outPin[i]->setLabelText( "D"+number);
         m_outPin[i]->setLabelColor( QColor( 0, 0, 0 ) );
+        m_outPin[i]->setInverted( m_invOutputs );
         initPin( m_outPin[i] );
 }   }
 
