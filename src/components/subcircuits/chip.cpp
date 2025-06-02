@@ -97,7 +97,7 @@ bool Chip::propNotFound( QString prop, QString val )
         }
         return true;
     }
-    return Component::propNotFound( prop, val );
+    return false;
 }
 
 QMap<QString, QString> Chip::getPackages( QString compFile ) // Static

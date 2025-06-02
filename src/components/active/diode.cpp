@@ -100,9 +100,10 @@ bool Diode::propNotFound( QString prop, QString val )
         double zenerV = val.toDouble();
         m_isZener = zenerV > 0;
         eDiode::setBrkDownV( zenerV );
+        return true;
     }
-    else return Component::propNotFound( prop, val );
-    return true;
+    return false;
+
 }
 
 void Diode::initialize()

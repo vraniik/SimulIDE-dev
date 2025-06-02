@@ -53,9 +53,9 @@ bool Meter::propNotFound( QString prop, QString val )
     if( prop =="SwitchPins" )       // Old: TODELETE
     {
         if( val == "true" ) { m_Hflip = -1; setflip(); }
+        return true;
     }
-    else return Component::propNotFound( prop, val );
-    return true;
+    return false;
 }
 
 void Meter::updateStep()

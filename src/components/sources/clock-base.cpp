@@ -33,9 +33,12 @@ ClockBase::~ClockBase(){}
 
 bool ClockBase::propNotFound( QString prop, QString val )
 {
-    if( prop =="Out" ) setRunning( val == "true" );   // Old: TODELETE
-    else return Component::propNotFound( prop, val );
-    return true;
+    if( prop =="Out" )
+    {
+        setRunning( val == "true" );   // Old: TODELETE
+        return true;
+    }
+    return false;
 }
 
 void ClockBase::stamp()

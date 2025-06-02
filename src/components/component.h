@@ -28,7 +28,7 @@ class Component : public CompBase, public QGraphicsItem, public Updatable
         Component( QString type, QString id );
         ~Component();
 
-        virtual bool propNotFound( QString prop, QString val );
+        virtual bool setPropStr( QString prop, QString val );
 
         virtual void setup() override;
 

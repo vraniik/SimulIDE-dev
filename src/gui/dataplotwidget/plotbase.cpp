@@ -128,7 +128,8 @@ bool PlotBase::propNotFound( QString prop, QString val )
     if     ( prop =="hTick"  ) setTimeDiv( val.toLongLong()*1e3 ); // Old: TODELETE
     else if( prop =="vTick"  ) setVolDiv( val );
     else if( prop =="TimePos") setTimPos( val+"000" );
-    else return Component::propNotFound( prop, val );
+    else return false;
+
     return true;
 }
 
