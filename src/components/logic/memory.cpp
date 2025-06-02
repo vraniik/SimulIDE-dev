@@ -85,7 +85,12 @@ Memory::Memory( QString type, QString id )
 
     appendPropGroup( tr("Main"), IoComponent::familyProps() );
 
-    addPropGroup( { tr("Inputs"), IoComponent::inputProps(),0 } );
+    addPropGroup( { tr("Inputs")
+        , IoComponent::inputProps()
+        + QList<ComProperty*>({
+            new BoolProp<Memory>("Invert_Inputs", tr("Invert Inputs"),""
+                                , this, &Memory::invertInps, &Memory::setInvertInps, propNoCopy )})
+    ,0 } );
 
     addPropGroup( { tr("Outputs")
         , IoComponent::outputProps()

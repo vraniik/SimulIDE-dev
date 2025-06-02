@@ -17,6 +17,7 @@
 
 #include "stringprop.h"
 #include "doubleprop.h"
+#include "boolprop.h"
 #include "intprop.h"
 
 #define tr(str) simulideTr("DynamicMemory",str)
@@ -96,8 +97,12 @@ DynamicMemory::DynamicMemory( QString type, QString id )
     appendPropGroup( tr("Main"), IoComponent::familyProps() );
 
     addPropGroup( { tr("Inputs")
-       ,IoComponent::inputProps()
+        , IoComponent::inputProps()
+        + QList<ComProperty*>({
+            new BoolProp<DynamicMemory>("Invert_Inputs", tr("Invert Inputs"),""
+                                 , this, &DynamicMemory::invertInps, &DynamicMemory::setInvertInps, propNoCopy )})
     ,0 } );
+
 
     addPropGroup( { tr("Outputs")
         , IoComponent::outputProps()
