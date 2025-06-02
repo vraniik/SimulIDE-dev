@@ -18,8 +18,10 @@ class Counter : public LogicComponent
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
-        bool srInv() { return m_resetInv; }
-        void setSrInv( bool inv );
+        //bool srInv() { return m_resetInv; }
+        //void setSrInv( bool inv );
+
+        bool propNotFound( QString prop, QString val ) override;
 
         bool pinSet() { return m_pinSet; }
         void useSetPin( bool set );
@@ -35,7 +37,7 @@ class Counter : public LogicComponent
         int m_Counter;
         int m_TopValue;
 
-        bool m_resetInv;
+        //bool m_resetInv;
         bool m_pinSet;
 
         IoPin* m_setPin;

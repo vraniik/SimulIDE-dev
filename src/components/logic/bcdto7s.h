@@ -18,6 +18,8 @@ class BcdTo7S : public BcdBase
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
+        bool propNotFound( QString prop, QString val ) override;
+
         void stamp() override;
         void updateStep() override;
         void voltChanged() override;
@@ -26,17 +28,17 @@ class BcdTo7S : public BcdBase
         bool pinReset() { return m_useReset; }
         void setPinReset( bool r );
 
-        bool resetInv() { return m_resetInv; }
-        void setResetInv( bool inv );
+        //bool resetInv() { return m_resetInv; }
+        //void setResetInv( bool inv );
 
-    protected:
-        void slotProperties() override;
-        void updtProperties();
+    //protected:
+        //void slotProperties() override;
+        //void updtProperties();
 
     private:
 
         bool m_useReset;
-        bool m_resetInv;
+        //bool m_resetInv;
 
         IoPin* m_resetPin;
 };

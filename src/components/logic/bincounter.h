@@ -18,6 +18,8 @@ class BinCounter : public LogicComponent
  static Component* construct( QString type, QString id );
  static LibraryItem* libraryItem();
 
+        bool propNotFound( QString prop, QString val ) override;
+
         int bits() { return m_bits; }
         void setBits( int b );
 
@@ -30,8 +32,8 @@ class BinCounter : public LogicComponent
         bool bidirectional() { return m_bidirectional; }
         void setBidirectional( bool b );
 
-        bool srInv() { return m_resetInv; }
-        void setSrInv( bool inv );
+        //bool srInv() { return m_resetInv; }
+        //void setSrInv( bool inv );
 
         void stamp() override;
         void voltChanged() override;
@@ -48,7 +50,7 @@ class BinCounter : public LogicComponent
         int m_topValue;
 
         bool m_useRCO;
-        bool m_resetInv;
+        //bool m_resetInv;
         bool m_parallelIn;
         bool m_bidirectional;
 

@@ -44,18 +44,20 @@ Counter::Counter( QString type, QString id)
     m_rstPin = m_inpPin[1];
     m_setPin = m_inpPin[2];
 
-    setSrInv( true );            // Invert Reset Pin
+    //setSrInv( true );            // Invert Reset Pin
+    m_rstPin->setInverted( true );
+    m_setPin->setInverted( true );
     useSetPin( false );          // Don't use Set Pin
 
     addPropGroup( { tr("Main"), {
         new BoolProp<Counter>("Pin_SET", tr("Use Set Pin"),""
                                 , this, &Counter::pinSet,&Counter::useSetPin, propNoCopy ),
 
-        new BoolProp<Counter>("Clock_Inverted", tr("Clock Inverted"),""
-                                , this, &Counter::clockInv, &Counter::setClockInv ),
+        //new BoolProp<Counter>("Clock_Inverted", tr("Clock Inverted"),""
+        //                        , this, &Counter::clockInv, &Counter::setClockInv ),
 
-        new BoolProp<Counter>("Reset_Inverted", tr("Set/Reset Inverted"),""
-                                , this, &Counter::srInv, &Counter::setSrInv ),
+        //new BoolProp<Counter>("Reset_Inverted", tr("Set/Reset Inverted"),""
+        //                        , this, &Counter::srInv, &Counter::setSrInv ),
 
         new IntProp <Counter>("Max_Value", tr("Count to"),""
                                 , this, &Counter::maxVal, &Counter::setMaxVal,0,"uint" ),
@@ -68,6 +70,25 @@ Counter::Counter( QString type, QString id)
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 Counter::~Counter(){}
+
+bool Counter::propNotFound( QString prop, QString val )
+{
+    if( prop =="Clock_Inverted" ) // Old circuits
+    {
+        m_clkPin->setInverted( val == "true" );
+    }
+    else if( prop =="Reset_Inverted" ) // Old circuits
+    {
+        bool invert = (val == "true");
+
+        m_setPin->setInverted( invert );
+        m_rstPin->setInverted( invert );
+    }
+    else return false;
+
+    return true;
+}
+
 
 void Counter::stamp()
 {
@@ -105,12 +126,12 @@ void Counter::voltChanged()
     IoComponent::scheduleOutPuts( this );
 }
 
-void Counter::setSrInv( bool inv )
+/*void Counter::setSrInv( bool inv )
 {
     m_resetInv = inv;
     m_rstPin->setInverted( inv );
     m_setPin->setInverted( inv );
-}
+}*/
 
 void Counter::useSetPin( bool set )
 {

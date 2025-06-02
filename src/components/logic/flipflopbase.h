@@ -13,8 +13,10 @@ class FlipFlopBase : public LogicComponent
         FlipFlopBase( QString type, QString id );
         ~FlipFlopBase();
 
-        bool srInv() { return m_srInv; }
-        void setSrInv( bool inv );
+        //bool srInv() { return m_srInv; }
+        //void setSrInv( bool inv );
+
+        bool propNotFound( QString prop, QString val ) override;
 
         bool pinsRS() { return m_useRS; }
         void usePinsRS( bool rs );
@@ -31,7 +33,7 @@ class FlipFlopBase : public LogicComponent
         virtual void calcOutput(){;}
 
         bool m_useRS;
-        bool m_srInv;
+        //bool m_srInv;
         bool m_Q0;
 
         int m_dataPins;

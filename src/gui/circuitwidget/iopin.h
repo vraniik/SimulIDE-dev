@@ -89,7 +89,10 @@ class IoPin : public Pin, public eElement
  static QStringList registerScript( asIScriptEngine* engine );
 
     protected:
+        void contextMenuEvent( QGraphicsSceneContextMenuEvent* event ) override;
         void paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w ) override;
+
+        void setUserInverted( bool invert );
 
         inline void updtState()
         {

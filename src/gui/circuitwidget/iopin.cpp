@@ -276,6 +276,14 @@ void IoPin::setOpenImp( double imp )
     }
 }
 
+void IoPin::setUserInverted( bool invert )
+{
+    if( invert == m_inverted ) return;
+    Simulator::self()->pauseSim();
+    IoPin::setInverted( invert );
+    Simulator::self()->resumeSim();
+}
+
 void IoPin::setInverted( bool invert )
 {
     if( invert == m_inverted ) return;
@@ -283,6 +291,7 @@ void IoPin::setInverted( bool invert )
 
     if( m_pinMode > input ) setOutState( m_outState );
     else                    ePin::stampAdmitance( m_admit );
+
     update();
 }
 
@@ -290,6 +299,17 @@ void IoPin::stampAll()
 {
     ePin::stampAdmitance( m_admit );
     stampVolt( m_outVolt );
+}
+
+void IoPin::contextMenuEvent( QGraphicsSceneContextMenuEvent* event )
+{
+    QMenu* menu = new QMenu();
+
+    QAction* editAction = menu->addAction( QIcon(":/invert.png"),QObject::tr("Invert Pin"));
+    QObject::connect( editAction, &QAction::triggered,
+                     [=](){ setUserInverted( !m_inverted ); } );
+
+    menu->exec( event->screenPos() );
 }
 
 void IoPin::paint( QPainter* p, const QStyleOptionGraphicsItem* o, QWidget* w)

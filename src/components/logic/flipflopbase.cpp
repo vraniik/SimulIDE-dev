@@ -18,17 +18,17 @@ FlipFlopBase::FlipFlopBase( QString type, QString id )
 {
     m_dataPins = 0;
     m_useRS = true;
-    m_srInv = false;
+    //m_srInv = false;
 
     addPropGroup( { tr("Main"), {
         new BoolProp<FlipFlopBase>("UseRS", tr("Use Set/Reset Pins"),""
                                   , this, &FlipFlopBase::pinsRS, &FlipFlopBase::usePinsRS, propNoCopy ),
 
-        new BoolProp<FlipFlopBase>("Reset_Inverted", tr("Set/Reset Inverted"),""
-                                  , this, &FlipFlopBase::srInv, &FlipFlopBase::setSrInv, propNoCopy ),
+        //new BoolProp<FlipFlopBase>("Reset_Inverted", tr("Set/Reset Inverted"),""
+        //                          , this, &FlipFlopBase::srInv, &FlipFlopBase::setSrInv, propNoCopy ),
 
-        new BoolProp<FlipFlopBase>("Clock_Inverted", tr("Clock Inverted"),""
-                                  , this, &FlipFlopBase::clockInv, &FlipFlopBase::setClockInv, propNoCopy ),
+        //new BoolProp<FlipFlopBase>("Clock_Inverted", tr("Clock Inverted"),""
+        //                          , this, &FlipFlopBase::clockInv, &FlipFlopBase::setClockInv, propNoCopy ),
 
         new StrProp <FlipFlopBase>("Trigger", tr("Trigger Type"), LogicComponent::m_triggerList
                                   , this, &FlipFlopBase::triggerStr,&FlipFlopBase::setTriggerStr, propNoCopy,"enum" ),
@@ -42,13 +42,31 @@ FlipFlopBase::FlipFlopBase( QString type, QString id )
 }
 FlipFlopBase::~FlipFlopBase(){}
 
+bool FlipFlopBase::propNotFound( QString prop, QString val )
+{
+    if( prop =="Clock_Inverted" ) // Old circuits
+    {
+        m_clkPin->setInverted( val == "true" );
+    }
+    else if( prop =="Reset_Inverted" ) // Old circuits
+    {
+        bool invert = (val == "true");
+
+        m_setPin->setInverted( invert );
+        m_rstPin->setInverted( invert );
+    }
+    else return false;
+
+    return true;
+}
+
 void FlipFlopBase::updateStep()
 {
     if( !m_changed ) return;
     m_changed = false;
 
-    m_setPin->setInverted( m_srInv );  // Set
-    m_rstPin->setInverted( m_srInv ); // Reset
+    //m_setPin->setInverted( m_srInv );  // Set
+    //m_rstPin->setInverted( m_srInv ); // Reset
 
     voltChanged();
     Circuit::self()->update();
@@ -82,14 +100,14 @@ void FlipFlopBase::voltChanged()
     scheduleOutPuts( this );
 }
 
-void FlipFlopBase::setSrInv( bool inv )
+/*void FlipFlopBase::setSrInv( bool inv )
 {
     if( m_srInv == inv ) return;
     m_srInv = inv;
 
     m_changed = true;
     if( !Simulator::self()->isRunning() ) updateStep();
-}
+}*/
 
 void FlipFlopBase::usePinsRS( bool rs )
 {

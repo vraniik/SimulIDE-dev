@@ -27,7 +27,7 @@ void eClockedDevice::stamp()
     else m_clock = false;
 }
 
-bool eClockedDevice::clockInv()
+/*bool eClockedDevice::clockInv()
 {
     return m_clkPin->inverted();
 }
@@ -42,7 +42,7 @@ void eClockedDevice::setClockInv( bool inv )
     Circuit::self()->update();
 
     Simulator::self()->resumeSim();
-}
+}*/
 
 void eClockedDevice::updateClock()
 {

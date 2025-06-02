@@ -66,7 +66,7 @@ ShiftReg::ShiftReg( QString type, QString id )
     setupPin( m_rstPin, "L07Rst" );
     setupPin( m_serPin, "L00S" );
 
-    setResetInv( true );    // Invert Reset Pin
+    m_rstPin->setInverted( true ); //setResetInv( true );    // Invert Reset Pin
 
     addPropGroup( { tr("Main"), {
         new IntProp <ShiftReg>("Bits", tr("Size"),"_bits"
@@ -78,11 +78,11 @@ ShiftReg::ShiftReg( QString type, QString id )
         new BoolProp<ShiftReg>("Bidirectional", tr("Bidirectional"),""
                               , this, &ShiftReg::bidirectional, &ShiftReg::setBidirectional, propNoCopy ),
 
-        new BoolProp<ShiftReg>("Clock_Inverted", tr("Clock Inverted"),""
-                              , this, &ShiftReg::clockInv, &ShiftReg::setClockInv ),
+        //new BoolProp<ShiftReg>("Clock_Inverted", tr("Clock Inverted"),""
+        //                      , this, &ShiftReg::clockInv, &ShiftReg::setClockInv ),
 
-        new BoolProp<ShiftReg>("Reset_Inverted", tr("Reset Inverted"),""
-                              , this, &ShiftReg::resetInv, &ShiftReg::setResetInv ),
+        //new BoolProp<ShiftReg>("Reset_Inverted", tr("Reset Inverted"),""
+        //                      , this, &ShiftReg::resetInv, &ShiftReg::setResetInv ),
     }, groupNoCopy} );
 
     appendPropGroup( tr("Main"), IoComponent::familyProps() );
@@ -101,6 +101,22 @@ ShiftReg::ShiftReg( QString type, QString id )
     addPropGroup( { tr("Timing")  , IoComponent::edgeProps(),0 } );
 }
 ShiftReg::~ShiftReg(){}
+
+bool ShiftReg::propNotFound( QString prop, QString val )
+{
+    if( prop =="Clock_Inverted" ) // Old circuits
+    {
+        m_clkPin->setInverted( val == "true" );
+    }
+    else if( prop =="Reset_Inverted" ) // Old circuits
+    {
+        bool invert = (val == "true");
+        m_rstPin->setInverted( invert );
+    }
+    else return false;
+
+    return true;
+}
 
 void ShiftReg::stamp()
 {
@@ -224,8 +240,8 @@ void ShiftReg::updatePins()
     setupPin( m_oePin, "U02OE" ); // Reposition OE pin
 }
 
-void ShiftReg::setResetInv( bool inv )
+/*void ShiftReg::setResetInv( bool inv )
 {
     m_resetInv = inv;
     m_rstPin->setInverted( inv );
-}
+}*/

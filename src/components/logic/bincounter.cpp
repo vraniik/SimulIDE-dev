@@ -67,7 +67,7 @@ BinCounter::BinCounter( QString type, QString id)
     setBits( 4 );
 
     m_dirPin->setInverted( true );
-    setSrInv( true );            // Invert Reset Pin
+    m_rstPin->setInverted( true ); //setSrInv( true );            // Invert Reset Pin
 
     addPropGroup( { tr("Main"), {
 
@@ -86,11 +86,11 @@ BinCounter::BinCounter( QString type, QString id)
         new BoolProp<BinCounter>("Bidir", tr("Bidirectional"),""
                                 , this, &BinCounter::bidirectional, &BinCounter::setBidirectional, propNoCopy ),
 
-        new BoolProp<BinCounter>("Clock_Inverted", tr("Clock Inverted"),""
-                                , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
+        //new BoolProp<BinCounter>("Clock_Inverted", tr("Clock Inverted"),""
+        //                        , this, &BinCounter::clockInv, &BinCounter::setClockInv ),
 
-        new BoolProp<BinCounter>("Reset_Inverted", tr("Reset Inverted"),""
-                                , this, &BinCounter::srInv, &BinCounter::setSrInv ),
+        //new BoolProp<BinCounter>("Reset_Inverted", tr("Reset Inverted"),""
+        //                        , this, &BinCounter::srInv, &BinCounter::setSrInv ),
     },groupNoCopy} );
 
     appendPropGroup( tr("Main"), IoComponent::familyProps() );
@@ -110,6 +110,22 @@ BinCounter::BinCounter( QString type, QString id)
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 BinCounter::~BinCounter(){}
+
+bool BinCounter::propNotFound( QString prop, QString val )
+{
+    if( prop =="Clock_Inverted" ) // Old circuits
+    {
+        m_clkPin->setInverted( val == "true" );
+    }
+    else if( prop =="Reset_Inverted" ) // Old circuits
+    {
+        bool invert = (val == "true");
+        m_rstPin->setInverted( invert );
+    }
+    else return false;
+
+    return true;
+}
 
 void BinCounter::stamp()
 {
@@ -240,9 +256,9 @@ void BinCounter::setBidirectional( bool b )
     updatePins();
 }
 
-void BinCounter::setSrInv( bool inv )
+/*void BinCounter::setSrInv( bool inv )
 {
     m_resetInv = inv;
     m_rstPin->setInverted( inv );
-}
+}*/
 

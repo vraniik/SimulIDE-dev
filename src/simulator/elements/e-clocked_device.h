@@ -38,8 +38,8 @@ class eClockedDevice : public eElement
 
         void setClockPin( IoPin* clockPin ) { m_clkPin = clockPin; }
 
-        bool clockInv();
-        void setClockInv( bool inv );
+        //bool clockInv();
+        //void setClockInv( bool inv );
 
         void updateClock();
 

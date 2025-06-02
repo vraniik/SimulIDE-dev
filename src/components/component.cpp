@@ -97,6 +97,7 @@ new StrProp <Component>("itemtype","","", this, &Component::itemType,  &Componen
 new StrProp <Component>("CircId"  ,"","", this, &Component::getUid,    &Component::setUid ),
 new BoolProp<Component>("mainComp","","", this, &Component::isMainComp,&Component::setMainComp ),// Related to Subcircuit:
 new StrProp <Component>("ShowProp","","", this, &Component::showProp,  &Component::setShowProp ),
+new StrProp <Component>("invertPins","","", this, &Component::invertedPins, &Component::setInvertPins )
     }, groupHidden | groupNoCopy } );
 
     addPropGroup( { "CompGraphic", {
@@ -138,6 +139,16 @@ bool Component::setPropStr( QString prop, QString val )
 
 void Component::setup()
 {
+    if( !m_invertedPins.isEmpty() )
+    {
+        QStringList pinList = m_invertedPins.split(",");
+
+        for( Pin* pin : getPins() ){
+            QString id = pin->pinId().split("-").last();
+            pin->setInverted( pinList.contains( id ) );  //userInvertPin();
+        }
+        m_invertedPins.clear();
+    }
     QString showP = showProp();
     if( !showP.isEmpty() ) setValLabelText( getPropStr( showP ) );
 }
@@ -422,15 +433,27 @@ void Component::slotProperties()
     m_propDialog->raise();
 }
 
+QString Component::invertedPins()
+{
+    QString pinListStr;
+    std::vector<Pin*> pins = getPins();
+
+    for( Pin* pin : pins )
+        if( pin->inverted() ) //  userInverted() )
+            pinListStr += pin->pinId().split("-").last()+",";
+
+    return pinListStr;
+}
+
 void Component::setInvertPins( QString pins )
 {
     m_invertedPins = pins;
-    QStringList pinList = pins.split(",");
+    /*QStringList pinList = pins.split(",");
     for( QString pinStr : pinList )
     {
         Pin* pin = Circuit::self()->getPin( m_id+"-"+pinStr );
-        if( pin ) pin->setInverted( !pin->inverted() );
-    }
+        if( pin ) pin->setInverted( true );
+    }*/
 }
 
 void Component::slotH_flip()

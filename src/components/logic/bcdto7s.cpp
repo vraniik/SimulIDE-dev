@@ -56,9 +56,10 @@ BcdTo7S::BcdTo7S( QString type, QString id )
     m_resetPin = new IoPin( 180, QPoint(-24, 8 ), m_id+"-Pin_reset", 0, this, input );
     setupPin( m_resetPin,"L02RST");
     m_resetPin->setVisible( false );
+    m_resetPin->setInverted( true ); //setResetInv( true );    // Invert Reset Pin
     m_otherPin.emplace_back( m_resetPin );
 
-    setResetInv( true );    // Invert Reset Pin
+
 
     Simulator::self()->addToUpdateList( this );
 
@@ -69,8 +70,8 @@ BcdTo7S::BcdTo7S( QString type, QString id )
         new BoolProp<BcdTo7S>("UseRS", tr("Reset Pin"),""
                              , this, &BcdTo7S::pinReset, &BcdTo7S::setPinReset, propNoCopy ),
 
-        new BoolProp<BcdTo7S>("Reset_Inverted", tr("Reset Inverted"),""
-                              , this, &BcdTo7S::resetInv, &BcdTo7S::setResetInv ),
+        //new BoolProp<BcdTo7S>("Reset_Inverted", tr("Reset Inverted"),""
+        //                      , this, &BcdTo7S::resetInv, &BcdTo7S::setResetInv ),
     },0} );
 
     appendPropGroup( tr("Main"), IoComponent::familyProps() );
@@ -94,6 +95,17 @@ BcdTo7S::BcdTo7S( QString type, QString id )
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
 }
 BcdTo7S::~BcdTo7S(){}
+
+bool BcdTo7S::propNotFound( QString prop, QString val )
+{
+    if( prop =="Reset_Inverted" ) // Old circuits
+    {
+        bool invert = (val == "true");
+        m_resetPin->setInverted( invert );
+        return true;
+    }
+    return false;
+}
 
 void BcdTo7S::stamp()
 {
@@ -134,23 +146,23 @@ void BcdTo7S::setPinReset( bool r )
     updtProperties();
 }
 
-void BcdTo7S::setResetInv( bool inv )
+/*void BcdTo7S::setResetInv( bool inv )
 {
     m_resetInv = inv;
     m_resetPin->setInverted( inv );
-}
+}*/
 
-void BcdTo7S::updtProperties()
+/*void BcdTo7S::updtProperties()
 {
     if( !m_propDialog ) return;
 
-    m_propDialog->showProp("Reset_Inverted", m_useReset );
+    //m_propDialog->showProp("Reset_Inverted", m_useReset );
 
     m_propDialog->adjustWidgets();
-}
+}*/
 
-void BcdTo7S::slotProperties()
+/*void BcdTo7S::slotProperties()
 {
     Component::slotProperties();
     updtProperties();
-}
+}*/
