@@ -43,11 +43,16 @@ AndGate::AndGate( QString type, QString id )
     ,0 } );
 
     addPropGroup( { tr("Outputs"),
-        Gate::outputProps()
+         Gate::outputProps()
        + IoComponent::outputType()
+       + QList<ComProperty*>({
+           new ComProperty("", tr("Invert Output by Right-Click on Pin"),"","",0)
+       })
     ,0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
+
+    remProperty("Inverted");
 }
 AndGate::~AndGate(){}
 

@@ -17,6 +17,8 @@ class Gate : public LogicComponent
 
         QList<ComProperty*> outputProps();
 
+        bool propNotFound( QString prop, QString val ) override;
+
         void stamp() override;
         void voltChanged() override;
         void runEvent() override { IoComponent::runOutputs(); }

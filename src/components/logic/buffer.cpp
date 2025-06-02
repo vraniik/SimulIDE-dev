@@ -45,8 +45,7 @@ Buffer::Buffer( QString type, QString id )
     addPropGroup( { tr("Inputs"),
         IoComponent::inputProps()
         +QList<ComProperty*>({
-        new BoolProp<Buffer>("Invert_Inputs", tr("Invert Inputs"),""
-                            , this, &Buffer::invertInps, &Buffer::setInvertInps, propNoCopy )
+        new ComProperty("", tr("Invert Input by Right-Click on Pin"),"","",0)
         })
     ,0} );
 
@@ -55,11 +54,14 @@ Buffer::Buffer( QString type, QString id )
         +IoComponent::outputType()
         +QList<ComProperty*>({
             new BoolProp<Buffer>("Tristate", tr("Tristate"),""
-                                 , this, &Buffer::tristate, &Buffer::setTristate, propNoCopy )
+                                 , this, &Buffer::tristate, &Buffer::setTristate, propNoCopy ),
+            new ComProperty("", tr("Invert Output by Right-Click on Pin"),"","",0)
         })
     ,0} );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
+
+    remProperty("Inverted");
 }
 Buffer::~Buffer(){}
 

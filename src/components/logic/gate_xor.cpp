@@ -43,9 +43,14 @@ XorGate::XorGate( QString type, QString id )
     addPropGroup( { tr("Outputs"),
           Gate::outputProps()
         + IoComponent::outputType()
+        + QList<ComProperty*>({
+            new ComProperty("", tr("Invert Output by Right-Click on Pin"),"","",0)
+        })
     ,0 } );
 
     addPropGroup( { tr("Timing"), IoComponent::edgeProps(),0 } );
+
+    remProperty("Inverted");
 }
 XorGate::~XorGate(){}
 

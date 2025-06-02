@@ -26,6 +26,16 @@ Gate::Gate( QString type, QString id, int inputs )
 }
 Gate::~Gate(){}
 
+bool Gate::propNotFound( QString prop, QString val )
+{
+    if( prop =="Inverted" ) // Old circuits
+    {
+        m_outPin[0]->setInverted( val == "true" );
+        return true;
+    }
+    return false;
+}
+
 QList<ComProperty*> Gate::outputProps()
 {
     QList<ComProperty*> outProps = IoComponent::outputProps();
