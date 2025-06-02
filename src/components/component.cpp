@@ -96,8 +96,7 @@ Component::Component( QString type, QString id )
 new StrProp <Component>("itemtype","","", this, &Component::itemType,  &Component::setItemType ),
 new StrProp <Component>("CircId"  ,"","", this, &Component::getUid,    &Component::setUid ),
 new BoolProp<Component>("mainComp","","", this, &Component::isMainComp,&Component::setMainComp ),// Related to Subcircuit:
-new StrProp <Component>("ShowProp","","", this, &Component::showProp,  &Component::setShowProp ),
-new StrProp <Component>("invertPins","","", this, &Component::invertedPins, &Component::setInvertPins )
+new StrProp <Component>("ShowProp","","", this, &Component::showProp,  &Component::setShowProp )
     }, groupHidden | groupNoCopy } );
 
     addPropGroup( { "CompGraphic", {
