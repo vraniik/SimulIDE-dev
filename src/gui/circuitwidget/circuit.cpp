@@ -485,10 +485,12 @@ bool Circuit::saveCircuit( QString filePath )
     QString oldFilePath = m_filePath;
     m_filePath = filePath;
 
-    if( m_circRev < 250602 ) // Older circuit: Save backup copy
+    if( m_circRev < 240000 ) // Older circuit: Save backup copy
     {
         QString circCopy = oldFilePath;
         circCopy = circCopy.replace(".sim1", "_copy.sim1");
+        m_circRev = MainWindow::self()->revision();
+
         qDebug() << "Saving Circuit copy" << circCopy;
 
         if( !QFile::rename( oldFilePath, circCopy ) )
