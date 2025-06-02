@@ -473,48 +473,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="77"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="67"/>
         <source>Custom Characters CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="69"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="70"/>
         <source>Reset Pin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="72"/>
-        <source>Reset Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="79"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="81"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="82"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="85"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="86"/>
         <source>Outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="90"/>
         <source>Tristate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="94"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="95"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -572,11 +567,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="89"/>
-        <source>Clock Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="24"/>
         <source>Binary Counter</source>
         <translation type="unfinished"></translation>
@@ -604,11 +594,6 @@
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="86"/>
         <source>Bidirectional</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="92"/>
-        <source>Reset Inverted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1225,48 +1210,48 @@ Can&apos;t find file:
 <context>
     <name>Component</name>
     <message>
-        <location filename="../../src/components/component.cpp" line="323"/>
+        <location filename="../../src/components/component.cpp" line="334"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="329"/>
+        <location filename="../../src/components/component.cpp" line="340"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="316"/>
-        <location filename="../../src/components/component.cpp" line="335"/>
+        <location filename="../../src/components/component.cpp" line="327"/>
+        <location filename="../../src/components/component.cpp" line="346"/>
         <source>Properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="339"/>
+        <location filename="../../src/components/component.cpp" line="350"/>
         <source>Rotate CW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="342"/>
+        <location filename="../../src/components/component.cpp" line="353"/>
         <source>Rotate CCW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="345"/>
+        <location filename="../../src/components/component.cpp" line="356"/>
         <source>Rotate 180</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="348"/>
+        <location filename="../../src/components/component.cpp" line="359"/>
         <source>Horizontal Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="351"/>
+        <location filename="../../src/components/component.cpp" line="362"/>
         <source>Vertical Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="326"/>
+        <location filename="../../src/components/component.cpp" line="337"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1319,43 +1304,33 @@ Can&apos;t find file:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="50"/>
-        <location filename="../../src/components/logic/counter.cpp" line="64"/>
+        <location filename="../../src/components/logic/counter.cpp" line="52"/>
+        <location filename="../../src/components/logic/counter.cpp" line="66"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="51"/>
+        <location filename="../../src/components/logic/counter.cpp" line="53"/>
         <source>Use Set Pin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="54"/>
-        <source>Clock Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/counter.cpp" line="57"/>
-        <source>Set/Reset Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/counter.cpp" line="60"/>
+        <location filename="../../src/components/logic/counter.cpp" line="62"/>
         <source>Count to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="66"/>
+        <location filename="../../src/components/logic/counter.cpp" line="68"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="67"/>
+        <location filename="../../src/components/logic/counter.cpp" line="69"/>
         <source>Outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="68"/>
+        <location filename="../../src/components/logic/counter.cpp" line="70"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2523,11 +2498,6 @@ Can&apos;t find file:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="30"/>
-        <source>Clock Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="33"/>
         <source>Trigger Type</source>
         <translation type="unfinished"></translation>
@@ -2535,11 +2505,6 @@ Can&apos;t find file:
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="24"/>
         <source>Use Set/Reset Pins</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="27"/>
-        <source>Set/Reset Inverted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4725,6 +4690,11 @@ Can&apos;t find file:
         <source>Screen</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../src/gui/circuitwidget/iopin.cpp" line="308"/>
+        <source>Invert Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RTD</name>
@@ -5317,16 +5287,6 @@ Can&apos;t find file:
         <location filename="../../src/components/logic/shiftreg.cpp" line="71"/>
         <location filename="../../src/components/logic/shiftreg.cpp" line="88"/>
         <source>Main</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="81"/>
-        <source>Clock Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="84"/>
-        <source>Reset Inverted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

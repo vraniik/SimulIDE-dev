@@ -485,28 +485,27 @@
         <translation>BCD na 7Seg.</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="77"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="67"/>
         <source>Custom Characters CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="69"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="70"/>
         <source>Reset Pin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="72"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">Invertovať reset</translation>
+        <translation type="obsolete">Invertovať reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="79"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -515,22 +514,22 @@
         <translation type="vanished">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="81"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="82"/>
         <source>Invert Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="85"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="86"/>
         <source>Outputs</source>
         <translation type="unfinished">Výstupné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="90"/>
         <source>Tristate</source>
         <translation type="unfinished">Trojstavový</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="94"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="95"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -596,9 +595,8 @@
         <translation type="vanished">Použiť Set pin</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="89"/>
         <source>Clock Inverted</source>
-        <translation>Invertovanie hodín</translation>
+        <translation type="vanished">Invertovanie hodín</translation>
     </message>
     <message>
         <source>Set/Reset Inverted</source>
@@ -643,9 +641,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="92"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">Invertovať reset</translation>
+        <translation type="obsolete">Invertovať reset</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="98"/>
@@ -1277,48 +1274,48 @@ Nemožno nájsť súbor:
 <context>
     <name>Component</name>
     <message>
-        <location filename="../../src/components/component.cpp" line="323"/>
+        <location filename="../../src/components/component.cpp" line="334"/>
         <source>Copy</source>
         <translation>Kopírovať</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="329"/>
+        <location filename="../../src/components/component.cpp" line="340"/>
         <source>Remove</source>
         <translation>Odstrániť</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="316"/>
-        <location filename="../../src/components/component.cpp" line="335"/>
+        <location filename="../../src/components/component.cpp" line="327"/>
+        <location filename="../../src/components/component.cpp" line="346"/>
         <source>Properties</source>
         <translation>Vlastnosti</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="339"/>
+        <location filename="../../src/components/component.cpp" line="350"/>
         <source>Rotate CW</source>
         <translation>Otočiť o 90° vpravo</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="342"/>
+        <location filename="../../src/components/component.cpp" line="353"/>
         <source>Rotate CCW</source>
         <translation>Otočiť o 90° vľavo</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="345"/>
+        <location filename="../../src/components/component.cpp" line="356"/>
         <source>Rotate 180</source>
         <translation>Otočiť o 180°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="348"/>
+        <location filename="../../src/components/component.cpp" line="359"/>
         <source>Horizontal Flip</source>
         <translation>Prevrátiť vodorovne</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="351"/>
+        <location filename="../../src/components/component.cpp" line="362"/>
         <source>Vertical Flip</source>
         <translation>Prevrátiť vertikálne</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="326"/>
+        <location filename="../../src/components/component.cpp" line="337"/>
         <source>Cut</source>
         <translation>Vystrihnúť</translation>
     </message>
@@ -1403,38 +1400,28 @@ Nemožno nájsť súbor:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="50"/>
-        <location filename="../../src/components/logic/counter.cpp" line="64"/>
+        <location filename="../../src/components/logic/counter.cpp" line="52"/>
+        <location filename="../../src/components/logic/counter.cpp" line="66"/>
         <source>Main</source>
         <translation type="unfinished">Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="51"/>
+        <location filename="../../src/components/logic/counter.cpp" line="53"/>
         <source>Use Set Pin</source>
         <translation type="unfinished">Použiť Set pin</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="54"/>
-        <source>Clock Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/counter.cpp" line="57"/>
-        <source>Set/Reset Inverted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/components/logic/counter.cpp" line="60"/>
+        <location filename="../../src/components/logic/counter.cpp" line="62"/>
         <source>Count to</source>
         <translation type="unfinished">Počítať do</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="66"/>
+        <location filename="../../src/components/logic/counter.cpp" line="68"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="67"/>
+        <location filename="../../src/components/logic/counter.cpp" line="69"/>
         <source>Outputs</source>
         <translation type="unfinished">Výstupné</translation>
     </message>
@@ -1443,7 +1430,7 @@ Nemožno nájsť súbor:
         <translation type="obsolete">Elektrické</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="68"/>
+        <location filename="../../src/components/logic/counter.cpp" line="70"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2636,9 +2623,8 @@ Súbor nemožno nájsť:
         <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="30"/>
         <source>Clock Inverted</source>
-        <translation>Invertovať hodiny</translation>
+        <translation type="vanished">Invertovať hodiny</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="33"/>
@@ -2655,9 +2641,8 @@ Súbor nemožno nájsť:
         <translation>Použiť piny Set/Reset</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="27"/>
         <source>Set/Reset Inverted</source>
-        <translation>Invertovať piny Set/Reset</translation>
+        <translation type="vanished">Invertovať piny Set/Reset</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="39"/>
@@ -4884,6 +4869,11 @@ Súbor nemožno nájsť:
         <source>Interrupt Vector 0xFF</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../src/gui/circuitwidget/iopin.cpp" line="308"/>
+        <source>Invert Pin</source>
+        <translation type="unfinished">Invertovaný pin</translation>
+    </message>
 </context>
 <context>
     <name>RTD</name>
@@ -5485,14 +5475,12 @@ Súbor nemožno nájsť:
         <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="81"/>
         <source>Clock Inverted</source>
-        <translation>Invertovať hodiny</translation>
+        <translation type="vanished">Invertovať hodiny</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="84"/>
         <source>Reset Inverted</source>
-        <translation>Invertovať reset</translation>
+        <translation type="vanished">Invertovať reset</translation>
     </message>
     <message>
         <source>Electric</source>

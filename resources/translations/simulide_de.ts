@@ -481,28 +481,27 @@
         <translation>BCD zu 7Segment</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="77"/>
         <source>Main</source>
         <translation type="unfinished">Hauptparameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="67"/>
         <source>Custom Characters CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="69"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="70"/>
         <source>Reset Pin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="72"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">Reset invertieren</translation>
+        <translation type="obsolete">Reset invertieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="79"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -511,22 +510,22 @@
         <translation type="vanished">Elektr. Parameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="81"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="82"/>
         <source>Invert Inputs</source>
         <translation type="unfinished">Eingänge invertieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="85"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="86"/>
         <source>Outputs</source>
         <translation type="unfinished">Ausgänge</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="90"/>
         <source>Tristate</source>
         <translation type="unfinished">Tristate</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="94"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="95"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -592,9 +591,8 @@
         <translation type="vanished">Set Pin nutzen</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="89"/>
         <source>Clock Inverted</source>
-        <translation>Taktsignal invertieren</translation>
+        <translation type="vanished">Taktsignal invertieren</translation>
     </message>
     <message>
         <source>Set/Reset Inverted</source>
@@ -639,9 +637,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="92"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">Reset invertieren</translation>
+        <translation type="obsolete">Reset invertieren</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="98"/>
@@ -1266,48 +1263,48 @@ Can&apos;t find file:
 <context>
     <name>Component</name>
     <message>
-        <location filename="../../src/components/component.cpp" line="323"/>
+        <location filename="../../src/components/component.cpp" line="334"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="329"/>
+        <location filename="../../src/components/component.cpp" line="340"/>
         <source>Remove</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="316"/>
-        <location filename="../../src/components/component.cpp" line="335"/>
+        <location filename="../../src/components/component.cpp" line="327"/>
+        <location filename="../../src/components/component.cpp" line="346"/>
         <source>Properties</source>
         <translation>Eigenschaften</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="339"/>
+        <location filename="../../src/components/component.cpp" line="350"/>
         <source>Rotate CW</source>
         <translation>Rechtsherum Drehen</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="342"/>
+        <location filename="../../src/components/component.cpp" line="353"/>
         <source>Rotate CCW</source>
         <translation>Linksherum Drehen</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="345"/>
+        <location filename="../../src/components/component.cpp" line="356"/>
         <source>Rotate 180</source>
         <translation>Um 180° Drehen</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="348"/>
+        <location filename="../../src/components/component.cpp" line="359"/>
         <source>Horizontal Flip</source>
         <translation>Horizontal Spiegeln</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="351"/>
+        <location filename="../../src/components/component.cpp" line="362"/>
         <source>Vertical Flip</source>
         <translation>Vertikal Spiegeln</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="326"/>
+        <location filename="../../src/components/component.cpp" line="337"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1368,38 +1365,36 @@ Can&apos;t find file:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="50"/>
-        <location filename="../../src/components/logic/counter.cpp" line="64"/>
+        <location filename="../../src/components/logic/counter.cpp" line="52"/>
+        <location filename="../../src/components/logic/counter.cpp" line="66"/>
         <source>Main</source>
         <translation type="unfinished">Hauptparameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="51"/>
+        <location filename="../../src/components/logic/counter.cpp" line="53"/>
         <source>Use Set Pin</source>
         <translation type="unfinished">Set Pin nutzen</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="54"/>
         <source>Clock Inverted</source>
-        <translation type="unfinished">Taktsignal invertieren</translation>
+        <translation type="obsolete">Taktsignal invertieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="57"/>
         <source>Set/Reset Inverted</source>
-        <translation type="unfinished">Set/Reset invertieren</translation>
+        <translation type="obsolete">Set/Reset invertieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="60"/>
+        <location filename="../../src/components/logic/counter.cpp" line="62"/>
         <source>Count to</source>
         <translation type="unfinished">Zählen bis</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="66"/>
+        <location filename="../../src/components/logic/counter.cpp" line="68"/>
         <source>Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="67"/>
+        <location filename="../../src/components/logic/counter.cpp" line="69"/>
         <source>Outputs</source>
         <translation type="unfinished">Ausgänge</translation>
     </message>
@@ -1408,7 +1403,7 @@ Can&apos;t find file:
         <translation type="obsolete">Elektr. Parameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="68"/>
+        <location filename="../../src/components/logic/counter.cpp" line="70"/>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2596,9 +2591,8 @@ Can&apos;t find file:
         <translation>Hauptparameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="30"/>
         <source>Clock Inverted</source>
-        <translation>Taktsignal invertieren</translation>
+        <translation type="vanished">Taktsignal invertieren</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="33"/>
@@ -2615,9 +2609,8 @@ Can&apos;t find file:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="27"/>
         <source>Set/Reset Inverted</source>
-        <translation type="unfinished">Set/Reset invertieren</translation>
+        <translation type="obsolete">Set/Reset invertieren</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="39"/>
@@ -4840,6 +4833,11 @@ Can&apos;t find file:
         <source>Screen</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../src/gui/circuitwidget/iopin.cpp" line="308"/>
+        <source>Invert Pin</source>
+        <translation type="unfinished">Pin invertieren</translation>
+    </message>
 </context>
 <context>
     <name>RTD</name>
@@ -5437,14 +5435,12 @@ Can&apos;t find file:
         <translation>Hauptparameter</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="81"/>
         <source>Clock Inverted</source>
-        <translation>Taktsignal invertieren</translation>
+        <translation type="vanished">Taktsignal invertieren</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="84"/>
         <source>Reset Inverted</source>
-        <translation>Reset invertieren</translation>
+        <translation type="vanished">Reset invertieren</translation>
     </message>
     <message>
         <source>Electric</source>

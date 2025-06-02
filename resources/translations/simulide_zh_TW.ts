@@ -485,28 +485,27 @@
         <translation>BCD轉七段顯示.</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="65"/>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="76"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="77"/>
         <source>Main</source>
         <translation type="unfinished">主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="66"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="67"/>
         <source>Custom Characters CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="69"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="70"/>
         <source>Reset Pin</source>
         <translation type="unfinished">重設針腳</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="72"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">重置針腳反向</translation>
+        <translation type="obsolete">重置針腳反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="78"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="79"/>
         <source>Inputs</source>
         <translation type="unfinished">輸入</translation>
     </message>
@@ -515,22 +514,22 @@
         <translation type="vanished">電路屬性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="81"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="82"/>
         <source>Invert Inputs</source>
         <translation>輸入反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="85"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="86"/>
         <source>Outputs</source>
         <translation type="unfinished">輸出</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="89"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="90"/>
         <source>Tristate</source>
         <translation type="unfinished">三態型</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bcdto7s.cpp" line="94"/>
+        <location filename="../../src/components/logic/bcdto7s.cpp" line="95"/>
         <source>Timing</source>
         <translation>時間特性</translation>
     </message>
@@ -622,9 +621,8 @@
         <translation type="unfinished">雙向的</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="92"/>
         <source>Reset Inverted</source>
-        <translation type="unfinished">重置針腳反向</translation>
+        <translation type="obsolete">重置針腳反向</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/bincounter.cpp" line="98"/>
@@ -636,9 +634,8 @@
         <translation type="vanished">使用Set(設定)針腳</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/bincounter.cpp" line="89"/>
         <source>Clock Inverted</source>
-        <translation>時脈針腳反向</translation>
+        <translation type="vanished">時脈針腳反向</translation>
     </message>
     <message>
         <source>Set/Reset Inverted</source>
@@ -1282,48 +1279,48 @@ Can&apos;t find file:
 <context>
     <name>Component</name>
     <message>
-        <location filename="../../src/components/component.cpp" line="316"/>
-        <location filename="../../src/components/component.cpp" line="335"/>
+        <location filename="../../src/components/component.cpp" line="327"/>
+        <location filename="../../src/components/component.cpp" line="346"/>
         <source>Properties</source>
         <translation>屬性</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="323"/>
+        <location filename="../../src/components/component.cpp" line="334"/>
         <source>Copy</source>
         <translation>複製</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="326"/>
+        <location filename="../../src/components/component.cpp" line="337"/>
         <source>Cut</source>
         <translation>剪下</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="329"/>
+        <location filename="../../src/components/component.cpp" line="340"/>
         <source>Remove</source>
         <translation>刪除</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="339"/>
+        <location filename="../../src/components/component.cpp" line="350"/>
         <source>Rotate CW</source>
         <translation>順時針旋轉90°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="342"/>
+        <location filename="../../src/components/component.cpp" line="353"/>
         <source>Rotate CCW</source>
         <translation>逆時針旋轉90°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="345"/>
+        <location filename="../../src/components/component.cpp" line="356"/>
         <source>Rotate 180</source>
         <translation>旋轉180°</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="348"/>
+        <location filename="../../src/components/component.cpp" line="359"/>
         <source>Horizontal Flip</source>
         <translation>水平翻轉</translation>
     </message>
     <message>
-        <location filename="../../src/components/component.cpp" line="351"/>
+        <location filename="../../src/components/component.cpp" line="362"/>
         <source>Vertical Flip</source>
         <translation>垂直翻轉</translation>
     </message>
@@ -1408,43 +1405,41 @@ Can&apos;t find file:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="50"/>
-        <location filename="../../src/components/logic/counter.cpp" line="64"/>
+        <location filename="../../src/components/logic/counter.cpp" line="52"/>
+        <location filename="../../src/components/logic/counter.cpp" line="66"/>
         <source>Main</source>
         <translation type="unfinished">主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="51"/>
+        <location filename="../../src/components/logic/counter.cpp" line="53"/>
         <source>Use Set Pin</source>
         <translation type="unfinished">使用Set(設定)針腳</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="54"/>
         <source>Clock Inverted</source>
-        <translation type="unfinished">時脈針腳反向</translation>
+        <translation type="obsolete">時脈針腳反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="57"/>
         <source>Set/Reset Inverted</source>
-        <translation type="unfinished">設定/重置針腳反向</translation>
+        <translation type="obsolete">設定/重置針腳反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="60"/>
+        <location filename="../../src/components/logic/counter.cpp" line="62"/>
         <source>Count to</source>
         <translation type="unfinished">計數到</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="66"/>
+        <location filename="../../src/components/logic/counter.cpp" line="68"/>
         <source>Inputs</source>
         <translation type="unfinished">輸入</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="67"/>
+        <location filename="../../src/components/logic/counter.cpp" line="69"/>
         <source>Outputs</source>
         <translation type="unfinished">輸出</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/counter.cpp" line="68"/>
+        <location filename="../../src/components/logic/counter.cpp" line="70"/>
         <source>Timing</source>
         <translation type="unfinished">時間特性</translation>
     </message>
@@ -2642,14 +2637,12 @@ Do you want to save your changes?
         <translation>使用Set(設定)/Reset(重製)針腳</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="27"/>
         <source>Set/Reset Inverted</source>
-        <translation>設定/重置針腳反向</translation>
+        <translation type="vanished">設定/重置針腳反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/flipflopbase.cpp" line="30"/>
         <source>Clock Inverted</source>
-        <translation>時脈針腳反向</translation>
+        <translation type="vanished">時脈針腳反向</translation>
     </message>
     <message>
         <location filename="../../src/components/logic/flipflopbase.cpp" line="33"/>
@@ -4897,6 +4890,11 @@ Do you want to save your changes?
         <source>Interrupt Vector 0xFF</source>
         <translation>中斷向量0xFF</translation>
     </message>
+    <message>
+        <location filename="../../src/gui/circuitwidget/iopin.cpp" line="308"/>
+        <source>Invert Pin</source>
+        <translation type="unfinished">針腳反向</translation>
+    </message>
 </context>
 <context>
     <name>RTD</name>
@@ -5507,14 +5505,12 @@ Do you want to save your changes?
         <translation>主要特性</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="81"/>
         <source>Clock Inverted</source>
-        <translation>時脈針腳反向</translation>
+        <translation type="vanished">時脈針腳反向</translation>
     </message>
     <message>
-        <location filename="../../src/components/logic/shiftreg.cpp" line="84"/>
         <source>Reset Inverted</source>
-        <translation>重置針腳反向</translation>
+        <translation type="vanished">重置針腳反向</translation>
     </message>
     <message>
         <source>Electric</source>
